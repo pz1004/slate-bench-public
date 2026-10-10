@@ -289,7 +289,7 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--input",
         type=Path,
-        default=Path("results/tabarena_ict_retraining_extended/results.csv"),
+        default=Path("analysis-output/v2/tabarena_ict_retraining_extended/results.csv"),
     )
     parser.add_argument(
         "--output-dir",

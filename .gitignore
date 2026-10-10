@@ -1,6 +1,7 @@
 # The repository publishes the implementation and its results only. Everything at the top
-# level is ignored unless it is listed here, so the manuscript, its build files, local
-# notes and environments stay out of it. Add a `!/name` line for a new top-level path.
+# level is ignored unless it is listed here, so `paper/` (the manuscript, its generated numbers,
+# tables and figures, and its working documents), local notes and environments stay out of it.
+# Add a `!/name` line for a new top-level path.
 /*
 !/.gitignore
 !/.gitattributes
@@ -14,9 +15,6 @@
 !/configs/
 !/data/
 !/docs/
-!/figures/
-!/generated/
-!/results/
 !/scripts/
 !/src/
 !/tests/
@@ -31,7 +29,8 @@ __pycache__/
 /scripts/static_latex_check.py
 /tests/test_static_latex_check.py
 
-# Outputs: the v2 runs, without smoke runs, per-split resume caches and run logs
+# Outputs: the v2 runs and the compact check's stored training results, without smoke runs,
+# per-split resume caches and run logs
 /analysis-output/*
 !/analysis-output/v2/
 /analysis-output/v2/smoke/
@@ -46,10 +45,6 @@ __pycache__/
 !/data/tabarena/tabarena_dataset_metadata.csv
 !/data/tabarena/NOTICE.md
 !/data/tabarena/LICENSE-tabarena_dataset_curation.txt
-
-# Stored input of the compact offline check
-/results/*
-!/results/tabarena_ict_retraining_extended/
 
 # Documentation: the meta-study records, the claim template and the instrument coverage codes
 /docs/*

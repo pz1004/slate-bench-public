@@ -2,7 +2,7 @@
 #
 #   make all            # full pipeline: runs, analyses and paper assets
 #   make tabarena JOBS=20
-#   make assets         # regenerate generated/ from the stored outputs
+#   make assets         # regenerate paper/generated/ from the stored outputs
 #
 # Every output lands under $(OUT). Wall times were measured on 24 cores with the stated
 # workers, mostly while another run shared the machine.
@@ -78,7 +78,7 @@ tabarena-shrink: | $(LOGS)
 tabarena-analyses: | $(LOGS)
 	$(PYTHON) scripts/validation_provenance.py --benchmark-config configs/score_level_tabarena.yaml \
 	  --nested-output $(OUT)/score_level_tabarena --output-dir $(OUT)/tabarena_provenance \
-	  --figure figures/validation_calibration.pdf
+	  --figure paper/figures/validation_calibration.pdf
 	$(PYTHON) scripts/family_prior_factorial.py --benchmark-config configs/score_level_tabarena.yaml \
 	  --output-dir $(OUT)/tabarena_factorial --jobs $(JOBS)
 	$(PYTHON) scripts/grid_diagnostics.py --nested-output $(OUT)/score_level_tabarena \
@@ -87,7 +87,7 @@ tabarena-analyses: | $(LOGS)
 	  --nested-output $(OUT)/score_level_tabarena --output-dir $(OUT)/tabarena_search_inference
 	$(PYTHON) scripts/evidence_unit_exhibit.py --nested-output $(OUT)/score_level_tabarena \
 	  --review-output $(OUT)/score_level_tabarena_review --output-dir $(OUT)/tabarena_evidence_unit
-	$(PYTHON) scripts/paper_figures.py --review $(OUT)/score_level_tabarena_review --figures figures
+	$(PYTHON) scripts/paper_figures.py --review $(OUT)/score_level_tabarena_review --figures paper/figures
 	$(PYTHON) scripts/validation_best_tie_rule.py --benchmark-config configs/score_level_tabarena.yaml \
 	  --output-dir $(OUT)/tabarena_tie_rule
 
@@ -154,7 +154,7 @@ overlap:
 	  --review score_only=$(OUT)/score_level_tabrepo_score_only_review --output-dir $(OUT)/tabrepo_overlap_sensitivity
 
 compact:
-	$(PYTHON) scripts/third_artifact_validation.py --input results/tabarena_ict_retraining_extended/results.csv \
+	$(PYTHON) scripts/third_artifact_validation.py --input analysis-output/v2/tabarena_ict_retraining_extended/results.csv \
 	  --output-dir $(OUT)/third_artifact_validation
 
 # ---------------------------------------------------------------- jackknife (~12 h + ~47 h at 10 workers)
@@ -173,8 +173,9 @@ compress:
 	$(PYTHON) scripts/compress_unit_scores.py --out $(OUT)
 
 # ---------------------------------------------------------------- paper assets
-# Writes generated/numbers.tex, generated/labels.tex and generated/tables/*.tex. For the
-# submission build add META_FLAGS=--meta-verified-only once every meta-study coding is verified.
+# Writes paper/generated/numbers.tex, labels.tex and tables/*.tex; paper/ holds the manuscript
+# and is not part of the public repository. For the submission build add
+# META_FLAGS=--meta-verified-only once every meta-study coding is verified.
 # Rewrite docs/meta_study/verification_sheet.md from claims.csv (after editing codes).
 meta-sheet:
 	$(PYTHON) scripts/meta_study_sheet.py

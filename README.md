@@ -11,8 +11,10 @@ codes 13 published selection claims against the nine fields.
 
 Every number, table and figure in the paper is generated from the outputs in
 `analysis-output/v2/`. `scripts/build_paper_assets.py` writes the numbers to
-`generated/numbers.tex`, which the paper reads as `\res{key}`, and the tables to
-`generated/tables/`. The manuscript itself is not part of this repository.
+`paper/generated/numbers.tex`, which the paper reads as `\res{key}`, and the tables to
+`paper/generated/tables/`; the analysis scripts write the figures to `paper/figures/`. The
+`paper/` folder holds the manuscript and is not part of this repository, so these files are
+created when you run the scripts.
 
 ## Contents
 
@@ -21,14 +23,11 @@ Every number, table and figure in the paper is generated from the outputs in
 | `src/tabular_sota_benchmark/` | Library: artifact loaders, selectors, the shared rank rule (`ranking.py`) and the inference layer (`inference.py`) |
 | `scripts/` | The nested audit, the analyses, the figure script and the paper-asset builder |
 | `configs/` | One YAML file per run. `tabrepo_D244_F3_C1530_200_datasets.txt` pins the TabRepo slice; the two `*_smoke.yaml` files are small versions for a quick check, and `score_level_policy.yaml` is the benchmark script's default, which the paper does not use |
-| `analysis-output/v2/` | Outputs of every run the paper uses |
-| `generated/` | Numbers, labels and tables the paper reads |
-| `figures/` | Figures written by the analysis scripts: `validation_calibration.pdf` is the paper's Figure 1; `runtime_pareto.pdf` and `dataset_paired_forest.pdf` are supplementary |
+| `analysis-output/v2/` | Outputs of every run the paper uses, including the stored training results of the compact offline check (`tabarena_ict_retraining_extended/`) |
 | `docs/meta_study/` | Meta-study protocol, screening log, codes, the blind recoding of a declared subset, the check of the codes behind the fixed-reference and validation-provenance counts, and the verification sheet |
 | `docs/claim_template.md` | Blank declaration of the nine fields for a new score-level claim |
 | `docs/positioning_coverage.csv` | Which of the nine fields each existing reporting instrument asks for, with the section or item each code rests on |
 | `data/tabarena/` | Copy of the TabArena results artifact and dataset metadata (see `NOTICE.md`) |
-| `results/tabarena_ict_retraining_extended/` | Stored input of the compact offline check |
 | `tests/` | Unit tests |
 
 ## Setup
@@ -69,8 +68,10 @@ make assets META_FLAGS=--meta-verified-only
 - `make smoke` runs the nested TabArena pipeline on 3 outer splits of 12 datasets (about a
   minute) and writes to `analysis-output/v2/smoke/`, which is not published; the paper uses
   none of it.
-- `make assets` regenerates `generated/` from the stored outputs in a few seconds. In a
-  clone it leaves `generated/` unchanged, so `git status` shows no change.
+- `make assets` regenerates the paper's numbers and tables in `paper/generated/` from the
+  stored outputs in a few seconds, and stops with an error if a verdict or comparison the
+  paper states no longer holds for the numbers. `paper/generated/numbers.tex` lists every
+  number the paper prints, under the key the paper uses.
 
 ## Reproducing the results
 
@@ -92,13 +93,13 @@ a dedicated machine is faster.
 | `make tabarena-attribution` | The double-counting tie rule (`rank_rule: legacy`), in-sample weight choice and the shared inner fit (implementation-conventions appendix) | 3.6 h (12) |
 | `make tabarena-extended` | Meta-feature rows inside the nested pool | 3.3 h (10) |
 | `make tabarena-shrink` | Eight-policy mitigation grid | 1.4 h (10) |
-| `make tabarena-analyses` | Validation provenance, $2^5$ factorial, grid diagnostics, MCS/SPA/PBO, evidence units, figures | 6 min |
+| `make tabarena-analyses` | Validation provenance, $2^5$ factorial, grid diagnostics, MCS/SPA/PBO, evidence units, figures (in `paper/figures/`) | 6 min |
 | `make tabrepo` | TabRepo nested audit, score-only panel, reviews, split-half check | 70 h (14) |
 | `make tabrepo-attribution` | The TabRepo run with the shared inner fit, and its score-only panel | 1.6 h (14) |
 | `make tabrepo-analyses` | The same analyses on both TabRepo panels, and the tie-rule sensitivity of the fixed ensembles | 30 min (14) |
 | `make pooled overlap compact` | Pooled cross-artifact diagnostic, TabRepo contrasts without the datasets shared with TabArena, and compact offline check | 1 min |
 | `make jackknife` | Delete-d jackknife over the whole nested procedure: TabArena, then TabRepo | 12 h + 47 h (10) |
-| `make assets` | `generated/numbers.tex`, `generated/labels.tex`, `generated/tables/` | 10 s |
+| `make assets` | `paper/generated/numbers.tex`, `labels.tex` and `tables/` | 10 s |
 | `make compress` | Lossless zstd recompression of the nested runs' `unit_scores.parquet` files (see Outputs) | 5 min |
 
 **Design and seeds:**
@@ -153,7 +154,7 @@ is a refitting-sensitivity diagnostic, not a standard error with known coverage.
 - **TabRepo:** commit `3785b6f`, context `D244_F3_C1530_200`, restricted to the 200
   datasets listed in `configs/tabrepo_D244_F3_C1530_200_datasets.txt`.
 - **Compact offline check:** the stored results in
-  `results/tabarena_ict_retraining_extended/`, trained on 2026-06-02 by the package's
+  `analysis-output/v2/tabarena_ict_retraining_extended/`, trained on 2026-06-02 by the package's
   experiment loop (`python -m tabular_sota_benchmark.cli run-loop`). They are the input of
   the paper's compact check. The training reads the eight OpenML datasets from a local
   parquet cache, which is not redistributed here. The cache mirrors OpenML's parquet store:
@@ -166,7 +167,8 @@ is a refitting-sensitivity diagnostic, not a standard error with known coverage.
   .venv/bin/python -m tabular_sota_benchmark.cli run-experiment --config configs/tabarena_ict_retraining_extended.yaml
   ```
 
-  This replaces the stored files (`git restore results/` brings them back). The loop's later
+  This replaces the stored files
+  (`git restore analysis-output/v2/tabarena_ict_retraining_extended/` brings them back). The loop's later
   steps check documents from an earlier stage of the project that are not part of this
   repository, so `run-loop` would report failures after training. In the environment of
   `requirements.txt`, a retraining reproduces the decision-tree, random-forest and
@@ -251,9 +253,8 @@ limitation.
 ## Licence and credits
 
 - **Code:** MIT License (`LICENSE`).
-- **Outputs and records:** the outputs in `analysis-output/`, `generated/`, `figures/` and
-  `results/`, and the meta-study and coverage records in `docs/`, are also released under
-  the MIT License. The outputs derive from the TabArena benchmark results (CC BY 4.0) and
+- **Outputs and records:** the outputs in `analysis-output/` and the meta-study and coverage
+  records in `docs/` are also released under the MIT License. The outputs derive from the TabArena benchmark results (CC BY 4.0) and
   from TabRepo (Apache 2.0); credit both when reusing them.
 - **Data copies:** the files in `data/tabarena/` keep their own licences; see
   `data/tabarena/NOTICE.md`.
@@ -268,8 +269,7 @@ paper's Use of AI Tools section.
 ## Citation
 
 To cite the code or the stored results, use `CITATION.cff` (GitHub shows it as "Cite this
-repository"). The paper's reference and the DOI of the archived release will be added here
-on publication.
+repository"). The paper's reference will be added here on publication.
 
 ## Contact
 

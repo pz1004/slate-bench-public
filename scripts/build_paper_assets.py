@@ -1,6 +1,7 @@
 """Generate every number, table and label the manuscript prints from the v2 outputs.
 
-Writes, under ``generated/``:
+Writes, under ``paper/generated/`` (the manuscript folder, which is not part of the public
+repository):
 
 * ``numbers.tex``: ``\\defres{key}{value}`` for every number quoted in the prose, read
   in the manuscript as ``\\res{key}`` (an undefined key is a LaTeX error);
@@ -2104,9 +2105,9 @@ def run(args: argparse.Namespace) -> None:
     assets.section("meta-study", lambda: build_meta_study(assets, root))
     assets.section("coverage", lambda: build_coverage(assets, root))
     assets.section("families", lambda: build_families(assets))
-    if assets.allow_missing and (root / "main.tex").exists():
+    if assets.allow_missing and (root / "paper" / "main.tex").exists():
         # Draft build: stand-ins for the manuscript's tables whose inputs are still being computed.
-        manuscript = (root / "main.tex").read_text(encoding="utf-8")
+        manuscript = (root / "paper" / "main.tex").read_text(encoding="utf-8")
         for name in re.findall(r"\\input\{generated/tables/([A-Za-z0-9_]+)\.tex\}", manuscript):
             if name not in assets.tables:
                 assets.tables[name] = "\\begin{tabular}{l}\\textbf{?? table pending}\\end{tabular}\n"
@@ -2124,7 +2125,7 @@ def run(args: argparse.Namespace) -> None:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--out", default="analysis-output/v2")
-    parser.add_argument("--generated", default="generated")
+    parser.add_argument("--generated", default="paper/generated")
     parser.add_argument("--allow-missing", action="store_true")
     parser.add_argument(
         "--meta-verified-only",

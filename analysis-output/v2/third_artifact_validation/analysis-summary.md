@@ -1,6 +1,6 @@
 # Third-Artifact Offline Validation
 
-Input artifact: `results/tabarena_ict_retraining_extended/results.csv`.
+Input artifact: `analysis-output/v2/tabarena_ict_retraining_extended/results.csv`.
 
 This is an offline validation artifact, not a real-world deployment. It uses
 the compact local retraining table as a third audit surface and keeps

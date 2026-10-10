@@ -1,6 +1,6 @@
 experiment:
   name: tabarena_ict_retraining_extended
-  output_dir: results/tabarena_ict_retraining_extended
+  output_dir: analysis-output/v2/tabarena_ict_retraining_extended
   analysis_dir: analysis-output/tabarena_ict_retraining_extended
   random_seeds: [0, 1, 2]
   test_size: 0.20

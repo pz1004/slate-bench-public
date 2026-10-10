@@ -1,7 +1,4 @@
 # Outputs written by the pipeline: GitHub leaves them out of the language statistics and
 # shows them collapsed in diffs.
 analysis-output/** linguist-generated=true
-generated/** linguist-generated=true
-figures/** linguist-generated=true
-results/** linguist-generated=true
 *.parquet binary

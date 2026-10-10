@@ -145,7 +145,7 @@ def run(args: argparse.Namespace) -> None:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--review", default="analysis-output/v2/score_level_tabarena_review")
-    parser.add_argument("--figures", default="figures")
+    parser.add_argument("--figures", default="paper/figures")
     return parser.parse_args()
 
 
