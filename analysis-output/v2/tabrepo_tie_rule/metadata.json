@@ -1,0 +1,10 @@
+{
+  "benchmark_config": "configs/score_level_tabrepo_nested.yaml",
+  "command": [
+    "scripts/validation_best_tie_rule.py",
+    "--benchmark-config",
+    "configs/score_level_tabrepo_nested.yaml",
+    "--output-dir",
+    "analysis-output/v2/tabrepo_tie_rule"
+  ]
+}

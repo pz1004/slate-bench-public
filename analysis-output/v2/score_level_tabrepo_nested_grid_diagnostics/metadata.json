@@ -1,0 +1,13 @@
+{
+  "nested_output": "analysis-output/v2/score_level_tabrepo_nested",
+  "review_output": "analysis-output/v2/score_level_tabrepo_nested_review",
+  "command": [
+    "scripts/grid_diagnostics.py",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabrepo_nested",
+    "--review-output",
+    "analysis-output/v2/score_level_tabrepo_nested_review",
+    "--output-dir",
+    "analysis-output/v2/score_level_tabrepo_nested_grid_diagnostics"
+  ]
+}

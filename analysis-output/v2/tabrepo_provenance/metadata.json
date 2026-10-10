@@ -1,0 +1,19 @@
+{
+  "benchmark_config": "configs/score_level_tabrepo_nested.yaml",
+  "nested_output": "analysis-output/v2/score_level_tabrepo_nested",
+  "bootstrap_seed": 20260608,
+  "n_datasets": 200,
+  "n_units": 600,
+  "n_candidates": 1530,
+  "n_train_datasets": 150,
+  "top_candidates": 153,
+  "command": [
+    "scripts/validation_provenance.py",
+    "--benchmark-config",
+    "configs/score_level_tabrepo_nested.yaml",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabrepo_nested",
+    "--output-dir",
+    "analysis-output/v2/tabrepo_provenance"
+  ]
+}

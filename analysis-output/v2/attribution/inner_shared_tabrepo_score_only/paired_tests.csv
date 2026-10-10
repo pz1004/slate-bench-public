@@ -1,0 +1,6 @@
+artifact,method,reference_method,n_splits,mean_rank_difference,mean_normalized_regret_difference,mean_runtime_difference_seconds,rank_wilcoxon_p_value,rank_holm_p_value
+TabRepo,nested_policy_selected,meta_selector_task_adaptive_budgeted,100,2.037266666666665,0.0013385961130848605,-3.84325817713849,0.061515437894975454,0.18454631368492636
+TabRepo,nested_policy_selected,meta_selector_meta_feature_guard_005,100,2.4914666666666663,0.0016360996297283786,0.3482780566845443,0.07106849931854475,0.18454631368492636
+TabRepo,nested_policy_selected,meta_selector_family_prior_budgeted,100,0.4605999999999992,0.0003028464609775794,-107.7585131059664,0.8276740235358758,0.8276740235358758
+TabRepo,nested_policy_selected,meta_selector_ablate_validation_only,100,-6.910333333333336,-0.004601090828209104,-23.9189011050363,0.00173764920147757,0.008688246007387851
+TabRepo,nested_policy_selected,meta_selector_single,100,-5.901833333333335,-0.0039415094024406305,-23.210405012162063,0.006047461814304211,0.024189847257216845

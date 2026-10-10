@@ -1,0 +1,24 @@
+{
+  "review_output": "analysis-output/v2/score_level_tabrepo_score_only_review",
+  "nested_output": "analysis-output/v2/score_level_tabrepo_score_only",
+  "n_pool_policies": 45,
+  "extra_rows": [
+    "nested_policy_selected",
+    "train_selected_fixed_reference__score_only"
+  ],
+  "benchmarks": [
+    "meta_selector_family_prior_budgeted",
+    "meta_selector_single",
+    "meta_selector_tabrepo_ensemble_k3"
+  ],
+  "bootstrap_seed": 20260608,
+  "command": [
+    "scripts/search_aware_inference.py",
+    "--review-output",
+    "analysis-output/v2/score_level_tabrepo_score_only_review",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabrepo_score_only",
+    "--output-dir",
+    "analysis-output/v2/score_level_tabrepo_score_only_search_inference"
+  ]
+}

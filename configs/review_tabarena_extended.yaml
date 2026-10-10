@@ -1,0 +1,33 @@
+# Review of the extended-pool run: standard meta-feature selectors inside the nested
+# choice; the declared fixed reference is unchanged.
+artifact: TabArena
+rank_scale: 43
+bootstrap:
+  seed: 20260608
+  resamples: 10000
+margins: [0.005, 0.010, 0.015, 0.020]
+fixed_reference_pools:
+  declared_fixed:
+    - meta_selector_single
+    - meta_selector_ablate_validation_only
+    - meta_selector_family_prior_budgeted_100s
+    - meta_selector_family_prior_budgeted_500s
+    - meta_selector_family_prior_budgeted_1000s
+    - meta_selector_family_prior_budgeted_5000s
+    - meta_selector_family_prior_budgeted
+families:
+  primary:
+    left: nested_policy_selected
+    references:
+      - meta_selector_meta_feature_guard_005
+      - meta_selector_family_prior_budgeted
+      - train_selected_fixed_reference__declared_fixed
+      - meta_selector_single
+  extended_rows:
+    left: nested_policy_selected
+    references:
+      - extended_metafeature_knn
+      - extended_metafeature_knn_validation
+      - extended_descriptor_guard_002
+      - extended_descriptor_guard_005
+task_strata_methods: []

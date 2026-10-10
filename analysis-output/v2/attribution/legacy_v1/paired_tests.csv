@@ -1,0 +1,6 @@
+artifact,method,reference_method,n_splits,mean_rank_difference,mean_normalized_regret_difference,mean_runtime_difference_seconds,rank_wilcoxon_p_value,rank_holm_p_value
+TabArena,nested_policy_selected,meta_selector_task_adaptive_budgeted,100,-0.13479890572265074,-0.003134858272619792,260.41170184064504,0.5366338245166278,0.5366338245166278
+TabArena,nested_policy_selected,meta_selector_meta_feature_guard_005,100,0.13423643667438157,0.0031217775970786375,912.0842241291622,0.04810328024295028,0.09620656048590057
+TabArena,nested_policy_selected,meta_selector_family_prior_budgeted,100,0.37314894225268147,0.008677882377969343,-1060.8188078037583,4.119517047312083e-05,0.00012358551141936248
+TabArena,nested_policy_selected,meta_selector_ablate_validation_only,100,-3.953022749498017,-0.09193076161623298,-74823.41067381784,2.0195637546078604e-17,1.0097818773039302e-16
+TabArena,nested_policy_selected,meta_selector_single,100,-3.953022749498017,-0.09193076161623298,-74823.41067381784,2.0195637546078604e-17,1.0097818773039302e-16

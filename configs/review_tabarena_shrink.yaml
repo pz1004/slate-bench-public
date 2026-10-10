@@ -1,0 +1,21 @@
+# Review of the 8-policy mitigation grid (degrees-of-freedom sensitivity, Section RQ3).
+artifact: TabArena
+rank_scale: 43
+bootstrap:
+  seed: 20260608
+  resamples: 10000
+margins: [0.005, 0.010, 0.015, 0.020]
+fixed_reference_pools:
+  declared_fixed:
+    - meta_selector_single
+    - meta_selector_ablate_validation_only
+    - meta_selector_family_prior_budgeted_1000s
+    - meta_selector_family_prior_budgeted
+families:
+  primary:
+    left: nested_policy_selected
+    references:
+      - meta_selector_family_prior_budgeted
+      - train_selected_fixed_reference__declared_fixed
+      - meta_selector_single
+task_strata_methods: []

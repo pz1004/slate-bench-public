@@ -1,0 +1,50 @@
+# Dataset-level review of the TabRepo score-only policy-pool ablation: every
+# prediction-ensemble row removed from the pool before the training-side nested choice.
+artifact: TabRepo
+rank_scale: 1529
+bootstrap:
+  seed: 20260608
+  resamples: 10000
+margins: [0.005, 0.010, 0.015, 0.020]
+single_best: reference_single_best_global
+
+fixed_reference_pools:
+  score_only:
+    - meta_selector_single
+    - meta_selector_ablate_validation_only
+    - meta_selector_family_prior_budgeted_100s
+    - meta_selector_family_prior_budgeted_500s
+    - meta_selector_family_prior_budgeted_1000s
+    - meta_selector_family_prior_budgeted_5000s
+    - meta_selector_family_prior_budgeted
+
+families:
+  primary:
+    left: nested_policy_selected
+    references:
+      - train_selected_fixed_reference__score_only
+      - meta_selector_single
+  score_level_rows:
+    left: nested_policy_selected
+    references:
+      - meta_selector_ablate_validation_only
+      - meta_selector_family_prior_budgeted
+      - meta_selector_task_adaptive_budgeted
+      - meta_selector_meta_feature_guard_005
+  revision_references:
+    left: nested_policy_selected
+    references:
+      - reference_single_best_global
+      - reference_single_best_task
+      - reference_priors_only
+      - reference_optimism_corrected
+      - reference_optimism_corrected_budget
+      - reference_optimism_corrected_task
+      - reference_metafeature_knn
+      - reference_metafeature_knn_validation
+
+task_strata_methods:
+  - nested_policy_selected
+  - train_selected_fixed_reference__score_only
+  - meta_selector_single
+  - meta_selector_family_prior_budgeted

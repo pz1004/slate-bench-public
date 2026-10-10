@@ -1,0 +1,39 @@
+{
+  "benchmark_config": "configs/score_level_tabarena.yaml",
+  "n_splits": 100,
+  "n_datasets": 51,
+  "bootstrap_seed": 20260608,
+  "factors": {
+    "validation": {
+      "weight_key": "validation_weight",
+      "value": 0.45
+    },
+    "task_family_prior": {
+      "weight_key": "task_family_prior_weight",
+      "value": 0.35
+    },
+    "global_method_prior": {
+      "weight_key": "global_method_prior_weight",
+      "value": 0.15
+    },
+    "runtime": {
+      "weight_key": "runtime_weight",
+      "value": 0.05
+    },
+    "budget": {
+      "weight_key": null,
+      "value": 10000.0
+    }
+  },
+  "total_reduction_none_to_full": 0.3356756996942651,
+  "total_reduction_validation_to_full": 0.06385374093660184,
+  "command": [
+    "scripts/family_prior_factorial.py",
+    "--benchmark-config",
+    "configs/score_level_tabarena.yaml",
+    "--output-dir",
+    "analysis-output/v2/tabarena_factorial",
+    "--jobs",
+    "10"
+  ]
+}

@@ -1,0 +1,2 @@
+artifact,runtime_weight,n_units,units_with_other_pick,units_with_other_test_error,datasets_affected,regret_perturbed,regret_lexicographic,mean_difference
+TabArena,1e-06,816,0,0,0,0.22817804124233676,0.22817804124233676,0.0

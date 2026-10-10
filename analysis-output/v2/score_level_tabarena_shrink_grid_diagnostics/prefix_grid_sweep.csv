@@ -1,0 +1,2 @@
+n_policy_methods,policy_to_train_dataset_ratio,n_selected_policies,selection_entropy_bits,max_selection_share,mean_train_norm_regret,mean_heldout_norm_regret,mean_optimism_gap
+8,0.21052631578947367,5,1.8949084806287444,0.48,0.178790368555686,0.18586194034763256,0.007071571791946563

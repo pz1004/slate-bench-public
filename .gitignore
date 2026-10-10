@@ -1,0 +1,58 @@
+# The repository publishes the implementation and its results only. Everything at the top
+# level is ignored unless it is listed here, so the manuscript, its build files, local
+# notes and environments stay out of it. Add a `!/name` line for a new top-level path.
+/*
+!/.gitignore
+!/.gitattributes
+!/CITATION.cff
+!/LICENSE
+!/Makefile
+!/README.md
+!/pyproject.toml
+!/requirements.txt
+!/analysis-output/
+!/configs/
+!/data/
+!/docs/
+!/figures/
+!/generated/
+!/results/
+!/scripts/
+!/src/
+!/tests/
+
+# Python caches and build files
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Manuscript checks, which need the manuscript
+/scripts/static_latex_check.py
+/tests/test_static_latex_check.py
+
+# Outputs: the v2 runs, without smoke runs, per-split resume caches and run logs
+/analysis-output/*
+!/analysis-output/v2/
+/analysis-output/v2/smoke/
+/analysis-output/**/split_parts/
+/analysis-output/**/logs/
+
+# Inputs: the TabArena copies, not the local OpenML parquet cache
+/data/*
+!/data/tabarena/
+/data/tabarena/*
+!/data/tabarena/df_results.csv
+!/data/tabarena/tabarena_dataset_metadata.csv
+!/data/tabarena/NOTICE.md
+!/data/tabarena/LICENSE-tabarena_dataset_curation.txt
+
+# Stored input of the compact offline check
+/results/*
+!/results/tabarena_ict_retraining_extended/
+
+# Documentation: the meta-study records, the claim template and the instrument coverage codes
+/docs/*
+!/docs/meta_study/
+!/docs/claim_template.md
+!/docs/positioning_coverage.csv

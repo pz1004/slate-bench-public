@@ -1,0 +1,7 @@
+pair,estimate,ci_low,ci_high
+task_family_prior:global_method_prior,-0.006387555165026288,-0.01858553819179961,0.0054740349414807285
+task_family_prior:runtime,-0.010998186382187492,-0.02309967133176551,0.0004743144657711552
+task_family_prior:budget,0.0,0.0,0.0
+global_method_prior:runtime,-6.19194668162848e-05,-0.009928914587712837,0.009435747332999605
+global_method_prior:budget,0.0,0.0,0.0
+runtime:budget,0.0,0.0,0.0

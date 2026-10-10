@@ -1,0 +1,44 @@
+experiment:
+  name: tabarena_ict_retraining_extended
+  output_dir: results/tabarena_ict_retraining_extended
+  analysis_dir: analysis-output/tabarena_ict_retraining_extended
+  random_seeds: [0, 1, 2]
+  test_size: 0.20
+  validation_size: 0.25
+  n_jobs: 2
+
+datasets:
+  - "tabarena:NATICUSdroid"
+  - "tabarena:website_phishing"
+  - "tabarena:jm1"
+  - "tabarena:churn"
+  - "tabarena:Bank_Customer_Churn"
+  - "tabarena:Amazon_employee_access"
+  - "tabarena:E-CommereShippingData"
+  - "tabarena:APSFailure"
+
+baselines:
+  - decision_tree
+  - random_forest
+  - extra_trees
+  - hist_gradient_boosting
+
+selector:
+  runtime_weight: 0.001
+  max_ensemble_size: 3
+  temperature: 0.20
+  selector_method_name: meta_selector_local_validation
+  ensemble_method_name: meta_selector_local_ensemble
+  reference_method_name: meta_selector_local_validation
+  extra_reference_method_names:
+    - meta_selector_local_ensemble
+
+verification:
+  min_datasets: 8
+  min_candidate_models: 4
+  min_comparison_units: 24
+  require_selector: true
+  selector_must_be_present:
+    - meta_selector_local_validation
+    - meta_selector_local_ensemble
+  selector_must_beat_median_rank: false

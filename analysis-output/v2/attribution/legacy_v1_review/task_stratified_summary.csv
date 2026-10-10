@@ -1,0 +1,19 @@
+task,n_datasets,method,label,metric,estimate,ci_low,ci_high
+binary,30,meta_selector_family_prior_budgeted,Family-prior rule,mean_normalized_rank_regret,0.1956802393517789,0.1455298570767446,0.24586381444684483
+binary,30,nested_policy_selected,Nested selection,mean_normalized_rank_regret,0.2075269295695318,0.1602010362234906,0.25435750248460703
+binary,30,meta_selector_single,Validation-best,mean_normalized_rank_regret,0.29141257536606374,0.20090428509905253,0.39100732127476306
+binary,30,meta_selector_family_prior_budgeted,Family-prior rule,mean_total_seconds,2914.8635471813363,2033.382501001548,3847.8449479226824
+binary,30,nested_policy_selected,Nested selection,mean_total_seconds,1751.0760312275772,1199.5771476199131,2349.672052138819
+binary,30,meta_selector_single,Validation-best,mean_total_seconds,138528.15332385365,87317.66846403615,194440.0897118512
+multiclass,8,meta_selector_family_prior_budgeted,Family-prior rule,mean_normalized_rank_regret,0.13776580481537087,0.086288346971002,0.19887342498863764
+multiclass,8,nested_policy_selected,Nested selection,mean_normalized_rank_regret,0.1423029493586945,0.0995393263000133,0.19500085169322473
+multiclass,8,meta_selector_single,Validation-best,mean_normalized_rank_regret,0.1886143410852713,0.1077842377260982,0.2898259851421189
+multiclass,8,meta_selector_family_prior_budgeted,Family-prior rule,mean_total_seconds,5537.4524814555,3811.1678624003202,7026.827948212435
+multiclass,8,nested_policy_selected,Nested selection,mean_total_seconds,4384.533504970435,3212.0907290313157,5410.865019792993
+multiclass,8,meta_selector_single,Validation-best,mean_total_seconds,31233.60573244029,7314.419427910447,62803.073404056566
+regression,13,meta_selector_family_prior_budgeted,Family-prior rule,mean_normalized_rank_regret,0.1136561931233299,0.06711513758202789,0.16159701541116803
+regression,13,nested_policy_selected,Nested selection,mean_normalized_rank_regret,0.11578734957589323,0.07075721855578128,0.16112824048623015
+regression,13,meta_selector_single,Validation-best,mean_normalized_rank_regret,0.10665871596104155,0.051737726098191224,0.1673429735639038
+regression,13,meta_selector_family_prior_budgeted,Family-prior rule,mean_total_seconds,3728.0592174615585,2221.5566641345304,5169.760095197102
+regression,13,nested_policy_selected,Nested selection,mean_total_seconds,3636.388049101015,2217.1162717918296,4994.9752885967855
+regression,13,meta_selector_single,Validation-best,mean_total_seconds,137350.27389473814,57377.96064437909,228180.99493687175

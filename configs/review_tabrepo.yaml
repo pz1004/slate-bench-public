@@ -1,0 +1,87 @@
+# Dataset-level review of the TabRepo nested run with prediction-ensemble rows in the
+# pool (scripts/score_level_review.py), a full-protocol replication of the TabArena audit.
+artifact: TabRepo
+rank_scale: 1529          # modal |M| - 1 (1530 candidates in most units; 1468-1530)
+bootstrap:
+  seed: 20260608
+  resamples: 10000
+margins: [0.005, 0.010, 0.015, 0.020]
+single_best: reference_single_best_global
+
+fixed_reference_pools:
+  # The declared score-level fixed pool, identical to TabArena's.
+  score_only:
+    - meta_selector_single
+    - meta_selector_ablate_validation_only
+    - meta_selector_family_prior_budgeted_100s
+    - meta_selector_family_prior_budgeted_500s
+    - meta_selector_family_prior_budgeted_1000s
+    - meta_selector_family_prior_budgeted_5000s
+    - meta_selector_family_prior_budgeted
+  # Fixed ensemble-k rows apply one declared construction rule to every unit, so they
+  # are fixed outputs (extended Definition 4.1) and join the declared pool here.
+  ensemble_inclusive:
+    - meta_selector_single
+    - meta_selector_ablate_validation_only
+    - meta_selector_family_prior_budgeted_100s
+    - meta_selector_family_prior_budgeted_500s
+    - meta_selector_family_prior_budgeted_1000s
+    - meta_selector_family_prior_budgeted_5000s
+    - meta_selector_family_prior_budgeted
+    - meta_selector_tabrepo_ensemble_k3
+    - meta_selector_tabrepo_ensemble_k5
+    - meta_selector_tabrepo_ensemble_k10
+
+families:
+  # Declared comparators for the ensemble-inclusive panel: the like-for-like
+  # train-selected reference, the capability contrast (score-only reference), and raw
+  # validation.
+  primary:
+    left: nested_policy_selected
+    references:
+      - train_selected_fixed_reference__ensemble_inclusive
+      - train_selected_fixed_reference__score_only
+      - meta_selector_single
+  fixed_ensembles:
+    left: nested_policy_selected
+    references:
+      - meta_selector_tabrepo_ensemble_k3
+      - meta_selector_tabrepo_ensemble_k5
+      - meta_selector_tabrepo_ensemble_k10
+  score_level_rows:
+    left: nested_policy_selected
+    references:
+      - meta_selector_ablate_validation_only
+      - meta_selector_family_prior_budgeted
+      - meta_selector_task_adaptive_budgeted
+      - meta_selector_meta_feature_guard_005
+  capability:
+    left: train_selected_fixed_reference__ensemble_inclusive
+    references:
+      - train_selected_fixed_reference__score_only
+  revision_references:
+    left: nested_policy_selected
+    references:
+      - reference_single_best_global
+      - reference_single_best_task
+      - reference_priors_only
+      - reference_optimism_corrected
+      - reference_optimism_corrected_budget
+      - reference_optimism_corrected_task
+      - reference_metafeature_knn
+      - reference_metafeature_knn_validation
+  mechanism:
+    left: meta_selector_single
+    references:
+      - reference_optimism_corrected
+      - reference_optimism_corrected_task
+      - meta_selector_family_prior_budgeted
+      - reference_single_best_global
+
+task_strata_methods:
+  - nested_policy_selected
+  - train_selected_fixed_reference__ensemble_inclusive
+  - train_selected_fixed_reference__score_only
+  - meta_selector_tabrepo_ensemble_k3
+  - meta_selector_single
+  - meta_selector_family_prior_budgeted

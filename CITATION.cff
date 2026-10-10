@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this code or its results, please cite them as below."
+type: software
+title: "Code and results for Auditing Score-Level Selection Claims in Tabular Benchmark Artifacts"
+authors:
+  - family-names: Jang
+    given-names: Sooyoung
+    affiliation: Hanbat National University
+    orcid: "https://orcid.org/0000-0002-6931-9592"
+repository-code: "https://github.com/pz1004/slate-bench-public"
+license: MIT
+abstract: >-
+  Code, configurations and outputs of a nested, dataset-level audit of score-level
+  selection claims on the TabArena and TabRepo benchmark artifacts, and the records of a
+  coding of published selection claims against nine declaration fields.
+keywords:
+  - algorithm selection
+  - benchmarking
+  - tabular data
+  - AutoML
+  - reproducibility

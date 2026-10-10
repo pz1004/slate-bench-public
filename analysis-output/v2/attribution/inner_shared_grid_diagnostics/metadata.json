@@ -1,0 +1,13 @@
+{
+  "nested_output": "analysis-output/v2/attribution/inner_shared",
+  "review_output": "analysis-output/v2/attribution/inner_shared_review",
+  "command": [
+    "scripts/grid_diagnostics.py",
+    "--nested-output",
+    "analysis-output/v2/attribution/inner_shared",
+    "--review-output",
+    "analysis-output/v2/attribution/inner_shared_review",
+    "--output-dir",
+    "analysis-output/v2/attribution/inner_shared_grid_diagnostics"
+  ]
+}

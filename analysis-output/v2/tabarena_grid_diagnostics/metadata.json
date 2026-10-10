@@ -1,0 +1,13 @@
+{
+  "nested_output": "analysis-output/v2/score_level_tabarena",
+  "review_output": "analysis-output/v2/score_level_tabarena_review",
+  "command": [
+    "scripts/grid_diagnostics.py",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabarena",
+    "--review-output",
+    "analysis-output/v2/score_level_tabarena_review",
+    "--output-dir",
+    "analysis-output/v2/tabarena_grid_diagnostics"
+  ]
+}

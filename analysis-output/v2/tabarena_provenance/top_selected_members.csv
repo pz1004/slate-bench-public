@@ -1,0 +1,286 @@
+method,selected_member,share
+meta_selector_ablate_validation_only,REALMLP (tuned + ensemble),0.4335511982570806
+meta_selector_ablate_validation_only,MNCA (tuned + ensemble),0.42701525054466233
+meta_selector_ablate_validation_only,CAT (tuned + ensemble),0.0457516339869281
+meta_selector_ablate_validation_only,TABPFNV2 (tuned + ensemble),0.02178649237472767
+meta_selector_ablate_validation_only,TABDPT (default),0.0196078431372549
+meta_selector_calibrated_budget_10000s,REALMLP (tuned + ensemble),0.3068509199587631
+meta_selector_calibrated_budget_10000s,GBM (tuned + ensemble),0.2913123561564879
+meta_selector_calibrated_budget_10000s,TABICL (default),0.1506741363176202
+meta_selector_calibrated_budget_10000s,TABDPT (default),0.08699558064228437
+meta_selector_calibrated_budget_10000s,CAT (tuned + ensemble),0.05014733592479821
+meta_selector_family_prior_budgeted,REALMLP (tuned + ensemble),0.29610711857939226
+meta_selector_family_prior_budgeted,GBM (tuned + ensemble),0.20738630649085757
+meta_selector_family_prior_budgeted,TABICL (default),0.14587565840027844
+meta_selector_family_prior_budgeted,CAT (tuned + ensemble),0.11004091229330028
+meta_selector_family_prior_budgeted,TABDPT (default),0.09183718533967042
+meta_selector_family_prior_budgeted_1000s,TABICL (default),0.33393814204228595
+meta_selector_family_prior_budgeted_1000s,TABDPT (default),0.18695593326694285
+meta_selector_family_prior_budgeted_1000s,CAT (default),0.15165855069472278
+meta_selector_family_prior_budgeted_1000s,TABPFNV2 (default),0.09929409422770913
+meta_selector_family_prior_budgeted_1000s,GBM (tuned + ensemble),0.09649516869708244
+meta_selector_family_prior_budgeted_100s,CAT (default),0.24044609209104328
+meta_selector_family_prior_budgeted_100s,TABICL (default),0.20469432593806494
+meta_selector_family_prior_budgeted_100s,TABPFNV2 (default),0.16387669976792119
+meta_selector_family_prior_budgeted_100s,TABDPT (default),0.1058409851255422
+meta_selector_family_prior_budgeted_100s,EBM (default),0.06696728528019529
+meta_selector_family_prior_budgeted_5000s,TABICL (default),0.16807793191783202
+meta_selector_family_prior_budgeted_5000s,GBM (tuned + ensemble),0.15337366762462845
+meta_selector_family_prior_budgeted_5000s,CAT (tuned + ensemble),0.14859188163141684
+meta_selector_family_prior_budgeted_5000s,TABDPT (default),0.135424879439139
+meta_selector_family_prior_budgeted_5000s,TABPFNV2 (tuned + ensemble),0.08592283018111281
+meta_selector_family_prior_budgeted_500s,TABICL (default),0.31958493529591486
+meta_selector_family_prior_budgeted_500s,TABDPT (default),0.20348009638428016
+meta_selector_family_prior_budgeted_500s,CAT (default),0.19423108085519963
+meta_selector_family_prior_budgeted_500s,TABPFNV2 (default),0.11104594716901799
+meta_selector_family_prior_budgeted_500s,MNCA (default),0.08005294398608878
+meta_selector_meta_feature_guard_002,TABICL (default),0.2685202736603224
+meta_selector_meta_feature_guard_002,GBM (tuned + ensemble),0.15032239128109262
+meta_selector_meta_feature_guard_002,CAT (default),0.12158990700261536
+meta_selector_meta_feature_guard_002,REALMLP (tuned + ensemble),0.11948540216385706
+meta_selector_meta_feature_guard_002,TABDPT (default),0.09451080951565113
+meta_selector_meta_feature_guard_002_k12_rt0,TABICL (default),0.25212253730080164
+meta_selector_meta_feature_guard_002_k12_rt0,GBM (tuned + ensemble),0.1669370764007391
+meta_selector_meta_feature_guard_002_k12_rt0,REALMLP (tuned + ensemble),0.14627799449453327
+meta_selector_meta_feature_guard_002_k12_rt0,CAT (default),0.11249274174568923
+meta_selector_meta_feature_guard_002_k12_rt0,TABDPT (default),0.0878579278481203
+meta_selector_meta_feature_guard_002_k12_rt0p03,TABICL (default),0.2836109141581013
+meta_selector_meta_feature_guard_002_k12_rt0p03,CAT (default),0.131213260666181
+meta_selector_meta_feature_guard_002_k12_rt0p03,GBM (tuned + ensemble),0.13115854344892408
+meta_selector_meta_feature_guard_002_k12_rt0p03,REALMLP (tuned + ensemble),0.11859290723485096
+meta_selector_meta_feature_guard_002_k12_rt0p03,TABDPT (default),0.09068253756843903
+meta_selector_meta_feature_guard_002_k12_rt0p1,TABICL (default),0.30260261177160175
+meta_selector_meta_feature_guard_002_k12_rt0p1,CAT (default),0.17035362530545675
+meta_selector_meta_feature_guard_002_k12_rt0p1,TABDPT (default),0.13738068625700448
+meta_selector_meta_feature_guard_002_k12_rt0p1,TABPFNV2 (default),0.10418865550985602
+meta_selector_meta_feature_guard_002_k12_rt0p1,REALMLP (tuned + ensemble),0.0720537994308168
+meta_selector_meta_feature_guard_002_k4_rt0,TABICL (default),0.23028237214259917
+meta_selector_meta_feature_guard_002_k4_rt0,GBM (tuned + ensemble),0.18414817336491524
+meta_selector_meta_feature_guard_002_k4_rt0,REALMLP (tuned + ensemble),0.14874012551519386
+meta_selector_meta_feature_guard_002_k4_rt0,CAT (default),0.11339950437010352
+meta_selector_meta_feature_guard_002_k4_rt0,TABDPT (default),0.08917947512094115
+meta_selector_meta_feature_guard_002_k4_rt0p03,TABICL (default),0.2555654579227293
+meta_selector_meta_feature_guard_002_k4_rt0p03,GBM (tuned + ensemble),0.16507014243744134
+meta_selector_meta_feature_guard_002_k4_rt0p03,CAT (default),0.12663727400834837
+meta_selector_meta_feature_guard_002_k4_rt0p03,REALMLP (tuned + ensemble),0.11285681433320849
+meta_selector_meta_feature_guard_002_k4_rt0p03,TABDPT (default),0.09299435325142617
+meta_selector_meta_feature_guard_002_k4_rt0p1,TABICL (default),0.2893529762687475
+meta_selector_meta_feature_guard_002_k4_rt0p1,CAT (default),0.1614443541477998
+meta_selector_meta_feature_guard_002_k4_rt0p1,TABDPT (default),0.15137473347819022
+meta_selector_meta_feature_guard_002_k4_rt0p1,TABPFNV2 (default),0.11434300529676862
+meta_selector_meta_feature_guard_002_k4_rt0p1,GBM (tuned + ensemble),0.07715642176250408
+meta_selector_meta_feature_guard_002_k8_rt0,TABICL (default),0.24309598377578767
+meta_selector_meta_feature_guard_002_k8_rt0,GBM (tuned + ensemble),0.18117148664449215
+meta_selector_meta_feature_guard_002_k8_rt0,REALMLP (tuned + ensemble),0.15104634161582156
+meta_selector_meta_feature_guard_002_k8_rt0,CAT (default),0.10767316353269156
+meta_selector_meta_feature_guard_002_k8_rt0,TABDPT (default),0.08864613729863911
+meta_selector_meta_feature_guard_002_k8_rt0p1,TABICL (default),0.29459556563188094
+meta_selector_meta_feature_guard_002_k8_rt0p1,CAT (default),0.16974205094531591
+meta_selector_meta_feature_guard_002_k8_rt0p1,TABDPT (default),0.15963022947250885
+meta_selector_meta_feature_guard_002_k8_rt0p1,TABPFNV2 (default),0.10332004377673372
+meta_selector_meta_feature_guard_002_k8_rt0p1,MNCA (default),0.07026734750412512
+meta_selector_meta_feature_guard_005,TABICL (default),0.26789694406812
+meta_selector_meta_feature_guard_005,GBM (tuned + ensemble),0.1411764122393918
+meta_selector_meta_feature_guard_005,REALMLP (tuned + ensemble),0.13366963799359366
+meta_selector_meta_feature_guard_005,CAT (default),0.12184925259739203
+meta_selector_meta_feature_guard_005,TABDPT (default),0.08994589794025824
+meta_selector_meta_feature_guard_005_k12_rt0,TABICL (default),0.25078943777332574
+meta_selector_meta_feature_guard_005_k12_rt0,REALMLP (tuned + ensemble),0.1648847039260509
+meta_selector_meta_feature_guard_005_k12_rt0,GBM (tuned + ensemble),0.14619305879585018
+meta_selector_meta_feature_guard_005_k12_rt0,CAT (default),0.11619184302671523
+meta_selector_meta_feature_guard_005_k12_rt0,TABDPT (default),0.08771450617869693
+meta_selector_meta_feature_guard_005_k12_rt0p03,TABICL (default),0.2710464886135303
+meta_selector_meta_feature_guard_005_k12_rt0p03,GBM (tuned + ensemble),0.1323974912134897
+meta_selector_meta_feature_guard_005_k12_rt0p03,REALMLP (tuned + ensemble),0.13205723442040576
+meta_selector_meta_feature_guard_005_k12_rt0p03,CAT (default),0.12410060964553368
+meta_selector_meta_feature_guard_005_k12_rt0p03,TABDPT (default),0.08958079286055622
+meta_selector_meta_feature_guard_005_k12_rt0p1,TABICL (default),0.29657726147665153
+meta_selector_meta_feature_guard_005_k12_rt0p1,CAT (default),0.1497658561181897
+meta_selector_meta_feature_guard_005_k12_rt0p1,TABDPT (default),0.10187023404813214
+meta_selector_meta_feature_guard_005_k12_rt0p1,REALMLP (tuned + ensemble),0.09705646126842882
+meta_selector_meta_feature_guard_005_k12_rt0p1,GBM (tuned + ensemble),0.09408448267062891
+meta_selector_meta_feature_guard_005_k4_rt0,TABICL (default),0.24211817369048783
+meta_selector_meta_feature_guard_005_k4_rt0,GBM (tuned + ensemble),0.1707198802957152
+meta_selector_meta_feature_guard_005_k4_rt0,REALMLP (tuned + ensemble),0.16155677964274157
+meta_selector_meta_feature_guard_005_k4_rt0,CAT (default),0.10636355174396595
+meta_selector_meta_feature_guard_005_k4_rt0,TABDPT (default),0.08767534966724716
+meta_selector_meta_feature_guard_005_k4_rt0p03,TABICL (default),0.25725784234180604
+meta_selector_meta_feature_guard_005_k4_rt0p03,GBM (tuned + ensemble),0.15446025673286976
+meta_selector_meta_feature_guard_005_k4_rt0p03,REALMLP (tuned + ensemble),0.13929692087164822
+meta_selector_meta_feature_guard_005_k4_rt0p03,CAT (default),0.12185089122780723
+meta_selector_meta_feature_guard_005_k4_rt0p03,TABDPT (default),0.08969790679558473
+meta_selector_meta_feature_guard_005_k4_rt0p1,TABICL (default),0.28914193928644444
+meta_selector_meta_feature_guard_005_k4_rt0p1,CAT (default),0.14671573296259888
+meta_selector_meta_feature_guard_005_k4_rt0p1,GBM (tuned + ensemble),0.11034654748877998
+meta_selector_meta_feature_guard_005_k4_rt0p1,TABPFNV2 (default),0.10497601726653215
+meta_selector_meta_feature_guard_005_k4_rt0p1,TABDPT (default),0.10266789925513412
+meta_selector_meta_feature_guard_005_k8_rt0,TABICL (default),0.24732150966127842
+meta_selector_meta_feature_guard_005_k8_rt0,REALMLP (tuned + ensemble),0.16183987656749804
+meta_selector_meta_feature_guard_005_k8_rt0,GBM (tuned + ensemble),0.15901880302478508
+meta_selector_meta_feature_guard_005_k8_rt0,CAT (default),0.11139920980635307
+meta_selector_meta_feature_guard_005_k8_rt0,TABDPT (default),0.0876988375094335
+meta_selector_meta_feature_guard_005_k8_rt0p1,TABICL (default),0.2918476544286733
+meta_selector_meta_feature_guard_005_k8_rt0p1,CAT (default),0.1489219640583545
+meta_selector_meta_feature_guard_005_k8_rt0p1,TABDPT (default),0.11020343169825417
+meta_selector_meta_feature_guard_005_k8_rt0p1,GBM (tuned + ensemble),0.0944393719029346
+meta_selector_meta_feature_guard_005_k8_rt0p1,TABPFNV2 (default),0.09180683017013871
+meta_selector_meta_feature_guard_010,TABICL (default),0.25051996100335044
+meta_selector_meta_feature_guard_010,REALMLP (tuned + ensemble),0.17189466170952392
+meta_selector_meta_feature_guard_010,GBM (tuned + ensemble),0.13863221750378626
+meta_selector_meta_feature_guard_010,CAT (default),0.1166093305754876
+meta_selector_meta_feature_guard_010,TABDPT (default),0.08800309227290962
+meta_selector_meta_feature_guard_010_k12_rt0,TABICL (default),0.24952141786973106
+meta_selector_meta_feature_guard_010_k12_rt0,REALMLP (tuned + ensemble),0.1776819463203379
+meta_selector_meta_feature_guard_010_k12_rt0,GBM (tuned + ensemble),0.13656580171188026
+meta_selector_meta_feature_guard_010_k12_rt0,CAT (default),0.11592344484820753
+meta_selector_meta_feature_guard_010_k12_rt0,TABDPT (default),0.08749337250828791
+meta_selector_meta_feature_guard_010_k12_rt0p03,TABICL (default),0.2504206275924702
+meta_selector_meta_feature_guard_010_k12_rt0p03,REALMLP (tuned + ensemble),0.17702835154909607
+meta_selector_meta_feature_guard_010_k12_rt0p03,GBM (tuned + ensemble),0.13742735845578996
+meta_selector_meta_feature_guard_010_k12_rt0p03,CAT (default),0.11499681156863308
+meta_selector_meta_feature_guard_010_k12_rt0p03,TABDPT (default),0.08769447859174694
+meta_selector_meta_feature_guard_010_k12_rt0p1,TABICL (default),0.2752949645664976
+meta_selector_meta_feature_guard_010_k12_rt0p1,CAT (default),0.13011036300085133
+meta_selector_meta_feature_guard_010_k12_rt0p1,GBM (tuned + ensemble),0.12085585327702796
+meta_selector_meta_feature_guard_010_k12_rt0p1,REALMLP (tuned + ensemble),0.11933485189623298
+meta_selector_meta_feature_guard_010_k12_rt0p1,TABDPT (default),0.09089981564363128
+meta_selector_meta_feature_guard_010_k4_rt0,TABICL (default),0.24870071453419038
+meta_selector_meta_feature_guard_010_k4_rt0,REALMLP (tuned + ensemble),0.17322561833459815
+meta_selector_meta_feature_guard_010_k4_rt0,GBM (tuned + ensemble),0.14705372626711757
+meta_selector_meta_feature_guard_010_k4_rt0,CAT (default),0.10906260305197395
+meta_selector_meta_feature_guard_010_k4_rt0,TABDPT (default),0.08749337250828791
+meta_selector_meta_feature_guard_010_k4_rt0p03,TABICL (default),0.24869870380574916
+meta_selector_meta_feature_guard_010_k4_rt0p03,REALMLP (tuned + ensemble),0.16863308668324298
+meta_selector_meta_feature_guard_010_k4_rt0p03,GBM (tuned + ensemble),0.14477147088028702
+meta_selector_meta_feature_guard_010_k4_rt0p03,CAT (default),0.11554735712289009
+meta_selector_meta_feature_guard_010_k4_rt0p03,TABDPT (default),0.08751951629913758
+meta_selector_meta_feature_guard_010_k4_rt0p1,TABICL (default),0.2704206228313612
+meta_selector_meta_feature_guard_010_k4_rt0p1,CAT (default),0.1400517257622829
+meta_selector_meta_feature_guard_010_k4_rt0p1,REALMLP (tuned + ensemble),0.12657879023222823
+meta_selector_meta_feature_guard_010_k4_rt0p1,GBM (tuned + ensemble),0.1260588998466935
+meta_selector_meta_feature_guard_010_k4_rt0p1,TABDPT (default),0.09157124153074345
+meta_selector_meta_feature_guard_010_k8_rt0,TABICL (default),0.2496268499073996
+meta_selector_meta_feature_guard_010_k8_rt0,REALMLP (tuned + ensemble),0.17679068072318996
+meta_selector_meta_feature_guard_010_k8_rt0,GBM (tuned + ensemble),0.13958109708687816
+meta_selector_meta_feature_guard_010_k8_rt0,CAT (default),0.11440648766676234
+meta_selector_meta_feature_guard_010_k8_rt0,TABDPT (default),0.08749337250828791
+meta_selector_meta_feature_guard_010_k8_rt0p1,TABICL (default),0.27580084311306535
+meta_selector_meta_feature_guard_010_k8_rt0p1,CAT (default),0.1339925090923356
+meta_selector_meta_feature_guard_010_k8_rt0p1,GBM (tuned + ensemble),0.12323525262187432
+meta_selector_meta_feature_guard_010_k8_rt0p1,REALMLP (tuned + ensemble),0.1218477638209096
+meta_selector_meta_feature_guard_010_k8_rt0p1,TABDPT (default),0.09157929439936277
+meta_selector_meta_feature_guard_020,TABICL (default),0.2491519947381596
+meta_selector_meta_feature_guard_020,REALMLP (tuned + ensemble),0.178534461239349
+meta_selector_meta_feature_guard_020,GBM (tuned + ensemble),0.1372920181243712
+meta_selector_meta_feature_guard_020,CAT (default),0.11592344484820753
+meta_selector_meta_feature_guard_020,TABDPT (default),0.08746495534432087
+meta_selector_meta_feature_guard_020_k12_rt0,TABICL (default),0.2491519947381596
+meta_selector_meta_feature_guard_020_k12_rt0,REALMLP (tuned + ensemble),0.178534461239349
+meta_selector_meta_feature_guard_020_k12_rt0,GBM (tuned + ensemble),0.1372920181243712
+meta_selector_meta_feature_guard_020_k12_rt0,CAT (default),0.11592344484820753
+meta_selector_meta_feature_guard_020_k12_rt0,TABDPT (default),0.08746495534432087
+meta_selector_meta_feature_guard_020_k12_rt0p03,TABICL (default),0.2491519947381596
+meta_selector_meta_feature_guard_020_k12_rt0p03,REALMLP (tuned + ensemble),0.178534461239349
+meta_selector_meta_feature_guard_020_k12_rt0p03,GBM (tuned + ensemble),0.1372920181243712
+meta_selector_meta_feature_guard_020_k12_rt0p03,CAT (default),0.11592344484820753
+meta_selector_meta_feature_guard_020_k12_rt0p03,TABDPT (default),0.08746495534432087
+meta_selector_meta_feature_guard_020_k12_rt0p1,TABICL (default),0.24952141786973106
+meta_selector_meta_feature_guard_020_k12_rt0p1,REALMLP (tuned + ensemble),0.1776819463203379
+meta_selector_meta_feature_guard_020_k12_rt0p1,GBM (tuned + ensemble),0.13656580171188026
+meta_selector_meta_feature_guard_020_k12_rt0p1,CAT (default),0.11592344484820753
+meta_selector_meta_feature_guard_020_k12_rt0p1,TABDPT (default),0.08749337250828791
+meta_selector_meta_feature_guard_020_k4_rt0,TABICL (default),0.2491519947381596
+meta_selector_meta_feature_guard_020_k4_rt0,REALMLP (tuned + ensemble),0.178534461239349
+meta_selector_meta_feature_guard_020_k4_rt0,GBM (tuned + ensemble),0.1372920181243712
+meta_selector_meta_feature_guard_020_k4_rt0,CAT (default),0.11592344484820753
+meta_selector_meta_feature_guard_020_k4_rt0,TABDPT (default),0.08746495534432087
+meta_selector_meta_feature_guard_020_k4_rt0p03,TABICL (default),0.2491519947381596
+meta_selector_meta_feature_guard_020_k4_rt0p03,REALMLP (tuned + ensemble),0.178534461239349
+meta_selector_meta_feature_guard_020_k4_rt0p03,GBM (tuned + ensemble),0.1372920181243712
+meta_selector_meta_feature_guard_020_k4_rt0p03,CAT (default),0.11592344484820753
+meta_selector_meta_feature_guard_020_k4_rt0p03,TABDPT (default),0.08746495534432087
+meta_selector_meta_feature_guard_020_k4_rt0p1,TABICL (default),0.25008173417732404
+meta_selector_meta_feature_guard_020_k4_rt0p1,REALMLP (tuned + ensemble),0.1770022077582464
+meta_selector_meta_feature_guard_020_k4_rt0p1,GBM (tuned + ensemble),0.13688856456187623
+meta_selector_meta_feature_guard_020_k4_rt0p1,CAT (default),0.11673035197319745
+meta_selector_meta_feature_guard_020_k4_rt0p1,TABDPT (default),0.08749337250828791
+meta_selector_meta_feature_guard_020_k8_rt0,TABICL (default),0.2491519947381596
+meta_selector_meta_feature_guard_020_k8_rt0,REALMLP (tuned + ensemble),0.178534461239349
+meta_selector_meta_feature_guard_020_k8_rt0,GBM (tuned + ensemble),0.1372920181243712
+meta_selector_meta_feature_guard_020_k8_rt0,CAT (default),0.11592344484820753
+meta_selector_meta_feature_guard_020_k8_rt0,TABDPT (default),0.08746495534432087
+meta_selector_meta_feature_guard_020_k8_rt0p1,TABICL (default),0.24952141786973106
+meta_selector_meta_feature_guard_020_k8_rt0p1,REALMLP (tuned + ensemble),0.1776819463203379
+meta_selector_meta_feature_guard_020_k8_rt0p1,GBM (tuned + ensemble),0.13656580171188026
+meta_selector_meta_feature_guard_020_k8_rt0p1,CAT (default),0.11592344484820753
+meta_selector_meta_feature_guard_020_k8_rt0p1,TABDPT (default),0.08749337250828791
+meta_selector_single,REALMLP (tuned + ensemble),0.4335511982570806
+meta_selector_single,MNCA (tuned + ensemble),0.42701525054466233
+meta_selector_single,CAT (tuned + ensemble),0.0457516339869281
+meta_selector_single,TABPFNV2 (tuned + ensemble),0.02178649237472767
+meta_selector_single,TABDPT (default),0.0196078431372549
+meta_selector_task_adaptive_budgeted,TABICL (default),0.2491519947381596
+meta_selector_task_adaptive_budgeted,REALMLP (tuned + ensemble),0.178534461239349
+meta_selector_task_adaptive_budgeted,GBM (tuned + ensemble),0.1372920181243712
+meta_selector_task_adaptive_budgeted,CAT (default),0.11592344484820753
+meta_selector_task_adaptive_budgeted,TABDPT (default),0.08746495534432087
+nested_policy_selected,TABICL (default),0.21376653143478697
+nested_policy_selected,REALMLP (tuned + ensemble),0.18877821185719687
+nested_policy_selected,GBM (tuned + ensemble),0.1729796073152284
+nested_policy_selected,CAT (default),0.09724221391990712
+nested_policy_selected,TABDPT (default),0.09475190450277081
+oracle,TABPFNV2 (tuned + ensemble),0.13681917211328976
+oracle,TABDPT (default),0.11132897603485838
+oracle,TABICL (default),0.08910675381263616
+oracle,MNCA (tuned + ensemble),0.06710239651416122
+oracle,TABPFNV2 (tuned),0.0636165577342048
+reference_metafeature_knn,TABPFNV2 (tuned + ensemble),0.24194078284883452
+reference_metafeature_knn,REALMLP (tuned + ensemble),0.2284617463597912
+reference_metafeature_knn,TABICL (default),0.18438058849208114
+reference_metafeature_knn,TABM (tuned + ensemble),0.08240447686582779
+reference_metafeature_knn,MNCA (tuned + ensemble),0.070603384948736
+reference_metafeature_knn_validation,REALMLP (tuned + ensemble),0.6444096788163568
+reference_metafeature_knn_validation,MNCA (tuned + ensemble),0.16521315820616692
+reference_metafeature_knn_validation,TABPFNV2 (tuned + ensemble),0.05656099076705185
+reference_metafeature_knn_validation,TABM (tuned + ensemble),0.031171813357194628
+reference_metafeature_knn_validation,CAT (tuned + ensemble),0.030993213999749948
+reference_optimism_corrected,TABPFNV2 (tuned + ensemble),0.20491368339260155
+reference_optimism_corrected,TABDPT (default),0.11054966716885757
+reference_optimism_corrected,TABICL (default),0.10254262677291359
+reference_optimism_corrected,CAT (default),0.0943676330931233
+reference_optimism_corrected,TABM (default),0.07363455510903898
+reference_optimism_corrected_budget,TABICL (default),0.12622942730315515
+reference_optimism_corrected_budget,TABDPT (default),0.11715054678703658
+reference_optimism_corrected_budget,GBM (tuned + ensemble),0.11233686210509015
+reference_optimism_corrected_budget,CAT (default),0.11016801529555127
+reference_optimism_corrected_budget,TABPFNV2 (tuned + ensemble),0.10129533888122731
+reference_optimism_corrected_task,TABPFNV2 (tuned + ensemble),0.1844323446048073
+reference_optimism_corrected_task,TABICL (default),0.17401496899460336
+reference_optimism_corrected_task,TABDPT (default),0.0931288690027948
+reference_optimism_corrected_task,CAT (default),0.0907532754504432
+reference_optimism_corrected_task,GBM (tuned + ensemble),0.06331923131544716
+reference_priors_only,TABICL (default),0.5746352268171064
+reference_priors_only,TABDPT (default),0.2549019607843137
+reference_priors_only,TABPFNV2 (default),0.16124486588212078
+reference_priors_only,CAT (default),0.009217946516459024
+reference_single_best_global,REALMLP (tuned + ensemble),1.0
+reference_single_best_task,TABICL (default),0.32449620091907105
+reference_single_best_task,REALMLP (tuned + ensemble),0.29173527075575695
+reference_single_best_task,TABM (tuned + ensemble),0.2506454228605534
+reference_single_best_task,TABPFNV2 (tuned + ensemble),0.12155859079665558
+reference_single_best_task,GBM (tuned + ensemble),0.011564514667962943
+reference_validation_best_default,CAT (default),0.16753812636165577
+reference_validation_best_default,TABM (default),0.16034858387799564
+reference_validation_best_default,TABICL (default),0.15250544662309368
+reference_validation_best_default,TABDPT (default),0.11176470588235295
+reference_validation_best_default,EBM (default),0.09956427015250544
+reference_validation_best_tuned,MNCA (tuned),0.2906318082788671
+reference_validation_best_tuned,TABM (tuned),0.14640522875816994
+reference_validation_best_tuned,CAT (tuned),0.11198257080610022
+reference_validation_best_tuned,REALMLP (tuned),0.09847494553376906
+reference_validation_best_tuned,TABPFNV2 (tuned),0.09542483660130718
+reference_validation_best_tuned_ensemble,MNCA (tuned + ensemble),0.4466230936819172
+reference_validation_best_tuned_ensemble,REALMLP (tuned + ensemble),0.4433551198257081
+reference_validation_best_tuned_ensemble,CAT (tuned + ensemble),0.0457516339869281
+reference_validation_best_tuned_ensemble,TABPFNV2 (tuned + ensemble),0.02178649237472767
+reference_validation_best_tuned_ensemble,NN_TORCH (tuned + ensemble),0.018518518518518517

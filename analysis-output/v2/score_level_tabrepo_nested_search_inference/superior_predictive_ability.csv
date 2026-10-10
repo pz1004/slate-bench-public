@@ -1,0 +1,4 @@
+benchmark,n_alternatives,statistic,best_alternative,best_mean_improvement,spa_p_lower,spa_p_consistent,spa_p_upper,reality_check_statistic,reality_check_p,benchmark_label,best_alternative_label
+meta_selector_family_prior_budgeted,47,4.250549101290358,meta_selector_tabrepo_ensemble_k3,0.02553847020555844,0.0008,0.0008,0.0008,0.3611685092696195,0.0002,Family-prior rule,Ensemble ($k = 3$)
+meta_selector_single,47,5.554256669368989,meta_selector_tabrepo_ensemble_k3,0.029176074438691576,0.0,0.0,0.0,0.41261200168004614,0.0003,Validation-best,Ensemble ($k = 3$)
+meta_selector_tabrepo_ensemble_k3,47,0.0,meta_selector_tabrepo_ensemble_k5,-0.0008377115270843384,1.0,1.0,1.0,-0.011847030029589478,0.9776,Ensemble ($k = 3$),Ensemble ($k = 5$)

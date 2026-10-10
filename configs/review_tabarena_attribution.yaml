@@ -1,0 +1,57 @@
+# Review of the TabArena attribution runs (corrections appendix): the pre-declared
+# primary family and reference pools only.
+artifact: TabArena
+rank_scale: 43
+bootstrap:
+  seed: 20260608
+  resamples: 10000
+margins:
+- 0.005
+- 0.01
+- 0.015
+- 0.02
+fixed_reference_pools:
+  declared_fixed:
+  - meta_selector_single
+  - meta_selector_ablate_validation_only
+  - meta_selector_family_prior_budgeted_100s
+  - meta_selector_family_prior_budgeted_500s
+  - meta_selector_family_prior_budgeted_1000s
+  - meta_selector_family_prior_budgeted_5000s
+  - meta_selector_family_prior_budgeted
+  with_calibrated:
+  - meta_selector_single
+  - meta_selector_ablate_validation_only
+  - meta_selector_family_prior_budgeted_100s
+  - meta_selector_family_prior_budgeted_500s
+  - meta_selector_family_prior_budgeted_1000s
+  - meta_selector_family_prior_budgeted_5000s
+  - meta_selector_family_prior_budgeted
+  - meta_selector_calibrated_budget_10000s
+  broader:
+  - meta_selector_single
+  - meta_selector_ablate_validation_only
+  - meta_selector_family_prior_budgeted_100s
+  - meta_selector_family_prior_budgeted_500s
+  - meta_selector_family_prior_budgeted_1000s
+  - meta_selector_family_prior_budgeted_5000s
+  - meta_selector_family_prior_budgeted
+  - meta_selector_calibrated_budget_10000s
+  - meta_selector_task_adaptive_budgeted
+  - meta_selector_meta_feature_guard_002
+  - meta_selector_meta_feature_guard_005
+  - meta_selector_meta_feature_guard_010
+  - meta_selector_meta_feature_guard_020
+families:
+  primary:
+    left: nested_policy_selected
+    references:
+    - meta_selector_task_adaptive_budgeted
+    - meta_selector_meta_feature_guard_005
+    - meta_selector_family_prior_budgeted
+    - train_selected_fixed_reference__declared_fixed
+    - meta_selector_single
+task_strata_methods:
+- meta_selector_family_prior_budgeted
+- nested_policy_selected
+- meta_selector_single

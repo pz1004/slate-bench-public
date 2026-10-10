@@ -1,0 +1,10 @@
+left,right,left_label,right_label,evidence_unit,n,mean_difference,wilcoxon_p,wins,losses,p_datasets_resampled,ci_low,ci_high
+nested_policy_selected,meta_selector_tabrepo_ensemble_k3,Nested selection,Ensemble ($k = 3$),"outer split (overlapping, treated as independent)",100,0.0008360201998709728,7.62939453125e-06,0,18,,,
+nested_policy_selected,meta_selector_tabrepo_ensemble_k3,Nested selection,Ensemble ($k = 3$),unit appearance (all held-out units in all splits),15000,0.0008360201998709729,4.3301672785861464e-05,779,895,0.002,,
+nested_policy_selected,meta_selector_tabrepo_ensemble_k3,Nested selection,Ensemble ($k = 3$),dataset (declared),200,0.0008318400940921297,0.17979891271755621,82,87,0.0018,0.0002618513762871655,0.0015101881390375796
+nested_policy_selected,train_selected_fixed_reference__score_only,Nested selection,Train-selected fixed rule,"outer split (overlapping, treated as independent)",100,-0.029340440230604496,3.896559845095909e-18,100,0,,,
+nested_policy_selected,train_selected_fixed_reference__score_only,Nested selection,Train-selected fixed rule,unit appearance (all held-out units in all splits),15000,-0.0293404402306045,5.738826490666166e-259,9334,4884,0.0,,
+nested_policy_selected,train_selected_fixed_reference__score_only,Nested selection,Train-selected fixed rule,dataset (declared),200,-0.028894033073024395,1.53532905552328e-08,144,54,0.0,-0.03982388677938569,-0.01843488295315326
+nested_policy_selected,meta_selector_single,Nested selection,Validation-best,"outer split (overlapping, treated as independent)",100,-0.02887914132644076,4.0161556854627e-18,99,1,,,
+nested_policy_selected,meta_selector_single,Nested selection,Validation-best,unit appearance (all held-out units in all splits),15000,-0.028879141326440767,5.746212334267045e-214,8155,5558,0.0,,
+nested_policy_selected,meta_selector_single,Nested selection,Validation-best,dataset (declared),200,-0.028344234344599456,1.0621542889125107e-08,129,66,0.0,-0.03878339247317274,-0.01840230971737759

@@ -1,0 +1,48 @@
+policy,label,mean_loss,mcs_p_value,in_mcs_90,in_mcs_75,role
+meta_selector_meta_feature_guard_002_k8_rt0,"Guard ($\delta = 0.02$, $k = 8$, $\lambda = 0$)",0.16352720425492498,1.0,True,True,pool
+meta_selector_family_prior_budgeted,Family-prior rule,0.16466199107597027,0.9381,True,True,pool
+meta_selector_meta_feature_guard_002,Guard ($\delta = 0.02$),0.16585657613203228,0.9381,True,True,pool
+meta_selector_meta_feature_guard_002_k4_rt0,"Guard ($\delta = 0.02$, $k = 4$, $\lambda = 0$)",0.16646917601805789,0.9381,True,True,pool
+meta_selector_meta_feature_guard_002_k12_rt0,"Guard ($\delta = 0.02$, $k = 12$, $\lambda = 0$)",0.16709306751831005,0.9381,True,True,pool
+train_selected_fixed_reference__declared_fixed,Train-selected fixed rule,0.1671938389176996,0.9381,True,True,procedure_or_reference
+meta_selector_meta_feature_guard_005_k8_rt0,"Guard ($\delta = 0.05$, $k = 8$, $\lambda = 0$)",0.16761317992049424,0.9381,True,True,pool
+meta_selector_meta_feature_guard_005_k4_rt0,"Guard ($\delta = 0.05$, $k = 4$, $\lambda = 0$)",0.1677731883838428,0.9381,True,True,pool
+nested_policy_selected,Nested selection,0.16781899853938884,0.9381,True,True,procedure_or_reference
+meta_selector_meta_feature_guard_005,Guard ($\delta = 0.05$),0.16787784987842153,0.9381,True,True,pool
+meta_selector_meta_feature_guard_005_k4_rt0p03,"Guard ($\delta = 0.05$, $k = 4$, $\lambda = 0.03$)",0.16823715843974726,0.9381,True,True,pool
+meta_selector_meta_feature_guard_002_k12_rt0p03,"Guard ($\delta = 0.02$, $k = 12$, $\lambda = 0.03$)",0.16846598521584566,0.9381,True,True,pool
+meta_selector_meta_feature_guard_002_k4_rt0p03,"Guard ($\delta = 0.02$, $k = 4$, $\lambda = 0.03$)",0.16997661270730505,0.9258,True,True,pool
+meta_selector_meta_feature_guard_010_k8_rt0p1,"Guard ($\delta = 0.10$, $k = 8$, $\lambda = 0.1$)",0.17022002351565926,0.9258,True,True,pool
+meta_selector_calibrated_budget_10000s,Calibrated rule,0.17294435484215281,0.9258,True,True,pool
+meta_selector_meta_feature_guard_010_k4_rt0p1,"Guard ($\delta = 0.10$, $k = 4$, $\lambda = 0.1$)",0.17082296200982414,0.8972,True,True,pool
+meta_selector_meta_feature_guard_005_k12_rt0p03,"Guard ($\delta = 0.05$, $k = 12$, $\lambda = 0.03$)",0.1708832094733787,0.8605,True,True,pool
+meta_selector_meta_feature_guard_005_k12_rt0,"Guard ($\delta = 0.05$, $k = 12$, $\lambda = 0$)",0.17066272957105885,0.8473,True,True,pool
+meta_selector_meta_feature_guard_005_k12_rt0p1,"Guard ($\delta = 0.05$, $k = 12$, $\lambda = 0.1$)",0.1722519315357483,0.8473,True,True,pool
+meta_selector_meta_feature_guard_010_k12_rt0p1,"Guard ($\delta = 0.10$, $k = 12$, $\lambda = 0.1$)",0.17148258419662138,0.7731,True,True,pool
+meta_selector_meta_feature_guard_005_k8_rt0p1,"Guard ($\delta = 0.05$, $k = 8$, $\lambda = 0.1$)",0.17371993208159664,0.6831,True,True,pool
+meta_selector_meta_feature_guard_010_k4_rt0,"Guard ($\delta = 0.10$, $k = 4$, $\lambda = 0$)",0.17213146769677753,0.4888,True,True,pool
+meta_selector_meta_feature_guard_010_k4_rt0p03,"Guard ($\delta = 0.10$, $k = 4$, $\lambda = 0.03$)",0.1725439524779884,0.4788,True,True,pool
+meta_selector_meta_feature_guard_010_k8_rt0,"Guard ($\delta = 0.10$, $k = 8$, $\lambda = 0$)",0.17290839087039397,0.4788,True,True,pool
+meta_selector_meta_feature_guard_010,Guard ($\delta = 0.10$),0.17297497714521587,0.4788,True,True,pool
+meta_selector_meta_feature_guard_010_k12_rt0p03,"Guard ($\delta = 0.10$, $k = 12$, $\lambda = 0.03$)",0.17301220896226355,0.4788,True,True,pool
+meta_selector_task_adaptive_budgeted,Task-adaptive,0.17302140220822684,0.4788,True,True,pool
+meta_selector_meta_feature_guard_020_k4_rt0,"Guard ($\delta = 0.20$, $k = 4$, $\lambda = 0$)",0.17302140220822684,0.4788,True,True,pool
+meta_selector_meta_feature_guard_020_k4_rt0p03,"Guard ($\delta = 0.20$, $k = 4$, $\lambda = 0.03$)",0.17302140220822684,0.4788,True,True,pool
+meta_selector_meta_feature_guard_020_k8_rt0,"Guard ($\delta = 0.20$, $k = 8$, $\lambda = 0$)",0.17302140220822684,0.4788,True,True,pool
+meta_selector_meta_feature_guard_020,Guard ($\delta = 0.20$),0.17302140220822684,0.4788,True,True,pool
+meta_selector_meta_feature_guard_020_k12_rt0,"Guard ($\delta = 0.20$, $k = 12$, $\lambda = 0$)",0.17302140220822684,0.4788,True,True,pool
+meta_selector_meta_feature_guard_020_k12_rt0p03,"Guard ($\delta = 0.20$, $k = 12$, $\lambda = 0.03$)",0.17302140220822684,0.4788,True,True,pool
+meta_selector_meta_feature_guard_020_k4_rt0p1,"Guard ($\delta = 0.20$, $k = 4$, $\lambda = 0.1$)",0.17310811037553844,0.4788,True,True,pool
+meta_selector_meta_feature_guard_010_k12_rt0,"Guard ($\delta = 0.10$, $k = 12$, $\lambda = 0$)",0.1731195609506005,0.4788,True,True,pool
+meta_selector_meta_feature_guard_020_k8_rt0p1,"Guard ($\delta = 0.20$, $k = 8$, $\lambda = 0.1$)",0.1731195609506005,0.4788,True,True,pool
+meta_selector_meta_feature_guard_020_k12_rt0p1,"Guard ($\delta = 0.20$, $k = 12$, $\lambda = 0.1$)",0.1731195609506005,0.4788,True,True,pool
+meta_selector_meta_feature_guard_005_k4_rt0p1,"Guard ($\delta = 0.05$, $k = 4$, $\lambda = 0.1$)",0.18124719082759055,0.4788,True,True,pool
+meta_selector_meta_feature_guard_002_k12_rt0p1,"Guard ($\delta = 0.02$, $k = 12$, $\lambda = 0.1$)",0.18465059466100373,0.2037,True,False,pool
+meta_selector_meta_feature_guard_002_k8_rt0p1,"Guard ($\delta = 0.02$, $k = 8$, $\lambda = 0.1$)",0.1866135688867073,0.2004,True,False,pool
+meta_selector_family_prior_budgeted_500s,Family-prior (500 s),0.19313631817545196,0.1936,True,False,pool
+meta_selector_family_prior_budgeted_1000s,Family-prior (1000 s),0.19410031952711687,0.1912,True,False,pool
+meta_selector_meta_feature_guard_002_k4_rt0p1,"Guard ($\delta = 0.02$, $k = 4$, $\lambda = 0.1$)",0.19236246986225192,0.1624,True,False,pool
+meta_selector_family_prior_budgeted_5000s,Family-prior (5000 s),0.19960299934651932,0.1624,True,False,pool
+meta_selector_single,Validation-best,0.22817804124233668,0.1624,True,False,pool
+meta_selector_ablate_validation_only,Validation rank,0.22817804124233668,0.1624,True,False,pool
+meta_selector_family_prior_budgeted_100s,Family-prior (100 s),0.23398765763513066,0.0323,False,False,pool

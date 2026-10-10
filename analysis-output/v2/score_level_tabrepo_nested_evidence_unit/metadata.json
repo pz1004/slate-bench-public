@@ -1,0 +1,15 @@
+{
+  "command": [
+    "scripts/evidence_unit_exhibit.py",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabrepo_nested",
+    "--review-output",
+    "analysis-output/v2/score_level_tabrepo_nested_review",
+    "--output-dir",
+    "analysis-output/v2/score_level_tabrepo_nested_evidence_unit",
+    "--contrasts",
+    "nested_policy_selected:meta_selector_tabrepo_ensemble_k3",
+    "nested_policy_selected:train_selected_fixed_reference__score_only",
+    "nested_policy_selected:meta_selector_single"
+  ]
+}

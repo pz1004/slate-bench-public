@@ -1,0 +1,60 @@
+# Direct score-only TabRepo run (no ensemble rows). The paper's score-only panel is
+# derived from the ensemble-inclusive run by scripts/score_level_policy_pool_ablation.py,
+# which gives identical rows; this config drives the procedure-level jackknife.
+output_dir: analysis-output/v2/score_level_tabrepo_score_only_direct
+
+benchmark:
+  splits: 100
+  heldout_fraction: 0.25
+  seed: 20260604
+  rank_rule: consistent
+
+references:
+  - meta_selector_task_adaptive_budgeted
+  - meta_selector_meta_feature_guard_005
+  - meta_selector_family_prior_budgeted
+  - meta_selector_ablate_validation_only
+  - meta_selector_single
+
+selector_defaults: &selector_defaults
+  runtime_weight: 0.000001
+  selector_method_name: meta_selector_single
+  family_prior_weight_grid:
+    - {validation_weight: 1.0, task_method_prior_weight: 0.0, task_family_prior_weight: 0.0, global_method_prior_weight: 0.0, runtime_weight: 0.0}
+    - {validation_weight: 0.75, task_method_prior_weight: 0.0, task_family_prior_weight: 0.15, global_method_prior_weight: 0.10, runtime_weight: 0.0}
+    - {validation_weight: 0.60, task_method_prior_weight: 0.0, task_family_prior_weight: 0.25, global_method_prior_weight: 0.15, runtime_weight: 0.0}
+    - {validation_weight: 0.45, task_method_prior_weight: 0.0, task_family_prior_weight: 0.35, global_method_prior_weight: 0.15, runtime_weight: 0.05}
+    - {validation_weight: 0.30, task_method_prior_weight: 0.0, task_family_prior_weight: 0.50, global_method_prior_weight: 0.15, runtime_weight: 0.05}
+  # Leave-one-dataset-out weight choice (manuscript App. C); `resubstitution` is only
+  # used by the two attribution runs.
+  weight_selection: lodo
+  # The calibrated-budget row searches this wider grid, which gives the task-method prior
+  # positive weight; the family-prior rows use `family_prior_weight_grid` (w_tm = 0).
+  calibrated_weight_grid:
+    - {validation_weight: 1.0, task_method_prior_weight: 0.0, task_family_prior_weight: 0.0, global_method_prior_weight: 0.0, runtime_weight: 0.0}
+    - {validation_weight: 0.75, task_method_prior_weight: 0.20, task_family_prior_weight: 0.05, global_method_prior_weight: 0.0, runtime_weight: 0.0}
+    - {validation_weight: 0.60, task_method_prior_weight: 0.30, task_family_prior_weight: 0.05, global_method_prior_weight: 0.05, runtime_weight: 0.0}
+    - {validation_weight: 0.45, task_method_prior_weight: 0.35, task_family_prior_weight: 0.10, global_method_prior_weight: 0.10, runtime_weight: 0.0}
+    - {validation_weight: 0.30, task_method_prior_weight: 0.45, task_family_prior_weight: 0.15, global_method_prior_weight: 0.10, runtime_weight: 0.0}
+    - {validation_weight: 0.20, task_method_prior_weight: 0.55, task_family_prior_weight: 0.15, global_method_prior_weight: 0.10, runtime_weight: 0.0}
+    - {validation_weight: 0.45, task_method_prior_weight: 0.30, task_family_prior_weight: 0.10, global_method_prior_weight: 0.10, runtime_weight: 0.05}
+    - {validation_weight: 0.30, task_method_prior_weight: 0.40, task_family_prior_weight: 0.15, global_method_prior_weight: 0.10, runtime_weight: 0.05}
+  policy_grid:
+    family_prior_budgets: [100, 500, 1000, 5000, 10000]
+    calibrated_budget: 10000
+    guard_margins: [0.02, 0.05, 0.10, 0.20]
+    guard_top_k: [4, 8, 12]
+    guard_runtime_penalties: [0.0, 0.03, 0.1]
+    tabrepo_ensemble_sizes: []
+
+artifacts:
+  - name: TabRepo
+    artifact_source:
+      kind: tabrepo_repository
+      context_name: D244_F3_C1530_200
+      cache_dir: data/tabrepo/cache
+      load_predictions: false  # no prediction ensembles in this panel
+      prediction_format: memmap
+      # Pin the 200-dataset slice: without predictions the context lists 244 datasets.
+      dataset_allowlist_file: configs/tabrepo_D244_F3_C1530_200_datasets.txt
+    selector: *selector_defaults

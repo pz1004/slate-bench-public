@@ -1,0 +1,130 @@
+# Dataset-level review of the v2 TabArena nested run (scripts/score_level_review.py).
+# Everything reported for TabArena is declared here: reference pools, contrast families
+# (Holm adjustment is within each family), margins and the resampling seed.
+artifact: TabArena
+rank_scale: 43            # |M| - 1 for 44 candidates: one rank position = 1/43
+bootstrap:
+  seed: 20260608
+  resamples: 10000
+margins: [0.005, 0.010, 0.015, 0.020]
+single_best: reference_single_best_global
+
+# Train-selected references: per split, the pool member with the lowest outer-training
+# regret (then runtime, then the listed order) is applied to the held-out datasets.
+fixed_reference_pools:
+  declared_fixed:
+    - meta_selector_single
+    - meta_selector_ablate_validation_only
+    - meta_selector_family_prior_budgeted_100s
+    - meta_selector_family_prior_budgeted_500s
+    - meta_selector_family_prior_budgeted_1000s
+    - meta_selector_family_prior_budgeted_5000s
+    - meta_selector_family_prior_budgeted
+  validation_only:
+    - meta_selector_single
+    - meta_selector_ablate_validation_only
+  family_prior:
+    - meta_selector_family_prior_budgeted_100s
+    - meta_selector_family_prior_budgeted_500s
+    - meta_selector_family_prior_budgeted_1000s
+    - meta_selector_family_prior_budgeted_5000s
+    - meta_selector_family_prior_budgeted
+  with_calibrated:
+    - meta_selector_single
+    - meta_selector_ablate_validation_only
+    - meta_selector_family_prior_budgeted_100s
+    - meta_selector_family_prior_budgeted_500s
+    - meta_selector_family_prior_budgeted_1000s
+    - meta_selector_family_prior_budgeted_5000s
+    - meta_selector_family_prior_budgeted
+    - meta_selector_calibrated_budget_10000s
+  broader:
+    - meta_selector_single
+    - meta_selector_ablate_validation_only
+    - meta_selector_family_prior_budgeted_100s
+    - meta_selector_family_prior_budgeted_500s
+    - meta_selector_family_prior_budgeted_1000s
+    - meta_selector_family_prior_budgeted_5000s
+    - meta_selector_family_prior_budgeted
+    - meta_selector_calibrated_budget_10000s
+    - meta_selector_task_adaptive_budgeted
+    - meta_selector_meta_feature_guard_002
+    - meta_selector_meta_feature_guard_005
+    - meta_selector_meta_feature_guard_010
+    - meta_selector_meta_feature_guard_020
+
+families:
+  # The primary family of the nested audit, with raw validation as the canonical
+  # validation-best rule (identical to validation rank on TabArena).
+  primary:
+    left: nested_policy_selected
+    references:
+      - meta_selector_task_adaptive_budgeted
+      - meta_selector_meta_feature_guard_005
+      - meta_selector_family_prior_budgeted
+      - train_selected_fixed_reference__declared_fixed
+      - meta_selector_single
+  comparator_pools:
+    left: nested_policy_selected
+    references:
+      - train_selected_fixed_reference__validation_only
+      - train_selected_fixed_reference__family_prior
+      - train_selected_fixed_reference__declared_fixed
+      - train_selected_fixed_reference__with_calibrated
+      - train_selected_fixed_reference__broader
+  individual_fixed:
+    left: nested_policy_selected
+    references:
+      - meta_selector_single
+      - meta_selector_ablate_validation_only
+      - meta_selector_family_prior_budgeted_100s
+      - meta_selector_family_prior_budgeted_500s
+      - meta_selector_family_prior_budgeted_1000s
+      - meta_selector_family_prior_budgeted_5000s
+      - meta_selector_family_prior_budgeted
+      - meta_selector_calibrated_budget_10000s
+  # Added after the main results (exploratory): standard algorithm-selection references,
+  # provenance-restricted validation-best and the optimism correction, and standard
+  # meta-feature selectors.
+  revision_references:
+    left: nested_policy_selected
+    references:
+      - reference_single_best_global
+      - reference_single_best_task
+      - reference_priors_only
+      - reference_validation_best_default
+      - reference_validation_best_tuned
+      - reference_validation_best_tuned_ensemble
+      - reference_optimism_corrected
+      - reference_optimism_corrected_budget
+      - reference_optimism_corrected_task
+      - reference_metafeature_knn
+      - reference_metafeature_knn_validation
+  mechanism:
+    left: meta_selector_family_prior_budgeted
+    references:
+      - meta_selector_single
+      - reference_single_best_global
+      - reference_priors_only
+      - reference_validation_best_default
+      - reference_optimism_corrected
+      - reference_optimism_corrected_budget
+      - reference_metafeature_knn
+  # Added after the main results (exploratory): validation-best against the references
+  # that remove or correct heterogeneous validation provenance.
+  provenance:
+    left: meta_selector_single
+    references:
+      - reference_single_best_global
+      - reference_validation_best_default
+      - reference_optimism_corrected
+      - reference_optimism_corrected_task
+
+task_strata_methods:
+  - meta_selector_family_prior_budgeted
+  - nested_policy_selected
+  - train_selected_fixed_reference__declared_fixed
+  - meta_selector_single
+  - reference_single_best_global
+  - reference_validation_best_default
+  - reference_optimism_corrected

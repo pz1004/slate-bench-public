@@ -1,0 +1,37 @@
+{
+  "recorded": "2026-10-01",
+  "coder": "Claude (Anthropic): a third AI coding, blind to the first two (protocol.md, Deviation 9)",
+  "population": [
+    "S01",
+    "S02",
+    "S03",
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "S09",
+    "S10",
+    "S11",
+    "S12",
+    "S13",
+    "S14"
+  ],
+  "all_claims_items": [
+    "fixed_references",
+    "validation_provenance",
+    "e1_selector_tuned_on_evaluation"
+  ],
+  "full_claims_items": "all items",
+  "seed": 20261001,
+  "n_full": 4,
+  "rule": "sort record ids by the SHA-256 hex digest of '<seed>:<record_id>' and take the first n_full",
+  "full_claims": [
+    "S02",
+    "S08",
+    "S11",
+    "S14"
+  ],
+  "n_cells": 75,
+  "ai_codes_sha256": "310d1c41d82f259013499a47e415195a36577c3bc03e6971f17a319e97643598",
+  "coder_changed": "2026-10-01, before the subset was coded; the declared cells, draw and frozen AI codes are unchanged"
+}

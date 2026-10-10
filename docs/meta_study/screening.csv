@@ -1,0 +1,26 @@
+record_id,title,year,url,source,decision,reason
+S01,TabRepo: A Large Scale Repository of Tabular Model Evaluations and its AutoML Applications,2024,https://arxiv.org/abs/2311.02971,web search: zero-shot AutoML portfolio TabRepo,include,
+S02,TabArena: A Living Benchmark for Machine Learning on Tabular Data,2025,https://arxiv.org/abs/2506.16791,web search: TabArena reuse,include,
+S03,Auto-Sklearn 2.0: Hands-free AutoML via Meta-Learning,2022,https://arxiv.org/abs/2007.04074,web search: auto-sklearn 2.0 policy selector,include,
+S04,Learning Multiple Defaults for Machine Learning Algorithms,2021,https://arxiv.org/abs/1811.09409,web search: multiple defaults,exclude,"at verification, criterion 5: the claim is evaluated only by retraining the learners on held-out datasets; stored results only train the surrogates"
+S05,Meta-Learning for Symbolic Hyperparameter Defaults,2021,https://arxiv.org/abs/2106.05767,web search: multiple defaults (related record),include,
+S06,Probabilistic Matrix Factorization for Automated Machine Learning,2018,https://arxiv.org/abs/1705.05355,web search: matrix factorization AutoML,include,
+S07,OBOE: Collaborative Filtering for AutoML Model Selection,2019,https://arxiv.org/abs/1808.03233,web search: collaborative filtering AutoML,include,
+S08,CMA-ES for Post Hoc Ensembling in AutoML,2023,https://arxiv.org/abs/2307.00286,web search: post hoc ensembling,include,
+S09,Q(D)O-ES: Population-based Quality (Diversity) Optimisation for Post Hoc Ensemble Selection in AutoML,2023,https://arxiv.org/abs/2307.08364,web search: post hoc ensembling,include,
+S10,Hardware Aware Ensemble Selection for Balancing Predictive Accuracy and Cost,2024,https://arxiv.org/abs/2408.02280,web search: post hoc ensembling,include,
+S11,HAPEns: Hardware-Aware Post-Hoc Ensembling for Tabular Data,2026,https://arxiv.org/abs/2603.10582,web search: post hoc ensembling,include,
+S12,Pre-Hoc Predictions in AutoML: Leveraging LLMs to Enhance Model Selection and Benchmarking for Tabular datasets,2025,https://arxiv.org/abs/2510.01842,web search: zero-shot AutoML / LLM model selection,include,
+S13,Practical and sample efficient zero-shot HPO,2020,https://arxiv.org/abs/2007.13382,web search: zero-shot HPO,include,
+S14,A Comprehensive Benchmark of Machine and Deep Learning Across Diverse Tabular Datasets,2024,https://arxiv.org/abs/2408.14817,web search: meta-learning model selection tabular,include,
+S15,Zero-Shot AutoML with Pretrained Models,2022,https://arxiv.org/abs/2206.08476,web search: zero-shot AutoML,exclude,"candidates are pretrained deep-learning fine-tuning pipelines, not tabular learners"
+S16,Meta-Learning and Synthetic Data for Automated Pretraining and Finetuning,2025,https://arxiv.org/abs/2506.12161,web search: zero-shot AutoML,exclude,non-tabular candidates (title and abstract)
+S17,Zero-shot Meta-learning for Tabular Prediction Tasks with Adversarially Pre-trained Transformer,2025,https://arxiv.org/abs/2502.04573,web search: zero-shot AutoML,exclude,"proposes a learner, not a selector"
+S18,MementoML: Performance of selected machine learning algorithm configurations on OpenML100 datasets,2020,https://arxiv.org/abs/2008.13162,web search: meta-learning model selection,exclude,data resource without a selection claim
+S19,Auto-PyTorch Tabular: Multi-Fidelity MetaLearning for Efficient and Robust AutoDL,2021,https://arxiv.org/abs/2006.13799,web search: post hoc ensembling,exclude,evaluation reruns the full AutoML system end to end
+S20,Better by Default: Strong Pre-Tuned MLPs and Boosted Trees on Tabular Data,2024,https://arxiv.org/abs/2407.04491,web search: multiple defaults,exclude,"defaults evaluated by retraining candidates, not on precomputed results"
+S21,When Do Neural Nets Outperform Boosted Trees on Tabular Data?,2023,https://arxiv.org/abs/2305.02997,web search: meta-learning model selection,exclude,no comparative selection claim; the meta-model validates correlations
+S22,Explaining Tabular Foundation Model Differences Through Meta-Features,2026,https://arxiv.org/abs/2605.28418,web search: TabArena reuse,exclude,no improvement claim (reports that meta-feature predictors do not beat a simple baseline); cited as related work
+S23,TabPack: Efficient Hyperparameter Ensembles for Tabular Deep Learning,2026,https://arxiv.org/abs/2607.05380,web search: TabArena reuse,exclude,"proposes trained hyperparameter ensembles, not a selector on precomputed results"
+S24,Learning meta-features for AutoML (MetaBu),2022,https://openreview.net/forum?id=DTkEfj0Ygb8,web search: meta-features,not retrieved,"full text blocked for automated access (OpenReview and HAL bot checks); two independent assessors could not settle criterion 5 from the abstract, slides and code"
+S25,To Select or Not to Select? The Role of Meta-features Selection in Meta-learning Tasks with Tabular Data,2025,https://link.springer.com/chapter/10.1007/978-3-031-97629-2_21,web search: meta-learning model selection,exclude,"criterion 3: selects meta-features for meta-learners that predict whether one model beats the median; no candidate is chosen, ranked, weighted or combined (both assessors)"

@@ -1,0 +1,11 @@
+{
+  "command": [
+    "scripts/evidence_unit_exhibit.py",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabarena",
+    "--review-output",
+    "analysis-output/v2/score_level_tabarena_review",
+    "--output-dir",
+    "analysis-output/v2/tabarena_evidence_unit"
+  ]
+}

@@ -1,0 +1,5 @@
+contrast,n_subsets,subset_mean,subset_sd,jackknife_se,share_subsets_negative,share_subsets_positive
+nested_policy_selected - meta_selector_single,50,-0.049461691981260894,0.013344967621577084,0.027021499946632443,1.0,0.0
+nested_policy_selected - meta_selector_family_prior_budgeted,50,0.0069819541606268775,0.007374687550101096,0.014932604176520117,0.2,0.8
+nested_policy_selected - train_selected_fixed_reference,50,-0.004952669061574336,0.009421695882070381,0.019077480140372576,0.68,0.32
+meta_selector_family_prior_budgeted - meta_selector_single,50,-0.056443646141887766,0.014325308962184683,0.029006539868353828,1.0,0.0

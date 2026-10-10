@@ -1,0 +1,78 @@
+# Attribution run for the implementation-conventions appendix (TabArena): the main
+# configuration with the shared inner fit, in which the adaptive policies' training-side
+# rows read source rows fitted once per split on all training datasets, so an inner
+# target enters the priors and weight choices of the source rows on the other datasets.
+# Every other setting is that of score_level_tabarena.yaml.
+output_dir: analysis-output/v2/attribution/inner_shared
+
+benchmark:
+  splits: 100
+  heldout_fraction: 0.25
+  seed: 20260604
+  rank_rule: consistent
+
+references:
+  - meta_selector_task_adaptive_budgeted
+  - meta_selector_meta_feature_guard_005
+  - meta_selector_family_prior_budgeted
+  - meta_selector_ablate_validation_only
+  - meta_selector_single
+
+selector_defaults: &selector_defaults
+  runtime_weight: 0.000001
+  selector_method_name: meta_selector_single
+  family_prior_weight_grid:
+    - {validation_weight: 1.0, task_method_prior_weight: 0.0, task_family_prior_weight: 0.0, global_method_prior_weight: 0.0, runtime_weight: 0.0}
+    - {validation_weight: 0.75, task_method_prior_weight: 0.0, task_family_prior_weight: 0.15, global_method_prior_weight: 0.10, runtime_weight: 0.0}
+    - {validation_weight: 0.60, task_method_prior_weight: 0.0, task_family_prior_weight: 0.25, global_method_prior_weight: 0.15, runtime_weight: 0.0}
+    - {validation_weight: 0.45, task_method_prior_weight: 0.0, task_family_prior_weight: 0.35, global_method_prior_weight: 0.15, runtime_weight: 0.05}
+    - {validation_weight: 0.30, task_method_prior_weight: 0.0, task_family_prior_weight: 0.50, global_method_prior_weight: 0.15, runtime_weight: 0.05}
+  # Leave-one-dataset-out weight choice (manuscript App. C); `resubstitution` is only
+  # used by the v1-to-v2 attribution runs.
+  weight_selection: lodo
+  # The earlier, shared inner fit (see the header).
+  inner_source_fit: shared
+  # The calibrated-budget row searches this wider grid, which gives the task-method prior
+  # positive weight; the family-prior rows use `family_prior_weight_grid` (w_tm = 0).
+  calibrated_weight_grid:
+    - {validation_weight: 1.0, task_method_prior_weight: 0.0, task_family_prior_weight: 0.0, global_method_prior_weight: 0.0, runtime_weight: 0.0}
+    - {validation_weight: 0.75, task_method_prior_weight: 0.20, task_family_prior_weight: 0.05, global_method_prior_weight: 0.0, runtime_weight: 0.0}
+    - {validation_weight: 0.60, task_method_prior_weight: 0.30, task_family_prior_weight: 0.05, global_method_prior_weight: 0.05, runtime_weight: 0.0}
+    - {validation_weight: 0.45, task_method_prior_weight: 0.35, task_family_prior_weight: 0.10, global_method_prior_weight: 0.10, runtime_weight: 0.0}
+    - {validation_weight: 0.30, task_method_prior_weight: 0.45, task_family_prior_weight: 0.15, global_method_prior_weight: 0.10, runtime_weight: 0.0}
+    - {validation_weight: 0.20, task_method_prior_weight: 0.55, task_family_prior_weight: 0.15, global_method_prior_weight: 0.10, runtime_weight: 0.0}
+    - {validation_weight: 0.45, task_method_prior_weight: 0.30, task_family_prior_weight: 0.10, global_method_prior_weight: 0.10, runtime_weight: 0.05}
+    - {validation_weight: 0.30, task_method_prior_weight: 0.40, task_family_prior_weight: 0.15, global_method_prior_weight: 0.10, runtime_weight: 0.05}
+  # Reference rows added in the revision (M1, M2, M6). They are scored in both phases and
+  # reported, but never enter the nested choice, so the pool result is unchanged by them.
+  reference_selectors:
+    - {kind: budgeted_calibrated, method_name: reference_single_best_global, weights: {global_method_prior_weight: 1.0}, max_budget_seconds: null}
+    - {kind: budgeted_calibrated, method_name: reference_single_best_task, weights: {task_method_prior_weight: 1.0}, max_budget_seconds: null}
+    - {kind: budgeted_calibrated, method_name: reference_priors_only, weights: {task_family_prior_weight: 0.35, global_method_prior_weight: 0.15, runtime_weight: 0.05}, max_budget_seconds: 10000}
+    - {kind: validation_rank, method_name: reference_validation_best_default, method_variant_allowlist: [default]}
+    - {kind: validation_rank, method_name: reference_validation_best_tuned, method_variant_allowlist: [tuned]}
+    - {kind: validation_rank, method_name: reference_validation_best_tuned_ensemble, method_variant_allowlist: [tuned + ensemble]}
+    - {kind: optimism_corrected_validation, method_name: reference_optimism_corrected, scope: global}
+    - {kind: optimism_corrected_validation, method_name: reference_optimism_corrected_budget, scope: global, max_budget_seconds: 10000}
+    - {kind: optimism_corrected_validation, method_name: reference_optimism_corrected_task, scope: task}
+    - {kind: metafeature_knn_prior, method_name: reference_metafeature_knn, top_k: 5, validation_weight: 0.0}
+    - {kind: metafeature_knn_prior, method_name: reference_metafeature_knn_validation, top_k: 5, validation_weight: 0.5}
+  policy_grid:
+    family_prior_budgets: [100, 500, 1000, 5000, 10000]
+    calibrated_budget: 10000
+    guard_margins: [0.02, 0.05, 0.10, 0.20]
+    guard_top_k: [4, 8, 12]
+    guard_runtime_penalties: [0.0, 0.03, 0.1]
+
+artifacts:
+  - name: TabArena
+    artifact_source:
+      kind: tabarena_results
+      url: https://huggingface.co/datasets/TabArena/benchmark_results/resolve/main/df_results.csv
+      local_path: data/tabarena/df_results.csv
+      download: true
+    # Standard OpenML-style dataset meta-features for the kNN reference rows (M6).
+    standard_meta_features:
+      kind: tabarena_metadata
+      local_path: data/tabarena/tabarena_dataset_metadata.csv
+    selector: *selector_defaults

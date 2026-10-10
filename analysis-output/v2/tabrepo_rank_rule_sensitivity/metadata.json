@@ -1,0 +1,12 @@
+{
+  "command": [
+    "scripts/rank_rule_sensitivity.py",
+    "--benchmark-config",
+    "configs/score_level_tabrepo_nested.yaml",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabrepo_nested",
+    "--output-dir",
+    "analysis-output/v2/tabrepo_rank_rule_sensitivity"
+  ],
+  "max_consistent_mismatch": 0.0
+}

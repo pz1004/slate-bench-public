@@ -1,0 +1,4 @@
+method,n_datasets,consistent_mean_normalized_rank_regret,legacy_mean_normalized_rank_regret,share_units_rank_changed
+meta_selector_tabrepo_ensemble_k3,200,0.14542549012336223,0.1503141951385237,0.2783333333333333
+meta_selector_tabrepo_ensemble_k5,200,0.1462632016504466,0.15152435400210232,0.2783333333333333
+meta_selector_tabrepo_ensemble_k10,200,0.14632838710929566,0.15156384250591218,0.27

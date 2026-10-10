@@ -1,0 +1,36 @@
+{
+  "n_overlapping_datasets": 16,
+  "related_datasets": [
+    "wine-quality-red",
+    "wine-quality-white"
+  ],
+  "excluded_tabrepo_datasets": [
+    "APSFailure",
+    "Amazon_employee_access",
+    "Bioresponse",
+    "Diabetes130US",
+    "bank-marketing",
+    "blood-transfusion-service-center",
+    "churn",
+    "credit-g",
+    "diabetes",
+    "diamonds",
+    "hiva_agnostic",
+    "houses",
+    "jm1",
+    "qsar-biodeg",
+    "splice",
+    "wine-quality-red",
+    "wine-quality-white",
+    "wine_quality"
+  ],
+  "command": [
+    "scripts/pooled_cross_artifact.py",
+    "--tabarena-review",
+    "analysis-output/v2/score_level_tabarena_review",
+    "--tabrepo-review",
+    "analysis-output/v2/score_level_tabrepo_score_only_review",
+    "--output-dir",
+    "analysis-output/v2/pooled_cross_artifact"
+  ]
+}

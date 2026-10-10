@@ -1,0 +1,3 @@
+benchmark,n_alternatives,statistic,best_alternative,best_mean_improvement,spa_p_lower,spa_p_consistent,spa_p_upper,reality_check_statistic,reality_check_p,benchmark_label,best_alternative_label
+meta_selector_family_prior_budgeted,44,0.169113739532989,meta_selector_meta_feature_guard_002_k8_rt0,0.0011347868210452837,0.4813,0.6354,0.9478,0.008103998864148558,0.9576,Family-prior rule,"Guard ($\delta = 0.02$, $k = 8$, $\lambda = 0$)"
+meta_selector_single,44,2.857865777078122,meta_selector_meta_feature_guard_002_k8_rt0,0.06465083698741175,0.0082,0.0082,0.0082,0.4616993251909919,0.0375,Validation-best,"Guard ($\delta = 0.02$, $k = 8$, $\lambda = 0$)"
