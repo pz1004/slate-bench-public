@@ -246,12 +246,14 @@ ALPHA = 0.05
 # t-test), "rank" (Holm-adjusted signed-rank test) and "equiv0p010" etc. (TOST at a margin).
 STATED_VERDICTS: dict[str, dict[str, str]] = {
     # TabArena (Sections 6.1-6.3, Table 2, the Conclusion).
-    "ta.primary.nested.vb": {"interval": "excludes zero", "mean": "better", "t": "not separated", "rank": "not separated"},
-    "ta.primary.nested.fp": {"mean": "not separated", "equiv0p015": "equivalent", "equiv0p010": "not equivalent"},
-    "ta.primary.nested.tsf": {"mean": "not separated", "equiv0p010": "equivalent", "equiv0p015": "equivalent"},
+    "ta.primary.nested.vb": {"interval": "excludes zero", "mean": "better", "t": "not separated", "rank": "not separated", "corrected": "better"},
+    # The equivalences hold under the bootstrap only; the corrected test withdraws them (Section 6.3).
+    "ta.primary.nested.fp": {"mean": "not separated", "equiv0p015": "equivalent", "equiv0p010": "not equivalent", "corrected": "not separated", "corrected_equiv0p015": "not equivalent", "corrected_equiv0p010": "not equivalent"},
+    "ta.primary.nested.tsf": {"mean": "not separated", "equiv0p010": "equivalent", "corrected": "not separated", "corrected_equiv0p010": "not equivalent", "corrected_equiv0p015": "not equivalent"},
     # The policy pool (Table 2, Section 6.4): the 8-row grid and the 49-row extended pool.
-    "ta.shrink.primary.nested.vb": {"mean": "better", "t": "better", "rank": "not separated"},
-    "ta.shrink.primary.nested.fp": {"mean": "not separated", "equiv0p015": "equivalent", "equiv0p010": "not equivalent"},
+    "ta.shrink.primary.nested.vb": {"mean": "better", "t": "better", "rank": "not separated", "corrected": "better"},
+    "ta.shrink.primary.nested.fp": {"mean": "not separated"},
+    "ta.ext.primary.nested.vb": {"mean": "better", "corrected": "not separated"},
     "ta.ext.primary.nested.fp": {"mean": "not separated", "equiv0p015": "not equivalent"},
     "ta.ext.primary.nested.tsf": {"mean": "not separated", "equiv0p015": "not equivalent"},
     # Implementation conventions (Appendix H): legacy ranks with in-sample weights (vone),
@@ -282,14 +284,14 @@ STATED_VERDICTS: dict[str, dict[str, str]] = {
     # score-only panel (trs).
     "tr.primary.nested.tsfe": {"mean": "not separated", "rank": "not separated"},
     "tr.capability.tsfe.tsfs": {"interval": "excludes zero", "mean": "better", "rank": "better"},
-    "tr.fixed_ensembles.nested.ethree": {"interval": "excludes zero", "mean": "worse", "t": "worse", "rank": "not separated"},
+    "tr.fixed_ensembles.nested.ethree": {"interval": "excludes zero", "mean": "worse", "t": "worse", "rank": "not separated", "corrected": "not separated"},
     "tr.mechanism.vb.opt": {"interval": "includes zero", "mean": "not separated", "t": "not separated", "rank": "better"},
     "tr.mechanism.vb.fp": {"interval": "includes zero", "mean": "not separated"},
     "tr.mechanism.vb.sbs": {"mean": "better"},
     "trs.primary.nested.vb": {"interval": "includes zero", "mean": "not separated", "rank": "not separated"},
     "trs.primary.nested.tsfs": {"interval": "includes zero", "mean": "not separated", "rank": "not separated"},
-    "trs.score_level_rows.nested.tad": {"interval": "excludes zero", "mean": "worse", "rank": "not separated"},
-    "trs.score_level_rows.nested.gfive": {"interval": "excludes zero", "mean": "worse", "rank": "not separated"},
+    "trs.score_level_rows.nested.tad": {"interval": "excludes zero", "mean": "worse", "rank": "not separated", "corrected": "not separated"},
+    "trs.score_level_rows.nested.gfive": {"interval": "excludes zero", "mean": "worse", "rank": "not separated", "corrected": "not separated"},
     "trs.score_level_rows.nested.vr": {"mean": "not separated"},
     "tr.primary.nested.vb": {"interval": "excludes zero", "mean": "better"},
     "trs.score_level_rows.nested.fp": {"mean": "not separated"},
@@ -311,6 +313,22 @@ STATED_VERDICTS: dict[str, dict[str, str]] = {
     "attr.tr.vtwo.tsfs": {"interval": "includes zero", "mean": "not separated"},
     "attr.tr.inner.vb": {"mean": "not separated"},
     "attr.tr.vtwo.vb": {"mean": "not separated"},
+    # Validation-best within the tuned classes (Section 6.2).
+    "ta.revision_references.nested.vbtun": {"mean": "better"},
+    "ta.revision_references.nested.vbte": {"mean": "better"},
+    # The main audit rerun without TabArena's copied rows (Section 6.1, Appendix G).
+    "imp.primary.nested.vb": {"mean": "not separated", "corrected": "not separated"},
+    "imp.mechanism.fp.vb": {"mean": "better"},
+    "imp.provenance.vb.opt": {"mean": "worse"},
+    # The deployable error-space correction (Sections 6.2 and 7, Appendix G).
+    "ta.es.vb": {"mean": "not separated"},
+    "ta.esm.vb": {"mean": "not separated"},
+    "ta.es.opt": {"mean": "worse"},
+    "ta.esm.opt": {"mean": "worse"},
+    "tr.es.vb": {"mean": "worse"},
+    "tr.esf.vb": {"mean": "worse"},
+    "tr.esm.vb": {"mean": "worse"},
+    "tr.esmf.vb": {"mean": "worse"},
 }
 
 
@@ -420,6 +438,23 @@ STATED_COMPARISONS: list[tuple[str, tuple[str, ...], Callable[..., bool]]] = [
     # Checklist: the pooled direction check, kept in the outputs, shows no direction.
     ("pooled direction check: interval contains zero, sign test does not reject", ("pool.disjoint.ci", "pool.disjoint.sign"), lambda ci, p: ci[0] < 0 < ci[1] and p >= 0.05),
     ("pooled direction check: TabArena plus the TabRepo datasets it does not share", ("pool.disjoint.n", "ovl.excluded"), lambda n, e: n == 51 + 200 - e),
+    # Section 6.1 and Appendix E: how the running claim depends on single datasets.
+    ("influence: every leave-one-out interval excludes zero", ("ta.infl.loo.maxcihigh",), lambda h: h < 0),
+    ("influence: without the top five the interval includes zero", ("ta.infl.topout.ci",), lambda ci: ci[0] < 0 < ci[1]),
+    ("influence: without the top five neither test rejects", ("ta.infl.topout.mp", "ta.infl.topout.nbp"), lambda m, n: m >= 0.05 and n >= 0.05),
+    # Introduction, Section 6.2: the provenance gap holds on every dataset, with or without the copies.
+    ("tuned + ensemble more optimistic than defaults on every dataset", ("ta.erroptim.te.abovedef", "ta.erroptim.ndatasets"), lambda a, n: a == n),
+    ("copy-free: tuned + ensemble more optimistic than defaults on every dataset", ("imp.erroptim.te.abovedef", "imp.erroptim.ndatasets"), lambda a, n: a == n),
+    ("copy-free: the in-context defaults lie lower still", ("imp.optim.method.tabpfnv2default", "ta.optim.method.tabpfnv2default", "imp.optim.method.tabicldefault", "ta.optim.method.tabicldefault"), lambda a, b, c, d: a < b and c < d),
+    ("copy-free: the single best solver is below nested selection", ("imp.sbs.reg", "imp.nested.reg"), lambda s, n: s < n),
+    # Sections 6.1 and 6.3: the corrected test against the bootstrap.
+    ("corrected SE about the bootstrap SE for nested - VB", ("ta.primary.nested.vb.nbratio",), lambda r: 0.8 <= r <= 1.25),
+    ("corrected 90% intervals reach beyond both margins", ("ta.primary.nested.fp.nbci", "ta.primary.nested.tsf.nbci"), lambda f, t: f[1] > 0.015 and t[1] > 0.015 and t[0] < -0.015),
+    # Section 6.2: validation-best restricted to the tuned classes changes little.
+    ("tuned classes: validation-best changes little", ("ta.vbtun.reg", "ta.vbte.reg", "ta.vb.reg"), lambda a, b, v: abs(a - v) < 0.02 and abs(b - v) < 0.02),
+    # Sections 6.2 and 7: the error-space correction.
+    ("error-space (range) no better than validation-best on TabArena", ("ta.es.reg", "ta.vb.reg"), lambda e, v: e >= v),
+    ("error-space worse than validation-best on TabRepo", ("tr.es.reg", "tr.esf.reg", "trs.vb.reg"), lambda a, b, v: a > v and b > v),
 ]
 
 
@@ -560,6 +595,10 @@ def build_tabarena(assets: Assets) -> None:
     )
 
     primary = contrasts[contrasts["family"].eq("primary")]
+    # The corrected resampled t-test (scripts/corrected_resampled_test.py) sits next to the
+    # dataset bootstrap: it accounts for the overlap of the outer splits' training sets.
+    corrected = assets.csv("tabarena_corrected_test/corrected_resampled_tests.csv")
+    corrected = corrected[corrected["family"].eq("primary")].set_index("right")
     assets.tables["tabarena_paired"] = tabular(
         "lrrrrrrr",
         [
@@ -567,10 +606,10 @@ def build_tabarena(assets: Assets) -> None:
             "Nested $-$ reference [95\\% CI]",
             "Holm $p$, bootstrap",
             "Holm $p$, $t$",
+            "Holm $p$, corrected",
             "Holm $p$, signed-rank",
             "Sign $p$",
             "W/T/L",
-            "TOST $p$ ($\\pm$0.015)",
         ],
         [
             [
@@ -578,10 +617,10 @@ def build_tabarena(assets: Assets) -> None:
                 f"{num(item['mean_difference'], 4, signed=True)} {interval(item['ci_low'], item['ci_high'], 4)}",
                 pvalue(item["bootstrap_holm_p"]),
                 pvalue(item["ttest_holm_p"]),
+                pvalue(corrected.loc[item["right"], "nb_holm_p"]),
                 pvalue(item["wilcoxon_holm_p"]),
                 pvalue(item["sign_test_p"]),
                 wtl(item),
-                pvalue(item["tost_p_0p015"]),
             ]
             for _, item in primary.iterrows()
         ],
@@ -589,6 +628,7 @@ def build_tabarena(assets: Assets) -> None:
     equivalence_rows = []
     for right in ["meta_selector_family_prior_budgeted", "train_selected_fixed_reference__declared_fixed"]:
         item = contrasts[contrasts["family"].eq("primary") & contrasts["right"].eq(right)].iloc[0]
+        nb = corrected.loc[right]
         equivalence_rows.append(
             [
                 policy_label(right),
@@ -596,11 +636,16 @@ def build_tabarena(assets: Assets) -> None:
                 interval(item["tost_90_ci_low"], item["tost_90_ci_high"], 4),
                 *[pvalue(item[f"tost_p_{margin}"]) for margin in ["0p005", "0p010", "0p015", "0p020"]],
                 num(item["smallest_equivalence_margin"], 4),
+                interval(nb["nb_ci90_low"], nb["nb_ci90_high"], 4),
+                num(nb["nb_smallest_equivalence_margin"], 4),
             ]
         )
     assets.tables["tabarena_equivalence"] = tabular(
-        "lrrrrrrr",
-        ["Reference", "Mean diff.", "90\\% CI", "0.005", "0.010", "0.015", "0.020", "Smallest margin"],
+        "lrrrrrrrrr",
+        [
+            "Reference", "Mean diff.", "90\\% CI", "0.005", "0.010", "0.015", "0.020", "Smallest margin",
+            "Corrected 90\\% CI", "Corrected smallest margin",
+        ],
         equivalence_rows,
     )
     pools = contrasts[contrasts["family"].eq("comparator_pools")]
@@ -2028,6 +2073,196 @@ def build_meta_count_check(assets: Assets, claims: pd.DataFrame, directory: Path
         assets.define(f"meta.countcheck.{meta_item_key(item)}.changed", str(n_changed))
 
 
+# ----------------------------------------------------------------------------- revision checks
+
+# The corrected resampled t-test of every review (scripts/corrected_resampled_test.py), by
+# result-key prefix, output folder and the run's name in the appendix table.
+CORRECTED_RUNS = [
+    ("ta", "tabarena_corrected_test", "TabArena"),
+    ("ta.ext", "tabarena_extended_corrected_test", "TabArena, extended pool"),
+    ("ta.shrink", "tabarena_shrink_corrected_test", "TabArena, reduced pool"),
+    ("tr", "tabrepo_corrected_test", "TabRepo, with ensembles"),
+    ("trs", "tabrepo_score_only_corrected_test", "TabRepo, score-only"),
+]
+
+# Rows of the appendix table: (prefix, family, references of nested selection).
+CORRECTED_TABLE_ROWS = [
+    ("ta", "primary", [
+        "meta_selector_single", "meta_selector_family_prior_budgeted",
+        "train_selected_fixed_reference__declared_fixed", "meta_selector_task_adaptive_budgeted",
+        "meta_selector_meta_feature_guard_005",
+    ]),
+    ("ta.ext", "primary", ["meta_selector_single", "meta_selector_family_prior_budgeted"]),
+    ("ta.shrink", "primary", ["meta_selector_single", "meta_selector_family_prior_budgeted"]),
+    ("tr", "primary", ["meta_selector_single", "train_selected_fixed_reference__score_only"]),
+    ("tr", "fixed_ensembles", ["meta_selector_tabrepo_ensemble_k3"]),
+    ("trs", "primary", ["meta_selector_single", "train_selected_fixed_reference__score_only"]),
+    ("trs", "score_level_rows", ["meta_selector_task_adaptive_budgeted", "meta_selector_meta_feature_guard_005"]),
+]
+
+
+def corrected_keys(assets: Assets, prefix: str, frame: pd.DataFrame) -> None:
+    """Result keys and verdicts of the corrected resampled t-test, by contrast."""
+    for _, row in frame.iterrows():
+        left = POLICY_KEYS.get(str(row["left"]))
+        right = POLICY_KEYS.get(str(row["right"]))
+        if left is None or right is None:
+            continue
+        base = f"{prefix}.{row['family']}.{left}.{right}"
+        assets.define(f"{base}.nbse", num(row["nb_se"], 4))
+        if math.isfinite(row["nb_se_ratio"]):
+            assets.define(f"{base}.nbratio", num(row["nb_se_ratio"], 1))
+        assets.define_p(f"{base}.nbp", pvalue(row["nb_p"]))
+        assets.define_p(f"{base}.nbholm", pvalue(row["nb_holm_p"]))
+        assets.define(f"{base}.nbci", interval(row["nb_ci90_low"], row["nb_ci90_high"], 4))
+        assets.define(f"{base}.nbmargin", num(row["nb_smallest_equivalence_margin"], 4))
+        # Added to the bootstrap verdicts of the same contrast (contrast_numbers runs first).
+        verdicts = assets.verdicts.setdefault(base, {})
+        if float(row["nb_holm_p"]) >= ALPHA:
+            verdicts["corrected"] = "not separated"
+        else:
+            verdicts["corrected"] = "better" if float(row["split_mean_difference"]) < 0 else "worse"
+        for margin in ["0p005", "0p010", "0p015", "0p020"]:
+            column = f"nb_equivalent_{margin}"
+            if column in row:
+                verdicts[f"corrected_equiv{margin}"] = "equivalent" if bool(row[column]) else "not equivalent"
+
+
+def build_corrected(assets: Assets) -> None:
+    frames = {}
+    for prefix, folder, _ in CORRECTED_RUNS:
+        frame = assets.csv(f"{folder}/corrected_resampled_tests.csv")
+        frames[prefix] = frame
+        corrected_keys(assets, prefix, frame)
+    labels = {prefix: label for prefix, _, label in CORRECTED_RUNS}
+    rows = []
+    for prefix, family, references in CORRECTED_TABLE_ROWS:
+        frame = frames[prefix]
+        for reference in references:
+            item = frame[frame["family"].eq(family) & frame["right"].eq(reference)].iloc[0]
+            rows.append(
+                [
+                    labels[prefix],
+                    policy_label(reference),
+                    num(item["mean_difference"], 4, signed=True),
+                    num(item["bootstrap_se"], 4),
+                    num(item["nb_se"], 4),
+                    pvalue(item["bootstrap_holm_p"]),
+                    pvalue(item["nb_holm_p"]),
+                    interval(item["nb_ci90_low"], item["nb_ci90_high"], 4),
+                ]
+            )
+    assets.tables["corrected_tests"] = tabular(
+        "llrrrrrr",
+        [
+            "Run", "Reference", "Nested $-$ reference", "SE, bootstrap", "SE, corrected",
+            "Holm $p$, bootstrap", "Holm $p$, corrected", "Corrected 90\\% CI",
+        ],
+        rows,
+    )
+    # The variance factor of the correction, 1/J + n_test/n_train, for the text.
+    for prefix, folder, _ in CORRECTED_RUNS:
+        meta = json.loads((assets.out / folder / "metadata.json").read_text(encoding="utf-8"))
+        assets.define(f"{prefix}.nbfactor", num(float(meta["variance_factor"]), 2))
+
+
+def build_influence(assets: Assets) -> None:
+    row = assets.csv("tabarena_influence/influence_summary.csv").iloc[0]
+    assets.define("ta.infl.loo.min", num(row["loo_min_mean"], 4, signed=True))
+    assets.define("ta.infl.loo.max", num(row["loo_max_mean"], 4, signed=True))
+    assets.define("ta.infl.loo.maxcihigh", num(row["loo_max_ci_high"], 4, signed=True))
+    assets.define("ta.infl.loo.allexclude", "yes" if bool(row["loo_all_exclude_zero"]) else "no")
+    assets.define_p("ta.infl.loo.maxp", pvalue(row["loo_max_bootstrap_p"]))
+    assets.define("ta.infl.top.n", str(int(row["top"])))
+    assets.define("ta.infl.top.share", percent(row["top_share_of_sum"]))
+    assets.define("ta.infl.topout.diff", num(row["topout_mean_difference"], 4, signed=True))
+    assets.define("ta.infl.topout.ci", interval(row["topout_ci_low"], row["topout_ci_high"], 4))
+    assets.define_p("ta.infl.topout.mp", pvalue(row["topout_bootstrap_p"]))
+    assets.define_p("ta.infl.topout.nbp", pvalue(row["topout_nb_p"]))
+    names = [latex_escape(name) for name in str(row["top_datasets"]).split(";")]
+    assets.define("ta.infl.top.datasets", ", ".join(names[:-1]) + " and " + names[-1])
+
+
+def build_imputed(assets: Assets) -> None:
+    """TabArena's copied rows (scripts/imputed_rows.py) and the main audit rerun without them."""
+    summary = assets.csv("tabarena_imputed/copied_summary.csv")
+    total = summary[summary["method"].eq("all")].iloc[0]
+    assets.define("imp.rows", str(int(total["rows"])))
+    assets.define("imp.rowstotal", seconds(float(total["rows_total"])))
+    assets.define("imp.share", percent(float(total["rows"]) / float(total["rows_total"]), 1))
+    assets.define("imp.datasets", str(int(total["datasets"])))
+    assets.define("imp.units", str(int(total["units"])))
+    assets.define("imp.unitstotal", str(int(total["units_total"])))
+    assets.define("imp.flagged", str(int(total["flagged_rows"])))
+    assets.define("imp.copies", str(int(total["copy_rows"])))
+    by_method = summary.set_index("method")
+    assets.define("imp.tabpfn.datasets", str(int(by_method.loc["TABPFNV2 (default)", "datasets"])))
+    assets.define("imp.tabicl.datasets", str(int(by_method.loc["TABICL (default)", "datasets"])))
+    review = "score_level_tabarena_no_imputed_review"
+    summary_numbers(assets, "imp", assets.csv(f"{review}/clustered_summary.csv"), rank_scale=43.0)
+    contrast_numbers(assets, "imp", assets.csv(f"{review}/contrasts.csv"))
+    corrected_keys(assets, "imp", assets.csv("tabarena_imputed/corrected_test/corrected_resampled_tests.csv"))
+    build_provenance(assets, "imp", "tabarena_imputed/provenance", variants=True, rank_scale=43.0)
+    # Without the copies, the single best solver is a model that does not run everywhere:
+    # it falls back to the next-best method where its first choice is absent.
+    units = pd.read_parquet(
+        assets.out / "score_level_tabarena_no_imputed" / "unit_scores.parquet",
+        columns=["phase", "method", "selected_member"],
+    )
+    picks = units.loc[units["phase"].eq("heldout") & units["method"].eq("reference_single_best_global"), "selected_member"]
+    assets.define("imp.sbs.first", latex_escape(str(picks.value_counts().index[0])))
+    assets.define("imp.sbs.firstshare", percent(float(picks.value_counts(normalize=True).iloc[0])))
+
+
+# The deployable error-space correction (scripts/error_space_correction.py): result-key
+# prefix, output folder, rule, and the table's artifact, offsets and scale.
+ERROR_SPACE_RUNS = [
+    ("ta.es", "tabarena_error_space", "error_space_correction", "TabArena", "candidate", "range"),
+    ("ta.esm", "tabarena_error_space_median", "error_space_correction", "TabArena", "candidate", "median"),
+    ("tr.es", "tabrepo_error_space", "error_space_correction", "TabRepo", "configuration", "range"),
+    ("tr.esf", "tabrepo_error_space", "error_space_correction_family", "TabRepo", "learner family", "range"),
+    ("tr.esm", "tabrepo_error_space_median", "error_space_correction", "TabRepo", "configuration", "median"),
+    ("tr.esmf", "tabrepo_error_space_median", "error_space_correction_family", "TabRepo", "learner family", "median"),
+]
+
+
+def build_error_space(assets: Assets) -> None:
+    rows = []
+    for prefix, folder, rule, artifact, offsets, scale in ERROR_SPACE_RUNS:
+        contrasts = assets.csv(f"{folder}/contrasts.csv")
+        contrasts = contrasts[contrasts["left"].eq(rule)].set_index("right")
+        assets.define(f"{prefix}.reg", num(float(contrasts["left_mean"].iloc[0])))
+        for right, item in contrasts.iterrows():
+            base = f"{prefix}.{POLICY_KEYS[str(right)]}"
+            assets.define(f"{base}.diff", num(item["mean_difference"], 4, signed=True))
+            assets.define(f"{base}.ci", interval(item["ci_low"], item["ci_high"], 4))
+            assets.define_p(f"{base}.mholm", pvalue(item["bootstrap_holm_p"]))
+            assets.verdicts[base] = contrast_verdicts(item)
+        vb = contrasts.loc["meta_selector_single"]
+        opt = contrasts.loc["reference_optimism_corrected"]
+        rows.append(
+            [
+                artifact, offsets, scale,
+                num(float(vb["left_mean"])),
+                f"{num(vb['mean_difference'], 4, signed=True)} {interval(vb['ci_low'], vb['ci_high'], 4)}",
+                pvalue(vb["bootstrap_holm_p"]),
+                f"{num(opt['mean_difference'], 4, signed=True)} {interval(opt['ci_low'], opt['ci_high'], 4)}",
+                pvalue(opt["bootstrap_holm_p"]),
+            ]
+        )
+    for prefix, folder in [("ta.esm", "tabarena_error_space_median"), ("tr.esm", "tabrepo_error_space_median")]:
+        meta = json.loads((assets.out / folder / "metadata.json").read_text(encoding="utf-8"))
+        assets.define(f"{prefix}.nearbest", percent(meta["share_units_median_within_one_percent_of_best"]))
+    assets.tables["error_space"] = tabular(
+        "lllrrrrr",
+        [
+            "Artifact", "Offsets per", "Scale", "Regret",
+            "Minus validation-best [95\\% CI]", "Holm $p$",
+            "Minus rank correction [95\\% CI]", "Holm $p$",
+        ],
+        rows,
+    )
+
 def write(assets: Assets, generated: Path) -> None:
     (generated / "tables").mkdir(parents=True, exist_ok=True)
     # A complete build makes an undefined key a LaTeX error; a draft build (--allow-missing)
@@ -2105,6 +2340,10 @@ def run(args: argparse.Namespace) -> None:
     assets.section("meta-study", lambda: build_meta_study(assets, root))
     assets.section("coverage", lambda: build_coverage(assets, root))
     assets.section("families", lambda: build_families(assets))
+    assets.section("corrected tests", lambda: build_corrected(assets))
+    assets.section("imputed rows", lambda: build_imputed(assets))
+    assets.section("influence", lambda: build_influence(assets))
+    assets.section("error-space correction", lambda: build_error_space(assets))
     if assets.allow_missing and (root / "paper" / "main.tex").exists():
         # Draft build: stand-ins for the manuscript's tables whose inputs are still being computed.
         manuscript = (root / "paper" / "main.tex").read_text(encoding="utf-8")

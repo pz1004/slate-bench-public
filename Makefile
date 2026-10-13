@@ -18,12 +18,12 @@ export OMP_NUM_THREADS = 1
 export MKL_NUM_THREADS = 1
 
 .PHONY: all test tabarena tabarena-attribution tabarena-extended tabarena-shrink \
-        tabarena-analyses tabrepo tabrepo-attribution tabrepo-analyses pooled compact jackknife compress \
+        tabarena-analyses tabrepo tabrepo-attribution tabrepo-analyses pooled compact jackknife checks compress \
         meta-sheet assets meta-recheck-draw meta-recheck-sheet meta-recheck-check meta-recheck-merge \
         meta-count-sheet meta-count-check meta-count-merge overlap smoke
 
 all: test tabarena tabarena-attribution tabarena-extended tabarena-shrink tabarena-analyses \
-     tabrepo tabrepo-attribution tabrepo-analyses pooled overlap compact jackknife assets
+     tabrepo tabrepo-attribution tabrepo-analyses pooled overlap compact jackknife checks assets
 
 $(LOGS):
 	mkdir -p $(LOGS)
@@ -166,6 +166,52 @@ jackknife: | $(LOGS)
 	$(PYTHON) scripts/procedure_level_jackknife.py --benchmark-config configs/score_level_tabrepo_score_only.yaml \
 	  --review-config configs/review_tabrepo.yaml --reference-pool score_only \
 	  --output-dir $(OUT)/tabrepo_jackknife --subsets 20 --splits 4 --drop 40 --split-design cyclic --jobs $(TABREPO_WORKERS)
+
+# ---------------------------------------------------------------- Robustness checks (~1.5 h at 12 jobs)
+# TabArena's copied rows and the main audit rerun without them; the corrected resampled
+# t-test for every review; how much the running claim depends on single datasets; and a
+# deployable error-space optimism correction. Needs the TabArena and TabRepo runs above.
+checks: | $(LOGS)
+	$(PYTHON) scripts/imputed_rows.py --output-dir $(OUT)/tabarena_imputed
+	$(PYTHON) scripts/score_level_policy_benchmark.py --config configs/score_level_tabarena_no_imputed.yaml --jobs $(JOBS)
+	$(PYTHON) scripts/score_level_review.py --nested-output $(OUT)/score_level_tabarena_no_imputed \
+	  --config configs/review_tabarena.yaml --output-dir $(OUT)/score_level_tabarena_no_imputed_review
+	$(PYTHON) scripts/validation_provenance.py --benchmark-config configs/score_level_tabarena_no_imputed.yaml \
+	  --nested-output $(OUT)/score_level_tabarena_no_imputed --output-dir $(OUT)/tabarena_imputed/provenance
+	$(PYTHON) scripts/corrected_resampled_test.py --review-output $(OUT)/score_level_tabarena_no_imputed_review \
+	  --nested-output $(OUT)/score_level_tabarena_no_imputed --review-config configs/review_tabarena.yaml \
+	  --output-dir $(OUT)/tabarena_imputed/corrected_test
+	$(PYTHON) scripts/corrected_resampled_test.py --review-output $(OUT)/score_level_tabarena_review \
+	  --nested-output $(OUT)/score_level_tabarena --review-config configs/review_tabarena.yaml \
+	  --output-dir $(OUT)/tabarena_corrected_test
+	$(PYTHON) scripts/corrected_resampled_test.py --review-output $(OUT)/score_level_tabarena_extended_pool_review \
+	  --nested-output $(OUT)/score_level_tabarena_extended_pool --review-config configs/review_tabarena_extended.yaml \
+	  --output-dir $(OUT)/tabarena_extended_corrected_test
+	$(PYTHON) scripts/corrected_resampled_test.py --review-output $(OUT)/score_level_tabarena_shrink_review \
+	  --nested-output $(OUT)/score_level_tabarena_shrink --review-config configs/review_tabarena_shrink.yaml \
+	  --output-dir $(OUT)/tabarena_shrink_corrected_test
+	$(PYTHON) scripts/corrected_resampled_test.py --review-output $(OUT)/score_level_tabrepo_nested_review \
+	  --nested-output $(OUT)/score_level_tabrepo_nested --review-config configs/review_tabrepo.yaml \
+	  --output-dir $(OUT)/tabrepo_corrected_test
+	$(PYTHON) scripts/corrected_resampled_test.py --review-output $(OUT)/score_level_tabrepo_score_only_review \
+	  --nested-output $(OUT)/score_level_tabrepo_score_only --review-config configs/review_tabrepo_score_only.yaml \
+	  --output-dir $(OUT)/tabrepo_score_only_corrected_test
+	$(PYTHON) scripts/influence_check.py --review-output $(OUT)/score_level_tabarena_review \
+	  --nested-output $(OUT)/score_level_tabarena --review-config configs/review_tabarena.yaml \
+	  --output-dir $(OUT)/tabarena_influence
+	$(PYTHON) scripts/error_space_correction.py --benchmark-config configs/score_level_tabarena.yaml \
+	  --review-output $(OUT)/score_level_tabarena_review --review-config configs/review_tabarena.yaml \
+	  --output-dir $(OUT)/tabarena_error_space
+	$(PYTHON) scripts/error_space_correction.py --benchmark-config configs/score_level_tabarena.yaml \
+	  --review-output $(OUT)/score_level_tabarena_review --review-config configs/review_tabarena.yaml \
+	  --output-dir $(OUT)/tabarena_error_space_median --scale median
+	$(PYTHON) scripts/error_space_correction.py --benchmark-config configs/score_level_tabrepo_nested.yaml \
+	  --review-output $(OUT)/score_level_tabrepo_score_only_review --review-config configs/review_tabrepo_score_only.yaml \
+	  --output-dir $(OUT)/tabrepo_error_space --family-offsets
+	$(PYTHON) scripts/error_space_correction.py --benchmark-config configs/score_level_tabrepo_nested.yaml \
+	  --review-output $(OUT)/score_level_tabrepo_score_only_review --review-config configs/review_tabrepo_score_only.yaml \
+	  --output-dir $(OUT)/tabrepo_error_space_median --family-offsets --scale median
+	$(PYTHON) scripts/compress_unit_scores.py $(OUT)/score_level_tabarena_no_imputed/unit_scores.parquet
 
 # Recompress the nested runs' unit_scores.parquet files losslessly with zstd, so that every
 # file stays within GitHub's size limits. Run it after a nested run, before committing.

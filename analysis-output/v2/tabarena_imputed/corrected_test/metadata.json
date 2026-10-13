@@ -1,0 +1,20 @@
+{
+  "review_output": "analysis-output/v2/score_level_tabarena_no_imputed_review",
+  "nested_output": "analysis-output/v2/score_level_tabarena_no_imputed",
+  "review_config": "configs/review_tabarena.yaml",
+  "n_splits": 100,
+  "n_train_datasets": 38,
+  "n_test_datasets": 13,
+  "variance_factor": 0.35210526315789475,
+  "command": [
+    "scripts/corrected_resampled_test.py",
+    "--review-output",
+    "analysis-output/v2/score_level_tabarena_no_imputed_review",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabarena_no_imputed",
+    "--review-config",
+    "configs/review_tabarena.yaml",
+    "--output-dir",
+    "analysis-output/v2/tabarena_imputed/corrected_test"
+  ]
+}

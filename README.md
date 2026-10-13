@@ -6,8 +6,12 @@ Tabular Benchmark Artifacts* (Sooyoung Jang, Hanbat National University).
 The paper asks when a claim that a selector beats a baseline in a reused benchmark table
 means what it appears to mean. It formalizes such claims as a declaration of nine fields.
 It then runs a nested, dataset-level audit on the TabArena results artifact (51 datasets,
-45 policies, 100 outer splits) and the same protocol on TabRepo (200 datasets). Finally, it
-codes 13 published selection claims against the nine fields.
+45 policies, 100 outer splits) and the same protocol on TabRepo (200 datasets). Robustness
+checks rerun the TabArena audit without the result rows that TabArena filled in for runs
+that failed, apply a corrected resampled t-test, measure the influence of single datasets
+and evaluate an error-space optimism correction. An earlier version of the paper also coded
+13 published selection claims against the nine fields; the current version does not report
+that meta-study, and its records remain in `docs/meta_study/`.
 
 Every number, table and figure in the paper is generated from the outputs in
 `analysis-output/v2/`. `scripts/build_paper_assets.py` writes the numbers to
@@ -23,10 +27,10 @@ created when you run the scripts.
 | `src/tabular_sota_benchmark/` | Library: artifact loaders, selectors, the shared rank rule (`ranking.py`) and the inference layer (`inference.py`) |
 | `scripts/` | The nested audit, the analyses, the figure script and the paper-asset builder |
 | `configs/` | One YAML file per run. `tabrepo_D244_F3_C1530_200_datasets.txt` pins the TabRepo slice; the two `*_smoke.yaml` files are small versions for a quick check, and `score_level_policy.yaml` is the benchmark script's default, which the paper does not use |
-| `analysis-output/v2/` | Outputs of every run the paper uses, including the stored training results of the compact offline check (`tabarena_ict_retraining_extended/`) |
-| `docs/meta_study/` | Meta-study protocol, screening log, codes, the blind recoding of a declared subset, the check of the codes behind the fixed-reference and validation-provenance counts, and the verification sheet |
+| `analysis-output/v2/` | Outputs of every run the paper uses, including the stored training results of the compact retraining check (`tabarena_ict_retraining_extended/`) |
+| `docs/meta_study/` | Meta-study protocol, screening log, codes, the blind recoding of a declared subset, the check of the codes behind the fixed-reference and validation-provenance counts, and the verification sheet (an earlier version's analysis; not reported in the current paper) |
 | `docs/claim_template.md` | Blank declaration of the nine fields for a new score-level claim |
-| `docs/positioning_coverage.csv` | Which of the nine fields each existing reporting instrument asks for, with the section or item each code rests on |
+| `docs/positioning_coverage.csv` | Which of the nine fields each existing reporting guideline asks for, with the section or item each code rests on (AI-coded and not verified by a human; the current paper only summarizes it in its related work) |
 | `data/tabarena/` | Copy of the TabArena results artifact and dataset metadata (see `NOTICE.md`) |
 | `tests/` | Unit tests |
 
@@ -92,13 +96,14 @@ a dedicated machine is faster.
 | `make tabarena` | Nested TabArena audit (100 splits) and dataset-level review | 2 h (12) |
 | `make tabarena-attribution` | The double-counting tie rule (`rank_rule: legacy`), in-sample weight choice and the shared inner fit (implementation-conventions appendix) | 3.6 h (12) |
 | `make tabarena-extended` | Meta-feature rows inside the nested pool | 3.3 h (10) |
-| `make tabarena-shrink` | Eight-policy mitigation grid | 1.4 h (10) |
+| `make tabarena-shrink` | Eight-policy reduced pool | 1.4 h (10) |
 | `make tabarena-analyses` | Validation provenance, $2^5$ factorial, grid diagnostics, MCS/SPA/PBO, evidence units, figures (in `paper/figures/`) | 6 min |
-| `make tabrepo` | TabRepo nested audit, score-only panel, reviews, split-half check | 70 h (14) |
-| `make tabrepo-attribution` | The TabRepo run with the shared inner fit, and its score-only panel | 1.6 h (14) |
-| `make tabrepo-analyses` | The same analyses on both TabRepo panels, and the tie-rule sensitivity of the fixed ensembles | 30 min (14) |
-| `make pooled overlap compact` | Pooled cross-artifact diagnostic, TabRepo contrasts without the datasets shared with TabArena, and compact offline check | 1 min |
+| `make tabrepo` | TabRepo nested audit, score-only pool, reviews, split-half check | 70 h (14) |
+| `make tabrepo-attribution` | The TabRepo run with the shared inner fit, and its score-only pool | 1.6 h (14) |
+| `make tabrepo-analyses` | The same analyses on both TabRepo pools, and the tie-rule sensitivity of the fixed ensembles | 30 min (14) |
+| `make pooled overlap compact` | Pooled cross-artifact diagnostic, TabRepo contrasts without the datasets shared with TabArena, and compact retraining check | 1 min |
 | `make jackknife` | Delete-d jackknife over the whole nested procedure: TabArena, then TabRepo | 12 h + 47 h (10) |
+| `make checks` | Robustness checks: the TabArena audit and its review rerun without the result rows TabArena filled in for runs that failed (`scripts/imputed_rows.py`), corrected resampled t-tests for the reviews, the influence of single datasets, and an error-space optimism correction | 1.5 h (12) |
 | `make assets` | `paper/generated/numbers.tex`, `labels.tex` and `tables/` | 10 s |
 | `make compress` | Lossless zstd recompression of the nested runs' `unit_scores.parquet` files (see Outputs) | 5 min |
 
@@ -140,7 +145,12 @@ with the fitted procedures held fixed. Each dataset also trains the procedures e
 the others, so this is a working independence approximation: the intervals and verdicts
 are nominal and give no guarantee for the procedure. The delete-d jackknife
 (`scripts/procedure_level_jackknife.py`) refits the procedures on subsets of datasets; it
-is a refitting-sensitivity diagnostic, not a standard error with known coverage.
+is a refitting-sensitivity diagnostic, not a standard error with known coverage. The
+corrected resampled t-test of Nadeau and Bengio (2003) (`scripts/corrected_resampled_test.py`)
+treats the 100 split-level mean differences as a sample and inflates their variance by
+1/J + n_test/n_train for the overlap of the splits' training sets; its results
+(`corrected_resampled_tests.csv`, columns `nb_*`) are reported next to the bootstrap test.
+It is also an approximation and has not been validated for this nested design.
 
 ## Inputs
 
@@ -153,7 +163,7 @@ is a refitting-sensitivity diagnostic, not a standard error with known coverage.
   here is the unmodified file that every TabArena run used.
 - **TabRepo:** commit `3785b6f`, context `D244_F3_C1530_200`, restricted to the 200
   datasets listed in `configs/tabrepo_D244_F3_C1530_200_datasets.txt`.
-- **Compact offline check:** the stored results in
+- **Compact retraining check:** the stored results in
   `analysis-output/v2/tabarena_ict_retraining_extended/`, trained on 2026-06-02 by the package's
   experiment loop (`python -m tabular_sota_benchmark.cli run-loop`). They are the input of
   the paper's compact check. The training reads the eight OpenML datasets from a local
@@ -205,7 +215,10 @@ four nested runs and their reviews, the CSV files byte for byte and the parquet 
 for value. The other runs were made from an uncommitted working tree of the development
 repository, so their recorded commit does not identify their code; the per-file hashes do.
 The TabRepo runs were not repeated in a clean copy, which would take about three days, but
-they ran the published pipeline files, as their hashes show.
+they ran the published pipeline files, as their hashes show. The TabArena run without the
+filled-in rows (`score_level_tabarena_no_imputed/`) and the other outputs of `make checks`
+were made on 2026-10-12 and 2026-10-13 from this repository's working tree, before the new
+scripts were committed; the run's per-file hashes match the published files.
 
 Two things differ from what the runs wrote:
 - The nested runs' `unit_scores.parquet` files (one row per split, unit and method) are
@@ -219,8 +232,10 @@ Every nested run's configuration file matches the hash recorded in its `metadata
 
 ## Meta-study
 
-`docs/meta_study/` holds the protocol, written before the search, and the screening log
-(25 records). It also holds the codes (`claims.csv`) and a verification sheet. Each code
+The current version of the paper does not report this meta-study; the records below
+document it as it was done for an earlier version. `docs/meta_study/` holds the protocol,
+written before the search, and the screening log (25 records). It also holds the codes
+(`claims.csv`) and a verification sheet. Each code
 moves through up to six column stages:
 - the first AI coding (`*_draft` columns);
 - a second AI coding made blind to the first (`*_check`);

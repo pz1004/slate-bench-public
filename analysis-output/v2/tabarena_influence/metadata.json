@@ -1,0 +1,14 @@
+{
+  "review_output": "analysis-output/v2/score_level_tabarena_review",
+  "command": [
+    "scripts/influence_check.py",
+    "--review-output",
+    "analysis-output/v2/score_level_tabarena_review",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabarena",
+    "--review-config",
+    "configs/review_tabarena.yaml",
+    "--output-dir",
+    "analysis-output/v2/tabarena_influence"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "review_output": "analysis-output/v2/score_level_tabrepo_nested_review",
+  "nested_output": "analysis-output/v2/score_level_tabrepo_nested",
+  "review_config": "configs/review_tabrepo.yaml",
+  "n_splits": 100,
+  "n_train_datasets": 150,
+  "n_test_datasets": 50,
+  "variance_factor": 0.3433333333333333,
+  "command": [
+    "scripts/corrected_resampled_test.py",
+    "--review-output",
+    "analysis-output/v2/score_level_tabrepo_nested_review",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabrepo_nested",
+    "--review-config",
+    "configs/review_tabrepo.yaml",
+    "--output-dir",
+    "analysis-output/v2/tabrepo_corrected_test"
+  ]
+}

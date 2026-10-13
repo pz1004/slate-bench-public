@@ -1,0 +1,20 @@
+{
+  "review_output": "analysis-output/v2/score_level_tabarena_extended_pool_review",
+  "nested_output": "analysis-output/v2/score_level_tabarena_extended_pool",
+  "review_config": "configs/review_tabarena_extended.yaml",
+  "n_splits": 100,
+  "n_train_datasets": 38,
+  "n_test_datasets": 13,
+  "variance_factor": 0.35210526315789475,
+  "command": [
+    "scripts/corrected_resampled_test.py",
+    "--review-output",
+    "analysis-output/v2/score_level_tabarena_extended_pool_review",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabarena_extended_pool",
+    "--review-config",
+    "configs/review_tabarena_extended.yaml",
+    "--output-dir",
+    "analysis-output/v2/tabarena_extended_corrected_test"
+  ]
+}

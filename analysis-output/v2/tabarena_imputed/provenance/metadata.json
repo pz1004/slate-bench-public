@@ -1,0 +1,19 @@
+{
+  "benchmark_config": "configs/score_level_tabarena_no_imputed.yaml",
+  "nested_output": "analysis-output/v2/score_level_tabarena_no_imputed",
+  "bootstrap_seed": 20260608,
+  "n_datasets": 51,
+  "n_units": 816,
+  "n_candidates": 44,
+  "n_train_datasets": 38,
+  "top_candidates": 5,
+  "command": [
+    "scripts/validation_provenance.py",
+    "--benchmark-config",
+    "configs/score_level_tabarena_no_imputed.yaml",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabarena_no_imputed",
+    "--output-dir",
+    "analysis-output/v2/tabarena_imputed/provenance"
+  ]
+}

@@ -1,0 +1,45 @@
+method,variant,share_units_over_budget,unit_share
+TABM (tuned),tuned,1.0,1.0
+TABM (tuned + ensemble),tuned + ensemble,1.0,1.0
+MNCA (tuned),tuned,0.8980392156862744,0.8085889570552147
+MNCA (tuned + ensemble),tuned + ensemble,0.8980392156862744,0.8088235294117647
+REALMLP (tuned),tuned,0.6862745098039216,0.4375
+REALMLP (tuned + ensemble),tuned + ensemble,0.6862745098039216,0.4375
+NN_TORCH (tuned),tuned,0.5206971677559913,0.31862745098039214
+NN_TORCH (tuned + ensemble),tuned + ensemble,0.5206971677559913,0.31862745098039214
+TABPFNV2 (tuned),tuned,0.4478114478114478,0.20336391437308868
+TABPFNV2 (tuned + ensemble),tuned + ensemble,0.4478114478114478,0.20336391437308868
+CAT (tuned + ensemble),tuned + ensemble,0.43551198257080614,0.3333333333333333
+CAT (tuned),tuned,0.43551198257080614,0.3333333333333333
+EBM (tuned + ensemble),tuned + ensemble,0.2679738562091503,0.16789215686274508
+EBM (tuned),tuned,0.2679738562091503,0.16789215686274508
+FASTAI (tuned),tuned,0.17429193899782136,0.09803921568627451
+FASTAI (tuned + ensemble),tuned + ensemble,0.17429193899782136,0.09803921568627451
+XGB (tuned + ensemble),tuned + ensemble,0.16775599128540306,0.09436274509803921
+XGB (tuned),tuned,0.16775599128540306,0.09436274509803921
+GBM (tuned + ensemble),tuned + ensemble,0.04793028322440088,0.02696078431372549
+GBM (tuned),tuned,0.04793028322440088,0.02696078431372549
+RF (tuned),tuned,0.0196078431372549,0.011029411764705883
+RF (tuned + ensemble),tuned + ensemble,0.0196078431372549,0.011029411764705883
+CAT (default),default,0.0,0.0
+EBM (default),default,0.0,0.0
+GBM (default),default,0.0,0.0
+FASTAI (default),default,0.0,0.0
+KNN (tuned),tuned,0.0,0.0
+KNN (default),default,0.0,0.0
+RF (default),default,0.0,0.0
+REALMLP (default),default,0.0,0.0
+NN_TORCH (default),default,0.0,0.0
+KNN (tuned + ensemble),tuned + ensemble,0.0,0.0
+LR (default),default,0.0,0.0
+LR (tuned + ensemble),tuned + ensemble,0.0,0.0
+LR (tuned),tuned,0.0,0.0
+MNCA (default),default,0.0,0.0
+TABPFNV2 (default),default,0.0,0.0
+TABM (default),default,0.0,0.0
+TABDPT (default),default,0.0,0.0
+TABICL (default),default,0.0,0.0
+XGB (default),default,0.0,0.0
+XT (default),default,0.0,0.0
+XT (tuned + ensemble),tuned + ensemble,0.0,0.0
+XT (tuned),tuned,0.0,0.0

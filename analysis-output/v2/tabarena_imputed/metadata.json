@@ -1,0 +1,15 @@
+{
+  "results": "data/tabarena/df_results.csv",
+  "results_sha256": "7c8c225a9ff8ec48658c5d211184a429e4506f05d981393afb1ceb6964b32853",
+  "metadata": "data/tabarena/tabarena_dataset_metadata.csv",
+  "metadata_sha256": "c68918c9bd1d98cfe5b74d5f21eb360e14dbc1c31430e402fe01725a215f8753",
+  "rows": 35904,
+  "copied_rows": 890,
+  "kept_rows": 35014,
+  "filtered_sha256": "4ff85c6b1785a9765575a64fde00494859e2eb12ca98a9fb8861f3fc25a6224c",
+  "command": [
+    "scripts/imputed_rows.py",
+    "--output-dir",
+    "analysis-output/v2/tabarena_imputed"
+  ]
+}
