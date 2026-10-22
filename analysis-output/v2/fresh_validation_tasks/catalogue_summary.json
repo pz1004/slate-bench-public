@@ -1,0 +1,63 @@
+{
+  "catalogue_file": "data/fresh_validation/catalogue/openml_data_list_active.json",
+  "catalogue_sha256": "bb8fb4c63a4398e0f7c64172e28b9706331cb5d16d48de885d97730760fe9706",
+  "retrieved_utc": "2026-10-22T10:42:30Z",
+  "n_active_datasets": 6644,
+  "rule": {
+    "min_classes": 2,
+    "max_classes": 10,
+    "min_rows": 1000,
+    "max_rows": 100000,
+    "max_features": 500,
+    "min_class_rows": 100
+  },
+  "synthetic_name_patterns": [
+    "^bng\\(",
+    "^fri_c\\d",
+    "gametes",
+    "^autouniv",
+    "randomrbf",
+    "^sea\\(",
+    "^sea_",
+    "^led",
+    "hyperplane",
+    "agrawal",
+    "stagger",
+    "waveform",
+    "^friedman",
+    "^madelon",
+    "^monks",
+    "^parity",
+    "^xor",
+    "^mv$",
+    "^2dplanes",
+    "^puma",
+    "^simulated",
+    "^synthetic",
+    "^artificial",
+    "^hill-valley",
+    "^ringnorm",
+    "^twonorm",
+    "^threenorm",
+    "^chscase",
+    "^fried"
+  ],
+  "derived_name_patterns": {
+    "_seed_\\d+_nrows_\\d+": "derived subsample",
+    "^forex_": "time-series family"
+  },
+  "n_eligible": 181,
+  "exclusions": {
+    "classes": 3170,
+    "sparse format": 1149,
+    "rows": 1100,
+    "derived subsample": 346,
+    "TabArena or TabRepo name": 220,
+    "eligible": 181,
+    "smallest class": 157,
+    "time-series family": 128,
+    "earlier version of an eligible name": 92,
+    "features": 53,
+    "synthetic generator": 48
+  }
+}

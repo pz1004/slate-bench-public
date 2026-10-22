@@ -163,6 +163,19 @@ a dedicated machine is faster.
 - The jackknife uses cyclic splits (`--split-design cyclic`): every kept dataset is held out
   once in every cycle of four splits.
 
+### Fresh-validation experiment and TabRepo frozen-fit check (prespecified)
+
+`docs/fresh_validation_protocol.md` fixes, before any of its task data were downloaded, a
+controlled experiment on 46 untouched OpenML classification datasets: each learner family's
+default, tuned and tuned-and-ensembled candidates are frozen, and validation-best chooses among
+them once on the construction-validation scores that tuning and ensembling reused and once on
+fresh scores of an equally large selection-validation set. The same protocol fixes a frozen-fit
+check of the TabRepo audit (one fold of grouped splits, fitted once and evaluated on held-out
+source groups). Targets: `fresh-validation-tasks` (rebuilds the task selection from OpenML's
+metadata), `fresh-validation-data`, `fresh-validation-pilot`, `fresh-validation` and
+`tabrepo-frozen-fit`. `literal-vb` rebuilds every TabRepo contrast with validation-best as the
+literal rule (lowest validation error, then fit time, then candidate order) as reference.
+
 ## Inference
 
 The paper calls the rank correction *offset-corrected validation*; the outputs keep the

@@ -1,0 +1,51 @@
+# Candidate tasks of the fresh-validation experiment (docs/fresh_validation_protocol.md), in the
+# seeded random order of the eligible OpenML datasets (catalogue SHA-256 bb8fb4c63a4398e0f7c64172e28b9706331cb5d16d48de885d97730760fe9706,
+# retrieved 2026-10-22T10:42:30Z), after the source check: every included dataset. `use` turns
+# to yes for each that passes the automatic checks after download, and to no with the reason otherwise.
+order,dataset_id,name,version,rows,features,classes,smallest_class,licence,target,drop,parquet_url,path,use
+3,382,ipums_la_97-small,1,7019,60,8,258,Public,movedin,,https://data.openml.org/datasets/0000/0382/dataset_382.pq,data/fresh_validation/openml/382/dataset_382.pq,pending
+7,45558,Pulsar-Dataset-HTRU2,2,17898,8,2,1639,Public,class,,https://data.openml.org/datasets/0004/45558/dataset_45558.pq,data/fresh_validation/openml/45558/dataset_45558.pq,pending
+8,46764,football-player-position,2,3611,11,4,345,CC0,class,,https://data.openml.org/datasets/0004/46764/dataset_46764.pq,data/fresh_validation/openml/46764/dataset_46764.pq,pending
+9,46851,hepatitis_c_virus_hcv_for_egyptian_patients,3,1385,28,4,332,"UCI and Nasr, M., El-Bahnasy, K., Hamdy, M., & Kamal, S. M.",Baselinehistological_staging,,https://data.openml.org/datasets/0004/46851/dataset_46851.pq,data/fresh_validation/openml/46851/dataset_46851.pq,pending
+26,45037,BitcoinHeist_Ransomware,2,24780,7,2,12390,Public,label,,https://data.openml.org/datasets/0004/45037/dataset_45037.pq,data/fresh_validation/openml/45037/dataset_45037.pq,pending
+27,46951,Pumpkin_Seeds,1,2500,12,2,1200,Public,SeedType,,https://data.openml.org/datasets/0004/46951/dataset_46951.pq,data/fresh_validation/openml/46951/dataset_46951.pq,pending
+31,46944,Mobile_Price,1,2000,20,4,500,Public,price_range,,https://data.openml.org/datasets/0004/46944/dataset_46944.pq,data/fresh_validation/openml/46944/dataset_46944.pq,pending
+32,46876,depression_2020,2,1429,20,2,238,"Kaggle, GPL 2",depressed,,https://data.openml.org/datasets/0004/46876/dataset_46876.pq,data/fresh_validation/openml/46876/dataset_46876.pq,pending
+36,44226,NewspaperChurn,1,15855,18,2,3037,Unknown,Subscriber,,https://data.openml.org/datasets/0004/44226/dataset_44226.pq,data/fresh_validation/openml/44226/dataset_44226.pq,pending
+37,46507,Interest_Rate,1,32862,12,3,6750,CC BY 4.0,Interest_Rate,,https://data.openml.org/datasets/0004/46507/dataset_46507.pq,data/fresh_validation/openml/46507/dataset_46507.pq,pending
+43,46527,US_Stocks_Financial_Indicators,1,4392,230,2,1346,CC BY 4.0,class,,https://data.openml.org/datasets/0004/46527/dataset_46527.pq,data/fresh_validation/openml/46527/dataset_46527.pq,pending
+44,40702,solar-flare,5,1066,10,2,182,public,class,,https://data.openml.org/datasets/0004/40702/dataset_40702.pq,data/fresh_validation/openml/40702/dataset_40702.pq,pending
+45,46372,Multiclass_Classification_for_Corporate_Credit_Ratings,1,5000,7,10,500,CC BY 4.0,rating,,https://data.openml.org/datasets/0004/46372/dataset_46372.pq,data/fresh_validation/openml/46372/dataset_46372.pq,pending
+46,44225,MembershipWoes,2,10362,14,2,3143,Unknown,MEMBERSHIP_STATUS,,https://data.openml.org/datasets/0004/44225/dataset_44225.pq,data/fresh_validation/openml/44225/dataset_44225.pq,pending
+56,46541,dataset_china,3,27522,27,5,103,CC BY 4.0,five_categories,,https://data.openml.org/datasets/0004/46541/dataset_46541.pq,data/fresh_validation/openml/46541/dataset_46541.pq,pending
+58,728,analcatdata_supreme,2,4052,7,2,971,Public,binaryClass,,https://data.openml.org/datasets/0000/0728/dataset_728.pq,data/fresh_validation/openml/728/dataset_728.pq,pending
+60,46868,Phishing_Legitimate_full,2,10000,48,2,5000,Kaggle Attribution 4.0 International (CC BY 4.0),CLASS_LABEL,,https://data.openml.org/datasets/0004/46868/dataset_46868.pq,data/fresh_validation/openml/46868/dataset_46868.pq,pending
+67,46819,WBCAtt,3,10298,11,5,1214,Hospital Clinic de Barcelona,label,,https://data.openml.org/datasets/0004/46819/dataset_46819.pq,data/fresh_validation/openml/46819/dataset_46819.pq,pending
+68,3,kr-vs-kp,1,3196,36,2,1527,Public,class,,https://data.openml.org/datasets/0000/0003/dataset_3.pq,data/fresh_validation/openml/3/dataset_3.pq,pending
+70,46528,EDA-Home-Mortgage-NY-Sampled,1,43965,29,6,1418,Public,action_taken,,https://data.openml.org/datasets/0004/46528/dataset_46528.pq,data/fresh_validation/openml/46528/dataset_46528.pq,pending
+72,46361,Risk_Level_Classification,2,78600,18,3,6495,CC BY 4.0,anomaly,,https://data.openml.org/datasets/0004/46361/dataset_46361.pq,data/fresh_validation/openml/46361/dataset_46361.pq,pending
+75,44227,South_Asian_Churn_dataset,1,2000,13,2,1000,Unknown,Class,,https://data.openml.org/datasets/0004/44227/dataset_44227.pq,data/fresh_validation/openml/44227/dataset_44227.pq,pending
+79,45548,Otto-Group-Product-Classification-Challenge,1,61878,93,9,1929,Unknown,target,id,https://data.openml.org/datasets/0004/45548/dataset_45548.pq,data/fresh_validation/openml/45548/dataset_45548.pq,pending
+80,46506,Credit_Score,1,50000,21,3,8980,CC BY 4.0,Credit_Score,,https://data.openml.org/datasets/0004/46506/dataset_46506.pq,data/fresh_validation/openml/46506/dataset_46506.pq,pending
+82,46864,Skin_Cancer_PAD-UFES-20,2,2298,23,2,956,"Kaggle and Federal University of Espirito Santo, Brazil",biopsed,,https://data.openml.org/datasets/0004/46864/dataset_46864.pq,data/fresh_validation/openml/46864/dataset_46864.pq,pending
+94,42738,open_payments,3,73558,5,2,4749,Public Domain (CC0),status,,https://data.openml.org/datasets/0004/42738/dataset_42738.pq,data/fresh_validation/openml/42738/dataset_42738.pq,pending
+100,1462,banknote-authentication,1,1372,4,2,610,Public,Class,,https://data.openml.org/datasets/0000/1462/dataset_1462.pq,data/fresh_validation/openml/1462/dataset_1462.pq,pending
+106,46874,student_depression_dataset,2,27901,16,2,11565,"Kaggle, Apache 2.0",Depression,,https://data.openml.org/datasets/0004/46874/dataset_46874.pq,data/fresh_validation/openml/46874/dataset_46874.pq,pending
+107,46925,Employee,2,4653,8,2,1600,CC0: Public Domain,LeaveOrNot,,https://data.openml.org/datasets/0004/46925/dataset_46925.pq,data/fresh_validation/openml/46925/dataset_46925.pq,pending
+109,45547,Cardiovascular-Disease-dataset,1,70000,11,2,34979,Unknown,cardio,id,https://data.openml.org/datasets/0004/45547/dataset_45547.pq,data/fresh_validation/openml/45547/dataset_45547.pq,pending
+110,45039,compas-two-years,5,4966,11,2,2483,Public,twoyearrecid,,https://data.openml.org/datasets/0004/45039/dataset_45039.pq,data/fresh_validation/openml/45039/dataset_45039.pq,pending
+111,40666,clean2,1,6598,168,2,1017,public,class,,https://data.openml.org/datasets/0004/40666/dataset_40666.pq,data/fresh_validation/openml/40666/dataset_40666.pq,pending
+114,46483,HMEQ_Data_New,1,5960,12,2,1189,Public,bad,,https://data.openml.org/datasets/0004/46483/dataset_46483.pq,data/fresh_validation/openml/46483/dataset_46483.pq,pending
+116,43892,national-longitudinal-survey-binary,1,4908,16,2,1853,Public,income96gt17,,https://data.openml.org/datasets/0004/43892/dataset_43892.pq,data/fresh_validation/openml/43892/dataset_43892.pq,pending
+117,46422,Credit-Risk-Classification-Dataset,1,1125,42,2,225,Public,label,,https://data.openml.org/datasets/0004/46422/dataset_46422.pq,data/fresh_validation/openml/46422/dataset_46422.pq,pending
+121,46519,Credit_Risk_Modeling,1,51336,61,4,5803,CC BY 4.0,approved_flag,,https://data.openml.org/datasets/0004/46519/dataset_46519.pq,data/fresh_validation/openml/46519/dataset_46519.pq,pending
+122,46877,PostPartum_Depression,2,1503,9,2,523,"Kaggle, CC0: Public Domain",Feeling_anxious,,https://data.openml.org/datasets/0004/46877/dataset_46877.pq,data/fresh_validation/openml/46877/dataset_46877.pq,pending
+130,42343,KDD98,3,82318,477,2,9690,Public,TARGET_B,,https://data.openml.org/datasets/0004/42343/dataset_42343.pq,data/fresh_validation/openml/42343/dataset_42343.pq,pending
+133,46871,Advanced_IoT_Dataset,2,30000,13,6,5000,Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0),Class,,https://data.openml.org/datasets/0004/46871/dataset_46871.pq,data/fresh_validation/openml/46871/dataset_46871.pq,pending
+135,46880,air-quality-and-pollution-assessment,2,5000,9,4,500,"Kaggle, Apache 2.0",Air_Quality,,https://data.openml.org/datasets/0004/46880/dataset_46880.pq,data/fresh_validation/openml/46880/dataset_46880.pq,pending
+138,44160,rl,4,4970,12,2,2485,Public,class,,https://data.openml.org/datasets/0004/44160/dataset_44160.pq,data/fresh_validation/openml/44160/dataset_44160.pq,pending
+140,46359,Fraud-Detection-Updated,1,4156,28,2,417,CC BY 4.0,bad_flag,,https://data.openml.org/datasets/0004/46359/dataset_46359.pq,data/fresh_validation/openml/46359/dataset_46359.pq,pending
+156,46860,Support2,2,9105,46,2,2904,Kaggle and Robert Wood Johnson Foundation,death,,https://data.openml.org/datasets/0004/46860/dataset_46860.pq,data/fresh_validation/openml/46860/dataset_46860.pq,pending
+157,43922,mushroom,3,8124,22,2,3916,public,class,,https://data.openml.org/datasets/0004/43922/dataset_43922.pq,data/fresh_validation/openml/43922/dataset_43922.pq,pending
+167,43904,law-school-admission-bianry,3,20800,10,2,6694,Public,ugpagt3,,https://data.openml.org/datasets/0004/43904/dataset_43904.pq,data/fresh_validation/openml/43904/dataset_43904.pq,pending
+172,46859,Santander_Customer_Satisfaction,2,76020,369,2,3008,Kaggle and Santander,TARGET,,https://data.openml.org/datasets/0004/46859/dataset_46859.pq,data/fresh_validation/openml/46859/dataset_46859.pq,pending

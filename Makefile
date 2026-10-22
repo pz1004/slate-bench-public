@@ -19,12 +19,14 @@ export MKL_NUM_THREADS = 1
 
 .PHONY: all test tabarena tabarena-attribution tabarena-extended tabarena-shrink \
         tabarena-analyses tabrepo tabrepo-attribution tabrepo-analyses pooled compact jackknife checks compress \
-        tabrepo-grouped calibration \
+        tabrepo-grouped tabrepo-grouped-inner literal-vb calibration fresh-validation-tasks fresh-validation-data \
+        fresh-validation-pilot fresh-validation tabrepo-frozen-fit \
         meta-sheet assets meta-recheck-draw meta-recheck-sheet meta-recheck-check meta-recheck-merge \
         meta-count-sheet meta-count-check meta-count-merge overlap smoke
 
 all: test tabarena tabarena-attribution tabarena-extended tabarena-shrink tabarena-analyses \
      tabrepo tabrepo-attribution tabrepo-analyses pooled overlap compact jackknife tabrepo-grouped checks \
+     tabrepo-grouped-inner literal-vb \
      calibration assets
 
 $(LOGS):
@@ -220,6 +222,129 @@ tabrepo-grouped-inner: | $(LOGS)
 	  --outer score_only=$(OUT)/score_level_tabrepo_grouped_score_only_review --outer ensemble=$(OUT)/score_level_tabrepo_grouped_review \
 	  --inner score_only=$(OUT)/score_level_tabrepo_grouped_inner_score_only_review --inner ensemble=$(OUT)/score_level_tabrepo_grouped_inner_review \
 	  --output-dir $(OUT)/tabrepo_grouped_inner_vs_outer
+
+# ---------------------------------------------------------------- literal validation-best (~10 min)
+# The pool's validation-best row adds 1e-6 log(1 + fit seconds) to the validation error; on
+# TabRepo that changes the choice in 7 of 600 units. Every TabRepo contrast takes the literal
+# rule (validation error, then fit time, then candidate order) as its reference: the reviews
+# are rebuilt with the frozen review code, the pool row renamed meta_selector_single_runtime,
+# and the analyses that read them rerun into $(LIT). Also checked: the literal rule inside the
+# pool, and TabArena's restricted validation-best rows under the same tie rule. Needs the
+# TabArena, TabRepo, grouped, attribution, overlap and checks outputs above.
+LIT := $(OUT)/literal_vb
+LITERAL_RUNS := score_level_tabrepo_nested:review_tabrepo score_level_tabrepo_score_only:review_tabrepo_score_only \
+  score_level_tabrepo_grouped:review_tabrepo score_level_tabrepo_grouped_score_only:review_tabrepo_score_only \
+  score_level_tabrepo_grouped_inner:review_tabrepo score_level_tabrepo_grouped_inner_score_only:review_tabrepo_score_only \
+  attribution/inner_shared_tabrepo_score_only:review_tabrepo_score_only
+literal-vb: | $(LOGS)
+	$(PYTHON) scripts/literal_validation_best.py units --benchmark-config configs/score_level_tabarena.yaml \
+	  --nested-output $(OUT)/score_level_tabarena --output $(LIT)/tabarena_units.parquet
+	$(PYTHON) scripts/literal_validation_best.py units --benchmark-config configs/score_level_tabrepo_nested.yaml \
+	  --nested-output $(OUT)/score_level_tabrepo_nested --output $(LIT)/tabrepo_units.parquet
+	$(PYTHON) scripts/literal_validation_best.py tabarena-ties --benchmark-config configs/score_level_tabarena.yaml \
+	  --output-dir $(LIT)
+	for pair in $(LITERAL_RUNS); do run=$${pair%%:*}; config=$${pair##*:}; \
+	  $(PYTHON) scripts/literal_validation_best.py review --nested-output $(OUT)/$$run --review-config configs/$$config.yaml \
+	    --units $(LIT)/tabrepo_units.parquet --original-review $(OUT)/$${run}_review --output-dir $(LIT)/$${run}_review || exit 1; \
+	done
+	for run in nested grouped grouped_inner; do \
+	  if [ $$run = nested ]; then source=score_level_tabrepo_nested; review=score_level_tabrepo_nested; scored=score_level_tabrepo_score_only; \
+	  else source=score_level_tabrepo_$$run; review=$$source; scored=$${source}_score_only; fi; \
+	  $(PYTHON) scripts/literal_validation_best.py substitute --nested-output $(OUT)/$$source --review-config configs/review_tabrepo.yaml \
+	    --units $(LIT)/tabrepo_units.parquet --original-review $(OUT)/$${review}_review --literal-review $(LIT)/$${review}_review \
+	    --output-dir $(LIT)/pool_substitution/ensemble_$$run || exit 1; \
+	  $(PYTHON) scripts/literal_validation_best.py substitute --nested-output $(OUT)/$$source --score-only \
+	    --stored-splits $(OUT)/$$scored/split_results.csv --review-config configs/review_tabrepo_score_only.yaml \
+	    --units $(LIT)/tabrepo_units.parquet --original-review $(OUT)/$${scored}_review --literal-review $(LIT)/$${scored}_review \
+	    --output-dir $(LIT)/pool_substitution/score_only_$$run || exit 1; \
+	done
+	$(PYTHON) scripts/literal_validation_best.py substitute --nested-output $(OUT)/attribution/inner_shared_tabrepo --score-only \
+	  --stored-splits $(OUT)/attribution/inner_shared_tabrepo_score_only/split_results.csv --review-config configs/review_tabrepo_score_only.yaml \
+	  --units $(LIT)/tabrepo_units.parquet --original-review $(OUT)/attribution/inner_shared_tabrepo_score_only_review \
+	  --literal-review $(LIT)/attribution/inner_shared_tabrepo_score_only_review --output-dir $(LIT)/pool_substitution/score_only_attribution_inner_shared
+	$(PYTHON) scripts/corrected_resampled_test.py --review-output $(LIT)/score_level_tabrepo_nested_review \
+	  --nested-output $(OUT)/score_level_tabrepo_nested --review-config configs/review_tabrepo.yaml \
+	  --output-dir $(LIT)/tabrepo_corrected_test
+	$(PYTHON) scripts/corrected_resampled_test.py --review-output $(LIT)/score_level_tabrepo_score_only_review \
+	  --nested-output $(OUT)/score_level_tabrepo_score_only --review-config configs/review_tabrepo_score_only.yaml \
+	  --output-dir $(LIT)/tabrepo_score_only_corrected_test
+	for run in grouped grouped_inner; do \
+	  $(PYTHON) scripts/corrected_resampled_test.py --review-output $(LIT)/score_level_tabrepo_$${run}_review \
+	    --nested-output $(OUT)/score_level_tabrepo_$$run --review-config configs/review_tabrepo.yaml \
+	    --output-dir $(LIT)/tabrepo_$${run}_corrected_test --unequal-splits || exit 1; \
+	  $(PYTHON) scripts/corrected_resampled_test.py --review-output $(LIT)/score_level_tabrepo_$${run}_score_only_review \
+	    --nested-output $(OUT)/score_level_tabrepo_$${run}_score_only --review-config configs/review_tabrepo_score_only.yaml \
+	    --output-dir $(LIT)/tabrepo_$${run}_score_only_corrected_test --unequal-splits || exit 1; \
+	done
+	$(PYTHON) scripts/tabrepo_source_groups.py --review ensemble=$(LIT)/score_level_tabrepo_nested_review \
+	  --review score_only=$(LIT)/score_level_tabrepo_score_only_review \
+	  --review ensemble_grouped=$(LIT)/score_level_tabrepo_grouped_review \
+	  --review score_only_grouped=$(LIT)/score_level_tabrepo_grouped_score_only_review --output-dir $(LIT)/tabrepo_source_groups
+	$(PYTHON) scripts/tabrepo_source_groups.py --review ensemble_grouped_inner=$(LIT)/score_level_tabrepo_grouped_inner_review \
+	  --review score_only_grouped_inner=$(LIT)/score_level_tabrepo_grouped_inner_score_only_review \
+	  --output-dir $(LIT)/tabrepo_source_groups_inner
+	$(PYTHON) scripts/tabrepo_grouped_comparison.py --score-only-random $(LIT)/score_level_tabrepo_score_only_review \
+	  --score-only-grouped $(LIT)/score_level_tabrepo_grouped_score_only_review \
+	  --ensemble-random $(LIT)/score_level_tabrepo_nested_review --ensemble-grouped $(LIT)/score_level_tabrepo_grouped_review \
+	  --output-dir $(LIT)/tabrepo_grouped_comparison
+	$(PYTHON) scripts/tabrepo_grouped_comparison.py --score-only-random $(LIT)/score_level_tabrepo_score_only_review \
+	  --score-only-grouped $(LIT)/score_level_tabrepo_grouped_inner_score_only_review \
+	  --ensemble-random $(LIT)/score_level_tabrepo_nested_review --ensemble-grouped $(LIT)/score_level_tabrepo_grouped_inner_review \
+	  --grouped-splits $(OUT)/score_level_tabrepo_grouped_inner/grouped_splits.json --output-dir $(LIT)/tabrepo_grouped_inner_comparison
+	$(PYTHON) scripts/tabrepo_grouped_inner_comparison.py \
+	  --outer score_only=$(LIT)/score_level_tabrepo_grouped_score_only_review --outer ensemble=$(LIT)/score_level_tabrepo_grouped_review \
+	  --inner score_only=$(LIT)/score_level_tabrepo_grouped_inner_score_only_review --inner ensemble=$(LIT)/score_level_tabrepo_grouped_inner_review \
+	  --output-dir $(LIT)/tabrepo_grouped_inner_vs_outer
+	$(PYTHON) scripts/tabrepo_overlap_sensitivity.py --overlap $(OUT)/pooled_cross_artifact/overlapping_datasets.csv \
+	  --review ensemble=$(LIT)/score_level_tabrepo_nested_review \
+	  --review score_only=$(LIT)/score_level_tabrepo_score_only_review --output-dir $(LIT)/tabrepo_overlap_sensitivity
+	$(PYTHON) scripts/tabrepo_overlap_sensitivity.py --overlap $(OUT)/pooled_cross_artifact/overlapping_datasets.csv \
+	  --related wine-quality-red wine-quality-white dna kc1 kc2 mc1 pc1 pc2 pc3 pc4 \
+	  --review ensemble=$(LIT)/score_level_tabrepo_nested_review \
+	  --review score_only=$(LIT)/score_level_tabrepo_score_only_review --output-dir $(LIT)/tabrepo_overlap_sensitivity_source
+	for panel in score_level_tabrepo_nested score_level_tabrepo_score_only; do \
+	  $(PYTHON) scripts/search_aware_inference.py --review-output $(LIT)/$${panel}_review --nested-output $(OUT)/$$panel \
+	    --pool-alias meta_selector_single=meta_selector_single_runtime --output-dir $(LIT)/$${panel}_search_inference || exit 1; \
+	done
+	$(PYTHON) scripts/error_space_correction.py --benchmark-config configs/score_level_tabrepo_nested.yaml \
+	  --review-output $(LIT)/score_level_tabrepo_score_only_review --review-config configs/review_tabrepo_score_only.yaml \
+	  --output-dir $(LIT)/tabrepo_error_space --family-offsets --provenance-output $(OUT)/tabrepo_provenance --tie-rule lexicographic
+	$(PYTHON) scripts/error_space_correction.py --benchmark-config configs/score_level_tabrepo_nested.yaml \
+	  --review-output $(LIT)/score_level_tabrepo_score_only_review --review-config configs/review_tabrepo_score_only.yaml \
+	  --output-dir $(LIT)/tabrepo_error_space_median --family-offsets --scale median --tie-rule lexicographic
+
+# ---------------------------------------------------------------- fresh-validation experiment
+# The prespecified experiment of docs/fresh_validation_protocol.md. `fresh-validation-tasks`
+# rebuilds the eligibility table, the random order and the source-check sheet from OpenML's
+# metadata (the frozen task list is configs/fresh_validation_tasks.csv); `fresh-validation-data`
+# downloads the candidates' data files (about 60 MB) and runs the automatic checks. The pilot
+# runs on the compact check's eight TabArena datasets (local copies).
+FV_WORKERS ?= 21
+FV_OUT := $(OUT)/fresh_validation
+fresh-validation-tasks:
+	$(PYTHON) scripts/fresh_validation_tasks.py catalogue
+	$(PYTHON) scripts/fresh_validation_tasks.py sheet --first 181
+fresh-validation-data:
+	$(PYTHON) scripts/fresh_validation_tasks.py download
+fresh-validation-pilot: | $(LOGS)
+	$(PYTHON) scripts/fresh_validation_experiment.py --tasks configs/fresh_validation_pilot_tasks.csv --repetitions 2 \
+	  --output-dir $(OUT)/fresh_validation_pilot --jobs $(FV_WORKERS) --resume
+	$(PYTHON) scripts/fresh_validation_analysis.py --run-dir $(OUT)/fresh_validation_pilot \
+	  --output-dir $(OUT)/fresh_validation_pilot/analysis
+fresh-validation: | $(LOGS)
+	$(PYTHON) scripts/fresh_validation_experiment.py --tasks configs/fresh_validation_tasks.csv \
+	  --protocol docs/fresh_validation_protocol.md --output-dir $(FV_OUT) --jobs $(FV_WORKERS) --resume
+	$(PYTHON) scripts/fresh_validation_analysis.py --run-dir $(FV_OUT) --output-dir $(FV_OUT)/analysis
+
+# TabRepo frozen-fit check (the protocol's Section 8): one 4-fold repeat of the fully grouped
+# design with a new split seed; fold 0 is the declared evaluation. (~5 h at 4 workers)
+tabrepo-frozen-fit: | $(LOGS)
+	$(PYTHON) scripts/grouped_inner_splits.py --config configs/score_level_tabrepo_nested.yaml --repeats 1 \
+	  --split-seed 20261022 --jobs 4 --resume --output-dir $(OUT)/score_level_tabrepo_frozen_fit
+	$(PYTHON) scripts/score_level_policy_pool_ablation.py --nested-output $(OUT)/score_level_tabrepo_frozen_fit \
+	  --output-dir $(OUT)/score_level_tabrepo_frozen_fit_score_only
+	$(PYTHON) scripts/tabrepo_frozen_fit.py --run $(OUT)/score_level_tabrepo_frozen_fit \
+	  --score-only-run $(OUT)/score_level_tabrepo_frozen_fit_score_only --output-dir $(OUT)/tabrepo_frozen_fit
 
 compact:
 	$(PYTHON) scripts/third_artifact_validation.py --input analysis-output/v2/tabarena_ict_retraining_extended/results.csv \

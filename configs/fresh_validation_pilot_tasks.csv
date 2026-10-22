@@ -1,0 +1,12 @@
+# Pilot of the fresh-validation experiment: the eight TabArena classification datasets of the
+# compact retraining check, already inspected, so the pilot is exploratory. It fixes only
+# computational settings (docs/fresh_validation_protocol.md).
+dataset_id,name,path,target,drop,use
+46905,Amazon_employee_access,data/tabarena/openml_parquet/0004/46905/dataset_46905.pq,ResourceApproved,,yes
+46908,APSFailure,data/tabarena/openml_parquet/0004/46908/dataset_46908.pq,AirPressureSystemFailure,,yes
+46911,Bank_Customer_Churn,data/tabarena/openml_parquet/0004/46911/dataset_46911.pq,churn,,yes
+46915,churn,data/tabarena/openml_parquet/0004/46915/dataset_46915.pq,CustomerChurned,,yes
+46924,E-CommereShippingData,data/tabarena/openml_parquet/0004/46924/dataset_46924.pq,ArrivedLate,,yes
+46979,jm1,data/tabarena/openml_parquet/0004/46979/dataset_46979.pq,defects,,yes
+46969,NATICUSdroid,data/tabarena/openml_parquet/0004/46969/dataset_46969.pq,Malware,,yes
+46963,website_phishing,data/tabarena/openml_parquet/0004/46963/dataset_46963.pq,WebsiteType,,yes

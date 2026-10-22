@@ -47,6 +47,9 @@ POLICY_LABELS: dict[str, tuple[str, str]] = {
     "meta_selector_meta_feature_guard_010": ("Guard ($\\delta = 0.10$)", "GuardTen"),
     "meta_selector_meta_feature_guard_020": ("Guard ($\\delta = 0.20$)", "GuardTwenty"),
     "meta_selector_single": ("Validation-best", "ValidationBest"),
+    # The pool's validation-best row as implemented: validation error plus 1e-6 log(1 + fit seconds).
+    # On TabRepo the literal rule takes the name above as the reference (scripts/literal_validation_best.py).
+    "meta_selector_single_runtime": ("Validation-best with a runtime term", "ValidationBestRuntime"),
     "meta_selector_ablate_validation_only": ("Validation rank", "ValidationRank"),
     "reference_single_best_global": ("Single best (global)", "SingleBest"),
     "reference_single_best_task": ("Single best (per task)", "SingleBestTask"),

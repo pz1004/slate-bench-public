@@ -166,7 +166,24 @@ def reproduce_provenance_snr(frame: pd.DataFrame, provenance_dir: Path, *, n_tra
     return gap
 
 
-def evaluate(frame: pd.DataFrame, held_out: pd.DataFrame, offsets: pd.DataFrame | None, *, by: str) -> pd.Series:
+def _pick(units: pd.DataFrame, score: pd.Series, *, tie_rule: str) -> pd.DataFrame:
+    """Each unit's lowest score: ``runtime`` adds the runtime term and keeps the first minimum, as
+    the pool's validation-best row does; ``lexicographic`` breaks exact ties by fit time, then
+    candidate order, as the literal validation-best rule does."""
+    if tie_rule == "runtime":
+        total = score + units["tie"]
+        return units.loc[total.groupby(units["unit"]).idxmin()]
+    if tie_rule == "lexicographic":
+        ordered = units.assign(_score=score, _order=np.arange(len(units))).sort_values(
+            ["unit", "_score", "fit_seconds", "_order"], kind="stable"
+        )
+        return ordered.groupby("unit", sort=False).head(1).drop(columns=["_score", "_order"])
+    raise ValueError(f"Unknown tie rule {tie_rule!r}")
+
+
+def evaluate(
+    frame: pd.DataFrame, held_out: pd.DataFrame, offsets: pd.DataFrame | None, *, by: str, tie_rule: str = "runtime"
+) -> pd.Series:
     """Dataset-level mean held-out regret of the corrected rule (offsets None: validation-best)."""
     datasets = sorted(frame["dataset"].unique())
     rows = []
@@ -174,13 +191,13 @@ def evaluate(frame: pd.DataFrame, held_out: pd.DataFrame, offsets: pd.DataFrame 
         heldout = set(group["dataset"])
         units = frame[frame["dataset"].isin(heldout)]
         if offsets is None:
-            score = units["val_primary_metric"] + units["tie"]
+            score = units["val_primary_metric"]
         else:
             train = [dataset for dataset in datasets if dataset not in heldout]
             offset = offsets.loc[offsets.index.intersection(train)].mean(axis=0, skipna=True)
             shift = units[by].map(offset).fillna(0.0) * units["scale"].fillna(0.0)
-            score = units["val_primary_metric"] + shift + units["tie"]
-        chosen = units.loc[score.groupby(units["unit"]).idxmin()]
+            score = units["val_primary_metric"] + shift
+        chosen = _pick(units, score, tie_rule=tie_rule)
         per_dataset = chosen.groupby("dataset")["regret"].mean()
         rows.append(pd.DataFrame({"split_id": split_id, "dataset": per_dataset.index, "regret": per_dataset.values}))
     split_scores = pd.concat(rows, ignore_index=True)
@@ -200,15 +217,18 @@ def run(args: argparse.Namespace) -> None:
     means = pd.read_csv(review_dir / "dataset_mean_scores.csv")
     regret = means.pivot_table(index="dataset", columns="method", values="mean_normalized_rank_regret")
 
-    check = evaluate(frame, held_out, None, by="method")
+    tie_rule = str(args.tie_rule)
+    check = evaluate(frame, held_out, None, by="method", tie_rule=tie_rule)
     gap = float((check - regret[VALIDATION_BEST].reindex(check.index)).abs().max())
     if gap > 1e-9:
         raise ValueError(f"Zero offsets do not reproduce validation-best (max gap {gap:.3g}).")
 
-    rules = {"error_space_correction": evaluate(frame, held_out, dataset_offsets(frame, by="method"), by="method")}
+    rules = {
+        "error_space_correction": evaluate(frame, held_out, dataset_offsets(frame, by="method"), by="method", tie_rule=tie_rule)
+    }
     if args.family_offsets:
         rules["error_space_correction_family"] = evaluate(
-            frame, held_out, dataset_offsets(frame, by="family"), by="family"
+            frame, held_out, dataset_offsets(frame, by="family"), by="family", tie_rule=tie_rule
         )
     bootstrap = dict(review_config.get("bootstrap", {}))
     resampler = ArtifactResampler(
@@ -257,6 +277,7 @@ def run(args: argparse.Namespace) -> None:
                 "share_units_median_within_one_percent_of_best": float(median_near_best.mean()),
                 "family_offsets": bool(args.family_offsets),
                 "scale": str(args.scale),
+                "tie_rule": tie_rule,
                 "snr_n_train": n_train,
                 "snr_reproduces_provenance_gap": reproduction_gap,
                 "command": sys.argv,
@@ -277,6 +298,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--family-offsets", action="store_true")
     parser.add_argument("--scale", choices=["range", "median"], default="range")
+    parser.add_argument(
+        "--tie-rule",
+        choices=["runtime", "lexicographic"],
+        default="runtime",
+        help="validation-best's tie-break: the pool row's runtime term, or the literal rule's fit time then order",
+    )
     parser.add_argument(
         "--provenance-output", type=Path, default=None,
         help="scripts/validation_provenance.py output whose error-space ratio the matched code must reproduce",

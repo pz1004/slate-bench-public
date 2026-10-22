@@ -30,13 +30,14 @@ __pycache__/
 /tests/test_static_latex_check.py
 
 # Outputs: the v2 runs and the compact check's stored training results, without smoke runs,
-# per-split resume caches, the coverage study's per-replicate parts (its assembled CSVs are
-# published) and run logs
+# per-split resume caches, the coverage study's and the fresh-validation runs' per-job parts
+# (their assembled files are published) and run logs
 /analysis-output/*
 !/analysis-output/v2/
 /analysis-output/v2/smoke/
 /analysis-output/**/split_parts/
 /analysis-output/v2/calibration_study/parts/
+/analysis-output/v2/fresh_validation*/parts/
 /analysis-output/**/logs/
 
 # Inputs: the TabArena copies, not the local OpenML parquet cache
@@ -48,8 +49,10 @@ __pycache__/
 !/data/tabarena/NOTICE.md
 !/data/tabarena/LICENSE-tabarena_dataset_curation.txt
 
-# Documentation: the meta-study records, the claim template and the instrument coverage codes
+# Documentation: the meta-study records, the claim template, the instrument coverage codes and
+# the fresh-validation experiment's protocol
 /docs/*
 !/docs/meta_study/
 !/docs/claim_template.md
 !/docs/positioning_coverage.csv
+!/docs/fresh_validation_protocol.md

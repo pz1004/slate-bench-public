@@ -48,7 +48,8 @@ def run(args: argparse.Namespace) -> None:
     means = pd.read_csv(review_dir / "dataset_mean_scores.csv")
     metadata = json.loads((Path(args.nested_output) / "metadata.json").read_text(encoding="utf-8"))
     artifact_meta = metadata["artifacts"][0]
-    pool = [str(method) for method in artifact_meta["policy_methods"]]
+    aliases = dict(item.split("=", 1) for item in args.pool_alias)
+    pool = [aliases.get(str(method), str(method)) for method in artifact_meta["policy_methods"]]
     regret = means.pivot_table(index="dataset", columns="method", values="mean_normalized_rank_regret")
     tasks = means.drop_duplicates("dataset").set_index("dataset")["task"]
     resampler = ArtifactResampler(regret.index, seed=int(args.bootstrap_seed))
@@ -91,6 +92,7 @@ def run(args: argparse.Namespace) -> None:
                 "n_pool_policies": len(pool),
                 "extra_rows": extra,
                 "benchmarks": list(args.benchmarks),
+                "pool_aliases": dict(item.split("=", 1) for item in args.pool_alias),
                 "bootstrap_seed": int(args.bootstrap_seed),
                 "command": sys.argv,
             },
@@ -124,6 +126,14 @@ def parse_args() -> argparse.Namespace:
             "meta_selector_single",
             "meta_selector_tabrepo_ensemble_k3",
         ],
+    )
+    parser.add_argument(
+        "--pool-alias",
+        action="append",
+        default=[],
+        metavar="OLD=NEW",
+        help="the review's name for a pool policy, e.g. meta_selector_single=meta_selector_single_runtime "
+        "when the review's meta_selector_single is the literal reference row",
     )
     parser.add_argument("--pbo-blocks", type=int, default=10)
     parser.add_argument("--bootstrap-seed", type=int, default=20260608)

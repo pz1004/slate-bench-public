@@ -1,0 +1,190 @@
+# Source check of the fresh-validation experiment (docs/fresh_validation_protocol.md): every eligible
+# OpenML dataset, in the seeded random order, decided from its name, OpenML description, tags and
+# metadata before any of its data were downloaded. Done by an AI assistant (Claude); not verified by the author.
+# Reasons: T a TabArena-v0.1 or TabRepo-244 dataset under another name or ID; S the same source as one
+# (another version, subset or processing of the same data); D the same source as an earlier included
+# dataset; A artificially generated or simulated data; M images, text, sequences, time series or rows
+# grouped by subject; Q no usable target or features (test uploads, leakage, a target derived from the
+# features). Evidence: C OpenML description or tags; N name; M metadata (shape, class sizes); K background knowledge.
+order,did,name,decision,reason,evidence,note
+1,41004,jungle_chess_2pcs_endgame_lion_elephant,exclude,S,N;C,Jungle Chess tablebases; TabRepo has jungle_chess_2pcs_raw_endgame_complete
+2,966,analcatdata_halloffame,exclude,S,M;C,binarized analcatdata_halloffame; the same 1340 rows as TabRepo's baseball (did 185)
+3,382,ipums_la_97-small,include,,,IPUMS census sample (UCI); first pick of the IPUMS source
+4,1018,ipums_la_99-small,exclude,D,N;C,IPUMS census sample; same source as did 382
+5,1112,KDDCup09_churn,exclude,S,N;C,KDD Cup 2009 Orange data; TabArena and TabRepo have its appetency and upselling targets
+6,46542,dataset_credit-g,exclude,T,N;C,credit-g under another name
+7,45558,Pulsar-Dataset-HTRU2,include,,,HTRU2 pulsar candidates (UCI)
+8,46764,football-player-position,include,,,football player positions; string-typed target with four classes
+9,46851,hepatitis_c_virus_hcv_for_egyptian_patients,include,,,hepatitis C patients (UCI)
+10,741,rmftsa_sleepdata,exclude,M,N;C;K,rmftsa collection of time series; TabRepo has rmftsa_ladata
+11,43607,WMO-Hurricane-Survival-Dataset,exclude,Q,M,every feature and the target stored as strings
+12,40680,mofn-3-7-10,exclude,A,C,artificial M-of-N concept
+13,43905,ibm-employee-performance,exclude,A,K,IBM HR attrition data are fictional (created by IBM data scientists)
+14,46808,news_channel,exclude,S,C,derived from Online News Popularity (TabRepo's OnlineNewsPopularity); also a text field
+15,971,mfeat-fourier,exclude,S,N;C,binarized mfeat-fourier; mfeat source in TabRepo (mfeat-factors)
+16,47003,melbourne_airbnb,exclude,M,M;C,51 text features (multimodal benchmark)
+17,1040,sylva_prior,exclude,S,C,derived from covertype (TabRepo)
+18,43891,communities-and-crime-binary,exclude,S,C;M,Communities and Crime; the same 1994 rows as TabRepo's us_crime
+19,46822,Dynamically-Generated-Hate-Speech-Dataset,exclude,M,C,text (hate speech)
+20,41005,jungle_chess_2pcs_endgame_rat_rat,exclude,S,N;C,Jungle Chess tablebases (TabRepo)
+21,44124,kdd_ipums_la_97-small,exclude,D,N;C,IPUMS census sample; same source as did 382
+22,1002,ipums_la_98-small,exclude,D,N;C,IPUMS census sample; same source as did 382
+23,1119,adult-census,exclude,S,N;C,adult census data (TabRepo adult)
+24,44095,spambase_reproduced,exclude,S,N;C,spambase (TabRepo)
+25,46421,German-Credit-Data-Creditability,exclude,S,C;K,German credit data (credit-g)
+26,45037,BitcoinHeist_Ransomware,include,,,BitcoinHeist ransomware addresses (tabular-benchmark version)
+27,46951,Pumpkin_Seeds,include,,,pumpkin seed measurements (curated for TabArena's IID study; not in TabArena-v0.1)
+28,43255,1StudentPerfromance,exclude,A,K,Students Performance in Exams is generated data
+29,45604,dummy,exclude,Q,C,a test upload with no documented data
+30,41946,Sick_numeric,exclude,S,C;M,thyroid records of the sick data; the same 3772 rows as TabRepo's hypothyroid
+31,46944,Mobile_Price,include,,,mobile phone price ranges (curated for TabArena's IID study; not in TabArena-v0.1)
+32,46876,depression_2020,include,,,rural depression survey (Kaggle)
+33,45745,TestDatasetOfLocations,exclude,Q,C,a test upload
+34,1020,mfeat-karhunen,exclude,S,N;C,binarized mfeat-karhunen; mfeat source in TabRepo (mfeat-factors)
+35,43551,Employee-Turnover-at-TECHCO,exclude,A,C,simulated from a company's turnover data
+36,44226,NewspaperChurn,include,,,newspaper subscriber churn (Kaggle)
+37,46507,Interest_Rate,include,,,loan interest-rate classes (Kaggle)
+38,45028,california,exclude,S,C;K,California housing; TabArena and TabRepo have houses
+39,40999,jungle_chess_2pcs_endgame_elephant_elephant,exclude,S,N;C,Jungle Chess tablebases (TabRepo)
+40,1477,gas-drift-different-concentrations,exclude,M,C,gas-sensor drift over 36 months; tagged time series
+41,46280,blastchar,exclude,A,C;K,IBM Telco churn sample data describe a fictional company
+42,43051,art_daily_nojump4,exclude,A,C,artificial time series with anomalies
+43,46527,US_Stocks_Financial_Indicators,include,,,financial indicators of US stocks (Kaggle)
+44,40702,solar-flare,include,,,solar flares (UCI via PMLB)
+45,46372,Multiclass_Classification_for_Corporate_Credit_Ratings,include,,,corporate credit ratings (Credit Risk Analytics book)
+46,44225,MembershipWoes,include,,,club membership cancellations (Kaggle)
+47,46554,Loan_Status,exclude,A,M;C,the synthetic loan-approval data (same shape and class sizes as did 46563)
+48,46563,Loan_Approval_Status_Classification,exclude,A,C,synthetic version of a Kaggle credit-risk dataset
+49,45060,online_shoppers,exclude,T,C,online shoppers' intention (TabArena online_shoppers_intention)
+50,45922,Test_Dataset,exclude,Q,C,a test upload
+51,46518,Give-Me-Some-Credit-Sampled-Preprocessed,exclude,S,N;C,Give Me Some Credit (TabArena GiveMeSomeCredit)
+52,1037,ada_prior,exclude,S,C;K,ADA is census income data; TabRepo has ada
+53,46565,Loan_Approval_Status,exclude,A,C,synthetic version of a Kaggle credit-risk dataset
+54,843,house_8L,exclude,S,N;K,house_8L and TabRepo's house_16H come from the same census housing data
+55,1444,PizzaCutter3,exclude,S,K;M,renamed NASA software-defect data (37 metrics as in pc3 and pc4)
+56,46541,dataset_china,include,,,financial classification task of an AutoML benchmark (China)
+57,44232,UCI_churn,exclude,S,C;K,telecom churn; TabArena and TabRepo churn are the same source
+58,728,analcatdata_supreme,include,,,US Supreme Court decisions (analcatdata); binarized target
+59,46689,sst5,exclude,M,C,text (sentiment)
+60,46868,Phishing_Legitimate_full,include,,,phishing and legitimate web pages (Tan 2018); not the UCI phishing data
+61,46444,credit_risk_china,exclude,D,M;C,the same China credit-risk data as did 46541
+62,46866,OSMI_Mental_Health_in_Tech_Survey,exclude,M,C;K,survey with free-text answers
+63,46515,Financial-Risk-Assessment-Preprocessed,exclude,A,K,the Kaggle financial-risk data are synthetic
+64,46788,mice,exclude,S,C;N,Mice Protein Expression (TabRepo MiceProtein)
+65,962,mfeat-morphological,exclude,S,N;C,binarized mfeat-morphological; mfeat source in TabRepo (mfeat-factors)
+66,23380,cjs,exclude,Q,C,tagged label_leakage
+67,46819,WBCAtt,include,,,white blood cell attributes (WBCAtt)
+68,3,kr-vs-kp,include,,,chess end game KRKPA7 (UCI); not TabRepo's King-Rook-King data
+69,46820,REASONER,exclude,M,C,recommendation interactions with explanation texts; rows share users and items
+70,46528,EDA-Home-Mortgage-NY-Sampled,include,,,New York home-mortgage applications (HMDA); first pick of this source
+71,44091,wine,exclude,S,C,wine quality (TabArena wine_quality; TabRepo wine-quality)
+72,46361,Risk_Level_Classification,include,,,transaction risk levels
+73,914,balloon,exclude,M,K,balloon flight series (time series)
+74,1222,letter-challenge-unlabeled.arff,exclude,S,N,letter recognition (TabRepo letter)
+75,44227,South_Asian_Churn_dataset,include,,,South Asian telecom churn (SATO 2015)
+76,897,colleges_aaup,exclude,S,N;K,1995 colleges data of StatLib; TabRepo has colleges_usnews from the same source
+77,41007,jungle_chess_2pcs_endgame_lion_lion,exclude,S,N;C,Jungle Chess tablebases (TabRepo)
+78,46116,German-Credit-Risk-with-Target,exclude,S,C,German credit data (credit-g)
+79,45548,Otto-Group-Product-Classification-Challenge,include,,,Otto Group product classification (Kaggle)
+80,46506,Credit_Score,include,,,credit-score classes (Kaggle); first pick of this source
+81,47152,aztrees4,exclude,M,C,spatial and temporal subsets made for distribution-shift evaluation
+82,46864,Skin_Cancer_PAD-UFES-20,include,,,skin-lesion patient metadata (PAD-UFES-20)
+83,46560,dataset_credit_score,exclude,D,M;C,the same credit-score source as did 46506
+84,46420,Apple_Stock_Price_Trends_(2014-2023),exclude,M,C,stock-price time series
+85,40979,mfeat-pixel,exclude,S,N;C,mfeat source in TabRepo (mfeat-factors); image pixels
+86,43148,StackOverflow-polarity-test,exclude,M,C,text (Stack Overflow polarity)
+87,46873,student_lifestyle_dataset,exclude,Q,C,the target is derived from the features
+88,46481,Financial-Risk-Assessment,exclude,A,K;M,the same synthetic financial-risk data as did 46515
+89,41964,USPS,exclude,M,C,image pixels (USPS digits)
+90,46480,EDA-Home-Mortgage-NY-2,exclude,D,N;C,New York home-mortgage applications; same source as did 46528
+91,46281,insurance_company,exclude,T,C,CoIL 2000 insurance data (TabArena coil2000_insurance_policies)
+92,46567,Financial_Indicators_US_Stocks,exclude,D,M;C,the same US stock indicators as did 46527
+93,45051,adult-test,exclude,S,N;M,adult census data (TabRepo adult)
+94,42738,open_payments,include,,,CMS Open Payments to physicians and hospitals
+95,46809,fake_job_postings2,exclude,M,C,text (job postings)
+96,46282,internet_usage,exclude,S,C;K,GVU 1997 web user survey; TabRepo has kdd_internet_usage from it
+97,40594,reuters,exclude,M,C,multi-label text
+98,46811,data_scientist_salary,exclude,M,C,text (job descriptions)
+99,41006,jungle_chess_2pcs_endgame_rat_lion,exclude,S,N;C,Jungle Chess tablebases (TabRepo)
+100,1462,banknote-authentication,include,,,banknote authentication (UCI)
+101,40595,scene,exclude,M,C,multi-label image data
+102,40592,image,exclude,M,C,multi-label image data
+103,373,UNIX_user_data,exclude,M,C,UNIX command histories (text)
+104,46520,Credit_score_classification,exclude,D,C;K,the Kaggle credit-score data of did 46506
+105,46800,AVIDa-SARS-CoV-2,exclude,M,C,antibody sequences
+106,46874,student_depression_dataset,include,,,student depression survey (Kaggle)
+107,46925,Employee,include,,,employee attrition (curated for TabArena's IID study; not in TabArena-v0.1)
+108,1460,banana,exclude,A,C,artificial banana-shaped clusters
+109,45547,Cardiovascular-Disease-dataset,include,,,cardiovascular disease examinations (Kaggle)
+110,45039,compas-two-years,include,,,COMPAS two-year recidivism (tabular-benchmark version)
+111,40666,clean2,include,,,Musk version 2 molecules
+112,46482,German-Credit-Data-Creditability-2,exclude,S,C,German credit data (credit-g)
+113,41001,jungle_chess_2pcs_endgame_complete,exclude,S,N;M,Jungle Chess tablebase; TabRepo has the same 44819 positions (jungle_chess_2pcs_raw_endgame_complete)
+114,46483,HMEQ_Data_New,include,,,home-equity loan defaults (HMEQ); first pick of this source
+115,1476,gas-drift,exclude,M,C,gas-sensor drift over 36 months (as did 1477)
+116,43892,national-longitudinal-survey-binary,include,,,National Longitudinal Survey (fairml)
+117,46422,Credit-Risk-Classification-Dataset,include,,,credit-risk classification (Kaggle)
+118,47150,CanadaFiresD,exclude,M,C,spatial and temporal subsets made for distribution-shift evaluation
+119,46517,HMEQ_Data_Preprocessed,exclude,D,N;C,home-equity loan defaults; same source as did 46483
+120,46431,HMEQ_Data,exclude,D,N;C,home-equity loan defaults; same source as did 46483
+121,46519,Credit_Risk_Modeling,include,,,credit-risk approval flags (Kaggle)
+122,46877,PostPartum_Depression,include,,,postpartum depression questionnaire (Kaggle)
+123,46562,German-Credit-Data-Creditability-Preprocessed-Dataset,exclude,S,C,German credit data (credit-g)
+124,1116,musk,exclude,D,C,Musk version 2; same data as did 40666
+125,40998,jungle_chess_2pcs_endgame_panther_lion,exclude,S,N;C,Jungle Chess tablebases (TabRepo)
+126,44097,credit-g_copy,exclude,T,N;C,a copy of credit-g
+127,46375,default-of-credit-card-clients,exclude,T,C,default of credit card clients (TabArena credit_card_clients_default)
+128,43098,students_scores,exclude,A,M;K,the generated Students Performance in Exams data (as did 43255)
+129,45568,telco-customer-churn,exclude,A,C;K,IBM Telco churn sample data describe a fictional company
+130,42343,KDD98,include,,,KDD Cup 1998 direct-mailing responses
+131,41000,jungle_chess_2pcs_endgame_panther_elephant,exclude,S,N;C,Jungle Chess tablebases (TabRepo)
+132,46566,Apple_Stock_Price_Trends,exclude,M,C,stock-price time series
+133,46871,Advanced_IoT_Dataset,include,,,greenhouse plant measurements (IoT agriculture lab)
+134,46548,dataset_default_of_credit_card_clients,exclude,T,C,default of credit card clients (TabArena credit_card_clients_default)
+135,46880,air-quality-and-pollution-assessment,include,,,air quality assessment (Kaggle)
+136,45748,StudentsPerformance,exclude,A,M;K,the generated Students Performance in Exams data (as did 43255)
+137,46543,dataset_credit,exclude,S,C,Give Me Some Credit (TabArena GiveMeSomeCredit)
+138,44160,rl,include,,,rl task of the 4Paradigm AutoML challenge (tabular-benchmark version)
+139,41002,jungle_chess_2pcs_endgame_rat_panther,exclude,S,N;C,Jungle Chess tablebases (TabRepo)
+140,46359,Fraud-Detection-Updated,include,,,fraud detection flags
+141,45059,sick,exclude,S,C,thyroid records of the sick data (TabRepo hypothyroid)
+142,46416,Creditability-German-Credit-Data,exclude,S,C,German credit data (credit-g)
+143,47005,jigsaw_unintended_bias100K,exclude,M,C,text (toxic comments)
+144,45927,Products,exclude,Q,M,the same 73503 rows as the test uploads did 45745 and 45922
+145,46564,Apple_Stock_Price_Trends_Classification,exclude,M,C,stock-price time series
+146,45554,FICO-HELOC-cleaned,exclude,S,C,FICO HELOC (TabArena heloc)
+147,42883,dgf_test,exclude,Q,C,a test upload
+148,44234,Bank_marketing_data_set_UCI,exclude,T,C,bank marketing (TabArena and TabRepo bank-marketing)
+149,1453,PieChart3,exclude,S,K;M,renamed NASA software-defect data (as did 1444)
+150,43896,ibm-employee-attrition,exclude,A,K,IBM HR attrition data are fictional
+151,46561,EDA-Home-Mortgage-NY-Sampled-Dataset,exclude,D,N;C,New York home-mortgage applications; same source as did 46528
+152,46810,kick_starter_funding,exclude,M,C,text (Kickstarter projects)
+153,47151,aztrees3,exclude,M,C,spatial and temporal subsets made for distribution-shift evaluation
+154,43147,StackOverflow-polarity-train,exclude,M,C,text (Stack Overflow polarity)
+155,46376,credit,exclude,S,C,Give Me Some Credit (TabArena GiveMeSomeCredit)
+156,46860,Support2,include,,,SUPPORT study of critically ill patients
+157,43922,mushroom,include,,,mushroom records (UCI)
+158,46468,Give-Me-Some-Credit-Sampled,exclude,S,N;C,Give Me Some Credit (TabArena GiveMeSomeCredit)
+159,976,JapaneseVowels,exclude,M,C;K,frames of spoken vowels (speech time series)
+160,45714,PriceRunner,exclude,M,C,product titles (text)
+161,41003,jungle_chess_2pcs_endgame_rat_elephant,exclude,S,N;C,Jungle Chess tablebases (TabRepo)
+162,43160,StackOverflow-polarity,exclude,M,C,text (Stack Overflow polarity)
+163,46503,Credit_Approval_Classification,exclude,S,C;M,German credit data (1000 rows with 300 bad risks as in credit-g)
+164,995,mfeat-zernike,exclude,S,N;C,binarized mfeat-zernike; mfeat source in TabRepo (mfeat-factors)
+165,45938,credit-score-classification-Hzl,exclude,D,M;C,the Kaggle credit-score data of did 46506
+166,47153,spam,exclude,S,C,spambase (TabRepo)
+167,43904,law-school-admission-bianry,include,,,law school admissions (fairml)
+168,46682,CodeXGLUE,exclude,M,C,source code (text)
+169,44162,compass,exclude,D,C,ProPublica COMPAS data; same source as did 45039
+170,45578,California-Housing-Classification,exclude,S,C,California housing (TabArena and TabRepo houses)
+171,46459,Credit_Score_Classification_downsampled,exclude,D,M;C,the loan interest-rate data of did 46507
+172,46859,Santander_Customer_Satisfaction,include,,,Santander customer satisfaction (Kaggle); not TabRepo's Santander transaction data
+173,46371,Customer_Churn_Classification_Nominal,exclude,S,C;K,bank customer churn (exited); TabArena has Bank_Customer_Churn
+174,44098,credit-g_reproduced_1,exclude,T,N;C,a copy of credit-g
+175,46865,mental-health-in-tech-survey,exclude,M,C,survey with free-text answers (OSMI)
+176,46298,electrical_grid_stability_simulated_classification,exclude,A,C,simulated electrical grid stability
+177,45968,BraidFlowSessionLevel,exclude,M,C,repeated sessions of the same participants
+178,46840,Estimation_of_Obesity_Levels,exclude,A,K,77% of the obesity records were generated with SMOTE (UCI description)
+179,46878,Indicators_of_Anxiety_or_Depression,exclude,M,C,aggregated survey indicators over time periods
+180,45077,qsar,exclude,T,C,QSAR biodegradation (TabArena qsar-biodeg)
+181,46546,dataset_credit_risk_file_2,exclude,D,M;C,the credit-risk approval data of did 46519

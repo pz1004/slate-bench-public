@@ -1,0 +1,72 @@
+# The prespecified fresh-validation experiment (docs/fresh_validation_protocol.md).
+# Every setting here is fixed by the protocol; the run records this file's SHA-256.
+experiment: fresh_validation
+seed: 20261022                 # master seed: configuration lists, row caps, splits, model seeds
+repetitions: 5                 # independent four-way splits per task, averaged within the task
+row_cap: 20000                 # stratified subsample of larger tasks, the same for every repetition
+splits:                        # shares of the (capped) rows, stratified by class
+  train: 0.48
+  construction: 0.16           # early stopping, tuning and ensemble weights
+  selection: 0.16              # fresh: used by nothing before selection
+  test: 0.20
+n_random_configurations: 100   # per family, besides the default; one list for every task (the pilot used 200)
+ensemble_steps: 40             # greedy ensemble selection with replacement
+max_onehot_categories: 20
+schedule:
+  hgb_max_iter: 1000
+  hgb_patience: 10             # scikit-learn's default n_iter_no_change, on construction loss
+  forest_trees: 300
+  lr_max_iter: 1000
+  max_epochs: 100              # MLP epochs, early-stopped on construction log loss
+  patience: 10
+families:                      # in candidate order; defaults are scikit-learn's
+  hist_gradient_boosting:
+    cost_weight: 2
+    default: {learning_rate: 0.1, max_leaf_nodes: 31, min_samples_leaf: 20, l2_regularization: 0.0, max_features: 1.0}
+    space:
+      learning_rate: [loguniform, 0.01, 0.3]
+      max_leaf_nodes: [choice, [7, 15, 31, 63, 127]]
+      min_samples_leaf: [choice, [2, 5, 10, 20, 50, 100]]
+      l2_regularization: [choice, [0.0, 0.001, 0.01, 0.1, 1.0, 10.0]]
+      max_features: [uniform, 0.4, 1.0]
+  random_forest:
+    cost_weight: 3
+    default: {max_features: sqrt, min_samples_leaf: 1, max_depth: null, criterion: gini}
+    space:
+      max_features: [choice, [sqrt, log2, 0.2, 0.4, 0.6, 0.8, 1.0]]
+      min_samples_leaf: [choice, [1, 2, 4, 8, 16, 32]]
+      max_depth: [choice, [null, 6, 10, 16, 24]]
+      criterion: [choice, [gini, entropy]]
+  extra_trees:
+    cost_weight: 2
+    default: {max_features: sqrt, min_samples_leaf: 1, max_depth: null, criterion: gini}
+    space:
+      max_features: [choice, [sqrt, log2, 0.2, 0.4, 0.6, 0.8, 1.0]]
+      min_samples_leaf: [choice, [1, 2, 4, 8, 16, 32]]
+      max_depth: [choice, [null, 6, 10, 16, 24]]
+      criterion: [choice, [gini, entropy]]
+  logistic_regression:
+    cost_weight: 1
+    default: {C: 1.0, class_weight: null}
+    space:
+      C: [loguniform, 0.0001, 10000.0]
+      class_weight: [choice, [null, balanced]]
+  knn:
+    cost_weight: 1
+    default: {n_neighbors: 5, weights: uniform, p: 2}
+    space:
+      n_neighbors: [choice, [1, 2, 3, 5, 7, 10, 15, 20, 30, 50, 75, 100]]
+      weights: [choice, [uniform, distance]]
+      p: [choice, [1, 2]]
+  mlp:
+    cost_weight: 4
+    default: {hidden_layer_sizes: [100], alpha: 0.0001, learning_rate_init: 0.001, batch_size: 200}
+    space:
+      hidden_layer_sizes: [choice, [[64], [128], [256], [64, 64], [128, 128], [256, 256], [128, 128, 128]]]
+      alpha: [loguniform, 0.000001, 0.1]
+      learning_rate_init: [loguniform, 0.0001, 0.01]
+      batch_size: [choice, [64, 128, 256]]
+analysis:
+  bootstrap_seed: 20260608     # the audit's resampling seed
+  bootstrap_resamples: 10000
+  equivalence_rank_positions: 0.5   # TOST margin for C1, in rank positions among the 18 candidates
