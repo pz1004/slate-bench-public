@@ -1,5 +1,6 @@
 """Monte Carlo checks of the closed forms in Propositions 1 and 2 and Remark 1 of the paper,
-and an exact check of the two-point noise example in the proof of Proposition 1(iii).
+including the unequal-quality case of Proposition 1(iv), and an exact check of the
+two-point noise example in the proof of Proposition 1(iii).
 
 Validation-best selects argmin_m V_m with V_m = T_m - beta_m + eps_m; the corrected rule adds
 an estimated offset to each V_m. Every simulation uses a fixed seed, and each assertion allows
@@ -35,6 +36,32 @@ def _selected_error(t_a: np.ndarray, t_b: np.ndarray, noise: np.ndarray, thresho
 
 def _close(values: np.ndarray, expected: float) -> bool:
     return abs(values.mean() - expected) < 5 * values.std(ddof=1) / np.sqrt(values.size)
+
+
+def _unequal_expected_error(quality_gap: float, offset_gap: float) -> float:
+    # Proposition 1(iv): E[T_b] + mu Phi((c - mu) / s) - (tau^2 / s) phi((c - mu) / s), E[T_b] = 0.
+    x = (offset_gap - quality_gap) / S
+    return quality_gap * stats.norm.cdf(x) - (TAU**2 / S) * stats.norm.pdf(x)
+
+
+@pytest.mark.parametrize("quality_gap", [0.5, -0.4])
+def test_unequal_quality_closed_form_and_minimizer(quality_gap: float) -> None:
+    # Proposition 1(iv): with D = T_a - T_b ~ N(mu, tau^2) the expected selected error has the
+    # closed form above and is smallest at c* = -2 sigma^2 mu / tau^2, not at equal offsets.
+    rng = np.random.default_rng(7)
+    t_b = rng.normal(0.0, TAU / np.sqrt(2), N)
+    t_a = rng.normal(quality_gap, TAU / np.sqrt(2), N)
+    noise = rng.normal(0.0, SIGMA, N) - rng.normal(0.0, SIGMA, N)
+    best = -2 * SIGMA**2 * quality_gap / TAU**2
+    for gap in [-0.8, best, 0.0, 0.6]:
+        assert _close(_selected_error(t_a, t_b, noise, gap), _unequal_expected_error(quality_gap, gap))
+    grid = np.linspace(-1.5, 1.5, 3001)
+    assert grid[np.argmin([_unequal_expected_error(quality_gap, gap) for gap in grid])] == pytest.approx(best, abs=1e-3)
+    # Equal offsets are worse than the minimizer, and the error rises on both sides of it.
+    paired = _selected_error(t_a, t_b, noise, 0.0) - _selected_error(t_a, t_b, noise, best)
+    assert paired.mean() > 5 * paired.std(ddof=1) / np.sqrt(N)
+    assert _unequal_expected_error(quality_gap, best - 0.3) > _unequal_expected_error(quality_gap, best)
+    assert _unequal_expected_error(quality_gap, best + 0.3) > _unequal_expected_error(quality_gap, best)
 
 
 @pytest.mark.parametrize("offset_gap", [0.0, 0.3, 0.8])

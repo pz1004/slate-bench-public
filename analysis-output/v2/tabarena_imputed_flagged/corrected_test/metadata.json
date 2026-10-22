@@ -1,0 +1,22 @@
+{
+  "review_output": "analysis-output/v2/score_level_tabarena_no_flagged_review",
+  "nested_output": "analysis-output/v2/score_level_tabarena_no_flagged",
+  "review_config": "configs/review_tabarena.yaml",
+  "n_splits": 100,
+  "n_train_datasets": 38,
+  "n_test_datasets": 13,
+  "n_datasets": 51,
+  "split_weights": "J / (N n_d): the mean over splits is the dataset-level mean",
+  "variance_factor": 0.35210526315789475,
+  "command": [
+    "scripts/corrected_resampled_test.py",
+    "--review-output",
+    "analysis-output/v2/score_level_tabarena_no_flagged_review",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabarena_no_flagged",
+    "--review-config",
+    "configs/review_tabarena.yaml",
+    "--output-dir",
+    "analysis-output/v2/tabarena_imputed_flagged/corrected_test"
+  ]
+}

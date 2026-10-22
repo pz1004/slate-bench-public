@@ -26,6 +26,7 @@ from typing import Any, Callable
 
 import numpy as np
 import pandas as pd
+import yaml
 from scipy import stats
 
 try:
@@ -87,6 +88,7 @@ POLICY_KEYS = {
     "reference_validation_best_tuned": "vbtun",
     "reference_validation_best_tuned_ensemble": "vbte",
     "reference_optimism_corrected": "opt",
+    "reference_defaults_then_tuned": "dtt",
     "reference_optimism_corrected_budget": "optb",
     "reference_optimism_corrected_task": "optt",
     "reference_metafeature_knn": "knn",
@@ -246,17 +248,19 @@ ALPHA = 0.05
 # t-test), "rank" (Holm-adjusted signed-rank test) and "equiv0p010" etc. (TOST at a margin).
 STATED_VERDICTS: dict[str, dict[str, str]] = {
     # TabArena (Sections 6.1-6.3, Table 2, the Conclusion).
-    "ta.primary.nested.vb": {"interval": "excludes zero", "mean": "better", "t": "not separated", "rank": "not separated", "corrected": "better"},
+    # Only the bootstrap test separates the headline: the paired t-test and the corrected test,
+    # which targets the same dataset-level mean, do not (Sections 6.1 and 3.4).
+    "ta.primary.nested.vb": {"interval": "excludes zero", "mean": "better", "t": "not separated", "rank": "not separated", "corrected": "not separated"},
     # The equivalences hold under the bootstrap only; the corrected test withdraws them (Section 6.3).
     "ta.primary.nested.fp": {"mean": "not separated", "equiv0p015": "equivalent", "equiv0p010": "not equivalent", "corrected": "not separated", "corrected_equiv0p015": "not equivalent", "corrected_equiv0p010": "not equivalent"},
     "ta.primary.nested.tsf": {"mean": "not separated", "equiv0p010": "equivalent", "corrected": "not separated", "corrected_equiv0p010": "not equivalent", "corrected_equiv0p015": "not equivalent"},
     # The policy pool (Table 2, Section 6.4): the 8-row grid and the 49-row extended pool.
     "ta.shrink.primary.nested.vb": {"mean": "better", "t": "better", "rank": "not separated", "corrected": "better"},
     "ta.shrink.primary.nested.fp": {"mean": "not separated"},
-    "ta.ext.primary.nested.vb": {"mean": "better", "corrected": "not separated"},
+    "ta.ext.primary.nested.vb": {"mean": "better", "t": "not separated", "corrected": "not separated"},
     "ta.ext.primary.nested.fp": {"mean": "not separated", "equiv0p015": "not equivalent"},
     "ta.ext.primary.nested.tsf": {"mean": "not separated", "equiv0p015": "not equivalent"},
-    # Implementation conventions (Appendix H): legacy ranks with in-sample weights (vone),
+    # Implementation conventions (Appendix J): legacy ranks with in-sample weights (vone),
     # consistent ranks with in-sample weights (rankfix), the shared inner fit (inner), and
     # the reported conventions (vtwo).
     "ta.revision_references.nested.vbdef": {"interval": "includes zero", "mean": "not separated"},
@@ -308,18 +312,44 @@ STATED_VERDICTS: dict[str, dict[str, str]] = {
     "trs.eu.tsfs.dataset": {"wilcoxon": "not separated"},
     "trs.eu.vb.split": {"wilcoxon": "not separated"},
     "trs.eu.vb.dataset": {"wilcoxon": "not separated"},
-    # The inner fit on TabRepo's score-only panel (Appendix H, Section 7).
+    # The inner fit on TabRepo's score-only panel (Appendix J, Section 7).
     "attr.tr.inner.tsfs": {"interval": "excludes zero", "mean": "better"},
     "attr.tr.vtwo.tsfs": {"interval": "includes zero", "mean": "not separated"},
     "attr.tr.inner.vb": {"mean": "not separated"},
     "attr.tr.vtwo.vb": {"mean": "not separated"},
     # Validation-best within the tuned classes (Section 6.2).
-    "ta.revision_references.nested.vbtun": {"mean": "better"},
-    "ta.revision_references.nested.vbte": {"mean": "better"},
+    "ta.revision_references.nested.vbtun": {"mean": "better", "t": "not separated", "corrected": "not separated"},
+    "ta.revision_references.nested.vbte": {"mean": "better", "t": "not separated", "corrected": "not separated"},
     # The main audit rerun without TabArena's copied rows (Section 6.1, Appendix G).
-    "imp.primary.nested.vb": {"mean": "not separated", "corrected": "not separated"},
-    "imp.mechanism.fp.vb": {"mean": "better"},
+    "imp.primary.nested.vb": {"interval": "excludes zero", "mean": "not separated", "corrected": "not separated"},
+    "imp.mechanism.fp.vb": {"mean": "better", "t": "not separated", "corrected": "not separated"},
+    # The main run's own choices, scored without the imputed rows, keep the separation.
+    "imp.rescored_primary.nested.vb": {"mean": "better"},
+    "imp.revision_references.nested.sbs": {"mean": "not separated"},
+    "imp.provenance_reference.dtt.vb": {"mean": "better", "t": "better", "corrected": "better"},
+    "imp.provenance_reference.dtt.nested": {"mean": "not separated"},
+    # Section 6.2: selecting on defaults and deploying tuned + ensemble (added after the main results).
+    "ta.provenance_reference.dtt.vb": {"mean": "better", "t": "better", "corrected": "better"},
+    "ta.provenance_reference.dtt.vbdef": {"mean": "not separated"},
+    "ta.provenance_reference.dtt.nested": {"mean": "not separated", "corrected": "not separated", "equiv0p020": "not equivalent"},
+    "ta.provenance_reference.dtt.fp": {"mean": "not separated"},
+    "ta.provenance_reference.dtt.tsf": {"mean": "not separated"},
+    "ta.provenance_reference.dtt.opt": {"mean": "not separated"},
     "imp.provenance.vb.opt": {"mean": "worse"},
+    # Third review: reapplied and documented-mask stages, the defaults rule's non-equivalence,
+    # the adaptive rows' contrast and TabRepo's grouped splits (Sections 6.1, 6.2, 7).
+    "imp.reapplied_primary.nested.vb": {"interval": "excludes zero", "mean": "better"},
+    "flag.primary.nested.vb": {"interval": "excludes zero", "mean": "not separated"},
+    "flag.rescored_primary.nested.vb": {"mean": "better"},
+    "flag.reapplied_primary.nested.vb": {"mean": "better"},
+    # Also no corrected equivalence within the largest margin (Section 6.3): the smallest
+    # corrected margin only just exceeds 0.020.
+    "ta.comparator_pools.nested.tsfc": {"interval": "includes zero", "mean": "not separated", "t": "not separated", "corrected": "not separated", "corrected_equiv0p020": "not equivalent"},
+    "trg.primary.nested.vb": {"interval": "excludes zero", "mean": "better"},
+    "trgs.primary.nested.vb": {"interval": "includes zero", "mean": "not separated"},
+    "trgs.primary.nested.tsfs": {"interval": "excludes zero", "mean": "better"},
+    "trgs.score_level_rows.nested.tad": {"mean": "not separated"},
+    "trgs.score_level_rows.nested.gfive": {"mean": "not separated"},
     # The deployable error-space correction (Sections 6.2 and 7, Appendix G).
     "ta.es.vb": {"mean": "not separated"},
     "ta.esm.vb": {"mean": "not separated"},
@@ -373,7 +403,7 @@ STATED_COMPARISONS: list[tuple[str, tuple[str, ...], Callable[..., bool]]] = [
     ("at the jackknife SE the Holm-adjusted test of nested - VB does not reject", ("jk.ta.nested.vb.pholm",), lambda q: q >= 0.05),
     ("the family-prior half-width is about one rank position", ("jk.ta.nested.fp.hwrank",), lambda r: 0.75 <= r < 1.5),
     ("TabRepo: neither fit's difference from TSF would separate at the jackknife SE", ("attr.tr.inner.tsfs.diff", "attr.tr.vtwo.tsfs.diff", "jk.tr.nested.tsf.se"), lambda d1, d2, se: max(abs(d1), abs(d2)) / se < 1.96),
-    # Section 7 and Appendix F: statements about intervals and relative sizes.
+    # Section 7 and Appendix G: statements about intervals and relative sizes.
     ("TabRepo: the ensembles' relative lead is smaller in error regret", ("tr.ethree.err.rel", "tr.ethree.reg.rel"), lambda e, r: e < r),
     ("TabRepo: both Shapley intervals of the priors include zero", ("tr.shap.tf.ci", "tr.shap.gm.ci"), lambda a, b: a[0] < 0 < a[1] and b[0] < 0 < b[1]),
     ("TabRepo: the priors' Shapley point estimates are negative", ("tr.shap.tf", "tr.shap.gm"), lambda a, b: a < 0 and b < 0),
@@ -381,20 +411,20 @@ STATED_COMPARISONS: list[tuple[str, tuple[str, ...], Callable[..., bool]]] = [
     ("TabRepo: the correction's mean interval admits only a small gain", ("tr.mechanism.vb.opt.ci",), lambda ci: ci[1] < 0.001),
     ("TabArena: the median-normalized interval of tuned candidates includes zero", ("ta.erroptim.tun.medci",), lambda ci: ci[0] < 0 < ci[1]),
     ("committed rules correlate more with nested selection than VB", ("ta.nested.fp.corr", "ta.nested.tsf.corr", "ta.nested.vb.corr"), lambda a, b, c: min(a, b) > c),
-    # Appendix H: the shared fit's effect on nested selection follows the order of
+    # Appendix J: the shared fit's effect on nested selection follows the order of
     # task-adaptive and family-prior on held-out data, in opposite directions on the artifacts.
     ("TabRepo: task-adaptive below family-prior", ("trs.tad.regfour", "trs.fp.regfour"), lambda a, b: a < b),
     ("TabRepo: shared fit leaves nested selection lower", ("attr.tr.inner.nested.reg", "attr.tr.vtwo.nested.reg"), lambda a, b: a < b),
     ("TabArena: task-adaptive above family-prior", ("ta.tad.regfour", "ta.fp.regfour"), lambda a, b: a > b),
     ("TabArena: shared fit leaves nested selection higher", ("attr.inner.nested.reg", "ta.nested.regfour"), lambda a, b: a > b),
     ("both artifacts: the shared fit picks adaptive rows more often", ("attr.inner.adaptivechosen", "attr.vtwo.adaptivechosen", "attr.tr.inner.adaptivechosen", "attr.tr.vtwo.adaptivechosen"), lambda a, b, c, d: a > b and c > d),
-    ("App. H: the guards' gap relative to FP falls with the per-target fit", ("attr.inner.gap.shared.rel", "attr.inner.gap.pertarget.rel", "attr.tr.inner.gap.shared.rel", "attr.tr.inner.gap.pertarget.rel"), lambda a, b, c, d: a > b and c > d),
+    ("App. J: the guards' gap relative to FP falls with the per-target fit", ("attr.inner.gap.shared.rel", "attr.inner.gap.pertarget.rel", "attr.tr.inner.gap.shared.rel", "attr.tr.inner.gap.pertarget.rel"), lambda a, b, c, d: a > b and c > d),
     # Section 7: a few datasets carry the mean loss against fixed ensemble-3.
     ("Section 7: five datasets carry most of the loss against ensemble-3", ("tr.nested.ethree.topfiveshare",), lambda s: s >= 50.0),
     # Abstract, Section 7, Discussion and Conclusion: with ensembles admitted, nested selection
     # chooses exactly what the ensemble-inclusive train-selected rule chooses.
     ("TabRepo: nested selection ties the ensemble-inclusive train-selected rule on every dataset", ("tr.primary.nested.tsfe.wins", "tr.primary.nested.tsfe.losses"), lambda w, l: w == 0 and l == 0),
-    # Sections 5 and 7, Appendix F: what the spread-to-noise ratios show, and what they do not.
+    # Sections 5 and 7, Appendix G: what the spread-to-noise ratios show, and what they do not.
     ("TabRepo: the error-space ratio's interval includes one", ("tr.optim.snr.err.ci",), lambda ci: ci[0] < 1 < ci[1]),
     ("TabRepo: the rank-space ratio's interval lies above one", ("tr.optim.snr.ci",), lambda ci: ci[0] > 1),
     ("TabArena: both ratios' intervals lie above one", ("ta.optim.snr.err.ci", "ta.optim.snr.ci"), lambda a, b: a[0] > 1 and b[0] > 1),
@@ -407,7 +437,7 @@ STATED_COMPARISONS: list[tuple[str, tuple[str, ...], Callable[..., bool]]] = [
     ("SPA: no pool row beats fixed ensemble-3 on TabRepo", ("tr.spa.ethree.c",), lambda c: c >= 0.05),
     # Section 6.4: neither tie-break change moves held-out regret.
     ("tie-break changes leave held-out regret unchanged", ("ta.obj.noruntime.diff", "ta.obj.reverse.diff"), lambda a, b: a == 0 and b == 0),
-    # Section 3.5 and Appendix A: where the two tests of the mean disagree, only the bootstrap
+    # Section 3.4 and Appendix A: where the two tests of the mean disagree, only the bootstrap
     # test separates, the differences are skewed toward large gains, and the tests that follow
     # the skew give the smaller p-values; none disagree on TabRepo.
     ("only the bootstrap test separates where the two mean tests disagree", ("ta.mtests.onlyt", "ta.mtests.differ.main"), lambda t, d: t == 0 and d > 0),
@@ -442,6 +472,9 @@ STATED_COMPARISONS: list[tuple[str, tuple[str, ...], Callable[..., bool]]] = [
     ("influence: every leave-one-out interval excludes zero", ("ta.infl.loo.maxcihigh",), lambda h: h < 0),
     ("influence: without the top five the interval includes zero", ("ta.infl.topout.ci",), lambda ci: ci[0] < 0 < ci[1]),
     ("influence: without the top five neither test rejects", ("ta.infl.topout.mp", "ta.infl.topout.nbp"), lambda m, n: m >= 0.05 and n >= 0.05),
+    ("influence: two single deletions lose the Holm separation", ("ta.infl.loo.maxholm", "ta.infl.loo.notsep"), lambda h, n: h >= 0.05 and n == 2),
+    ("influence: trimmed means keep a smaller gain", ("ta.infl.trimten.diff", "ta.infl.trimtwenty.diff", "ta.primary.nested.vb.diff"), lambda a, b, m: m < a < 0 and m < b < 0),
+    ("influence: the gain is concentrated on small datasets", ("ta.infl.small.diff", "ta.infl.large.diff", "ta.infl.size.rho"), lambda s, l, r: s < l < 0 and r > 0),
     # Introduction, Section 6.2: the provenance gap holds on every dataset, with or without the copies.
     ("tuned + ensemble more optimistic than defaults on every dataset", ("ta.erroptim.te.abovedef", "ta.erroptim.ndatasets"), lambda a, n: a == n),
     ("copy-free: tuned + ensemble more optimistic than defaults on every dataset", ("imp.erroptim.te.abovedef", "imp.erroptim.ndatasets"), lambda a, n: a == n),
@@ -455,6 +488,169 @@ STATED_COMPARISONS: list[tuple[str, tuple[str, ...], Callable[..., bool]]] = [
     # Sections 6.2 and 7: the error-space correction.
     ("error-space (range) no better than validation-best on TabArena", ("ta.es.reg", "ta.vb.reg"), lambda e, v: e >= v),
     ("error-space worse than validation-best on TabRepo", ("tr.es.reg", "tr.esf.reg", "trs.vb.reg"), lambda a, b, v: a > v and b > v),
+    # Section 6.4: many pool rows duplicate others.
+    ("some pool rows duplicate others", ("ta.pool.distinct", "ta.pool.rows"), lambda d, n: d < n),
+    ("imputed rows repeat RandomForest within one percent", ("imp.maxgap",), lambda g: g < 1.0),
+    ("copy-free: where the mean tests disagree, only the bootstrap test rejects", ("imp.mtests.onlyboot", "imp.mtests.differ"), lambda b, d: b == d),
+    ("the refit, not the yardstick, raises nested selection", ("ta.nested.reg", "imp.resc.nested.reg", "imp.nested.reg"), lambda m, r, n: m < r < n),
+    ("the yardstick alone leaves validation-best as in the rerun", ("imp.resc.vb.reg", "imp.vb.reg"), lambda r, n: r == n),
+    # Third review (Sections 3.4, 6.1, 6.4, 7, Appendices E, G and H).
+    ("matched three-member family: every mean test rejects for both pools",
+     ("pool.full.three.mholm", "pool.full.three.tholm", "pool.full.three.nbholm", "pool.reduced.three.mholm", "pool.reduced.three.tholm", "pool.reduced.three.nbholm"),
+     lambda *ps: max(ps) < 0.05),
+    ("matched five-member family: only the bootstrap test rejects, for both pools",
+     ("ta.primary.nested.vb.mholm", "ta.primary.nested.vb.tholm", "ta.primary.nested.vb.nbholm", "pool.reduced.five.mholm", "pool.reduced.five.tholm", "pool.reduced.five.nbholm"),
+     lambda m, t, n, rm, rt, rn: m < 0.05 and rm < 0.05 and min(t, n, rt, rn) >= 0.05),
+    ("the two pools' nested selections are not separated", ("pool.direct.ci",), lambda ci: ci[0] < 0 < ci[1]),
+    ("imputed rows: most of the rescored advantage remains after refitting", ("imp.retained", "flag.retained"), lambda a, b: 50 < a < 100 and 50 < b < 100),
+    ("imputed rows: rescored and reapplied keep the separation, refitted loses it",
+     ("imp.rescored_primary.nested.vb.mholm", "imp.reapplied_primary.nested.vb.mholm", "imp.primary.nested.vb.mholm",
+      "flag.rescored_primary.nested.vb.mholm", "flag.reapplied_primary.nested.vb.mholm", "flag.primary.nested.vb.mholm"),
+     lambda a, b, c, d, e, f: max(a, b, d, e) < 0.05 <= min(c, f)),
+    ("imputed rows: refitting changes most nested choices", ("imp.choice.same",), lambda n: n < 50),
+    ("imputed rows: reapplication reproduces the main run on every split", ("imp.reap.checked",), lambda n: n == 100),
+    ("matched spread-to-noise: above one on TabArena, below one on TabRepo", ("ta.esnr.all", "tr.esnr.all", "tr.esnr.fam"), lambda a, b, c: a > 1 > max(b, c)),
+    ("optimistic candidates are the better ones on both artifacts", ("ta.offq.all.rho", "ta.offq.all.p", "tr.offq.all.rho", "tr.offq.all.p"), lambda a, pa, b, pb: a < 0 and b < 0 and max(pa, pb) < 0.05),
+    ("TabRepo source groups: no verdict changes under the cluster bootstrap", ("trgrp.flips",), lambda n: n == 0),
+    ("TabRepo source groups: intervals widen modestly", ("trgrp.widthmax",), lambda w: 1.0 <= w < 1.5),
+    ("TabRepo grouped splits: the shift against validation-best exceeds design noise under both estimates",
+     ("trgs.two.vb.likeholm", "trgs.two.vb.ownholm"), lambda a, b: max(a, b) < 0.05),
+    ("TabRepo grouped splits: the shift against the train-selected rule only under the random-design estimate",
+     ("trgs.two.tsfs.likeholm", "trgs.two.tsfs.ownholm"), lambda a, b: a < 0.05 <= b),
+    ("TabRepo grouped splits: the shifts against FP, task-adaptive and the guard do not under the random-design estimate",
+     ("trgs.two.fp.likeholm", "trgs.two.tad.likeholm", "trgs.two.gfive.likeholm"), lambda *ps: min(ps) >= 0.05),
+    ("TabRepo grouped splits: no ensemble-inclusive shift exceeds design noise", ("trg.two.minholm",), lambda p: p >= 0.05),
+    ("coverage study: the bootstrap is adequate for both no-fit contrasts in the base world",
+     ("cal.pt.base.c5.boot.code", "cal.pt.base.c6.boot.code", "cal.pt.base.c5.t.code", "cal.pt.base.c6.t.code"), lambda *c: max(c) == 0),
+    ("coverage study: no-fit bootstrap adequate under instability and dependence, inconclusive under skew",
+     ("cal.pt.instability.c5.boot.code", "cal.pt.instability.c6.boot.code", "cal.pt.dependence.c5.boot.code", "cal.pt.dependence.c6.boot.code", "cal.pt.skew.c5.boot.code", "cal.pt.skew.c6.boot.code"),
+     lambda a, b, c, d, e, f: max(a, b, c, d) == 0 and e == f == 1),
+    ("coverage study: the bootstrap is anti-conservative for nested selection minus the committed rules in the base world and at 100 splits",
+     ("cal.pt.base.c2.boot.code", "cal.pt.base.c3.boot.code", "cal.sh100.base.c2.boot.code", "cal.sh100.base.c3.boot.code"), lambda *c: min(c) == max(c) == 2),
+    ("coverage study: anti-conservative for nested - TSF in every scenario, for nested - FP in three",
+     ("cal.pt.c3.boot.nanti", "cal.pt.c2.boot.nanti"), lambda c3, c2: c3 == 4 and c2 == 3),
+    ("coverage study: for nested - VB the bootstrap is inconclusive, for FP - VB anti-conservative, in the base world",
+     ("cal.pt.base.c1.boot.code", "cal.pt.base.c4.boot.code"), lambda a, b: a == 1 and b == 2),
+    ("coverage study: the corrected test is adequate for nested minus the committed rules, at 20 and at 100 splits",
+     ("cal.pt.base.c2.nb.code", "cal.pt.base.c3.nb.code", "cal.sh100.base.c2.nb.code", "cal.sh100.base.c3.nb.code"), lambda *c: max(c) == 0),
+    ("coverage study: at 100 splits the corrected test is inconclusive for nested - VB, below its 20-split coverage",
+     ("cal.sh100.base.c1.nb.code", "cal.sh100.base.c1.nb.cov", "cal.sh20.base.c1.nb.cov", "cal.sh100.base.c1.nb.seratio", "cal.sh20.base.c1.nb.seratio"),
+     lambda code, c100, c20, r100, r20: code == 1 and c100 < c20 and r100 < 1 < r20),
+    ("coverage study: the bootstrap's coverage for nested - VB does not change with the number of splits",
+     ("cal.sh20.base.c1.boot.cov", "cal.sh100.base.c1.boot.cov"), lambda a, b: abs(a - b) <= 0.02),
+    ("coverage study: the bootstrap's SE ratios are below one for every fitted contrast in the base world",
+     ("cal.pt.base.fit.boot.ratiomax",), lambda r: r < 1),
+    ("coverage study: simulated differences are less skewed than TabArena's",
+     ("cal.skewness.base.c1", "cal.skewness.skew.c1", "ta.mtests.vb.skew"), lambda b, k, t: t < k < 0 and t < b < 0),
+    ("coverage study: the inner fit barely moves theta", ("cal.innershift.c1",), lambda d: abs(d) < 0.002),
+    ("coverage study: no interval is labelled conservative", ("cal.nconservative",), lambda n: n == 0),
+    ("coverage study: the conservative label cannot be reached with 100 replicates", ("cal.rule.maxlower",), lambda b: b < 0.975),
+    ("coverage study: under skew the paired t is adequate for the defaults rule, inconclusive for VB among defaults",
+     ("cal.pt.skew.c5.t.code", "cal.pt.skew.c6.t.code"), lambda a, b: a == 0 and b == 1),
+    ("coverage study: base-world bootstrap labels in Section 6.3 (C2-C4 anti-conservative, C1 inconclusive)",
+     ("cal.pt.base.c1.boot.code", "cal.pt.base.c2.boot.code", "cal.pt.base.c3.boot.code", "cal.pt.base.c4.boot.code"), lambda a, b, c, d: a == 1 and b == c == d == 2),
+    ("coverage study: the corrected test is wider than needed for nested minus the committed rules",
+     ("cal.pt.base.c2.nb.seratio", "cal.pt.base.c3.nb.seratio", "cal.sh100.base.c2.nb.seratioci", "cal.sh100.base.c3.nb.seratioci"),
+     lambda a, b, c, d: min(a, b) > 1 and c[0] > 1 and d[0] > 1),
+    ("coverage study: the corrected test is adequate for nested - FP in every scenario and for nested - TSF in three",
+     ("cal.pt.c2.nb.nadequate", "cal.pt.c3.nb.nadequate"), lambda a, b: a == 4 and b == 3),
+    ("coverage study: only FP - VB under dependence is an adequate bootstrap label among C1 and C4",
+     ("cal.pt.dependence.c4.boot.code", "cal.pt.base.c4.boot.code", "cal.pt.skew.c4.boot.code", "cal.pt.instability.c4.boot.code",
+      "cal.pt.base.c1.boot.code", "cal.pt.skew.c1.boot.code", "cal.pt.instability.c1.boot.code", "cal.pt.dependence.c1.boot.code"),
+     lambda d4, *others: d4 == 0 and min(others) > 0),
+    ("Section 6.3: the bootstrap separates nested selection and the family-prior rule from validation-best, the corrected test confirms neither",
+     ("ta.primary.nested.vb.mholm", "ta.mechanism.fp.vb.mholm", "ta.primary.nested.vb.nbholm", "ta.mechanism.fp.vb.nbholm"),
+     lambda a, b, c, d: max(a, b) < 0.05 <= min(c, d)),
+    ("coverage study: at 20 splits the audit's weights widen the corrected interval for nested - VB",
+     ("cal.pt.base.c1.nb.seratio", "cal.pt.base.c1.nbt.seratio"), lambda w, t: w > 1 > t),
+    ("coverage study: nested - VB is about two rank positions in the base world", ("cal.pt.base.c1.theta",), lambda t: 1.75 < -t * 43 < 2.25),
+    ("coverage study: the base world is milder than TabArena, the skew world harsher on datasets with 30 units",
+     ("cal.fact.base.vbregret", "cal.fact.ta.vbregret", "cal.fact.base.vbregretsmall", "cal.fact.ta.vbregretsmall", "cal.fact.skew.vbregretsmall"),
+     lambda b, t, bs, ts, ss: b < t and bs < ts < ss),
+    ("TabRepo grouped splits: the correction's shift under exactly one estimate", ("trgs.two.opt.likeholm", "trgs.two.opt.ownholm"), lambda a, b: (a < 0.05) != (b < 0.05)),
+    ("TabRepo grouped splits: FP, task-adaptive and the guard under neither estimate", ("trgs.two.rest.minholm",), lambda p: p >= 0.05),
+    ("TabRepo grouped splits: the paired t-test no longer rejects nested - ensemble-3",
+     ("tr.fixed_ensembles.nested.ethree.tholm", "trg.fixed_ensembles.nested.ethree.tholm", "trg.fixed_ensembles.nested.ethree.mholm"),
+     lambda a, b, m: a < 0.05 <= b and m < 0.05),
+    ("every disagreement between the mean tests, in every run, is a bootstrap rejection", ("mtests.differ.all", "mtests.differ.onlyboot"), lambda a, b: a == b > 0),
+    ("the shared inner fit and the reported conventions separate nested selection from validation-best only borderline",
+     ("attr.inner.vb.mholm", "attr.inner.vb.tholm", "attr.vtwo.vb.mholm", "attr.vtwo.vb.tholm"), lambda a, b, c, d: max(a, c) < 0.05 <= min(b, d)),
+    ("documented-rows mask: the reapplied stage is not borderline (the paired t-test also rejects)",
+     ("flag.reapplied_primary.nested.vb.mholm", "flag.reapplied_primary.nested.vb.tholm"), lambda m, t: max(m, t) < 0.05),
+    ("the defaults rule is separated from neither committed rule nor from validation-best among defaults",
+     ("ta.provenance_reference.dtt.fp.mholm", "ta.provenance_reference.dtt.tsf.mholm", "ta.provenance_reference.dtt.vbdef.mholm", "ta.provenance_reference.dtt.vbdef.rholm"),
+     lambda a, b, c, r: min(a, b, c) >= 0.05 and r < 0.05),
+    ("grouped score-only splits: the bootstrap test newly rejects against the correction and kNN with validation",
+     ("trs.revision_references.nested.opt.mholm", "trgs.revision_references.nested.opt.mholm", "trs.revision_references.nested.knnv.mholm", "trgs.revision_references.nested.knnv.mholm"),
+     lambda a, b, c, d: a >= 0.05 > b and c >= 0.05 > d),
+    ("the extended pool's gain over validation-best is borderline",
+     ("ta.ext.primary.nested.vb.mholm", "ta.ext.primary.nested.vb.tholm"), lambda m, t: m < 0.05 <= t),
+    ("imputed rows: refitting moves the contrast by an amount whose interval includes zero",
+     ("imp.stage.refit.ci", "flag.stage.refit.ci"), lambda a, b: a[0] < 0 < a[1] and b[0] < 0 < b[1]),
+    ("imputed rows: the rescored and reapplied separations are borderline (paired t-test does not reject)",
+     ("imp.rescored_primary.nested.vb.tholm", "imp.reapplied_primary.nested.vb.tholm"), lambda a, b: min(a, b) >= 0.05),
+    ("copy-free: validation-best minus the single best solver is not separated, interval excludes zero",
+     ("imp.provenance.vb.sbs.ci", "imp.provenance.vb.sbs.mholm"), lambda ci, p: ci[0] > 0 and p >= 0.05),
+    ("TabRepo score-only: task-adaptive and guard beat nested selection; the paired t-test also rejects, not the corrected or signed-rank tests",
+     ("trs.score_level_rows.nested.tad.mholm", "trs.score_level_rows.nested.gfive.mholm", "trs.score_level_rows.nested.tad.tholm", "trs.score_level_rows.nested.gfive.tholm",
+      "trs.score_level_rows.nested.tad.nbholm", "trs.score_level_rows.nested.gfive.nbholm", "trs.score_level_rows.nested.tad.rholm", "trs.score_level_rows.nested.gfive.rholm"),
+     lambda a, b, c, d, e, f, g, h: max(a, b, c, d) < 0.05 <= min(e, f, g, h)),
+    ("TabRepo score-only nested - TSF: the bootstrap test rejects with grouped splits and with the shared inner fit, not as reported",
+     ("trgs.primary.nested.tsfs.mholm", "attr.tr.inner.tsfs.mholm", "trs.primary.nested.tsfs.mholm"), lambda g, i, r: max(g, i) < 0.05 <= r),
+    ("TabRepo grouped splits: nested selection ties the ensemble-inclusive reference", ("trg.primary.nested.tsfe.wins", "trg.primary.nested.tsfe.losses"), lambda w, l: w == 0 and l == 0),
+    ("TabRepo source overlap: no verdict or sign changes", ("ovls.flips", "ovls.signs"), lambda f, g: f == 0 and g == 0),
+    # Table 3 and Appendix H: TabRepo's RandomForest and ExtraTrees rows are single forests with
+    # out-of-bag validation, its KNN rows single models with leave-one-out validation.
+    ("TabRepo slice: RF and XT test predictions mostly on 1/300, validation predictions never",
+     ("trc.rf.test", "trc.xt.test", "trc.rf.val", "trc.xt.val"), lambda a, b, c, d: min(a, b) > 50 and max(c, d) == 0),
+    ("TabRepo slice: out-of-bag denominators near 300/e", ("trc.rf.valden", "trc.xt.valden"), lambda a, b: 80 <= min(a, b) and max(a, b) <= 130),
+    ("TabRepo slice: KNN validation leave-one-out in most tasks, never a bag", ("trc.knn.val", "trc.knn.bag"), lambda v, b: v > 50 and b == 0),
+    ("TabRepo slice: the control families lie on no lattice", ("trc.ctrl.lattice",), lambda c: c == 0),
+    # Section 7 and Appendix H: the group-aware rerun.
+    ("TabRepo grouped at every level: nested selection ties the ensemble-inclusive reference", ("trgi.primary.nested.tsfe.wins", "trgi.primary.nested.tsfe.losses"), lambda w, l: w == 0 and l == 0),
+    ("TabRepo grouped at every level: score-only nested - TSF, VB and the rank correction not rejected, outer-only TSF rejected",
+     ("trgis.primary.nested.tsfs.mholm", "trgis.primary.nested.vb.mholm", "trgis.revision_references.nested.opt.mholm", "trgs.primary.nested.tsfs.mholm"),
+     lambda a, b, c, o: min(a, b, c) >= 0.05 and o < 0.05),
+    ("TabRepo grouped at every level: no score-only shift against the random splits", ("trgis.two.minholm",), lambda m: m >= 0.05),
+    ("TabRepo grouped at every level: kNN with validation still rejected, task-adaptive and guard still not; outer-only rejected the correction and kNN",
+     ("trgis.revision_references.nested.knnv.mholm", "trgis.score_level_rows.nested.tad.mholm", "trgis.score_level_rows.nested.gfive.mholm",
+      "trgs.revision_references.nested.opt.mholm", "trgs.revision_references.nested.knnv.mholm", "trgs.score_level_rows.nested.tad.mholm", "trgs.score_level_rows.nested.gfive.mholm"),
+     lambda k, t, g, o, ok, ot, og: k < 0.05 <= min(t, g) and max(o, ok) < 0.05 <= min(ot, og)),
+    ("TabRepo grouped at every level: the paired changes are positive, some rejected by the dataset bootstrap, none by the cluster bootstrap",
+     ("trgics.change.min", "trgics.nreject", "trgics.cluster.minholm"), lambda lo, n, c: lo > 0 and n >= 1 and c >= 0.05),
+    ("TabRepo grouped at every level: the cluster bootstrap changes no test result", ("trgi.cluster.flips",), lambda f: f == 0),
+    ("TabRepo: nested selection and the ensemble-inclusive reference choose the same row in every split of all three runs",
+     ("tr.samerow", "tr.splits", "trg.samerow", "trg.splits", "trgi.samerow", "trgi.splits"),
+     lambda a, n, b, m, c, k: a == n and b == m and c == k),
+    ("TabRepo grouped runs: the same ensemble-inclusive gain over validation-best in both, unchanged on every dataset",
+     ("trg.primary.nested.vb.diff", "trgi.primary.nested.vb.diff", "trg.primary.nested.vb.ci", "trgi.primary.nested.vb.ci", "trgic.vb.changed"),
+     lambda a, b, c, d, n: a == b and c == d and n == 0),
+    ("TabRepo outer-grouped run: the bootstrap test rejects against TSF, the rank correction and kNN with validation, the corrected test for none",
+     ("trgs.primary.nested.tsfs.mholm", "trgs.revision_references.nested.opt.mholm", "trgs.revision_references.nested.knnv.mholm",
+      "trgs.primary.nested.tsfs.nbholm", "trgs.revision_references.nested.opt.nbholm", "trgs.revision_references.nested.knnv.nbholm"),
+     lambda a, b, c, d, e, f: max(a, b, c) < 0.05 <= min(d, e, f)),
+    ("TabRepo outer-grouped run: task-adaptive and the guard rejected over the random splits, no longer here",
+     ("trs.score_level_rows.nested.tad.mholm", "trs.score_level_rows.nested.gfive.mholm",
+      "trgs.score_level_rows.nested.tad.mholm", "trgs.score_level_rows.nested.gfive.mholm"),
+     lambda a, b, c, d: max(a, b) < 0.05 <= min(c, d)),
+    ("TabRepo outer-grouped run: every interval of the six score-only contrasts is wider than over the random splits",
+     tuple(f"{run}.{key}.ci" for key in ["primary.nested.vb", "primary.nested.tsfs", "revision_references.nested.opt",
+                                           "revision_references.nested.knnv", "score_level_rows.nested.tad", "score_level_rows.nested.gfive"]
+           for run in ("trs", "trgs")),
+     lambda *cis: all(cis[i + 1][1] - cis[i + 1][0] > cis[i][1] - cis[i][0] for i in range(0, len(cis), 2))),
+    ("TabRepo fully grouped run: every two-sample Holm p is 1 in both pools", ("trgi.two.allminholm",), lambda p: p == 1.0),
+    ("TabRepo fully grouped run: the largest score-only change, against VB and the rank correction alike, rejected by the dataset bootstrap only; their rows unchanged",
+     ("trgics.vb.change", "trgics.opt.change", "trgics.change.max", "trgics.vb.holm", "trgics.vb.clusterholm", "trgics.refs.changed"),
+     lambda v, o, m, h, c, n: v == o == m and h < 0.05 <= c and n == 0),
+    # Section 7: with uniform selection provenance the five lowest family rank calibrations are
+    # TabPFN, linear models, KNN, ExtraTrees and RandomForest.
+    ("TabRepo: the five lowest family rank calibrations",
+     tuple(f"tr.optim.family.{name}" for name in ["tabpfn", "linearmodel", "kneighbors", "extratrees", "randomforest",
+                                                    "xgboost", "neuralnetfastai", "neuralnettorch", "lightgbm", "fttransformer", "catboost"]),
+     lambda *v: max(v[:5]) < min(v[5:])),
+    ("corrected test: the degrees of freedom change few verdicts, the reduced pool's among them",
+     ("nb.dfflips", "ta.shrink.primary.nested.vb.nbholm", "ta.shrink.primary.nested.vb.nbholmdf"),
+     lambda f, a, b: f == 2 and a < 0.05 <= b),
 ]
 
 
@@ -465,6 +661,9 @@ def printed_value(text: str) -> Any:
     if cleaned.startswith("[") and cleaned.endswith("]"):
         low, high = cleaned[1:-1].split(",")
         return (float(low), float(high))
+    if cleaned.startswith("<"):
+        # A bound such as p < 0.001: any value strictly below it.
+        return float(cleaned[1:]) * (1.0 - 1e-9)
     return float(cleaned)
 
 
@@ -549,6 +748,9 @@ def contrast_numbers(assets: Assets, prefix: str, contrasts: pd.DataFrame) -> No
 def build_tabarena(assets: Assets) -> None:
     summary = assets.csv("score_level_tabarena_review/clustered_summary.csv")
     contrasts = assets.csv("score_level_tabarena_review/contrasts.csv")
+    # The rule that selects on defaults (scripts/provenance_reference.py) joins the table as a
+    # post hoc reference, with the same endpoints computed by the same code.
+    summary = pd.concat([summary, assets.csv("tabarena_provenance_reference/summary.csv")], ignore_index=True)
     summary_numbers(assets, "ta", summary, rank_scale=43.0)
     contrast_numbers(assets, "ta", contrasts)
     indexed = summary.set_index("method")
@@ -568,6 +770,7 @@ def build_tabarena(assets: Assets) -> None:
         "oracle",
         "meta_selector_family_prior_budgeted",
         "train_selected_fixed_reference__declared_fixed",
+        "train_selected_fixed_reference__with_calibrated",
         "meta_selector_meta_feature_guard_002",
         "nested_policy_selected",
         "meta_selector_meta_feature_guard_005",
@@ -578,6 +781,7 @@ def build_tabarena(assets: Assets) -> None:
     added = [
         "reference_optimism_corrected_task",
         "reference_optimism_corrected",
+        "reference_defaults_then_tuned",
         "reference_optimism_corrected_budget",
         "reference_metafeature_knn_validation",
         "reference_validation_best_default",
@@ -591,7 +795,7 @@ def build_tabarena(assets: Assets) -> None:
         "lrrrr",
         ["Policy", "Norm.\\ rank regret [95\\% CI]", "Gap closed", "Error regret [95\\% CI]", "Runtime (s)"],
         rows,
-        groups={0: "Policies and references of the nested audit", len(declared): "References added after the main results (exploratory)"},
+        groups={0: "Policies and references of the nested audit", len(declared): "References added after the main results (post hoc)"},
     )
 
     primary = contrasts[contrasts["family"].eq("primary")]
@@ -781,7 +985,7 @@ def build_optimism_snr(assets: Assets, prefix: str, directory: str) -> None:
 
 def build_median_distance(assets: Assets, prefix: str, directory: str) -> None:
     """How close the median candidate is to the best: why the median normalisation of
-    error-space optimism is used on TabArena only (Appendix F)."""
+    error-space optimism is used on TabArena only (Appendix G)."""
     distance = assets.csv(f"{directory}/median_distance.csv").iloc[0]
     assets.define(f"{prefix}.meddist.below", percent(distance["share_units_below_one_percent"]))
     assets.define(f"{prefix}.meddist.atbest", str(int(distance["units_median_at_best"])))
@@ -1028,7 +1232,7 @@ def build_factorial(assets: Assets, prefix: str, directory: str) -> None:
 
 def build_grid(assets: Assets) -> None:
     prefix = assets.csv("tabarena_grid_diagnostics/prefix_grid_sweep.csv")
-    # The same sweep with the shared inner fit of the adaptive policies (Appendix H).
+    # The same sweep with the shared inner fit of the adaptive policies (Appendix J).
     shared = assets.csv("attribution/inner_shared_grid_diagnostics/prefix_grid_sweep.csv").set_index("n_policy_methods")
     rows = []
     for _, item in prefix.iterrows():
@@ -1215,7 +1419,10 @@ def build_tabrepo(assets: Assets) -> None:
     wide = means.pivot_table(index="dataset", columns="method", values="mean_normalized_rank_regret")
     loss = (wide["nested_policy_selected"] - wide["meta_selector_tabrepo_ensemble_k3"]).sort_values(ascending=False)
     assets.define("tr.nested.ethree.topfiveshare", percent(float(loss.head(5).sum() / loss.sum())))
-    nested_counts = assets.csv("score_level_tabrepo_nested/split_results.csv")["selected_policy"].value_counts()
+    nested_splits = assets.csv("score_level_tabrepo_nested/split_results.csv")
+    assets.define("tr.splits", str(int(nested_splits.shape[0])))
+    assets.define("tr.samerow", str(same_row_splits(assets, "score_level_tabrepo_nested", "score_level_tabrepo_nested_review")))
+    nested_counts = nested_splits["selected_policy"].value_counts()
     for method, count in nested_counts.items():
         key = POLICY_KEYS.get(str(method))
         if key:
@@ -1227,6 +1434,9 @@ def build_tabrepo(assets: Assets) -> None:
     ensemble, validation = ens.loc["meta_selector_tabrepo_ensemble_k3"], ens.loc["meta_selector_single"]
     assets.define("tr.ethree.err.rel", percent(1.0 - float(ensemble["mean_maxmin_error_regret"]) / float(validation["mean_maxmin_error_regret"])))
     assets.define("tr.ethree.reg.rel", percent(1.0 - float(ensemble["mean_normalized_rank_regret"]) / float(validation["mean_normalized_rank_regret"])))
+    # Four decimals, so that the printed pair reproduces the relative difference.
+    assets.define("tr.ethree.errfour", num(float(ensemble["mean_maxmin_error_regret"]), 4))
+    assets.define("tr.vb.errfour", num(float(validation["mean_maxmin_error_regret"]), 4))
 
     def line(frame: pd.DataFrame, method: str, label: str | None = None) -> list[str]:
         item = frame.loc[method]
@@ -1256,7 +1466,7 @@ def build_tabrepo(assets: Assets) -> None:
     ]
     assets.tables["tabrepo_main"] = tabular(
         "lrrrr",
-        ["Policy", "Norm.\\ rank regret [95\\% CI]", "Error regret", "Beats best", "Runtime (s)"],
+        ["Policy", "Norm.\\ rank regret [95\\% CI]", "Error regret", "Outperforms all", "Runtime (s)"],
         rows,
         groups={0: "Ensemble-inclusive pool", 5: "Score-only pool (ensemble rows removed before the nested choice)"},
     )
@@ -1292,7 +1502,7 @@ def mean_test_variants(values: np.ndarray, indices: np.ndarray) -> dict[str, flo
 
 
 def build_mean_tests(assets: Assets) -> None:
-    """Section 3.5 and Appendix A: where the declared bootstrap test and the paired t-test of
+    """Section 3.4 and Appendix A: where the declared bootstrap test and the paired t-test of
     the same mean give different Holm-adjusted verdicts, which one separates and why, and the
     Monte Carlo spread of the headline p-value over other resample matrices."""
     runs = {
@@ -1307,6 +1517,33 @@ def build_mean_tests(assets: Assets) -> None:
         split = (contrasts["bootstrap_holm_p"] < ALPHA) != (contrasts["ttest_holm_p"] < ALPHA)
         differ[key] = contrasts[split].drop_duplicates(subset=NUMERIC_IDENTITY)
     assets.define("ta.mtests.differ.main", str(len(differ["main"])))
+    # The same comparison over every contrast file the reported runs wrote, the rescored and
+    # reapplied stages, the overlap checks and the convention runs included.
+    # The matched-family comparison of the pools adds each pool's contrasts in a three- and a
+    # five-member family. A contrast that two runs share with identical numbers, such as the
+    # family-prior rule against validation-best, which no inner fit changes, counts once.
+    frames = []
+    for path in sorted(assets.out.rglob("*contrasts.csv")):
+        frame = pd.read_csv(path)
+        if {"bootstrap_holm_p", "ttest_holm_p"} <= set(frame.columns):
+            frames.append(frame[["left", "right", "mean_difference", "ci_low", "ci_high", "bootstrap_holm_p", "ttest_holm_p"]].assign(source=str(path)))
+        elif {"bootstrap_holm_five", "ttest_holm_five"} <= set(frame.columns):
+            for size in ["three", "five"]:
+                frames.append(
+                    frame[["left", "right", "mean_difference", "ci_low", "ci_high", f"bootstrap_holm_{size}", f"ttest_holm_{size}"]]
+                    .rename(columns={f"bootstrap_holm_{size}": "bootstrap_holm_p", f"ttest_holm_{size}": "ttest_holm_p"})
+                    .assign(source=f"{path}:{size}")
+                )
+    everything = pd.concat(frames, ignore_index=True)
+    differing = everything[(everything["bootstrap_holm_p"] < ALPHA) != (everything["ttest_holm_p"] < ALPHA)].copy()
+    # Distinct by their numbers, as for the main run: a contrast tested in two families, or
+    # against validation rank, which on TabArena chooses as validation-best does, counts once.
+    for column in ["mean_difference", "ci_low", "ci_high"]:
+        differing[f"_{column}"] = differing[column].round(10)
+    differing = differing.drop_duplicates(subset=["_mean_difference", "_ci_low", "_ci_high"])
+    assets.define("mtests.differ.all", str(len(differing)))
+    assets.define("mtests.differ.onlyboot", str(int((differing["bootstrap_holm_p"] < ALPHA).sum())))
+    assets.define("mtests.differ.runs", str(int(differing["source"].nunique())))
     assets.define("ta.mtests.differ.ext", str(len(differ["ext"])))
     assets.define("tr.mtests.differ", str(len(differ["trs"]) + len(differ["tre"])))
     tabarena = pd.concat([differ["main"].assign(run="main"), differ["ext"].assign(run="ext")])
@@ -1459,7 +1696,7 @@ def build_overlap(assets: Assets) -> None:
 
 
 def build_attribution(assets: Assets) -> None:
-    """Sensitivity to the two implementation conventions that move numbers (Appendix H)."""
+    """Sensitivity to the two implementation conventions that move numbers (Appendix J)."""
     runs = {
         "vone": "attribution/legacy_v1_review",
         "rankfix": "attribution/rank_fix_only_review",
@@ -1503,7 +1740,7 @@ def build_attribution(assets: Assets) -> None:
             item = contrasts[key][contrasts[key]["family"].eq("primary") & contrasts[key]["right"].eq(right)].iloc[0]
             values.append(pvalue(item[f"tost_p_{margin}"]))
         rows.append([f"TOST $p$ at $\\pm{text}$, nested $-$ {policy_label(right)}", *values])
-    # Keys and verdicts of the primary contrasts in every column (Appendix H).
+    # Keys and verdicts of the primary contrasts in every column (Appendix J).
     for key in runs:
         primary = contrasts[key][contrasts[key]["family"].eq("primary")]
         for _, item in primary.iterrows():
@@ -1514,6 +1751,8 @@ def build_attribution(assets: Assets) -> None:
             assets.verdicts[base] = contrast_verdicts(item)
             if "bootstrap_holm_p" in item and pd.notna(item["bootstrap_holm_p"]):
                 assets.define_p(f"{base}.mholm", pvalue(item["bootstrap_holm_p"]))
+            if "ttest_holm_p" in item and pd.notna(item["ttest_holm_p"]):
+                assets.define_p(f"{base}.tholm", pvalue(item["ttest_holm_p"]))
             for margin in ["0p010", "0p015"]:
                 assets.define_p(f"{base}.tost{margin.replace('0p', '')}", pvalue(item[f"tost_p_{margin}"]))
     assets.tables["attribution"] = tabular(
@@ -1599,18 +1838,18 @@ def _adaptive_choices(assets: Assets, key: str, directory: str) -> None:
 
 
 def _check_inner_fit_rows(assets: Assets, shared: str, reported: str, allowed: set[str]) -> None:
-    """Appendix H says the inner fit leaves every held-out policy row unchanged and moves only
+    """Appendix J says the inner fit leaves every held-out policy row unchanged and moves only
     rows chosen by training regret. Refuse to build otherwise."""
     a = assets.csv(f"{shared}/clustered_summary.csv").set_index("method")["mean_normalized_rank_regret"]
     b = assets.csv(f"{reported}/clustered_summary.csv").set_index("method")["mean_normalized_rank_regret"]
     common = a.index.intersection(b.index)
     changed = {str(method) for method in common if abs(float(a[method]) - float(b[method])) > 1e-12}
     if not changed <= allowed:
-        raise ValueError(f"The inner fit also moves {sorted(changed - allowed)}; revise Appendix H")
+        raise ValueError(f"The inner fit also moves {sorted(changed - allowed)}; revise Appendix J")
 
 
 def build_attribution_tabrepo(assets: Assets) -> None:
-    """The inner fit of the adaptive policies on TabRepo (Appendix H): the shared fit against
+    """The inner fit of the adaptive policies on TabRepo (Appendix J): the shared fit against
     the reported per-target fit, in the score-only panel, where the adaptive policies compete
     without ensemble rows."""
     runs = {
@@ -1692,6 +1931,7 @@ def build_jackknife(assets: Assets) -> None:
             assets.define(f"{prefix}.{key}.se", num(item["jackknife_se"], 4))
             # Half-width of a 90% normal interval at the procedure level, the analogue of TOST's.
             assets.define(f"{prefix}.{key}.hw", num(1.6449 * float(item["jackknife_se"]), 4))
+            assets.define(f"{prefix}.{key}.mean", num(item["subset_mean"], 4, signed=True))
             assets.define(f"{prefix}.{key}.neg", percent(item["share_subsets_negative"]))
             assets.define(f"{prefix}.{key}.pos", percent(item["share_subsets_positive"]))
             left, right = [part.strip() for part in str(item["contrast"]).split(" - ")]
@@ -2114,8 +2354,13 @@ def corrected_keys(assets: Assets, prefix: str, frame: pd.DataFrame) -> None:
             assets.define(f"{base}.nbratio", num(row["nb_se_ratio"], 1))
         assets.define_p(f"{base}.nbp", pvalue(row["nb_p"]))
         assets.define_p(f"{base}.nbholm", pvalue(row["nb_holm_p"]))
+        if "nb_holm_p_df_datasets" in row and pd.notna(row["nb_holm_p_df_datasets"]):
+            # The same test with the number of datasets less one as degrees of freedom.
+            assets.define_p(f"{base}.nbholmdf", pvalue(row["nb_holm_p_df_datasets"]))
         assets.define(f"{base}.nbci", interval(row["nb_ci90_low"], row["nb_ci90_high"], 4))
         assets.define(f"{base}.nbmargin", num(row["nb_smallest_equivalence_margin"], 4))
+        # Five decimals where four would print a margin that only just fails as equal to it.
+        assets.define(f"{base}.nbmargin5", num(row["nb_smallest_equivalence_margin"], 5))
         # Added to the bootstrap verdicts of the same contrast (contrast_numbers runs first).
         verdicts = assets.verdicts.setdefault(base, {})
         if float(row["nb_holm_p"]) >= ALPHA:
@@ -2130,10 +2375,31 @@ def corrected_keys(assets: Assets, prefix: str, frame: pd.DataFrame) -> None:
 
 def build_corrected(assets: Assets) -> None:
     frames = {}
+    primary = assets.csv("score_level_tabarena_review/contrasts.csv")
+    primary = primary[primary["family"].eq("primary") & primary["left"].eq("nested_policy_selected")].set_index("right")
+    committed = ["meta_selector_family_prior_budgeted", "train_selected_fixed_reference__declared_fixed"]
+    corrected_ta = assets.csv("tabarena_corrected_test/corrected_resampled_tests.csv")
+    corrected_ta = corrected_ta[corrected_ta["family"].eq("primary")].set_index("right")
+    committed_p = [float(primary.loc[r, c]) for r in committed for c in ("bootstrap_holm_p", "ttest_holm_p")]
+    committed_p += [float(corrected_ta.loc[r, "nb_holm_p"]) for r in committed]
+    if len({pvalue(v) for v in committed_p}) != 1:
+        raise ValueError("Nested selection minus the committed rules: the six Holm p-values are not all equal.")
+    assets.define_p("ta.committed.holm.all", pvalue(committed_p[0]))
+    flips = 0
     for prefix, folder, _ in CORRECTED_RUNS:
         frame = assets.csv(f"{folder}/corrected_resampled_tests.csv")
         frames[prefix] = frame
         corrected_keys(assets, prefix, frame)
+        # Degrees of freedom: J - 1 (Nadeau and Bengio) against the number of datasets less one.
+        if "nb_holm_p_df_datasets" in frame.columns:
+            flips += int(((frame["nb_holm_p"] < ALPHA) != (frame["nb_holm_p_df_datasets"] < ALPHA)).sum())
+    assets.define("nb.dfflips", str(flips))
+    # The minimum detectable effect of nested - family-prior at the corrected standard error
+    # (80% power, two-sided alpha), in normalized regret and rank positions (1/43).
+    fp = frames["ta"][frames["ta"]["family"].eq("primary") & frames["ta"]["right"].eq("meta_selector_family_prior_budgeted")].iloc[0]
+    mde = float(stats.norm.ppf(1.0 - ALPHA / 2.0) + stats.norm.ppf(0.80)) * float(fp["nb_se"])
+    assets.define("ta.primary.nested.fp.nbmde80", num(mde, 4))
+    assets.define("ta.primary.nested.fp.nbmde80rank", num(mde * 43.0, 1))
     labels = {prefix: label for prefix, _, label in CORRECTED_RUNS}
     rows = []
     for prefix, family, references in CORRECTED_TABLE_ROWS:
@@ -2143,7 +2409,7 @@ def build_corrected(assets: Assets) -> None:
             rows.append(
                 [
                     labels[prefix],
-                    policy_label(reference),
+                    "Train-selected fixed rule (score-only pool)" if (prefix, reference) == ("tr", "train_selected_fixed_reference__score_only") else policy_label(reference),
                     num(item["mean_difference"], 4, signed=True),
                     num(item["bootstrap_se"], 4),
                     num(item["nb_se"], 4),
@@ -2181,6 +2447,26 @@ def build_influence(assets: Assets) -> None:
     assets.define_p("ta.infl.topout.nbp", pvalue(row["topout_nb_p"]))
     names = [latex_escape(name) for name in str(row["top_datasets"]).split(";")]
     assets.define("ta.infl.top.datasets", ", ".join(names[:-1]) + " and " + names[-1])
+    # Leave-one-out with the primary family Holm-adjusted on the kept datasets.
+    assets.define_p("ta.infl.loo.maxholm", pvalue(row["loo_max_holm_p"]))
+    assets.define("ta.infl.loo.notsep", str(int(row["loo_n_not_separated"])))
+    dropped = [latex_escape(name) for name in str(row["loo_not_separated"]).split(";") if name]
+    assets.define("ta.infl.loo.notsep.datasets", " and ".join(dropped) if dropped else "none")
+    # Symmetric trimming (Yuen's one-sample test; unadjusted).
+    assets.define("ta.infl.trimten.diff", num(row["trim10_mean"], 4, signed=True))
+    assets.define_p("ta.infl.trimten.p", pvalue(row["trim10_yuen_p"]))
+    assets.define("ta.infl.trimtwenty.diff", num(row["trim20_mean"], 4, signed=True))
+    assets.define_p("ta.infl.trimtwenty.p", pvalue(row["trim20_yuen_p"]))
+    # Dataset size: the gain by the number of evaluation units (TabArena gives small datasets more).
+    assets.define("ta.infl.size.rho", num(row["size_spearman"], 2))
+    assets.define_p("ta.infl.size.p", pvalue(row["size_spearman_p"]))
+    assets.define("ta.infl.small.n", str(int(row["many_units_datasets"])))
+    assets.define("ta.infl.small.units", str(int(row["many_units"])))
+    assets.define("ta.infl.small.diff", num(row["many_units_mean"], 3, signed=True))
+    assets.define("ta.infl.small.maxrows", seconds(float(row["many_units_max_rows"])))
+    assets.define("ta.infl.large.n", str(int(row["few_units_datasets"])))
+    assets.define("ta.infl.large.units", str(int(row["few_units"])))
+    assets.define("ta.infl.large.diff", num(row["few_units_mean"], 3, signed=True))
 
 
 def build_imputed(assets: Assets) -> None:
@@ -2194,7 +2480,10 @@ def build_imputed(assets: Assets) -> None:
     assets.define("imp.units", str(int(total["units"])))
     assets.define("imp.unitstotal", str(int(total["units_total"])))
     assets.define("imp.flagged", str(int(total["flagged_rows"])))
-    assets.define("imp.copies", str(int(total["copy_rows"])))
+    # Rows that carry RandomForest (default)'s recorded prediction time without a metadata flag.
+    assets.define("imp.timing", str(int(total["timing_rows"])))
+    assets.define("imp.exact", str(int(total["exact_error_rows"])))
+    assets.define("imp.maxgap", percent(float(total["max_relative_error_gap"]), 1))
     by_method = summary.set_index("method")
     assets.define("imp.tabpfn.datasets", str(int(by_method.loc["TABPFNV2 (default)", "datasets"])))
     assets.define("imp.tabicl.datasets", str(int(by_method.loc["TABICL (default)", "datasets"])))
@@ -2202,16 +2491,63 @@ def build_imputed(assets: Assets) -> None:
     summary_numbers(assets, "imp", assets.csv(f"{review}/clustered_summary.csv"), rank_scale=43.0)
     contrast_numbers(assets, "imp", assets.csv(f"{review}/contrasts.csv"))
     corrected_keys(assets, "imp", assets.csv("tabarena_imputed/corrected_test/corrected_resampled_tests.csv"))
+    # The yardstick against the refit: the main run's own held-out choices scored against the
+    # candidate sets without the imputed rows (scripts/imputed_rows_rescore.py).
+    rescored = assets.csv("tabarena_imputed/rescored/rescored_summary.csv").set_index("method")
+    for method, key in [("nested_policy_selected", "nested"), ("meta_selector_single", "vb"), ("meta_selector_family_prior_budgeted", "fp")]:
+        assets.define(f"imp.resc.{key}.reg", num(float(rescored.loc[method, "rescored_regret"])))
+    contrast_numbers(assets, "imp", assets.csv("tabarena_imputed/rescored/rescored_contrasts.csv"))
+    rescore_meta = json.loads((assets.out / "tabarena_imputed" / "rescored" / "metadata.json").read_text(encoding="utf-8"))
+    assets.define("imp.resc.changed", percent(float(rescore_meta["nested_choice_changed_share"])))
+    _imputation_stages(assets, "imp", "tabarena_imputed", review)
+    imp_contrasts = assets.csv(f"{review}/contrasts.csv")
+    differ = imp_contrasts[(imp_contrasts["bootstrap_holm_p"] < ALPHA) != (imp_contrasts["ttest_holm_p"] < ALPHA)]
+    assets.define("imp.mtests.differ", str(int(differ.drop_duplicates(subset=NUMERIC_IDENTITY).shape[0])))
+    only_bootstrap = differ[differ["bootstrap_holm_p"] < ALPHA].drop_duplicates(subset=NUMERIC_IDENTITY)
+    assets.define("imp.mtests.onlyboot", str(int(only_bootstrap.shape[0])))
     build_provenance(assets, "imp", "tabarena_imputed/provenance", variants=True, rank_scale=43.0)
     # Without the copies, the single best solver is a model that does not run everywhere:
-    # it falls back to the next-best method where its first choice is absent.
+    # it falls back to the next-best method where its first choice is absent. The share is
+    # dataset-level, as in the members table.
+    top = assets.csv("tabarena_imputed/provenance/top_selected_members.csv")
+    first = top[top["method"].eq("reference_single_best_global")].sort_values("share", ascending=False).iloc[0]
+    assets.define("imp.sbs.first", latex_escape(candidate_name(str(first["selected_member"]))))
+    assets.define("imp.sbs.firstshare", percent(float(first["share"])))
+
+
+def build_provenance_reference(assets: Assets) -> None:
+    """The rule that selects on defaults and deploys tuned + ensemble (scripts/provenance_reference.py)."""
+    for prefix, folder in [("ta", "tabarena_provenance_reference"), ("imp", "tabarena_imputed/provenance_reference")]:
+        contrasts = assets.csv(f"{folder}/contrasts.csv")
+        contrast_numbers(assets, prefix, contrasts)
+        corrected_keys(assets, prefix, contrasts)
+        assets.define(f"{prefix}.dtt.reg", num(float(contrasts["left_mean"].iloc[0])))
+        meta = json.loads((assets.out / folder / "metadata.json").read_text(encoding="utf-8"))
+        assets.define(f"{prefix}.dtt.te.share", percent(float(meta["deployed_variant_share"].get("tuned + ensemble", 0.0))))
+
+
+def build_tabrepo_candidates(assets: Assets) -> None:
+    """How many configurations each TabRepo unit has (the slice has up to 1530)."""
     units = pd.read_parquet(
-        assets.out / "score_level_tabarena_no_imputed" / "unit_scores.parquet",
-        columns=["phase", "method", "selected_member"],
+        assets.out / "score_level_tabrepo_score_only" / "unit_scores.parquet",
+        columns=["dataset", "fold", "seed", "method", "n_candidates"],
     )
-    picks = units.loc[units["phase"].eq("heldout") & units["method"].eq("reference_single_best_global"), "selected_member"]
-    assets.define("imp.sbs.first", latex_escape(str(picks.value_counts().index[0])))
-    assets.define("imp.sbs.firstshare", percent(float(picks.value_counts(normalize=True).iloc[0])))
+    units = units[units["method"].eq("meta_selector_single")].drop_duplicates(["dataset", "fold", "seed"])
+    full = int(units["n_candidates"].max())
+    assets.define("tr.cand.min", seconds(float(units["n_candidates"].min())))
+    assets.define("tr.cand.max", seconds(float(full)))
+    assets.define("tr.units.incomplete", str(int((units["n_candidates"] < full).sum())))
+    assets.define("tr.units.total", str(int(units.shape[0])))
+
+
+def build_pool_distinct(assets: Assets) -> None:
+    """How many of the declared pool's rows differ in their dataset-level held-out regrets."""
+    training = assets.csv("score_level_tabarena/training_policy_scores.csv")
+    pool = sorted(training.loc[training["role"].eq("pool"), "method"].unique())
+    means = assets.csv("score_level_tabarena_review/dataset_mean_scores.csv")
+    regret = means.pivot_table(index="dataset", columns="method", values="mean_normalized_rank_regret")[pool]
+    assets.define("ta.pool.rows", str(len(pool)))
+    assets.define("ta.pool.distinct", str(int(regret.round(12).T.drop_duplicates().shape[0])))
 
 
 # The deployable error-space correction (scripts/error_space_correction.py): result-key
@@ -2263,6 +2599,498 @@ def build_error_space(assets: Assets) -> None:
         rows,
     )
 
+
+# ----------------------------------------------------------------------------- third review
+
+
+def _contrast_row(frame: pd.DataFrame, family: str, right: str = "meta_selector_single") -> pd.Series:
+    return frame[frame["family"].eq(family) & frame["left"].eq("nested_policy_selected") & frame["right"].eq(right)].iloc[0]
+
+
+def _imputation_stages(assets: Assets, prefix: str, folder: str, review: str) -> None:
+    """The advantage over validation-best kept after refitting, the reapplied rules, and the
+    split-level agreement of the nested choice between the main run and the refit."""
+    refit = _contrast_row(assets.csv(f"{review}/contrasts.csv"), "primary")
+    rescored = _contrast_row(assets.csv(f"{folder}/rescored/rescored_contrasts.csv"), "rescored_primary")
+    assets.define(f"{prefix}.retained", percent(float(refit["mean_difference"]) / float(rescored["mean_difference"])))
+    reapplied = assets.csv(f"{folder}/reapplied/reapplied_contrasts.csv")
+    contrast_numbers(assets, prefix, reapplied)
+    summary = assets.csv(f"{folder}/reapplied/reapplied_summary.csv").set_index("method")
+    for method, key in [("nested_policy_selected", "nested"), ("meta_selector_single", "vb"), ("meta_selector_family_prior_budgeted", "fp")]:
+        assets.define(f"{prefix}.reap.{key}.reg", num(float(summary.loc[method, "reapplied_regret"])))
+    meta = json.loads((assets.out / folder / "reapplied" / "metadata.json").read_text(encoding="utf-8"))
+    assets.define(f"{prefix}.reap.memberchanged", percent(float(meta["nested_member_changed_share"]), 1))
+    check = assets.out / folder / "reapplied" / "reproduction_check.json"
+    checked = json.loads(check.read_text(encoding="utf-8"))["reproduced_splits"] if check.exists() else len(meta["reproduced_splits"])
+    assets.define(f"{prefix}.reap.checked", str(int(checked)))
+    # How far refitting moves the contrast beyond reapplying the fitted rules: the paired
+    # per-dataset change of nested selection minus validation-best between the two stages.
+    reap_means = assets.csv(f"{folder}/reapplied/dataset_mean_scores.csv").set_index("dataset")
+    refit_means = assets.csv(f"{review}/dataset_mean_scores.csv").pivot_table(
+        index="dataset", columns="method", values="mean_normalized_rank_regret"
+    )
+    if float((reap_means["meta_selector_single"] - refit_means["meta_selector_single"]).abs().max()) > 1e-12:
+        raise ValueError("Validation-best differs between the reapplied and refitted stages.")
+    change = (refit_means["nested_policy_selected"] - refit_means["meta_selector_single"]) - (
+        reap_means["nested_policy_selected"] - reap_means["meta_selector_single"]
+    )
+    resampler = ArtifactResampler(list(change.index), seed=REVIEW_SEED)
+    values = resampler.align(change)
+    boot = values[resampler.indices].mean(axis=1)
+    low, high = np.quantile(boot, [0.025, 0.975])
+    assets.define(f"{prefix}.stage.refit.diff", num(float(values.mean()), 4, signed=True))
+    assets.define(f"{prefix}.stage.refit.ci", interval(float(low), float(high), 4))
+    assets.define_p(f"{prefix}.stage.refit.p", pvalue(bootstrap_mean_p(boot)))
+    main = assets.csv("score_level_tabarena/split_results.csv").set_index("split_id")["selected_policy"]
+    rerun_dir = review[: -len("_review")]
+    rerun = assets.csv(f"{rerun_dir}/split_results.csv").set_index("split_id")["selected_policy"]
+    assets.define(f"{prefix}.choice.same", str(int((main == rerun.reindex(main.index)).sum())))
+
+
+def build_flagged(assets: Assets) -> None:
+    """The audit without only the 726 rows that TabArena's metadata documents as imputed."""
+    review = "score_level_tabarena_no_flagged_review"
+    summary_numbers(assets, "flag", assets.csv(f"{review}/clustered_summary.csv"), rank_scale=43.0)
+    contrast_numbers(assets, "flag", assets.csv(f"{review}/contrasts.csv"))
+    corrected_keys(assets, "flag", assets.csv("tabarena_imputed_flagged/corrected_test/corrected_resampled_tests.csv"))
+    contrast_numbers(assets, "flag", assets.csv("tabarena_imputed_flagged/rescored/rescored_contrasts.csv"))
+    rescored = assets.csv("tabarena_imputed_flagged/rescored/rescored_summary.csv").set_index("method")
+    assets.define("flag.resc.nested.reg", num(float(rescored.loc["nested_policy_selected", "rescored_regret"])))
+    meta = json.loads((assets.out / "tabarena_imputed_flagged" / "metadata.json").read_text(encoding="utf-8"))
+    assets.define("flag.removed", str(int(meta["removed_rows"])))
+    _imputation_stages(assets, "flag", "tabarena_imputed_flagged", review)
+    # The stage table: nested selection minus validation-best under both masks.
+    main = _contrast_row(assets.csv("score_level_tabarena_review/contrasts.csv"), "primary")
+    main_regret = assets.csv("score_level_tabarena_review/clustered_summary.csv").set_index("method").loc["nested_policy_selected", "mean_normalized_rank_regret"]
+    rows = [["Full results file", "Main run", num(float(main_regret)), f"{num(main['mean_difference'], 4, signed=True)} {interval(main['ci_low'], main['ci_high'], 4)}", pvalue(main["bootstrap_holm_p"]), pvalue(main["ttest_holm_p"])]]
+    for mask, prefix_dir, rerun_review, removed in [
+        ("All 992 identified rows removed", "tabarena_imputed", "score_level_tabarena_no_imputed_review", "imp.rows"),
+        ("Only the 726 documented rows removed", "tabarena_imputed_flagged", review, "flag.removed"),
+    ]:
+        stages = [
+            ("Rescored", _contrast_row(assets.csv(f"{prefix_dir}/rescored/rescored_contrasts.csv"), "rescored_primary"),
+             assets.csv(f"{prefix_dir}/rescored/rescored_summary.csv").set_index("method").loc["nested_policy_selected", "rescored_regret"]),
+            ("Reapplied", _contrast_row(assets.csv(f"{prefix_dir}/reapplied/reapplied_contrasts.csv"), "reapplied_primary"),
+             assets.csv(f"{prefix_dir}/reapplied/reapplied_summary.csv").set_index("method").loc["nested_policy_selected", "reapplied_regret"]),
+            ("Refitted", _contrast_row(assets.csv(f"{rerun_review}/contrasts.csv"), "primary"),
+             assets.csv(f"{rerun_review}/clustered_summary.csv").set_index("method").loc["nested_policy_selected", "mean_normalized_rank_regret"]),
+        ]
+        for index, (stage, row, regret) in enumerate(stages):
+            label = mask.replace("992", assets.numbers.get(removed, "?")).replace("726", assets.numbers.get(removed, "?")) if index == 0 else ""
+            rows.append([label, stage, num(float(regret)), f"{num(row['mean_difference'], 4, signed=True)} {interval(row['ci_low'], row['ci_high'], 4)}", pvalue(row["bootstrap_holm_p"]), pvalue(row["ttest_holm_p"])])
+    assets.tables["imputed_stages"] = tabular(
+        "llrrrr",
+        ["Candidate sets", "Stage", "Nested selection", "Nested $-$ validation-best [95\\% CI]", "Holm $p$, bootstrap", "Holm $p$, $t$"],
+        rows,
+    )
+
+
+def build_pool_matched(assets: Assets) -> None:
+    """The 45-row and 8-row pools tested with the same contrasts and Holm families."""
+    table = assets.csv("tabarena_pool_matched/matched_contrasts.csv")
+    vb = table[table["right"].eq("meta_selector_single")].set_index("pool")
+    for pool, key in [("declared", "full"), ("reduced", "reduced")]:
+        for family in ["three", "five"]:
+            for test, short in [("bootstrap", "m"), ("ttest", "t"), ("corrected", "nb")]:
+                assets.define_p(f"pool.{key}.{family}.{short}holm", pvalue(float(vb.loc[pool, f"{test}_holm_{family}"])))
+    direct = assets.csv("tabarena_pool_matched/direct_difference.csv").iloc[0]
+    assets.define("pool.direct.diff", num(direct["mean_difference"], 4, signed=True))
+    assets.define("pool.direct.ci", interval(direct["ci_low"], direct["ci_high"], 4))
+    assets.define_p("pool.direct.mp", pvalue(direct["bootstrap_p"]))
+    assets.define_p("pool.direct.nbp", pvalue(direct["nb_p"]))
+    assets.define("pool.direct.nbci", interval(direct["nb_ci90_low"], direct["nb_ci90_high"], 4))
+
+
+def build_matched_snr(assets: Assets) -> None:
+    """Remark 1's ratio on the offsets the deployable error-space correction uses."""
+    for prefix, folder in [("ta.esnr", "tabarena_error_space"), ("ta.esnrm", "tabarena_error_space_median"),
+                           ("tr.esnr", "tabrepo_error_space"), ("tr.esnrm", "tabrepo_error_space_median")]:
+        table = assets.csv(f"{folder}/offset_snr_matched.csv")
+        for _, row in table.iterrows():
+            key = {("all", "method"): "all", ("top_tenth", "method"): "top", ("all", "family"): "fam"}[(row["candidates"], row["by"])]
+            assets.define(f"{prefix}.{key}", num(row["ratio"], 2))
+            assets.define(f"{prefix}.{key}.ci", interval(row["ratio_ci_low"], row["ratio_ci_high"], 2))
+            assets.define(f"{prefix}.{key}.n", str(int(row["n_candidates"])))
+            if "offset_quality_spearman" in row and prefix.endswith("esnr"):
+                base = prefix.replace("esnr", "offq")
+                assets.define(f"{base}.{key}.rho", num(row["offset_quality_spearman"], 2, signed=True))
+                assets.define_p(f"{base}.{key}.p", pvalue(row["offset_quality_p"]))
+
+
+def build_source_groups(assets: Assets) -> None:
+    """TabRepo's groups of related datasets and the cluster bootstrap over them."""
+    groups = pd.read_csv(Path(__file__).resolve().parents[1] / "configs" / "tabrepo_source_groups.csv", comment="#", dtype=str).fillna("")
+    documented = groups[groups["documented_group"].ne("")]
+    assets.define("trgrp.groups", str(groups["group"].nunique()))
+    assets.define("trgrp.datasets", str(len(groups)))
+    assets.define("trgrp.doc.groups", str(documented["documented_group"].nunique()))
+    assets.define("trgrp.doc.datasets", str(len(documented)))
+    meta = json.loads((assets.out / "tabrepo_source_groups" / "metadata.json").read_text(encoding="utf-8"))
+    assets.define("trgrp.clusters", str(int(meta["n_clusters"]["group"])))
+    assets.define("trgrp.doc.clusters", str(int(meta["n_clusters"]["documented_group"])))
+    clusters = assets.csv("tabrepo_source_groups/cluster_contrasts.csv")
+    flips = clusters[(clusters["bootstrap_holm_p"] < ALPHA) != (clusters["cluster_holm_p"] < ALPHA)]
+    assets.define("trgrp.flips", str(int(flips.shape[0])))
+    random_panels = clusters[clusters["panel"].isin(["ensemble", "score_only"])]
+    assets.define("trgrp.widthmax", num(float(random_panels["cluster_width_ratio"].max()), 1))
+    shares = assets.csv("tabrepo_source_groups/sibling_share.csv")
+    random = shares[shares["panel"].eq("score_only")]
+    for grouping, key in [("group", "trgrp.sibling"), ("documented_group", "trgrp.doc.sibling")]:
+        values = random[random["grouping"].eq(grouping)]["share"]
+        assets.define(f"{key}.mean", percent(float(values.mean())))
+        assets.define(f"{key}.min", percent(float(values.min())))
+        assets.define(f"{key}.max", percent(float(values.max())))
+    grouped = shares[shares["panel"].str.endswith("grouped") & shares["grouping"].eq("group")]
+    assets.define("trgrp.grouped.sibling.max", percent(float(grouped["share"].max())))
+
+
+def same_row_splits(assets: Assets, run: str, review: str) -> int:
+    """Splits in which nested selection chooses the same row as the ensemble-inclusive
+    train-selected reference (Section 7)."""
+    splits = assets.csv(f"{run}/split_results.csv")[["split_id", "selected_policy"]]
+    choices = assets.csv(f"{review}/train_selected_reference_choices.csv")
+    choices = choices[choices["pool"].eq("ensemble_inclusive")][["split_id", "selected_reference_method"]]
+    merged = splits.merge(choices, on="split_id", how="inner", validate="one_to_one")
+    if len(merged) != len(splits):
+        raise ValueError(f"{review}: the reference choices do not cover every split")
+    return int(merged["selected_policy"].eq(merged["selected_reference_method"]).sum())
+
+
+def build_grouped(assets: Assets) -> None:
+    """The TabRepo audit on outer splits that keep related datasets together."""
+    for prefix, directory, corrected in [
+        ("trg", "score_level_tabrepo_grouped_review", "tabrepo_grouped_corrected_test"),
+        ("trgs", "score_level_tabrepo_grouped_score_only_review", "tabrepo_grouped_score_only_corrected_test"),
+    ]:
+        summary_numbers(assets, prefix, assets.csv(f"{directory}/clustered_summary.csv"), rank_scale=1529.0)
+        contrast_numbers(assets, prefix, assets.csv(f"{directory}/contrasts.csv"))
+        corrected_keys(assets, prefix, assets.csv(f"{corrected}/corrected_resampled_tests.csv"))
+    splits = assets.csv("score_level_tabrepo_grouped/split_results.csv")
+    assets.define("trg.splits", str(int(splits.shape[0])))
+    assets.define("trg.samerow", str(same_row_splits(assets, "score_level_tabrepo_grouped", "score_level_tabrepo_grouped_review")))
+    assets.define("trg.nestedchoice.ethree", str(int(splits["selected_policy"].eq("meta_selector_tabrepo_ensemble_k3").sum())))
+    meta = json.loads((assets.out / "score_level_tabrepo_grouped" / "grouped_splits.json").read_text(encoding="utf-8"))
+    assets.define("trg.repeats", str(int(meta["repeats"])))
+    assets.define("trg.folds", str(int(meta["folds"])))
+    comparison = assets.csv("tabrepo_grouped_comparison/grouped_vs_random_subsets.csv")
+    for _, row in comparison.iterrows():
+        prefix = "trg" if row["panel"] == "ensemble" else "trgs"
+        key = POLICY_KEYS[str(row["right"])]
+        share = min(float(row["share_subsets_at_or_below_grouped"]), float(row["share_subsets_at_or_above_grouped"]))
+        assets.define(f"{prefix}.subset.{key}.tail", percent(share, 1))
+        assets.define(f"{prefix}.subset.{key}.range", interval(row["random_subset_low"], row["random_subset_high"], 4))
+    score = comparison[comparison["panel"].eq("score_only")]
+    tails = np.minimum(score["share_subsets_at_or_below_grouped"], score["share_subsets_at_or_above_grouped"])
+    assets.define("trgs.subset.maxtail", percent(float(tails.max()), 1))
+    ensemble = comparison[comparison["panel"].eq("ensemble") & ~comparison["right"].eq("train_selected_fixed_reference__ensemble_inclusive")]
+    tails = np.minimum(ensemble["share_subsets_at_or_below_grouped"], ensemble["share_subsets_at_or_above_grouped"])
+    assets.define("trg.subset.mintail", percent(float(tails.min()), 1))
+    assets.define("trg.subsets", str(int(json.loads((assets.out / "tabrepo_grouped_comparison" / "metadata.json").read_text(encoding="utf-8"))["subsets"])))
+    tests = assets.csv("tabrepo_grouped_comparison/grouped_vs_random_tests.csv")
+    for _, row in tests.iterrows():
+        prefix = "trg" if row["panel"] == "ensemble" else "trgs"
+        key = POLICY_KEYS[str(row["right"])]
+        assets.define(f"{prefix}.two.{key}.shift", num(float(row["shift"]), 4, signed=True))
+        assets.define_p(f"{prefix}.two.{key}.likeholm", pvalue(float(row["p_random_like_holm"])))
+        assets.define_p(f"{prefix}.two.{key}.ownholm", pvalue(float(row["p_own_holm"])))
+    score = tests[tests["panel"].eq("score_only")]
+    assets.define("trgs.two.n", str(len(score)))
+    rest = score[score["right"].isin(["meta_selector_family_prior_budgeted", "meta_selector_task_adaptive_budgeted", "meta_selector_meta_feature_guard_005"])]
+    assets.define_p("trgs.two.rest.minholm", pvalue(float(rest[["p_random_like_holm", "p_own_holm"]].min().min())))
+    ensemble = tests[tests["panel"].eq("ensemble")]
+    assets.define_p("trg.two.minholm", pvalue(float(ensemble[["p_random_like_holm", "p_own_holm"]].min().min())))
+
+
+def build_grouped_inner(assets: Assets) -> None:
+    """The TabRepo audit on the grouped outer splits with whole groups also left out of every
+    inner estimate (scripts/grouped_inner_splits.py), against the random splits and, split by
+    split, against the outer-grouped run."""
+    for prefix, directory, corrected in [
+        ("trgi", "score_level_tabrepo_grouped_inner_review", "tabrepo_grouped_inner_corrected_test"),
+        ("trgis", "score_level_tabrepo_grouped_inner_score_only_review", "tabrepo_grouped_inner_score_only_corrected_test"),
+    ]:
+        summary_numbers(assets, prefix, assets.csv(f"{directory}/clustered_summary.csv"), rank_scale=1529.0)
+        contrast_numbers(assets, prefix, assets.csv(f"{directory}/contrasts.csv"))
+        corrected_keys(assets, prefix, assets.csv(f"{corrected}/corrected_resampled_tests.csv"))
+    splits = assets.csv("score_level_tabrepo_grouped_inner/split_results.csv")
+    assets.define("trgi.splits", str(int(splits.shape[0])))
+    assets.define("trgi.samerow", str(same_row_splits(assets, "score_level_tabrepo_grouped_inner", "score_level_tabrepo_grouped_inner_review")))
+    policies = splits["selected_policy"].astype(str)
+    assets.define("trgi.nestedchoice.ens", str(int(policies.str.contains("tabrepo_ensemble").sum())))
+    assets.define("trgi.nestedchoice.ethree", str(int(policies.eq("meta_selector_tabrepo_ensemble_k3").sum())))
+    inner = json.loads((assets.out / "score_level_tabrepo_grouped_inner" / "grouped_splits.json").read_text(encoding="utf-8"))
+    outer = json.loads((assets.out / "score_level_tabrepo_grouped" / "grouped_splits.json").read_text(encoding="utf-8"))
+    if [item["heldout"] for item in inner["splits"]] != [item["heldout"] for item in outer["splits"]]:
+        raise ValueError("The inner-grouped run does not share the outer-grouped run's splits")
+    assets.define("trgi.groups", str(int(inner["n_inner_groups_used"])))
+    assets.define("trgi.groupeddatasets", str(int(inner["n_inner_grouped_datasets"])))
+    tests = assets.csv("tabrepo_grouped_inner_comparison/grouped_vs_random_tests.csv")
+    for _, row in tests.iterrows():
+        prefix = "trgi" if row["panel"] == "ensemble" else "trgis"
+        key = POLICY_KEYS[str(row["right"])]
+        assets.define(f"{prefix}.two.{key}.shift", num(float(row["shift"]), 4, signed=True))
+        assets.define_p(f"{prefix}.two.{key}.likeholm", pvalue(float(row["p_random_like_holm"])))
+        assets.define_p(f"{prefix}.two.{key}.ownholm", pvalue(float(row["p_own_holm"])))
+    paired = assets.csv("tabrepo_grouped_inner_vs_outer/grouped_inner_vs_outer.csv")
+    for _, row in paired.iterrows():
+        prefix = "trgic" if row["panel"] == "ensemble" else "trgics"
+        key = POLICY_KEYS[str(row["right"])]
+        assets.define(f"{prefix}.{key}.change", num(float(row["change"]), 4, signed=True))
+        assets.define(f"{prefix}.{key}.ci", interval(row["ci_low"], row["ci_high"], 4))
+        assets.define_p(f"{prefix}.{key}.holm", pvalue(float(row["p_holm"])))
+        assets.define_p(f"{prefix}.{key}.clusterholm", pvalue(float(row["cluster_p_holm"])))
+        assets.define(f"{prefix}.{key}.changed", str(int(row["n_datasets_changed"])))
+    score = paired[paired["panel"].eq("score_only")]
+    assets.define_p("trgics.minholm", pvalue(float(score["p_holm"].min())))
+    assets.define("trgics.change.min", num(float(score["change"].min()), 4, signed=True))
+    assets.define("trgics.change.max", num(float(score["change"].max()), 4, signed=True))
+    assets.define("trgics.nreject", str(int((score["p_holm"] < ALPHA).sum())))
+    assets.define("trgics.ncontrasts", str(int(score.shape[0])))
+    assets.define_p("trgics.cluster.minholm", pvalue(float(score["cluster_p_holm"].min())))
+    for panel, prefix in [("score_only", "trgis"), ("ensemble", "trgi")]:
+        rows = tests[tests["panel"].eq(panel)]
+        assets.define_p(f"{prefix}.two.minholm", pvalue(float(rows[["p_random_like_holm", "p_own_holm"]].min().min())))
+    assets.define("trgi.two.n", str(int(tests.shape[0])))
+    assets.define_p("trgi.two.allminholm", pvalue(float(tests[["p_random_like_holm", "p_own_holm"]].min().min())))
+    # Validation-best and the rank correction use no training-side choice that the inner
+    # grouping changes, so their held-out rows are the same in both runs and a change of a
+    # contrast against them is a change of nested selection's own regret (Appendix H).
+    references = ["meta_selector_single", "reference_optimism_corrected"]
+    keys = ["split_id", "dataset", "method"]
+    rows = {}
+    for run in ["score_level_tabrepo_grouped_score_only_review", "score_level_tabrepo_grouped_inner_score_only_review"]:
+        frame = pd.read_parquet(assets.out / run / "dataset_policy_scores.parquet", columns=keys + ["mean_normalized_rank_regret"])
+        rows[run] = frame[frame["method"].isin(references)]
+    merged = rows["score_level_tabrepo_grouped_score_only_review"].merge(
+        rows["score_level_tabrepo_grouped_inner_score_only_review"], on=keys, suffixes=("_outer", "_inner"), validate="one_to_one")
+    if len(merged) != len(rows["score_level_tabrepo_grouped_score_only_review"]) or merged.empty:
+        raise ValueError("The two grouped runs do not hold the same reference rows")
+    changed = merged["mean_normalized_rank_regret_inner"].ne(merged["mean_normalized_rank_regret_outer"])
+    assets.define("trgics.refs.changed", str(int(changed.sum())))
+    clusters = assets.csv("tabrepo_source_groups_inner/cluster_contrasts.csv")
+    flips = int(((clusters["cluster_holm_p"] < ALPHA) != (clusters["bootstrap_holm_p"] < ALPHA)).sum())
+    assets.define("trgi.cluster.flips", str(flips))
+    assets.define("trgi.cluster.widthmax", num(float(clusters["cluster_width_ratio"].max()), 1))
+
+
+def build_construction(assets: Assets) -> None:
+    """How the TabRepo slice built RandomForest, ExtraTrees and KNN predictions (App. H)."""
+    summary = assets.csv("tabrepo_construction/construction_summary.csv").set_index("family")
+    meta = json.loads((assets.out / "tabrepo_construction" / "metadata.json").read_text(encoding="utf-8"))
+    assets.define("trc.ndatasets", str(int(meta["n_binary_datasets"])))
+    assets.define("trc.ntasks", str(int(summary.loc["rf", "n_tasks"])))
+    assets.define("trc.trees", str(int(meta["trees"])))
+    assets.define("trc.knnk", str(int(meta["knn_neighbours"])))
+    for family in ["rf", "xt"]:
+        row = summary.loc[family]
+        assets.define(f"trc.{family}.test", percent(float(row["tasks_test_on_1_300"])))
+        assets.define(f"trc.{family}.val", percent(float(row["tasks_val_on_1_300"])))
+        assets.define(f"trc.{family}.valshare", percent(float(row["median_val_share_1_300"])))
+        assets.define(f"trc.{family}.valden", str(int(round(float(row["median_val_denominator"])))))
+    knn = summary.loc["knn"]
+    assets.define("trc.knn.val", percent(float(knn["tasks_val_on_1_k"])))
+    assets.define("trc.knn.test", percent(float(knn["tasks_test_on_1_k_or_1_k1"])))
+    assets.define("trc.knn.bag", percent(float(knn["tasks_test_bag_only"])))
+    controls = summary.loc[["cat", "gbm"]]
+    assets.define("trc.ctrl.lattice", percent(float(controls[["tasks_test_on_1_300", "tasks_val_on_1_300"]].to_numpy().max())))
+
+
+def build_overlap_source(assets: Assets) -> None:
+    """TabRepo without the datasets that share a name or a documented source with TabArena."""
+    contrasts = assets.csv("tabrepo_overlap_sensitivity_source/overlap_contrasts.csv")
+    meta = json.loads((assets.out / "tabrepo_overlap_sensitivity_source" / "metadata.json").read_text(encoding="utf-8"))
+    assets.define("ovls.excluded", str(int(meta["n_excluded"])))
+    assets.define("ovls.n", str(int(next(iter(meta["panels"].values()))["n_kept"])))
+    full = {
+        "ensemble": assets.csv("score_level_tabrepo_nested_review/contrasts.csv").set_index(["family", "left", "right"]),
+        "score_only": assets.csv("score_level_tabrepo_score_only_review/contrasts.csv").set_index(["family", "left", "right"]),
+    }
+    # Verdict changes (Holm-adjusted bootstrap test), sign changes of differences whose full
+    # interval excludes zero, and changes in whether an interval excludes zero.
+    flips = signs = intervals = 0
+    for _, row in contrasts.iterrows():
+        reference = full[row["panel"]].loc[(row["family"], row["left"], row["right"])]
+        flips += int((float(row["bootstrap_holm_p"]) < ALPHA) != (float(reference["bootstrap_holm_p"]) < ALPHA))
+        excludes = bool(reference["ci_low"] > 0 or reference["ci_high"] < 0)
+        signs += int(excludes and np.sign(row["mean_difference"]) != np.sign(reference["mean_difference"]))
+        intervals += int(excludes != bool(row["ci_low"] > 0 or row["ci_high"] < 0))
+    assets.define("ovls.flips", str(flips))
+    assets.define("ovls.signs", str(signs))
+    assets.define("ovls.intervals", str(intervals))
+    contrast_numbers(assets, "ovls.tr", contrasts[contrasts["panel"].eq("ensemble")])
+
+
+def build_calibration_design(assets: Assets) -> None:
+    """The calibration study's declared design (configs/calibration_study.yaml, world.json)."""
+    root = Path(__file__).resolve().parents[1]
+    config = yaml.safe_load((root / "configs" / "calibration_study.yaml").read_text(encoding="utf-8"))
+    world_path = assets.out / "calibration_study" / "world.json"
+    if not world_path.exists():
+        raise Missing(str(world_path))
+    world = json.loads(world_path.read_text(encoding="utf-8"))
+    assets.define("cal.shrinkage", percent(float(world["shrinkage"])))
+    assets.define("cal.base.familyshare", percent(float(world["family_noise_share"]["test"])))
+    assets.define("cal.bridge.tables", str(int(config["bridge"]["tables"])))
+    assets.define("cal.splits", str(int(config["splits"])))
+    assets.define("cal.truthruns.base", str(int(config["truth_runs"]["base"])))
+    assets.define("cal.reps.base", str(int(config["replicates"]["base"])))
+    others = sorted({int(v) for k, v in config["replicates"].items() if k != "base"})
+    assets.define("cal.reps.other", "/".join(str(v) for v in others))
+    scenarios = config["scenarios"]
+    assets.define("cal.skew.factor", num(float(scenarios["skew"]["small_gap_factor"]), 1))
+    assets.define("cal.instability.sd", num(float(scenarios["instability"]["tuning_sd"]), 2))
+    assets.define("cal.dependence.share", percent(float(scenarios["dependence"]["family_noise_share"])))
+    # The adequacy rule, declared in the config before any coverage estimate was computed.
+    rule = " ".join(str(config["adequacy_rule"]).split())
+    if not all(part in rule for part in ["Wilson", "below 0.925", "above 0.975", "at least 0.925", "ratio is at least 0.9"]):
+        raise ValueError("The coverage study's adequacy rule no longer states 0.925, 0.975 and 0.9; update the build.")
+    assets.define("cal.rule.coverage", "0.925")
+    assets.define("cal.rule.upper", "0.975")
+    assets.define("cal.rule.seratio", "0.9")
+    assets.define("cal.rule.earlier", str(len(config.get("adequacy_rule_history", []))))
+    assets.define("cal.truthshared.base", str(int(config["truth_shared_runs"]["base"])))
+    # The lower Wilson bound at full coverage: the conservative label needs it above 0.975.
+    assets.define("cal.rule.maxlower", num(wilson_interval(int(config["replicates"]["base"]), int(config["replicates"]["base"]))[0], 3))
+    others = sorted({int(v) for k, v in config["truth_runs"].items() if k != "base"})
+    assets.define("cal.truthruns.other", "/".join(str(v) for v in others))
+    reps = sorted({int(v) for k, v in config["replicates"].items() if k != "base"})
+    assets.define("cal.detect.base", num(detectable(int(config["replicates"]["base"])), 2))
+    assets.define("cal.detect.other", num(detectable(reps[0]), 2) if len(reps) == 1 else "/".join(num(detectable(r), 2) for r in reps))
+    facts = assets.csv("calibration_study/world_facts.csv")
+    for column in facts.columns[1:]:
+        assets.define(f"cal.fact.ta.{column.replace('_', '')}", num(float(facts.iloc[0][column]), 3))
+        for source in facts["source"].iloc[1:]:
+            assets.define(f"cal.fact.{source}.{column.replace('_', '')}", num(float(facts[facts["source"].eq(source)].iloc[0][column]), 3))
+    names = {"vb_regret": "Validation-best regret", "vb_regret_large": "\\quad on datasets with 9 units", "vb_regret_small": "\\quad on datasets with 30 units",
+             "vb_default_regret": "Validation-best among defaults", "defaults_rule_regret": "Defaults rule",
+             "vb_tuned_ensemble_share": "Validation-best picks tuned + ensemble", "test_best_default": "Test-best candidate is a default",
+             "test_best_tuned": "\\ldots{} tuned", "test_best_tuned_ensemble": "\\ldots{} tuned + ensemble"}
+    fact_rows = [[name] + [num(float(value), 3) for value in facts[column]] for column, name in names.items()]
+    assets.tables["calibration_facts"] = tabular(
+        "l" + "r" * len(facts),
+        ["Quantity"] + ["TabArena" if i == 0 else str(source) for i, source in enumerate(facts["source"])],
+        fact_rows,
+    )
+
+
+def wilson_interval(covered: int, total: int, z: float = 1.959963984540054) -> tuple[float, float]:
+    """The 95% Wilson interval of a proportion (as in scripts/calibration_study.py)."""
+    p = covered / total
+    denominator = 1.0 + z * z / total
+    centre = (p + z * z / (2 * total)) / denominator
+    half = z * math.sqrt(p * (1 - p) / total + z * z / (4 * total * total)) / denominator
+    return centre - half, centre + half
+
+
+def detectable(total: int) -> float:
+    """The largest coverage that ``total`` replicates label anti-conservative."""
+    return max(k for k in range(total + 1) if wilson_interval(k, total)[1] < 0.925) / total
+
+
+CAL_DESIGNS = {"per-target, J=20": "pt", "shared, J=100": "sh100", "shared, J=20": "sh20", "per-target, J=20, bridge tables": "ptb"}
+CAL_METHODS = {"boot": "Bootstrap", "t": "Paired $t$", "nb": "Corrected", "nbt": "Corrected, task weights"}
+CAL_CONTRASTS = {
+    "C1": "Nested $-$ validation-best", "C2": "Nested $-$ family-prior", "C3": "Nested $-$ train-selected",
+    "C4": "Family-prior $-$ validation-best", "C5": "Defaults rule $-$ validation-best", "C6": "Validation-best (defaults) $-$ validation-best",
+}
+CAL_MARK = {"anti-conservative": "$^{-}$", "conservative": "$^{+}$", "inconclusive": "$^{?}$", "adequate": ""}
+
+
+def main_design(coverage: pd.DataFrame) -> pd.DataFrame:
+    return coverage[coverage["design"].eq("per-target, J=20")]
+
+
+def build_calibration(assets: Assets) -> None:
+    """Results of the coverage study (scripts/calibration_study.py, stage summarize)."""
+    coverage = assets.csv("calibration_study/coverage.csv")
+    meta = json.loads((assets.out / "calibration_study" / "metadata.json").read_text(encoding="utf-8"))
+    config = yaml.safe_load((Path(__file__).resolve().parents[1] / "configs" / "calibration_study.yaml").read_text(encoding="utf-8"))
+    for kind, done in [("truth_runs", meta["truth_runs"]), ("replicates", meta["replicates"]), ("truth_shared_runs", meta.get("truth_shared_runs", {}))]:
+        if {k: int(v) for k, v in done.items()} != {k: int(v) for k, v in config[kind].items()}:
+            raise ValueError(f"The coverage study is incomplete: {kind} {done} against {config[kind]}")
+    if set(coverage["design"]) != set(CAL_DESIGNS):
+        raise ValueError(f"Unexpected coverage designs: {sorted(set(coverage['design']))}")
+    if float(meta["max_nofit_vb_gap"]) > 1e-12 or float(meta["max_unaffected_truth_gap"]) > 1e-12:
+        raise ValueError("The coverage study's reproduction checks failed.")
+    for _, row in coverage.iterrows():
+        design = CAL_DESIGNS[row["design"]]
+        base = f"cal.{design}.{row['scenario']}.{row['contrast'].lower()}.{row['method']}"
+        assets.define(f"{base}.cov", num(float(row["coverage"]), 2))
+        assets.define(f"{base}.covci", interval(float(row["coverage_low"]), float(row["coverage_high"]), 2))
+        assets.define(f"{base}.seratio", num(float(row["se_ratio"]), 2))
+        assets.define(f"{base}.seratioci", interval(float(row["se_ratio_low"]), float(row["se_ratio_high"]), 2))
+        assets.define(f"{base}.reject", num(float(row["reject_rate"]), 2))
+        assets.define(f"{base}.verdict", str(row["verdict"]))
+        assets.define(f"cal.{design}.{row['scenario']}.{row['contrast'].lower()}.theta", num(float(row["theta"]), 4, signed=True))
+    # Label codes for the guards (0 adequate, 1 inconclusive, 2 anti-conservative, 3 conservative),
+    # the number of scenarios with each label at the replicates' design, and the skewness of the
+    # dataset-level differences, which drives the bootstrap's tails.
+    codes = {"adequate": 0, "inconclusive": 1, "anti-conservative": 2, "conservative": 3}
+    for _, row in coverage.iterrows():
+        assets.define(f"cal.{CAL_DESIGNS[row['design']]}.{row['scenario']}.{row['contrast'].lower()}.{row['method']}.code", str(codes[row["verdict"]]))
+    for (contrast, method), group in main_design(coverage).groupby(["contrast", "method"]):
+        assets.define(f"cal.pt.{contrast.lower()}.{method}.nanti", str(int(group["verdict"].eq("anti-conservative").sum())))
+        assets.define(f"cal.pt.{contrast.lower()}.{method}.nadequate", str(int(group["verdict"].eq("adequate").sum())))
+    for _, row in main_design(coverage)[lambda f: f["method"].eq("boot")].iterrows():
+        assets.define(f"cal.skewness.{row['scenario']}.{row['contrast'].lower()}", num(float(row["mean_skew"]), 2, signed=True))
+    # Ranges by kind of contrast (fitted: C1-C4; no fit: C5-C6), for the text.
+    for (design, scenario, kind, method), group in coverage.groupby(["design", "scenario", "kind", "method"]):
+        base = f"cal.{CAL_DESIGNS[design]}.{scenario}.{'fit' if kind == 'fitted' else 'nofit'}.{method}"
+        assets.define(f"{base}.covmin", num(float(group["coverage"].min()), 2))
+        assets.define(f"{base}.covmax", num(float(group["coverage"].max()), 2))
+        assets.define(f"{base}.ratiomin", num(float(group["se_ratio"].min()), 2))
+        assets.define(f"{base}.ratiomax", num(float(group["se_ratio"].max()), 2))
+    # theta's own Monte Carlo error: its largest share of a replicate's standard deviation, and
+    # the most it can lower the estimated coverage of a correct 95% interval.
+    ratio = float(coverage["theta_se_over_sd"].max())
+    loss = 0.95 - float(2 * stats.norm.cdf(1.959963984540054 / math.sqrt(1 + ratio**2)) - 1)
+    assets.define("cal.thetase.max", num(ratio, 2))
+    assets.define("cal.thetaloss.max", num(100 * loss, 1))
+    assets.define("cal.dropped", str(int(meta["replicates_with_a_dataset_never_held_out"])))
+    changed = coverage[(coverage["verdict"] != coverage["verdict_first"]) | (coverage["verdict"] != coverage["verdict_second"])]
+    assets.define("cal.labels.changed", str(int(changed.shape[0])))
+    assets.define("cal.nconservative", str(int(coverage["verdict"].eq("conservative").sum())))
+    assets.define("cal.labels.total", str(int(coverage.shape[0])))
+    for contrast, shift in meta["inner_fit_theta_shift"].items():
+        assets.define(f"cal.innershift.{contrast.lower()}", num(float(shift), 4, signed=True))
+    # The main table: every scenario and contrast at the replicates' design.
+    main = coverage[coverage["design"].eq("per-target, J=20")]
+    rows = []
+    for scenario in config["scenarios"]:
+        for contrast, label in CAL_CONTRASTS.items():
+            item = main[main["scenario"].eq(scenario) & main["contrast"].eq(contrast)].set_index("method")
+            cells = [f"{num(float(item.loc[m, 'coverage']), 2)}{CAL_MARK[item.loc[m, 'verdict']]} ({num(float(item.loc[m, 'se_ratio']), 2)})" for m in CAL_METHODS]
+            rows.append([scenario if contrast == "C1" else "", label, num(float(item.loc["boot", "theta"]), 4, signed=True)] + cells)
+    assets.tables["calibration_coverage"] = tabular("llr" + "r" * len(CAL_METHODS), ["Scenario", "Contrast", "$\\theta$"] + list(CAL_METHODS.values()), rows)
+    # The bridge: base tables at the replicates' number of splits and at the audit's.
+    rows = []
+    for contrast, label in CAL_CONTRASTS.items():
+        cells = []
+        for method in ["boot", "nb", "nbt"]:
+            for design in ["shared, J=20", "shared, J=100"]:
+                item = coverage[coverage["design"].eq(design) & coverage["contrast"].eq(contrast) & coverage["method"].eq(method)].iloc[0]
+                cells.append(f"{num(float(item['coverage']), 2)}{CAL_MARK[item['verdict']]} ({num(float(item['se_ratio']), 2)})")
+        theta = coverage[coverage["design"].eq("shared, J=100") & coverage["contrast"].eq(contrast)].iloc[0]["theta"]
+        rows.append([label, num(float(theta), 4, signed=True)] + cells)
+    assets.tables["calibration_bridge"] = tabular(
+        "lr" + "r" * 6,
+        ["Contrast", "$\\theta$", "Bootstrap, $J=20$", "$J=100$", "Corrected, $J=20$", "$J=100$", "Task weights, $J=20$", "$J=100$"],
+        rows,
+    )
+
+
+# The paper calls the rank correction "offset-corrected validation" (Section 5): what it
+# removes is a candidate's offset, which mixes selection optimism with the effects of how
+# predictions were constructed. The pipeline's outputs keep their stored label.
+PAPER_NAMES = {"Optimism-corrected validation": "Offset-corrected validation"}
+
+
+def paper_names(text: str) -> str:
+    for old, new in PAPER_NAMES.items():
+        text = text.replace(old, new)
+    return text
+
+
 def write(assets: Assets, generated: Path) -> None:
     (generated / "tables").mkdir(parents=True, exist_ok=True)
     # A complete build makes an undefined key a LaTeX error; a draft build (--allow-missing)
@@ -2281,12 +3109,12 @@ def write(assets: Assets, generated: Path) -> None:
         "\\makeatother",
     ]
     for key in sorted(assets.numbers):
-        lines.append(f"\\defres{{{key}}}{{{assets.numbers[key]}}}")
+        lines.append(f"\\defres{{{key}}}{{{paper_names(assets.numbers[key])}}}")
     (generated / "numbers.tex").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    (generated / "labels.tex").write_text(latex_macros(), encoding="utf-8")
+    (generated / "labels.tex").write_text(paper_names(latex_macros()), encoding="utf-8")
     for name, body in assets.tables.items():
         (generated / "tables" / f"{name}.tex").write_text(
-            "% Generated by scripts/build_paper_assets.py; do not edit by hand.\n" + body, encoding="utf-8"
+            "% Generated by scripts/build_paper_assets.py; do not edit by hand.\n" + paper_names(body), encoding="utf-8"
         )
 
 
@@ -2344,6 +3172,19 @@ def run(args: argparse.Namespace) -> None:
     assets.section("imputed rows", lambda: build_imputed(assets))
     assets.section("influence", lambda: build_influence(assets))
     assets.section("error-space correction", lambda: build_error_space(assets))
+    assets.section("pool distinct rows", lambda: build_pool_distinct(assets))
+    assets.section("tabrepo candidates", lambda: build_tabrepo_candidates(assets))
+    assets.section("provenance reference", lambda: build_provenance_reference(assets))
+    assets.section("documented imputation mask", lambda: build_flagged(assets))
+    assets.section("matched pool families", lambda: build_pool_matched(assets))
+    assets.section("matched spread-to-noise", lambda: build_matched_snr(assets))
+    assets.section("tabrepo source groups", lambda: build_source_groups(assets))
+    assets.section("tabrepo grouped splits", lambda: build_grouped(assets))
+    assets.section("tabrepo source overlap", lambda: build_overlap_source(assets))
+    assets.section("tabrepo construction", lambda: build_construction(assets))
+    assets.section("tabrepo grouped inner", lambda: build_grouped_inner(assets))
+    assets.section("calibration design", lambda: build_calibration_design(assets))
+    assets.section("calibration", lambda: build_calibration(assets))
     if assets.allow_missing and (root / "paper" / "main.tex").exists():
         # Draft build: stand-ins for the manuscript's tables whose inputs are still being computed.
         manuscript = (root / "paper" / "main.tex").read_text(encoding="utf-8")

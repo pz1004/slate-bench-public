@@ -1,0 +1,57 @@
+# Calibration of the audit's inference in simulation (scripts/calibration_study.py; paper App. K).
+# Synthetic score tables in TabArena's shape, generated from parameters fitted to TabArena's
+# measured rows, run through the audit's own nested code with the 8-row reduced pool.
+output_dir: analysis-output/v2/calibration_study
+source_results: analysis-output/v2/tabarena_imputed/df_results_no_imputed.csv
+source_metadata: data/tabarena/tabarena_dataset_metadata.csv
+benchmark_config: configs/score_level_tabarena_shrink.yaml   # pool, grids, conventions (read only)
+review_config: configs/review_tabarena_shrink.yaml           # the train-selected rule's fixed pool
+seed: 20260625
+splits: 20            # outer splits per coverage replicate (the audit uses 100; see the bridge)
+block: 5              # splits per worker task
+# Scenarios vary one knob of the fitted world at a time.
+scenarios:
+  base: {}
+  # Fewer small datasets, with 1.7 times their mean validation optimism: rarer, larger gains.
+  skew: {small_share_factor: 0.5, small_gap_factor: 1.7}
+  # A dataset-specific tuning effect on test that validation does not see (sd 0.35).
+  instability: {tuning_sd: 0.35}
+  # Unit noise shared by a family's variants: 85% instead of about 45%.
+  dependence: {family_noise_share: 0.85}
+replicates: {base: 100, skew: 50, instability: 50, dependence: 50}
+truth_runs: {base: 150, skew: 100, instability: 100, dependence: 100}
+# The first base tables rerun with the shared inner fit at the audit's 100 splits, scored
+# against shared-fit truth runs on the base truth runs' own tables.
+bridge: {tables: 60, splits: 100, block: 20, inner_source_fit: shared}
+truth_shared_runs: {base: 150}
+check: {replicates: 3, splits: 20}
+# Declared on 2026-10-17, while replicates were running and before any coverage estimate was
+# computed. It replaced two earlier wordings (adequacy_rule_history), also declared before any
+# coverage was computed; summarize reports their labels alongside.
+adequacy_rule: >-
+  Coverage is reported with its 95% Wilson interval over replicates, and the standard-error
+  ratio (the mean standard error over the empirical standard deviation of the estimate) with a
+  95% percentile interval from resampling replicates. Labels are applied in this order: a
+  method is anti-conservative for a contrast and scenario if the upper end of its coverage
+  interval is below 0.925, the liberal criterion of Bradley (1978) for a nominal 95% interval;
+  conservative if the lower end is above 0.975; adequate if its estimated coverage is at least
+  0.925 and its standard-error ratio is at least 0.9; otherwise inconclusive.
+adequacy_rule_history:
+  - wording: >-
+      A method is adequate for a contrast and scenario if the upper end of the 95% Monte Carlo
+      interval of its coverage reaches 0.925 and the mean of its standard errors is at least
+      0.9 times the empirical standard deviation of the estimate; anti-conservative if that
+      upper end is below 0.925; otherwise inconclusive.
+    declared: before the replicates started
+    replaced: because at 50 replicates it would accept coverage near 0.86
+  - wording: >-
+      A method is adequate for a contrast and scenario if its estimated coverage is at least
+      0.925, the liberal criterion of Bradley (1978) for a nominal 95% interval, at most 0.975,
+      and the mean of its standard errors is at least 0.9 times the empirical standard
+      deviation of the estimate; conservative if its coverage exceeds 0.975 and its standard
+      errors meet the same bound; anti-conservative if the upper end of the 95% Monte Carlo
+      interval of its coverage is below 0.925; otherwise inconclusive.
+    declared: while replicates were running
+    replaced: >-
+      because its labels for adequate and conservative rest on point estimates, which at 50
+      replicates label a correctly calibrated interval adequate only about half the time

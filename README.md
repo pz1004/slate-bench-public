@@ -7,9 +7,17 @@ The paper asks when a claim that a selector beats a baseline in a reused benchma
 means what it appears to mean. It formalizes such claims as a declaration of nine fields.
 It then runs a nested, dataset-level audit on the TabArena results artifact (51 datasets,
 45 policies, 100 outer splits) and the same protocol on TabRepo (200 datasets). Robustness
-checks rerun the TabArena audit without the result rows that TabArena filled in for runs
-that failed, apply a corrected resampled t-test, measure the influence of single datasets
-and evaluate an error-space optimism correction. An earlier version of the paper also coded
+checks rerun the TabArena audit without the result rows that TabArena imputed from
+RandomForest (found by the prediction time they share with the unit's RandomForest row), and
+again without only the rows its metadata documents; they rescore the main run's own choices
+and reapply its fitted rules on the reduced candidate sets, apply a corrected resampled
+t-test, measure the influence of single datasets, trimming and dataset size, add the defaults
+rule, which selects on defaults and deploys tuned + ensemble, evaluate an error-space optimism
+correction, and compare the declared and reduced pools in matched Holm families. On TabRepo,
+related datasets are grouped (`configs/tabrepo_source_groups.csv`) for a cluster bootstrap
+and a rerun on outer splits that keep each group together. A coverage study runs the
+audit's own code on simulated TabArena-shaped tables to measure how well its tests of the
+mean cover a known contrast. An earlier version of the paper also coded
 13 published selection claims against the nine fields; the current version does not report
 that meta-study, and its records remain in `docs/meta_study/`.
 
@@ -103,7 +111,10 @@ a dedicated machine is faster.
 | `make tabrepo-analyses` | The same analyses on both TabRepo pools, and the tie-rule sensitivity of the fixed ensembles | 30 min (14) |
 | `make pooled overlap compact` | Pooled cross-artifact diagnostic, TabRepo contrasts without the datasets shared with TabArena, and compact retraining check | 1 min |
 | `make jackknife` | Delete-d jackknife over the whole nested procedure: TabArena, then TabRepo | 12 h + 47 h (10) |
-| `make checks` | Robustness checks: the TabArena audit and its review rerun without the result rows TabArena filled in for runs that failed (`scripts/imputed_rows.py`), corrected resampled t-tests for the reviews, the influence of single datasets, and an error-space optimism correction | 1.5 h (12) |
+| `make tabrepo-grouped` | TabRepo audit on 24 outer splits that keep related datasets together (`scripts/grouped_outer_splits.py`), its reviews and corrected tests, the cluster bootstrap over the groups (`scripts/tabrepo_source_groups.py`) and a two-sample comparison of the grouped and random split designs (`scripts/tabrepo_grouped_comparison.py`) | 10 h (12) |
+| `make tabrepo-grouped-inner` | The same 24 outer splits with each training dataset's whole group also left out of every inner estimate: priors, weight choice, source rows, task-adaptive and guard choices, and so the nested choice (`scripts/grouped_inner_splits.py`, which patches the frozen pipeline in its own process only); its reviews, corrected tests and cluster bootstrap, and its comparison with the random splits and, split by split, with the outer-grouped run | 10 h (12) |
+| `make checks` | Robustness checks: the TabArena audit and its review rerun without the result rows TabArena imputed (`scripts/imputed_rows.py`), and without only the documented ones (`--mask metadata`); the main run's choices rescored (`scripts/imputed_rows_rescore.py`) and its fitted rules reapplied (`scripts/imputed_rows_reapply.py`) on the reduced candidate sets; corrected resampled t-tests for the reviews; influence, trimming and dataset size; the defaults rule, which selects on defaults' validation scores (`scripts/provenance_reference.py`); an error-space offset correction with the spread-to-noise ratio on its own offsets; the pools in matched Holm families (`scripts/pool_matched_family.py`); and how the TabRepo slice built its RandomForest, ExtraTrees and KNN predictions (`scripts/tabrepo_construction_check.py`) | 4 h (20) |
+| `make calibration` | Coverage study of the inference: simulated TabArena-shaped tables through the audit's own code (`scripts/calibration_study.py`, `configs/calibration_study.yaml`), with truth runs under both inner fits | 11 h (22) |
 | `make assets` | `paper/generated/numbers.tex`, `labels.tex` and `tables/` | 10 s |
 | `make compress` | Lossless zstd recompression of the nested runs' `unit_scores.parquet` files (see Outputs) | 5 min |
 
@@ -111,6 +122,33 @@ a dedicated machine is faster.
 - 100 task-stratified outer splits (seed 20260604, held-out fraction 0.25).
 - One shared matrix of 10,000 dataset bootstrap resamples per artifact (seed 20260608).
 - Jackknife subsets with common random numbers (seed 20260620).
+- The TabRepo split-half check draws its two halves with seed 20260611.
+- The TabRepo grouped outer splits repeat a stratified 4-fold split of the groups six
+  times, seeded 20260621 to 20260626; their comparison with random split designs uses seed
+  20260622 (subsets) and the stream [20260622, 1] (two-sample tests).
+- The fully grouped run (`make tabrepo-grouped-inner`) uses the same outer splits and leaves
+  each training dataset's whole group out of every inner estimate. `scripts/grouped_inner_splits.py`
+  patches three places of the frozen pipeline, in its own process only; with
+  `--inner-group-column none` it leaves out one dataset at a time again. That setting was
+  checked on split 0: an output directory seeded with the outer-grouped run's other 23 split
+  parts, run with `--resume`, rewrites split 0 with `split_results`, `training_policy_scores`
+  and `heldout_policy_scores` byte-identical to the stored ones and equal unit scores (about
+  5 h on one worker; the hashes are in
+  `analysis-output/v2/score_level_tabrepo_grouped_inner/singleton_split0_check.json`).
+  `scripts/tabrepo_grouped_inner_comparison.py` pairs the two grouped runs by dataset (shared
+  resample matrix, seed 20260608, and a bootstrap over the groups).
+- `scripts/tabrepo_construction_check.py` reads the stored predictions of the TabRepo slice's
+  default RandomForest, ExtraTrees and KNN configurations (and CatBoost and LightGBM as
+  controls) on its binary datasets, and records whether they lie on the lattices of a single
+  300-tree forest, of out-of-bag averages or of a bag of eight models.
+- The coverage study draws its tables from seed 20260625 (`configs/calibration_study.yaml`);
+  its adequacy rule was declared in that file before any coverage estimate was computed, and
+  the file keeps the two earlier wordings it replaced while replicates were running.
+- TabRepo's groups of related datasets (`configs/tabrepo_source_groups.csv`) state their
+  evidence: repository records, OpenML descriptions (from a local OpenML cache), names,
+  identical shapes in TabRepo's metadata, or background knowledge. Pairs that rest only on
+  shapes or background knowledge are plausible alternative groupings, left out of the
+  `documented_group` column, which serves as their sensitivity analysis.
 - The TabRepo overlap sensitivity resamples its 182 datasets from the shared matrix's seed,
   salted with `exclude_tabarena_overlap`.
 - The meta-study subset that was recoded blind was drawn with seed 20261001
@@ -127,12 +165,19 @@ a dedicated machine is faster.
 
 ## Inference
 
+The paper calls the rank correction *offset-corrected validation*; the outputs keep the
+pipeline's label, `Optimism-corrected validation` (`reference_optimism_corrected*`). What the
+correction removes is a candidate's offset, test minus validation error, which mixes the
+optimism that configuration search and ensemble weights put into a score with the effects of
+how its validation and test predictions were built.
+
+
 Every contrast is a mean dataset-level paired difference (`scripts/score_level_review.py`,
 `src/tabular_sota_benchmark/inference.py`), and each column of `contrasts.csv` names its
 target:
 - **The mean:** the 95% percentile bootstrap interval (`ci_low`, `ci_high`) and the
   two-sided test that inverts it (`bootstrap_p`, Holm-adjusted within the contrast's family
-  as `bootstrap_holm_p`), which gives the separation verdict. The paired t-test
+  as `bootstrap_holm_p`), the primary test of the mean. The paired t-test
   (`ttest_p`, `ttest_holm_p`), the TOST equivalence tests and the minimum detectable
   effects also target the mean.
 - **The typical dataset:** the Wilcoxon signed-rank test (`wilcoxon_p`,
@@ -142,15 +187,24 @@ target:
 
 The bootstrap resamples the completed dataset-level differences as independent draws,
 with the fitted procedures held fixed. Each dataset also trains the procedures evaluated on
-the others, so this is a working independence approximation: the intervals and verdicts
-are nominal and give no guarantee for the procedure. The delete-d jackknife
+the others, so this is a working independence approximation: the intervals and tests give
+no guarantee for the procedure, and the paper reports a difference involving a fitted
+procedure as unresolved (Section 3.4 of the paper: each comparison is classified by its
+fitting and design status and supports one of four conclusions, observed, difference
+supported, difference unresolved or no difference detected). The delete-d jackknife
 (`scripts/procedure_level_jackknife.py`) refits the procedures on subsets of datasets; it
 is a refitting-sensitivity diagnostic, not a standard error with known coverage. The
 corrected resampled t-test of Nadeau and Bengio (2003) (`scripts/corrected_resampled_test.py`)
-treats the 100 split-level mean differences as a sample and inflates their variance by
+takes one held-out difference per split, weighting each held-out dataset by J/(N n_d) so that
+the average over splits is the dataset-level mean, and inflates their variance by
 1/J + n_test/n_train for the overlap of the splits' training sets; its results
-(`corrected_resampled_tests.csv`, columns `nb_*`) are reported next to the bootstrap test.
-It is also an approximation and has not been validated for this nested design.
+(`corrected_resampled_tests.csv`, columns `nb_*`, with `nb_p_df_datasets` for N - 1 degrees
+of freedom) are reported next to the bootstrap test. It is a heuristic; the coverage
+study (`analysis-output/v2/calibration_study/coverage.csv`) measures how the three tests of the
+mean cover a known contrast on simulated tables, for contrasts between rules that fit nothing
+and for contrasts involving fitted procedures. At 20 splits the weights J/(N n_d) add noise of
+their own, so the study also reports the corrected test on split statistics with fixed task
+weights, and checks the audit's version at 100 splits on its bridge.
 
 ## Inputs
 
@@ -190,8 +244,9 @@ It is also an approximation and has not been validated for this nested design.
 
 ## Outputs
 
-`analysis-output/v2/` holds one directory per run or analysis, each with a
-`metadata.json`:
+`analysis-output/v2/` holds one directory per run or analysis, each with a `metadata.json`
+except `tabrepo_split_half/` and `third_artifact_validation/`, whose commands are in the
+`Makefile`:
 - **Nested runs:** the command, the configuration path and its hash, the input hashes, the
   package versions, the git commit of the tree the run was made from (none for a clean
   copy), and `source`: the SHA-256 of every Python file under `src/` and `scripts/` of that
@@ -216,7 +271,7 @@ for value. The other runs were made from an uncommitted working tree of the deve
 repository, so their recorded commit does not identify their code; the per-file hashes do.
 The TabRepo runs were not repeated in a clean copy, which would take about three days, but
 they ran the published pipeline files, as their hashes show. The TabArena run without the
-filled-in rows (`score_level_tabarena_no_imputed/`) and the other outputs of `make checks`
+imputed rows (`score_level_tabarena_no_imputed/`) and the other outputs of `make checks`
 were made on 2026-10-12 and 2026-10-13 from this repository's working tree, before the new
 scripts were committed; the run's per-file hashes match the published files.
 
@@ -262,8 +317,7 @@ the section and page locators prepared for it, each checker's own code made befo
 the code under check (`first_code`), and the decisions (`make meta-count-sheet`,
 `make meta-count-merge`). At the author's request this check was made by fresh Claude
 sessions rather than by the author (Deviation 12). All codings and checks were made with
-Claude (Anthropic), and no human coder was involved; the paper reports this as a
-limitation.
+Claude (Anthropic), and no human coder was involved.
 
 ## Licence and credits
 

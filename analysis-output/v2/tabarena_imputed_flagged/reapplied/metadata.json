@@ -1,0 +1,38 @@
+{
+  "main_config": "configs/score_level_tabarena.yaml",
+  "reduced_config": "configs/score_level_tabarena_no_flagged.yaml",
+  "main_output": "analysis-output/v2/score_level_tabarena",
+  "main_review": "analysis-output/v2/score_level_tabarena_review",
+  "rerun_review": "analysis-output/v2/score_level_tabarena_no_flagged_review",
+  "rescored_output": "analysis-output/v2/tabarena_imputed_flagged/rescored",
+  "inner_source_fit": "shared (held-out rows do not depend on it)",
+  "reproduced_splits": [
+    0,
+    1
+  ],
+  "validation_best_rerun_max_gap": 9.540979117872439e-17,
+  "family_prior_weight_mismatches": 0,
+  "nested_member_changed_share": 0.009414533686378346,
+  "wall_seconds": 1083.0411550998688,
+  "command": [
+    "scripts/imputed_rows_reapply.py",
+    "--reduced-config",
+    "configs/score_level_tabarena_no_flagged.yaml",
+    "--main-output",
+    "analysis-output/v2/score_level_tabarena",
+    "--main-review",
+    "analysis-output/v2/score_level_tabarena_review",
+    "--rerun-review",
+    "analysis-output/v2/score_level_tabarena_no_flagged_review",
+    "--rescored-output",
+    "analysis-output/v2/tabarena_imputed_flagged/rescored",
+    "--review-config",
+    "configs/review_tabarena.yaml",
+    "--check-splits",
+    "2",
+    "--jobs",
+    "8",
+    "--output-dir",
+    "analysis-output/v2/tabarena_imputed_flagged/reapplied"
+  ]
+}

@@ -51,6 +51,7 @@ POLICY_LABELS: dict[str, tuple[str, str]] = {
     "reference_single_best_global": ("Single best (global)", "SingleBest"),
     "reference_single_best_task": ("Single best (per task)", "SingleBestTask"),
     "reference_validation_best_default": ("Validation-best (defaults)", "VBDefault"),
+    "reference_defaults_then_tuned": ("Defaults, then tuned + ensemble", "DefaultsThenTuned"),
     "reference_validation_best_tuned": ("Validation-best (tuned)", "VBTuned"),
     "reference_validation_best_tuned_ensemble": (
         "Validation-best (tuned + ensemble)",

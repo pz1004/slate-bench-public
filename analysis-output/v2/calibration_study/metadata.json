@@ -1,0 +1,50 @@
+{
+  "config": "configs/calibration_study.yaml",
+  "generator": "world.json",
+  "adequacy_rule": "Coverage is reported with its 95% Wilson interval over replicates, and the standard-error ratio (the mean standard error over the empirical standard deviation of the estimate) with a 95% percentile interval from resampling replicates. Labels are applied in this order: a method is anti-conservative for a contrast and scenario if the upper end of its coverage interval is below 0.925, the liberal criterion of Bradley (1978) for a nominal 95% interval; conservative if the lower end is above 0.975; adequate if its estimated coverage is at least 0.925 and its standard-error ratio is at least 0.9; otherwise inconclusive.",
+  "adequacy_rule_history": [
+    {
+      "wording": "A method is adequate for a contrast and scenario if the upper end of the 95% Monte Carlo interval of its coverage reaches 0.925 and the mean of its standard errors is at least 0.9 times the empirical standard deviation of the estimate; anti-conservative if that upper end is below 0.925; otherwise inconclusive.",
+      "declared": "before the replicates started",
+      "replaced": "because at 50 replicates it would accept coverage near 0.86"
+    },
+    {
+      "wording": "A method is adequate for a contrast and scenario if its estimated coverage is at least 0.925, the liberal criterion of Bradley (1978) for a nominal 95% interval, at most 0.975, and the mean of its standard errors is at least 0.9 times the empirical standard deviation of the estimate; conservative if its coverage exceeds 0.975 and its standard errors meet the same bound; anti-conservative if the upper end of the 95% Monte Carlo interval of its coverage is below 0.925; otherwise inconclusive.",
+      "declared": "while replicates were running",
+      "replaced": "because its labels for adequate and conservative rest on point estimates, which at 50 replicates label a correctly calibrated interval adequate only about half the time"
+    }
+  ],
+  "detectable_coverage": {
+    "50": 0.84,
+    "60": 0.85,
+    "100": 0.87
+  },
+  "truth_runs": {
+    "base": 150,
+    "dependence": 100,
+    "instability": 100,
+    "skew": 100
+  },
+  "replicates": {
+    "base": 100,
+    "dependence": 50,
+    "instability": 50,
+    "skew": 50
+  },
+  "replicates_with_a_dataset_never_held_out": 36,
+  "max_nofit_vb_gap": 1.1102230246251565e-16,
+  "truth_shared_runs": {
+    "base": 150
+  },
+  "max_unaffected_truth_gap": 0.0,
+  "inner_fit_theta_shift": {
+    "C1": -0.0006029285099052543,
+    "C2": -0.0006029285099052542,
+    "C3": -0.0006029285099052542
+  },
+  "command": [
+    "scripts/calibration_study.py",
+    "--stage",
+    "summarize"
+  ]
+}

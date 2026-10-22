@@ -1,0 +1,82 @@
+# Groups of related TabRepo datasets (Appendix H of the paper; scripts/tabrepo_source_groups.py).
+# Evidence: R repository record, C OpenML description in the local cache, M TabRepo metadata
+# (shape or summed rows), N names, K background knowledge. `group` is the broad grouping used by
+# the grouped outer splits and the cluster bootstrap: it adds pairs that rest on M or K only and
+# joins the two F16 name pairs. `documented_group` keeps only groups resting on R, C or N; an empty
+# value leaves the dataset ungrouped there. Datasets not listed are singletons.
+dataset,group,documented_group,scope,evidence,note
+volcanoes-a2,volcanoes,volcanoes,documented,N;M,"One name series; TabRepo metadata: 4 features each, OpenML dataset ids 1528-1542"
+volcanoes-a3,volcanoes,volcanoes,documented,N;M,"One name series; TabRepo metadata: 4 features each, OpenML dataset ids 1528-1542"
+volcanoes-a4,volcanoes,volcanoes,documented,N;M,"One name series; TabRepo metadata: 4 features each, OpenML dataset ids 1528-1542"
+volcanoes-b1,volcanoes,volcanoes,documented,N;M,"One name series; TabRepo metadata: 4 features each, OpenML dataset ids 1528-1542"
+volcanoes-b2,volcanoes,volcanoes,documented,N;M,"One name series; TabRepo metadata: 4 features each, OpenML dataset ids 1528-1542"
+volcanoes-b5,volcanoes,volcanoes,documented,N;M,"One name series; TabRepo metadata: 4 features each, OpenML dataset ids 1528-1542"
+volcanoes-b6,volcanoes,volcanoes,documented,N;M,"One name series; TabRepo metadata: 4 features each, OpenML dataset ids 1528-1542"
+volcanoes-d1,volcanoes,volcanoes,documented,N;M,"One name series; TabRepo metadata: 4 features each, OpenML dataset ids 1528-1542"
+volcanoes-d4,volcanoes,volcanoes,documented,N;M,"One name series; TabRepo metadata: 4 features each, OpenML dataset ids 1528-1542"
+volcanoes-e1,volcanoes,volcanoes,documented,N;M,"One name series; TabRepo metadata: 4 features each, OpenML dataset ids 1528-1542"
+fri_c0_1000_5,friedman,friedman,documented,N,One name series (fri_c<k>_<rows>_<features>) from one synthetic generator
+fri_c0_500_5,friedman,friedman,documented,N,One name series (fri_c<k>_<rows>_<features>) from one synthetic generator
+fri_c1_1000_50,friedman,friedman,documented,N,One name series (fri_c<k>_<rows>_<features>) from one synthetic generator
+fri_c2_1000_25,friedman,friedman,documented,N,One name series (fri_c<k>_<rows>_<features>) from one synthetic generator
+fri_c2_500_50,friedman,friedman,documented,N,One name series (fri_c<k>_<rows>_<features>) from one synthetic generator
+fri_c3_1000_10,friedman,friedman,documented,N,One name series (fri_c<k>_<rows>_<features>) from one synthetic generator
+fri_c3_1000_25,friedman,friedman,documented,N,One name series (fri_c<k>_<rows>_<features>) from one synthetic generator
+fri_c3_500_10,friedman,friedman,documented,N,One name series (fri_c<k>_<rows>_<features>) from one synthetic generator
+fri_c3_500_50,friedman,friedman,documented,N,One name series (fri_c<k>_<rows>_<features>) from one synthetic generator
+fri_c4_500_100,friedman,friedman,documented,N,One name series (fri_c<k>_<rows>_<features>) from one synthetic generator
+jm1,nasa_mdp,nasa_mdp,documented,C,"OpenML descriptions (local cache): ""One of the NASA Metrics Data Program defect data sets"" (kc1, kc2, pc1, pc3, pc4) and NASA MDP as creator (jm1); mc1 and pc2 by name only"
+kc1,nasa_mdp,nasa_mdp,documented,C,"OpenML descriptions (local cache): ""One of the NASA Metrics Data Program defect data sets"" (kc1, kc2, pc1, pc3, pc4) and NASA MDP as creator (jm1); mc1 and pc2 by name only"
+kc2,nasa_mdp,nasa_mdp,documented,C,"OpenML descriptions (local cache): ""One of the NASA Metrics Data Program defect data sets"" (kc1, kc2, pc1, pc3, pc4) and NASA MDP as creator (jm1); mc1 and pc2 by name only"
+mc1,nasa_mdp,nasa_mdp,documented,N,"OpenML descriptions (local cache): ""One of the NASA Metrics Data Program defect data sets"" (kc1, kc2, pc1, pc3, pc4) and NASA MDP as creator (jm1); mc1 and pc2 by name only"
+pc1,nasa_mdp,nasa_mdp,documented,C,"OpenML descriptions (local cache): ""One of the NASA Metrics Data Program defect data sets"" (kc1, kc2, pc1, pc3, pc4) and NASA MDP as creator (jm1); mc1 and pc2 by name only"
+pc2,nasa_mdp,nasa_mdp,documented,N,"OpenML descriptions (local cache): ""One of the NASA Metrics Data Program defect data sets"" (kc1, kc2, pc1, pc3, pc4) and NASA MDP as creator (jm1); mc1 and pc2 by name only"
+pc3,nasa_mdp,nasa_mdp,documented,C,"OpenML descriptions (local cache): ""One of the NASA Metrics Data Program defect data sets"" (kc1, kc2, pc1, pc3, pc4) and NASA MDP as creator (jm1); mc1 and pc2 by name only"
+pc4,nasa_mdp,nasa_mdp,documented,C,"OpenML descriptions (local cache): ""One of the NASA Metrics Data Program defect data sets"" (kc1, kc2, pc1, pc3, pc4) and NASA MDP as creator (jm1); mc1 and pc2 by name only"
+OVA_Colon,ova,ova,documented,N;M,"One name series; TabRepo metadata: 1545 rows and 10936-10937 features each (one matrix, one-vs-all targets)"
+OVA_Endometrium,ova,ova,documented,N;M,"One name series; TabRepo metadata: 1545 rows and 10936-10937 features each (one matrix, one-vs-all targets)"
+OVA_Kidney,ova,ova,documented,N;M,"One name series; TabRepo metadata: 1545 rows and 10936-10937 features each (one matrix, one-vs-all targets)"
+OVA_Lung,ova,ova,documented,N;M,"One name series; TabRepo metadata: 1545 rows and 10936-10937 features each (one matrix, one-vs-all targets)"
+OVA_Ovary,ova,ova,documented,N;M,"One name series; TabRepo metadata: 1545 rows and 10936-10937 features each (one matrix, one-vs-all targets)"
+OVA_Prostate,ova,ova,documented,N;M,"One name series; TabRepo metadata: 1545 rows and 10936-10937 features each (one matrix, one-vs-all targets)"
+GAMETES_Epistasis_2-Way_1000atts_0_4H_EDM-1_EDM-1_1,gametes,gametes,documented,N;M,One name series (GAMETES simulator); TabRepo metadata: 1600 rows each
+GAMETES_Epistasis_2-Way_20atts_0_1H_EDM-1_1,gametes,gametes,documented,N;M,One name series (GAMETES simulator); TabRepo metadata: 1600 rows each
+GAMETES_Epistasis_2-Way_20atts_0_4H_EDM-1_1,gametes,gametes,documented,N;M,One name series (GAMETES simulator); TabRepo metadata: 1600 rows each
+GAMETES_Epistasis_3-Way_20atts_0_2H_EDM-1_1,gametes,gametes,documented,N;M,One name series (GAMETES simulator); TabRepo metadata: 1600 rows each
+GAMETES_Heterogeneity_20atts_1600_Het_0_4_0_2_50_EDM-2_001,gametes,gametes,documented,N;M,One name series (GAMETES simulator); TabRepo metadata: 1600 rows each
+GAMETES_Heterogeneity_20atts_1600_Het_0_4_0_2_75_EDM-2_001,gametes,gametes,documented,N;M,One name series (GAMETES simulator); TabRepo metadata: 1600 rows each
+autoUniv-au1-1000,autouniv,autouniv,documented,N,One name series from one synthetic generator
+autoUniv-au6-750,autouniv,autouniv,documented,N,One name series from one synthetic generator
+autoUniv-au7-1100,autouniv,autouniv,documented,N,One name series from one synthetic generator
+autoUniv-au7-700,autouniv,autouniv,documented,N,One name series from one synthetic generator
+wine_quality,wine,wine,documented,R;M,Repository: the two colour sets together make up wine_quality (scripts/tabrepo_overlap_sensitivity.py); 1599 + 4898 = 6497 rows
+wine-quality-red,wine,wine,documented,R;M,Repository: the two colour sets together make up wine_quality (scripts/tabrepo_overlap_sensitivity.py); 1599 + 4898 = 6497 rows
+wine-quality-white,wine,wine,documented,R;M,Repository: the two colour sets together make up wine_quality (scripts/tabrepo_overlap_sensitivity.py); 1599 + 4898 = 6497 rows
+boston,boston,boston,documented,N;M,Name; TabRepo metadata: 506 rows each
+boston_corrected,boston,boston,documented,N;M,Name; TabRepo metadata: 506 rows each
+cpu_act,cpu,cpu,documented,N;M,"Name; TabRepo metadata: the same 8192 rows, fewer features in cpu_small"
+cpu_small,cpu,cpu,documented,N;M,"Name; TabRepo metadata: the same 8192 rows, fewer features in cpu_small"
+dna,splice,splice,documented,C,"OpenML description of dna (local cache): ""The StatLog DNA dataset is a processed version of the Irvine database"" of splice-junction sequences"
+splice,splice,splice,documented,C,"OpenML description of dna (local cache): ""The StatLog DNA dataset is a processed version of the Irvine database"" of splice-junction sequences"
+satimage,landsat,landsat,documented,C;M,"OpenML description of Satellite (local cache): features from four-band satellite images, soil classes of the original data, training and test sets merged; 36 features each"
+Satellite,landsat,landsat,documented,C;M,"OpenML description of Satellite (local cache): features from four-band satellite images, soil classes of the original data, training and test sets merged; 36 features each"
+bank8FM,delve_bank,delve_bank,documented,N;M,Name series; TabRepo metadata: 8192 rows each
+bank32nh,delve_bank,delve_bank,documented,N;M,Name series; TabRepo metadata: 8192 rows each
+puma8NH,delve_puma,delve_puma,documented,N;M,Name series; TabRepo metadata: 8192 rows each
+puma32H,delve_puma,delve_puma,documented,N;M,Name series; TabRepo metadata: 8192 rows each
+LED-display-domain-7digit,led,led,documented,N,Name: the LED display domain at 7 and 24 attributes
+led24,led,led,documented,N,Name: the LED display domain at 7 and 24 attributes
+ailerons,f16,ailerons,documented,N;K,Names pair ailerons with delta_ailerons and elevators with delta_elevators; that all four come from one F16 control problem is background knowledge
+delta_ailerons,f16,ailerons,documented,N;K,Names pair ailerons with delta_ailerons and elevators with delta_elevators; that all four come from one F16 control problem is background knowledge
+elevators,f16,elevators,documented,N;K,Names pair ailerons with delta_ailerons and elevators with delta_elevators; that all four come from one F16 control problem is background knowledge
+delta_elevators,f16,elevators,documented,N;K,Names pair ailerons with delta_ailerons and elevators with delta_elevators; that all four come from one F16 control problem is background knowledge
+kr-vs-k,krk,,broad,M;K,TabRepo metadata: identical 28056 x 7; the same king-rook-king chess endgame (background knowledge)
+kropt,krk,,broad,M;K,TabRepo metadata: identical 28056 x 7; the same king-rook-king chess endgame (background knowledge)
+pm10,air_pollution,,broad,M;K,TabRepo metadata: 500 x 8 each; one air-pollution study (background knowledge)
+no2,air_pollution,,broad,M;K,TabRepo metadata: 500 x 8 each; one air-pollution study (background knowledge)
+topo_2_1,qsar_8885,,broad,M,TabRepo metadata: 8885 rows each; grouped conservatively
+yprop_4_1,qsar_8885,,broad,M,TabRepo metadata: 8885 rows each; grouped conservatively
+ada,census,,broad,K,ada is a census-income task derived from Adult (background knowledge); grouped conservatively
+adult,census,,broad,K,ada is a census-income task derived from Adult (background knowledge); grouped conservatively
+madelon,madelon,,broad,K,Possibly related artificial challenge data (background knowledge); grouped conservatively
+madeline,madelon,,broad,K,Possibly related artificial challenge data (background knowledge); grouped conservatively

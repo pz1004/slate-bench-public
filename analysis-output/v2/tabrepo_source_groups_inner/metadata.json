@@ -1,0 +1,26 @@
+{
+  "groups": "configs/tabrepo_source_groups.csv",
+  "panels": {
+    "ensemble_grouped_inner": {
+      "review": "analysis-output/v2/score_level_tabrepo_grouped_inner_review",
+      "config": "configs/review_tabrepo.yaml"
+    },
+    "score_only_grouped_inner": {
+      "review": "analysis-output/v2/score_level_tabrepo_grouped_inner_score_only_review",
+      "config": "configs/review_tabrepo_score_only.yaml"
+    }
+  },
+  "n_clusters": {
+    "group": 145,
+    "documented_group": 151
+  },
+  "command": [
+    "scripts/tabrepo_source_groups.py",
+    "--review",
+    "ensemble_grouped_inner=analysis-output/v2/score_level_tabrepo_grouped_inner_review",
+    "--review",
+    "score_only_grouped_inner=analysis-output/v2/score_level_tabrepo_grouped_inner_score_only_review",
+    "--output-dir",
+    "analysis-output/v2/tabrepo_source_groups_inner"
+  ]
+}

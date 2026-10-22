@@ -1,0 +1,30 @@
+{
+  "what": "scripts/grouped_inner_splits.py with --inner-group-column none (one dataset left out at a time) recomputes split 0 of the outer-grouped run; the other 23 splits were seeded from that run's parts so that --resume computed only split 0",
+  "command": "scripts/grouped_inner_splits.py --config configs/score_level_tabrepo_nested.yaml --repeats 6 --jobs 1 --resume --inner-group-column none --output-dir <directory seeded with splits 1-23 of analysis-output/v2/score_level_tabrepo_grouped/split_parts>",
+  "date": "2026-10-21",
+  "parts": {
+    "split_results": {
+      "stored_sha256": "5097f2484f881a997b3809570a061a43a5a1072d6eb8bb1f618c54786c3f41fc",
+      "recomputed_sha256": "5097f2484f881a997b3809570a061a43a5a1072d6eb8bb1f618c54786c3f41fc",
+      "byte_identical": true
+    },
+    "training_policy_scores": {
+      "stored_sha256": "0c44c26f5e24805ceae1d39ff463e3d3822d1be0e8654ad84308b09371fcdc59",
+      "recomputed_sha256": "0c44c26f5e24805ceae1d39ff463e3d3822d1be0e8654ad84308b09371fcdc59",
+      "byte_identical": true
+    },
+    "heldout_policy_scores": {
+      "stored_sha256": "e9fe9f3e97316b5370588ed52ccd0e8498e5bdf62e927cfcdacbb9d27c5e0ed0",
+      "recomputed_sha256": "e9fe9f3e97316b5370588ed52ccd0e8498e5bdf62e927cfcdacbb9d27c5e0ed0",
+      "byte_identical": true
+    },
+    "unit_scores": {
+      "stored_sha256": "fa02772ee1b6140a882e2456ec3e74b0916f1d98e569cb408821eadbf45821fe",
+      "recomputed_sha256": "e14fce71fe953046435155fbdcc072732287d7d9894878cb9584eb45d559efea",
+      "byte_identical": false,
+      "frames_equal": true,
+      "rows": 34350
+    }
+  },
+  "reproduced_exactly": true
+}

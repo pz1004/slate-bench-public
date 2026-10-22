@@ -1,0 +1,44 @@
+{
+  "pools": {
+    "declared": {
+      "review": "analysis-output/v2/score_level_tabarena_review",
+      "nested": "analysis-output/v2/score_level_tabarena"
+    },
+    "reduced": {
+      "review": "analysis-output/v2/score_level_tabarena_shrink_review",
+      "nested": "analysis-output/v2/score_level_tabarena_shrink"
+    }
+  },
+  "review_config": "configs/review_tabarena.yaml",
+  "families": {
+    "five": [
+      "meta_selector_task_adaptive_budgeted",
+      "meta_selector_meta_feature_guard_005",
+      "meta_selector_family_prior_budgeted",
+      "train_selected_fixed_reference__declared_fixed",
+      "meta_selector_single"
+    ],
+    "three": [
+      "meta_selector_family_prior_budgeted",
+      "train_selected_fixed_reference__declared_fixed",
+      "meta_selector_single"
+    ]
+  },
+  "bootstrap_seed": 20260608,
+  "resamples": 10000,
+  "command": [
+    "scripts/pool_matched_family.py",
+    "--declared-review",
+    "analysis-output/v2/score_level_tabarena_review",
+    "--declared-nested",
+    "analysis-output/v2/score_level_tabarena",
+    "--reduced-review",
+    "analysis-output/v2/score_level_tabarena_shrink_review",
+    "--reduced-nested",
+    "analysis-output/v2/score_level_tabarena_shrink",
+    "--review-config",
+    "configs/review_tabarena.yaml",
+    "--output-dir",
+    "analysis-output/v2/tabarena_pool_matched"
+  ]
+}

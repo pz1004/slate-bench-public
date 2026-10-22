@@ -1,0 +1,24 @@
+{
+  "reproduced_splits": 100,
+  "wall_seconds": 5623.017510652542,
+  "command": [
+    "scripts/imputed_rows_reapply.py",
+    "--main-output",
+    "analysis-output/v2/score_level_tabarena",
+    "--main-review",
+    "analysis-output/v2/score_level_tabarena_review",
+    "--rerun-review",
+    "analysis-output/v2/score_level_tabarena_no_imputed_review",
+    "--rescored-output",
+    "analysis-output/v2/tabarena_imputed/rescored",
+    "--review-config",
+    "configs/review_tabarena.yaml",
+    "--check-splits",
+    "100",
+    "--check-only",
+    "--jobs",
+    "2",
+    "--output-dir",
+    "analysis-output/v2/tabarena_imputed/reapplied"
+  ]
+}

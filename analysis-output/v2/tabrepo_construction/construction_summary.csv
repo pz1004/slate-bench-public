@@ -1,0 +1,6 @@
+config,family,n_tasks,n_datasets,n_tasks_with_interior,tasks_test_on_1_300,median_test_share_1_300,tasks_val_on_1_300,median_val_share_1_300,median_val_denominator,tasks_val_on_1_k,tasks_test_on_1_k_or_1_k1,tasks_test_bag_only
+RandomForest_c1_BAG_L1,rf,315,105,315,0.8063492063492064,1.0,0.0,0.05432595573440644,104.0,,,
+ExtraTrees_c1_BAG_L1,xt,315,105,315,0.8063492063492064,1.0,0.0,0.0570205035037633,103.0,,,
+KNeighbors_c1_BAG_L1,knn,315,105,315,0.9650793650793651,1.0,0.8857142857142857,1.0,5.0,0.8857142857142857,0.8857142857142857,0.0
+CatBoost_c1_BAG_L1,cat,315,105,315,0.0,0.0,0.0,0.0002859185132237312,899.0,,,
+LightGBM_c1_BAG_L1,gbm,315,105,315,0.0,0.0,0.0,0.00035739814152966406,896.5,,,

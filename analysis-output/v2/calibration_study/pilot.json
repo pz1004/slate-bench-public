@@ -1,0 +1,24 @@
+{
+  "test_best_variant_share": {
+    "tuned + ensemble": 0.547,
+    "default": 0.277,
+    "tuned": 0.176
+  },
+  "vb_tuned_ensemble_share": 0.991636798088411,
+  "rank_gap_by_variant": {
+    "default": -0.102,
+    "tuned": 0.018,
+    "tuned + ensemble": 0.098
+  },
+  "vb_minus_dtt": 0.05293610984445457,
+  "median_fit_seconds": {
+    "default": 11.2,
+    "tuned": 3030.7,
+    "tuned + ensemble": 3030.7
+  },
+  "fast_path_identical": true,
+  "timing": {
+    "normal_seconds_per_split": 283.97778701782227,
+    "fast_seconds_per_split": 174.72830486297607
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "bootstrap_resamples": 10000,
+  "bootstrap_seed": 20260608,
+  "command": [
+    "scripts/score_level_review.py",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabrepo_grouped_score_only",
+    "--config",
+    "configs/review_tabrepo_score_only.yaml",
+    "--output-dir",
+    "analysis-output/v2/score_level_tabrepo_grouped_score_only_review"
+  ],
+  "config": "configs/review_tabrepo_score_only.yaml",
+  "n_datasets": 200,
+  "nested_metadata": {
+    "artifacts": [
+      {
+        "n_policy_methods": 45,
+        "name": "TabRepo",
+        "policy_methods": [
+          "meta_selector_single",
+          "meta_selector_ablate_validation_only",
+          "meta_selector_family_prior_budgeted_100s",
+          "meta_selector_family_prior_budgeted_500s",
+          "meta_selector_family_prior_budgeted_1000s",
+          "meta_selector_family_prior_budgeted_5000s",
+          "meta_selector_family_prior_budgeted",
+          "meta_selector_calibrated_budget_10000s",
+          "meta_selector_task_adaptive_budgeted",
+          "meta_selector_meta_feature_guard_002_k4_rt0",
+          "meta_selector_meta_feature_guard_002_k4_rt0p03",
+          "meta_selector_meta_feature_guard_002_k4_rt0p1",
+          "meta_selector_meta_feature_guard_002_k8_rt0",
+          "meta_selector_meta_feature_guard_002",
+          "meta_selector_meta_feature_guard_002_k8_rt0p1",
+          "meta_selector_meta_feature_guard_002_k12_rt0",
+          "meta_selector_meta_feature_guard_002_k12_rt0p03",
+          "meta_selector_meta_feature_guard_002_k12_rt0p1",
+          "meta_selector_meta_feature_guard_005_k4_rt0",
+          "meta_selector_meta_feature_guard_005_k4_rt0p03",
+          "meta_selector_meta_feature_guard_005_k4_rt0p1",
+          "meta_selector_meta_feature_guard_005_k8_rt0",
+          "meta_selector_meta_feature_guard_005",
+          "meta_selector_meta_feature_guard_005_k8_rt0p1",
+          "meta_selector_meta_feature_guard_005_k12_rt0",
+          "meta_selector_meta_feature_guard_005_k12_rt0p03",
+          "meta_selector_meta_feature_guard_005_k12_rt0p1",
+          "meta_selector_meta_feature_guard_010_k4_rt0",
+          "meta_selector_meta_feature_guard_010_k4_rt0p03",
+          "meta_selector_meta_feature_guard_010_k4_rt0p1",
+          "meta_selector_meta_feature_guard_010_k8_rt0",
+          "meta_selector_meta_feature_guard_010",
+          "meta_selector_meta_feature_guard_010_k8_rt0p1",
+          "meta_selector_meta_feature_guard_010_k12_rt0",
+          "meta_selector_meta_feature_guard_010_k12_rt0p03",
+          "meta_selector_meta_feature_guard_010_k12_rt0p1",
+          "meta_selector_meta_feature_guard_020_k4_rt0",
+          "meta_selector_meta_feature_guard_020_k4_rt0p03",
+          "meta_selector_meta_feature_guard_020_k4_rt0p1",
+          "meta_selector_meta_feature_guard_020_k8_rt0",
+          "meta_selector_meta_feature_guard_020",
+          "meta_selector_meta_feature_guard_020_k8_rt0p1",
+          "meta_selector_meta_feature_guard_020_k12_rt0",
+          "meta_selector_meta_feature_guard_020_k12_rt0p03",
+          "meta_selector_meta_feature_guard_020_k12_rt0p1"
+        ],
+        "reference_methods": [
+          "reference_metafeature_knn",
+          "reference_metafeature_knn_validation",
+          "reference_optimism_corrected",
+          "reference_optimism_corrected_budget",
+          "reference_optimism_corrected_task",
+          "reference_priors_only",
+          "reference_single_best_global",
+          "reference_single_best_task"
+        ]
+      }
+    ],
+    "command": "scripts/score_level_policy_pool_ablation.py --nested-output analysis-output/v2/score_level_tabrepo_grouped --output-dir analysis-output/v2/score_level_tabrepo_grouped_score_only",
+    "excluded_method_substrings": [
+      "tabrepo_ensemble"
+    ],
+    "generated_at_epoch": 1792206697.9124067,
+    "output_dir": "analysis-output/v2/score_level_tabrepo_grouped_score_only",
+    "references": [
+      "meta_selector_task_adaptive_budgeted",
+      "meta_selector_meta_feature_guard_005",
+      "meta_selector_family_prior_budgeted",
+      "meta_selector_ablate_validation_only",
+      "meta_selector_single"
+    ],
+    "source_metadata": {
+      "config": "configs/score_level_tabrepo_nested.yaml",
+      "config_sha256": "d517612645e8b4fecb1bedfd50a526e3f946306660153487375ae43f117ffded",
+      "git": {
+        "commit": "d5277e21be0e38fdd718a505729c86f432c9d49d",
+        "dirty": true
+      },
+      "n_splits": 24,
+      "rank_rule": "consistent",
+      "seed": 20260604
+    },
+    "source_nested_output": "analysis-output/v2/score_level_tabrepo_grouped"
+  },
+  "nested_output": "analysis-output/v2/score_level_tabrepo_grouped_score_only",
+  "wall_seconds": 2.5884079933166504
+}

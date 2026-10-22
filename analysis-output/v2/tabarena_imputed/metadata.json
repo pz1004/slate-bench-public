@@ -4,9 +4,9 @@
   "metadata": "data/tabarena/tabarena_dataset_metadata.csv",
   "metadata_sha256": "c68918c9bd1d98cfe5b74d5f21eb360e14dbc1c31430e402fe01725a215f8753",
   "rows": 35904,
-  "copied_rows": 890,
-  "kept_rows": 35014,
-  "filtered_sha256": "4ff85c6b1785a9765575a64fde00494859e2eb12ca98a9fb8861f3fc25a6224c",
+  "copied_rows": 992,
+  "kept_rows": 34912,
+  "filtered_sha256": "c6a967ac10794ec32415d34b4315e6ddfe08518973fdf2230f30d260ceac3f90",
   "command": [
     "scripts/imputed_rows.py",
     "--output-dir",

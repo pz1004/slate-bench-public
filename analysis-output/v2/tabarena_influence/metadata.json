@@ -1,5 +1,15 @@
 {
   "review_output": "analysis-output/v2/score_level_tabarena_review",
+  "nested_output": "analysis-output/v2/score_level_tabarena",
+  "review_config": "configs/review_tabarena.yaml",
+  "dataset_metadata": "data/tabarena/tabarena_dataset_metadata.csv",
+  "bootstrap_seed": 20260608,
+  "resamples": 10000,
+  "subset_salts": [
+    "loo|<dataset>",
+    "top5",
+    "symmetric5"
+  ],
   "command": [
     "scripts/influence_check.py",
     "--review-output",

@@ -9,6 +9,8 @@
   "share_units_median_within_one_percent_of_best": 0.16166666666666665,
   "family_offsets": true,
   "scale": "range",
+  "snr_n_train": 150,
+  "snr_reproduces_provenance_gap": 0.0,
   "command": [
     "scripts/error_space_correction.py",
     "--benchmark-config",
@@ -19,6 +21,8 @@
     "configs/review_tabrepo_score_only.yaml",
     "--output-dir",
     "analysis-output/v2/tabrepo_error_space",
-    "--family-offsets"
+    "--family-offsets",
+    "--provenance-output",
+    "analysis-output/v2/tabrepo_provenance"
   ]
 }

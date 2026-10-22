@@ -1,0 +1,21 @@
+{
+  "subsets": 1000,
+  "draws": 4000,
+  "seed": 20260622,
+  "folds": 4,
+  "command": [
+    "scripts/tabrepo_grouped_comparison.py",
+    "--score-only-random",
+    "analysis-output/v2/score_level_tabrepo_score_only_review",
+    "--score-only-grouped",
+    "analysis-output/v2/score_level_tabrepo_grouped_inner_score_only_review",
+    "--ensemble-random",
+    "analysis-output/v2/score_level_tabrepo_nested_review",
+    "--ensemble-grouped",
+    "analysis-output/v2/score_level_tabrepo_grouped_inner_review",
+    "--grouped-splits",
+    "analysis-output/v2/score_level_tabrepo_grouped_inner/grouped_splits.json",
+    "--output-dir",
+    "analysis-output/v2/tabrepo_grouped_inner_comparison"
+  ]
+}

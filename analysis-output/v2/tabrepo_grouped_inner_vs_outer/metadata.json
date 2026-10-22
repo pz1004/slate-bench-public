@@ -1,0 +1,26 @@
+{
+  "outer": {
+    "score_only": "analysis-output/v2/score_level_tabrepo_grouped_score_only_review",
+    "ensemble": "analysis-output/v2/score_level_tabrepo_grouped_review"
+  },
+  "inner": {
+    "score_only": "analysis-output/v2/score_level_tabrepo_grouped_inner_score_only_review",
+    "ensemble": "analysis-output/v2/score_level_tabrepo_grouped_inner_review"
+  },
+  "groups": "configs/tabrepo_source_groups.csv",
+  "seed": 20260608,
+  "resamples": 10000,
+  "command": [
+    "scripts/tabrepo_grouped_inner_comparison.py",
+    "--outer",
+    "score_only=analysis-output/v2/score_level_tabrepo_grouped_score_only_review",
+    "--outer",
+    "ensemble=analysis-output/v2/score_level_tabrepo_grouped_review",
+    "--inner",
+    "score_only=analysis-output/v2/score_level_tabrepo_grouped_inner_score_only_review",
+    "--inner",
+    "ensemble=analysis-output/v2/score_level_tabrepo_grouped_inner_review",
+    "--output-dir",
+    "analysis-output/v2/tabrepo_grouped_inner_vs_outer"
+  ]
+}

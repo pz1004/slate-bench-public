@@ -1,0 +1,23 @@
+{
+  "config": "configs/score_level_tabrepo_nested.yaml",
+  "context": "D244_F3_C1530_200",
+  "n_binary_datasets": 105,
+  "folds": [
+    0,
+    1,
+    2
+  ],
+  "configs": {
+    "RandomForest_c1_BAG_L1": "rf",
+    "ExtraTrees_c1_BAG_L1": "xt",
+    "KNeighbors_c1_BAG_L1": "knn",
+    "CatBoost_c1_BAG_L1": "cat",
+    "LightGBM_c1_BAG_L1": "gbm"
+  },
+  "trees": 300,
+  "fold_models": 8,
+  "knn_neighbours": 5,
+  "tolerance": 1e-06,
+  "lattice_threshold": 0.99,
+  "seconds": 64.9
+}

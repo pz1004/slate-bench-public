@@ -9,6 +9,8 @@
   "share_units_median_within_one_percent_of_best": 0.011029411764705883,
   "family_offsets": false,
   "scale": "range",
+  "snr_n_train": 38,
+  "snr_reproduces_provenance_gap": 0.0,
   "command": [
     "scripts/error_space_correction.py",
     "--benchmark-config",
@@ -18,6 +20,8 @@
     "--review-config",
     "configs/review_tabarena.yaml",
     "--output-dir",
-    "analysis-output/v2/tabarena_error_space"
+    "analysis-output/v2/tabarena_error_space",
+    "--provenance-output",
+    "analysis-output/v2/tabarena_provenance"
   ]
 }

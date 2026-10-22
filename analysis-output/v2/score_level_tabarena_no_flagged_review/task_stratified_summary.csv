@@ -1,0 +1,43 @@
+task,n_datasets,method,label,metric,estimate,ci_low,ci_high
+binary,30,meta_selector_family_prior_budgeted,Family-prior rule,mean_normalized_rank_regret,0.19368970474393354,0.14364111918810002,0.2435739046559113
+binary,30,nested_policy_selected,Nested selection,mean_normalized_rank_regret,0.20523512521068915,0.15935861609592505,0.250717210122017
+binary,30,train_selected_fixed_reference__declared_fixed,Train-selected fixed rule,mean_normalized_rank_regret,0.19760044427224058,0.1474417185610003,0.24721054132554368
+binary,30,meta_selector_single,Validation-best,mean_normalized_rank_regret,0.2945855142560569,0.20450115947790365,0.39361294281013265
+binary,30,reference_single_best_global,Single best (global),mean_normalized_rank_regret,0.1824192782526116,0.1388638317431922,0.22586969814925234
+binary,30,reference_validation_best_default,Validation-best (defaults),mean_normalized_rank_regret,0.2025242662161267,0.1502732040515471,0.25636240517127146
+binary,30,reference_optimism_corrected,Optimism-corrected validation,mean_normalized_rank_regret,0.1758722204602266,0.1206078484238079,0.2306435958203714
+binary,30,meta_selector_family_prior_budgeted,Family-prior rule,mean_total_seconds,2569.116029365782,1773.0677598398222,3422.8470089786692
+binary,30,nested_policy_selected,Nested selection,mean_total_seconds,1388.0933937522245,970.104417294003,1851.484095036335
+binary,30,train_selected_fixed_reference__declared_fixed,Train-selected fixed rule,mean_total_seconds,2195.6580072448332,1525.8031092068843,2894.479025160083
+binary,30,meta_selector_single,Validation-best,mean_total_seconds,138528.15332385365,87317.66846403615,194440.0897118512
+binary,30,reference_single_best_global,Single best (global),mean_total_seconds,96164.14832606362,48760.70393399261,150748.7326497743
+binary,30,reference_validation_best_default,Validation-best (defaults),mean_total_seconds,277.9152050510159,120.97283159296381,503.544166787876
+binary,30,reference_optimism_corrected,Optimism-corrected validation,mean_total_seconds,15423.417626255621,5155.037440845002,31262.814808214134
+multiclass,8,meta_selector_family_prior_budgeted,Family-prior rule,mean_normalized_rank_regret,0.1473069873228774,0.09678229271991912,0.21701252732073004
+multiclass,8,nested_policy_selected,Nested selection,mean_normalized_rank_regret,0.16401614875352025,0.12225169267141378,0.21340673739435112
+multiclass,8,train_selected_fixed_reference__declared_fixed,Train-selected fixed rule,mean_normalized_rank_regret,0.1587526923532253,0.10983906551207909,0.22848230233913372
+multiclass,8,meta_selector_single,Validation-best,mean_normalized_rank_regret,0.19510244815477373,0.10823481912144703,0.308932586712383
+multiclass,8,reference_single_best_global,Single best (global),mean_normalized_rank_regret,0.20407204498774267,0.06663436692506461,0.36970246451169414
+multiclass,8,reference_validation_best_default,Validation-best (defaults),mean_normalized_rank_regret,0.1590480686410919,0.10585039422248727,0.22031653746770025
+multiclass,8,reference_optimism_corrected,Optimism-corrected validation,mean_normalized_rank_regret,0.1272405777186806,0.06161075883096232,0.21453137637275657
+multiclass,8,meta_selector_family_prior_budgeted,Family-prior rule,mean_total_seconds,3710.8557271891214,2109.4241361487366,5376.052436593823
+multiclass,8,nested_policy_selected,Nested selection,mean_total_seconds,2923.005223889933,1793.5274312401743,4075.6449316073877
+multiclass,8,train_selected_fixed_reference__declared_fixed,Train-selected fixed rule,mean_total_seconds,3100.7352975497784,1827.4465267652254,4418.132878378552
+multiclass,8,meta_selector_single,Validation-best,mean_total_seconds,31233.60573244029,7314.419427910447,62803.073404056566
+multiclass,8,reference_single_best_global,Single best (global),mean_total_seconds,34736.783094598846,4395.079902331035,89022.33496010269
+multiclass,8,reference_validation_best_default,Validation-best (defaults),mean_total_seconds,51.176410859492094,23.658198947095233,83.65911556051837
+multiclass,8,reference_optimism_corrected,Optimism-corrected validation,mean_total_seconds,7815.527765264747,1597.1075935097324,17744.518385357995
+regression,13,meta_selector_family_prior_budgeted,Family-prior rule,mean_normalized_rank_regret,0.1266604967576193,0.0727227110338133,0.18312312702347294
+regression,13,nested_policy_selected,Nested selection,mean_normalized_rank_regret,0.12960565562116988,0.0769369035354042,0.18332064505708337
+regression,13,train_selected_fixed_reference__declared_fixed,Train-selected fixed rule,mean_normalized_rank_regret,0.1426628138251696,0.08645789802465458,0.20022608085895383
+regression,13,meta_selector_single,Validation-best,mean_normalized_rank_regret,0.10942988635296327,0.05375313077236154,0.17085978835978832
+regression,13,reference_single_best_global,Single best (global),mean_normalized_rank_regret,0.11886446886446887,0.06269356000125233,0.1854465264080648
+regression,13,reference_validation_best_default,Validation-best (defaults),mean_normalized_rank_regret,0.16738517892364044,0.09984502676810368,0.23688386399924857
+regression,13,reference_optimism_corrected,Optimism-corrected validation,mean_normalized_rank_regret,0.1256895161360177,0.07101402326372906,0.18389054941866093
+regression,13,meta_selector_family_prior_budgeted,Family-prior rule,mean_total_seconds,3494.9889797068827,2096.142956219224,4838.052592902979
+regression,13,nested_policy_selected,Nested selection,mean_total_seconds,3497.77285387997,2107.953592032178,4842.584205100816
+regression,13,train_selected_fixed_reference__declared_fixed,Train-selected fixed rule,mean_total_seconds,2845.8047887642147,1718.518244116158,3966.889378789904
+regression,13,meta_selector_single,Validation-best,mean_total_seconds,137350.27389473814,57377.96064437909,228180.99493687175
+regression,13,reference_single_best_global,Single best (global),mean_total_seconds,64900.66445172872,29707.714624212516,103122.6272683912
+regression,13,reference_validation_best_default,Validation-best (defaults),mean_total_seconds,567.2627451696966,173.43285963185332,1040.7567541521785
+regression,13,reference_optimism_corrected,Optimism-corrected validation,mean_total_seconds,6506.164642666073,1598.400157028737,13152.336428651868

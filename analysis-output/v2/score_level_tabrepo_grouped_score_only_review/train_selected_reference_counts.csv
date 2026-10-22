@@ -1,0 +1,7 @@
+pool,selected_reference_method,n_splits
+score_only,meta_selector_family_prior_budgeted,1
+score_only,meta_selector_family_prior_budgeted_1000s,8
+score_only,meta_selector_family_prior_budgeted_100s,2
+score_only,meta_selector_family_prior_budgeted_5000s,8
+score_only,meta_selector_family_prior_budgeted_500s,4
+score_only,meta_selector_single,1

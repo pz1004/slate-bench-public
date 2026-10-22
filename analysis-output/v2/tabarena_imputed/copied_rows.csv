@@ -1,891 +1,993 @@
-dataset,fold,seed,method,family,rule
-APSFailure,0,0,MNCA (default),MNCA,copy of a RandomForest row
-APSFailure,0,0,TABPFNV2 (default),TABPFNV2,metadata flag
-APSFailure,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-APSFailure,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-APSFailure,1,0,MNCA (default),MNCA,copy of a RandomForest row
-APSFailure,1,0,TABPFNV2 (default),TABPFNV2,metadata flag
-APSFailure,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-APSFailure,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-APSFailure,2,0,MNCA (default),MNCA,copy of a RandomForest row
-APSFailure,2,0,TABM (default),TABM,copy of a RandomForest row
-APSFailure,2,0,TABPFNV2 (default),TABPFNV2,metadata flag
-APSFailure,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-APSFailure,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-APSFailure,3,0,MNCA (default),MNCA,copy of a RandomForest row
-APSFailure,3,0,TABPFNV2 (default),TABPFNV2,metadata flag
-APSFailure,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-APSFailure,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-APSFailure,4,0,MNCA (default),MNCA,copy of a RandomForest row
-APSFailure,4,0,TABM (default),TABM,copy of a RandomForest row
-APSFailure,4,0,TABPFNV2 (default),TABPFNV2,metadata flag
-APSFailure,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-APSFailure,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-APSFailure,5,0,MNCA (default),MNCA,copy of a RandomForest row
-APSFailure,5,0,TABM (default),TABM,copy of a RandomForest row
-APSFailure,5,0,TABPFNV2 (default),TABPFNV2,metadata flag
-APSFailure,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-APSFailure,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-APSFailure,6,0,MNCA (default),MNCA,copy of a RandomForest row
-APSFailure,6,0,TABM (default),TABM,copy of a RandomForest row
-APSFailure,6,0,TABPFNV2 (default),TABPFNV2,metadata flag
-APSFailure,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-APSFailure,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-APSFailure,7,0,MNCA (default),MNCA,copy of a RandomForest row
-APSFailure,7,0,TABM (default),TABM,copy of a RandomForest row
-APSFailure,7,0,TABPFNV2 (default),TABPFNV2,metadata flag
-APSFailure,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-APSFailure,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-APSFailure,8,0,MNCA (default),MNCA,copy of a RandomForest row
-APSFailure,8,0,TABPFNV2 (default),TABPFNV2,metadata flag
-APSFailure,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-APSFailure,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Amazon_employee_access,0,0,KNN (default),KNN,copy of a RandomForest row
-Amazon_employee_access,0,0,KNN (tuned + ensemble),KNN,copy of a RandomForest row
-Amazon_employee_access,0,0,KNN (tuned),KNN,copy of a RandomForest row
-Amazon_employee_access,0,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Amazon_employee_access,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Amazon_employee_access,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Amazon_employee_access,1,0,KNN (default),KNN,copy of a RandomForest row
-Amazon_employee_access,1,0,KNN (tuned + ensemble),KNN,copy of a RandomForest row
-Amazon_employee_access,1,0,KNN (tuned),KNN,copy of a RandomForest row
-Amazon_employee_access,1,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Amazon_employee_access,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Amazon_employee_access,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Amazon_employee_access,2,0,KNN (default),KNN,copy of a RandomForest row
-Amazon_employee_access,2,0,KNN (tuned + ensemble),KNN,copy of a RandomForest row
-Amazon_employee_access,2,0,KNN (tuned),KNN,copy of a RandomForest row
-Amazon_employee_access,2,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Amazon_employee_access,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Amazon_employee_access,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Amazon_employee_access,3,0,KNN (default),KNN,copy of a RandomForest row
-Amazon_employee_access,3,0,KNN (tuned + ensemble),KNN,copy of a RandomForest row
-Amazon_employee_access,3,0,KNN (tuned),KNN,copy of a RandomForest row
-Amazon_employee_access,3,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Amazon_employee_access,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Amazon_employee_access,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Amazon_employee_access,4,0,KNN (default),KNN,copy of a RandomForest row
-Amazon_employee_access,4,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Amazon_employee_access,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Amazon_employee_access,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Amazon_employee_access,5,0,KNN (default),KNN,copy of a RandomForest row
-Amazon_employee_access,5,0,KNN (tuned + ensemble),KNN,copy of a RandomForest row
-Amazon_employee_access,5,0,KNN (tuned),KNN,copy of a RandomForest row
-Amazon_employee_access,5,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Amazon_employee_access,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Amazon_employee_access,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Amazon_employee_access,6,0,KNN (default),KNN,copy of a RandomForest row
-Amazon_employee_access,6,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Amazon_employee_access,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Amazon_employee_access,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Amazon_employee_access,7,0,KNN (default),KNN,copy of a RandomForest row
-Amazon_employee_access,7,0,KNN (tuned + ensemble),KNN,copy of a RandomForest row
-Amazon_employee_access,7,0,KNN (tuned),KNN,copy of a RandomForest row
-Amazon_employee_access,7,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Amazon_employee_access,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Amazon_employee_access,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Amazon_employee_access,8,0,KNN (default),KNN,copy of a RandomForest row
-Amazon_employee_access,8,0,KNN (tuned + ensemble),KNN,copy of a RandomForest row
-Amazon_employee_access,8,0,KNN (tuned),KNN,copy of a RandomForest row
-Amazon_employee_access,8,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Amazon_employee_access,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Amazon_employee_access,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Another-Dataset-on-used-Fiat-500,0,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,1,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,2,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,3,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,4,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,5,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,6,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,7,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,8,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,9,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,10,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,11,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,12,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,13,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,14,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,15,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,16,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,17,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,18,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,19,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,20,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,21,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,22,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,23,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,24,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,25,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,26,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,27,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,28,0,TABICL (default),TABICL,metadata flag
-Another-Dataset-on-used-Fiat-500,29,0,TABICL (default),TABICL,metadata flag
-Bioresponse,0,0,TABICL (default),TABICL,metadata flag
-Bioresponse,0,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Bioresponse,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Bioresponse,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Bioresponse,1,0,TABICL (default),TABICL,metadata flag
-Bioresponse,1,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Bioresponse,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Bioresponse,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Bioresponse,2,0,MNCA (tuned),MNCA,copy of a RandomForest row
-Bioresponse,2,0,TABICL (default),TABICL,metadata flag
-Bioresponse,2,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Bioresponse,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Bioresponse,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Bioresponse,3,0,TABICL (default),TABICL,metadata flag
-Bioresponse,3,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Bioresponse,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Bioresponse,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Bioresponse,4,0,TABICL (default),TABICL,metadata flag
-Bioresponse,4,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Bioresponse,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Bioresponse,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Bioresponse,5,0,TABICL (default),TABICL,metadata flag
-Bioresponse,5,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Bioresponse,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Bioresponse,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Bioresponse,6,0,TABICL (default),TABICL,metadata flag
-Bioresponse,6,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Bioresponse,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Bioresponse,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Bioresponse,7,0,TABICL (default),TABICL,metadata flag
-Bioresponse,7,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Bioresponse,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Bioresponse,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Bioresponse,8,0,TABICL (default),TABICL,metadata flag
-Bioresponse,8,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Bioresponse,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Bioresponse,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Diabetes130US,0,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Diabetes130US,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Diabetes130US,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Diabetes130US,1,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Diabetes130US,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Diabetes130US,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Diabetes130US,2,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Diabetes130US,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Diabetes130US,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Diabetes130US,3,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Diabetes130US,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Diabetes130US,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Diabetes130US,4,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Diabetes130US,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Diabetes130US,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Diabetes130US,5,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Diabetes130US,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Diabetes130US,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Diabetes130US,6,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Diabetes130US,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Diabetes130US,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Diabetes130US,7,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Diabetes130US,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Diabetes130US,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Diabetes130US,8,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Diabetes130US,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Diabetes130US,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Food_Delivery_Time,0,0,TABICL (default),TABICL,metadata flag
-Food_Delivery_Time,0,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Food_Delivery_Time,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Food_Delivery_Time,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Food_Delivery_Time,1,0,TABICL (default),TABICL,metadata flag
-Food_Delivery_Time,1,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Food_Delivery_Time,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Food_Delivery_Time,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Food_Delivery_Time,2,0,TABICL (default),TABICL,metadata flag
-Food_Delivery_Time,2,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Food_Delivery_Time,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Food_Delivery_Time,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Food_Delivery_Time,3,0,TABICL (default),TABICL,metadata flag
-Food_Delivery_Time,3,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Food_Delivery_Time,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Food_Delivery_Time,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Food_Delivery_Time,4,0,TABICL (default),TABICL,metadata flag
-Food_Delivery_Time,4,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Food_Delivery_Time,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Food_Delivery_Time,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Food_Delivery_Time,5,0,TABICL (default),TABICL,metadata flag
-Food_Delivery_Time,5,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Food_Delivery_Time,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Food_Delivery_Time,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Food_Delivery_Time,6,0,TABICL (default),TABICL,metadata flag
-Food_Delivery_Time,6,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Food_Delivery_Time,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Food_Delivery_Time,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Food_Delivery_Time,7,0,TABICL (default),TABICL,metadata flag
-Food_Delivery_Time,7,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Food_Delivery_Time,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Food_Delivery_Time,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-Food_Delivery_Time,8,0,TABICL (default),TABICL,metadata flag
-Food_Delivery_Time,8,0,TABPFNV2 (default),TABPFNV2,metadata flag
-Food_Delivery_Time,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-Food_Delivery_Time,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-GiveMeSomeCredit,0,0,TABPFNV2 (default),TABPFNV2,metadata flag
-GiveMeSomeCredit,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-GiveMeSomeCredit,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-GiveMeSomeCredit,1,0,TABPFNV2 (default),TABPFNV2,metadata flag
-GiveMeSomeCredit,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-GiveMeSomeCredit,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-GiveMeSomeCredit,2,0,TABPFNV2 (default),TABPFNV2,metadata flag
-GiveMeSomeCredit,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-GiveMeSomeCredit,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-GiveMeSomeCredit,3,0,TABPFNV2 (default),TABPFNV2,metadata flag
-GiveMeSomeCredit,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-GiveMeSomeCredit,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-GiveMeSomeCredit,4,0,TABPFNV2 (default),TABPFNV2,metadata flag
-GiveMeSomeCredit,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-GiveMeSomeCredit,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-GiveMeSomeCredit,5,0,TABPFNV2 (default),TABPFNV2,metadata flag
-GiveMeSomeCredit,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-GiveMeSomeCredit,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-GiveMeSomeCredit,6,0,TABPFNV2 (default),TABPFNV2,metadata flag
-GiveMeSomeCredit,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-GiveMeSomeCredit,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-GiveMeSomeCredit,7,0,TABPFNV2 (default),TABPFNV2,metadata flag
-GiveMeSomeCredit,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-GiveMeSomeCredit,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-GiveMeSomeCredit,8,0,TABPFNV2 (default),TABPFNV2,metadata flag
-GiveMeSomeCredit,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-GiveMeSomeCredit,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,0,0,TABPFNV2 (default),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,1,0,TABPFNV2 (default),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,2,0,TABPFNV2 (default),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,3,0,TABPFNV2 (default),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,4,0,TABPFNV2 (default),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,5,0,TABPFNV2 (default),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,6,0,TABPFNV2 (default),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,7,0,TABPFNV2 (default),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,8,0,TABPFNV2 (default),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-HR_Analytics_Job_Change_of_Data_Scientists,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-NATICUSdroid,0,0,KNN (default),KNN,copy of a RandomForest row
-NATICUSdroid,1,0,KNN (default),KNN,copy of a RandomForest row
-NATICUSdroid,2,0,KNN (default),KNN,copy of a RandomForest row
-NATICUSdroid,3,0,KNN (default),KNN,copy of a RandomForest row
-NATICUSdroid,4,0,KNN (default),KNN,copy of a RandomForest row
-NATICUSdroid,5,0,KNN (default),KNN,copy of a RandomForest row
-NATICUSdroid,6,0,KNN (default),KNN,copy of a RandomForest row
-NATICUSdroid,7,0,KNN (default),KNN,copy of a RandomForest row
-NATICUSdroid,7,0,KNN (tuned + ensemble),KNN,copy of a RandomForest row
-NATICUSdroid,7,0,KNN (tuned),KNN,copy of a RandomForest row
-NATICUSdroid,8,0,KNN (default),KNN,copy of a RandomForest row
-NATICUSdroid,8,0,KNN (tuned + ensemble),KNN,copy of a RandomForest row
-NATICUSdroid,8,0,KNN (tuned),KNN,copy of a RandomForest row
-QSAR-TID-11,0,0,KNN (default),KNN,copy of a RandomForest row
-QSAR-TID-11,0,0,KNN (tuned + ensemble),KNN,copy of a RandomForest row
-QSAR-TID-11,0,0,KNN (tuned),KNN,copy of a RandomForest row
-QSAR-TID-11,0,0,TABICL (default),TABICL,metadata flag
-QSAR-TID-11,0,0,TABPFNV2 (default),TABPFNV2,metadata flag
-QSAR-TID-11,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-QSAR-TID-11,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-QSAR-TID-11,1,0,KNN (default),KNN,copy of a RandomForest row
-QSAR-TID-11,1,0,KNN (tuned + ensemble),KNN,copy of a RandomForest row
-QSAR-TID-11,1,0,KNN (tuned),KNN,copy of a RandomForest row
-QSAR-TID-11,1,0,TABICL (default),TABICL,metadata flag
-QSAR-TID-11,1,0,TABPFNV2 (default),TABPFNV2,metadata flag
-QSAR-TID-11,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-QSAR-TID-11,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-QSAR-TID-11,2,0,KNN (default),KNN,copy of a RandomForest row
-QSAR-TID-11,2,0,KNN (tuned + ensemble),KNN,copy of a RandomForest row
-QSAR-TID-11,2,0,KNN (tuned),KNN,copy of a RandomForest row
-QSAR-TID-11,2,0,TABICL (default),TABICL,metadata flag
-QSAR-TID-11,2,0,TABPFNV2 (default),TABPFNV2,metadata flag
-QSAR-TID-11,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-QSAR-TID-11,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-QSAR-TID-11,3,0,KNN (default),KNN,copy of a RandomForest row
-QSAR-TID-11,3,0,KNN (tuned + ensemble),KNN,copy of a RandomForest row
-QSAR-TID-11,3,0,KNN (tuned),KNN,copy of a RandomForest row
-QSAR-TID-11,3,0,TABICL (default),TABICL,metadata flag
-QSAR-TID-11,3,0,TABPFNV2 (default),TABPFNV2,metadata flag
-QSAR-TID-11,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-QSAR-TID-11,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-QSAR-TID-11,4,0,KNN (default),KNN,copy of a RandomForest row
-QSAR-TID-11,4,0,KNN (tuned + ensemble),KNN,copy of a RandomForest row
-QSAR-TID-11,4,0,KNN (tuned),KNN,copy of a RandomForest row
-QSAR-TID-11,4,0,TABICL (default),TABICL,metadata flag
-QSAR-TID-11,4,0,TABPFNV2 (default),TABPFNV2,metadata flag
-QSAR-TID-11,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-QSAR-TID-11,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-QSAR-TID-11,5,0,KNN (default),KNN,copy of a RandomForest row
-QSAR-TID-11,5,0,KNN (tuned + ensemble),KNN,copy of a RandomForest row
-QSAR-TID-11,5,0,KNN (tuned),KNN,copy of a RandomForest row
-QSAR-TID-11,5,0,TABICL (default),TABICL,metadata flag
-QSAR-TID-11,5,0,TABPFNV2 (default),TABPFNV2,metadata flag
-QSAR-TID-11,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-QSAR-TID-11,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-QSAR-TID-11,6,0,KNN (default),KNN,copy of a RandomForest row
-QSAR-TID-11,6,0,KNN (tuned + ensemble),KNN,copy of a RandomForest row
-QSAR-TID-11,6,0,KNN (tuned),KNN,copy of a RandomForest row
-QSAR-TID-11,6,0,TABICL (default),TABICL,metadata flag
-QSAR-TID-11,6,0,TABPFNV2 (default),TABPFNV2,metadata flag
-QSAR-TID-11,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-QSAR-TID-11,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-QSAR-TID-11,7,0,KNN (default),KNN,copy of a RandomForest row
-QSAR-TID-11,7,0,KNN (tuned + ensemble),KNN,copy of a RandomForest row
-QSAR-TID-11,7,0,KNN (tuned),KNN,copy of a RandomForest row
-QSAR-TID-11,7,0,TABICL (default),TABICL,metadata flag
-QSAR-TID-11,7,0,TABPFNV2 (default),TABPFNV2,metadata flag
-QSAR-TID-11,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-QSAR-TID-11,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-QSAR-TID-11,8,0,KNN (default),KNN,copy of a RandomForest row
-QSAR-TID-11,8,0,KNN (tuned + ensemble),KNN,copy of a RandomForest row
-QSAR-TID-11,8,0,KNN (tuned),KNN,copy of a RandomForest row
-QSAR-TID-11,8,0,TABICL (default),TABICL,metadata flag
-QSAR-TID-11,8,0,TABPFNV2 (default),TABPFNV2,metadata flag
-QSAR-TID-11,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-QSAR-TID-11,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-QSAR_fish_toxicity,0,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,1,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,2,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,3,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,4,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,5,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,6,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,7,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,8,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,9,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,10,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,11,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,12,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,13,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,14,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,15,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,16,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,17,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,18,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,19,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,20,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,21,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,22,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,23,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,24,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,25,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,26,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,27,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,28,0,TABICL (default),TABICL,metadata flag
-QSAR_fish_toxicity,29,0,TABICL (default),TABICL,metadata flag
-SDSS17,0,0,MNCA (default),MNCA,copy of a RandomForest row
-SDSS17,0,0,TABPFNV2 (default),TABPFNV2,metadata flag
-SDSS17,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-SDSS17,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-SDSS17,1,0,MNCA (default),MNCA,copy of a RandomForest row
-SDSS17,1,0,TABPFNV2 (default),TABPFNV2,metadata flag
-SDSS17,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-SDSS17,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-SDSS17,2,0,MNCA (default),MNCA,copy of a RandomForest row
-SDSS17,2,0,TABPFNV2 (default),TABPFNV2,metadata flag
-SDSS17,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-SDSS17,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-SDSS17,3,0,MNCA (default),MNCA,copy of a RandomForest row
-SDSS17,3,0,TABPFNV2 (default),TABPFNV2,metadata flag
-SDSS17,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-SDSS17,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-SDSS17,4,0,MNCA (default),MNCA,copy of a RandomForest row
-SDSS17,4,0,TABPFNV2 (default),TABPFNV2,metadata flag
-SDSS17,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-SDSS17,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-SDSS17,5,0,MNCA (default),MNCA,copy of a RandomForest row
-SDSS17,5,0,TABPFNV2 (default),TABPFNV2,metadata flag
-SDSS17,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-SDSS17,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-SDSS17,6,0,MNCA (default),MNCA,copy of a RandomForest row
-SDSS17,6,0,TABPFNV2 (default),TABPFNV2,metadata flag
-SDSS17,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-SDSS17,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-SDSS17,7,0,MNCA (default),MNCA,copy of a RandomForest row
-SDSS17,7,0,TABPFNV2 (default),TABPFNV2,metadata flag
-SDSS17,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-SDSS17,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-SDSS17,8,0,MNCA (default),MNCA,copy of a RandomForest row
-SDSS17,8,0,TABPFNV2 (default),TABPFNV2,metadata flag
-SDSS17,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-SDSS17,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-airfoil_self_noise,0,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,1,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,2,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,3,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,4,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,5,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,6,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,7,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,8,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,9,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,10,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,11,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,12,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,13,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,14,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,15,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,16,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,17,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,18,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,19,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,20,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,21,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,22,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,23,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,24,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,25,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,26,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,27,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,28,0,TABICL (default),TABICL,metadata flag
-airfoil_self_noise,29,0,TABICL (default),TABICL,metadata flag
-bank-marketing,0,0,TABPFNV2 (default),TABPFNV2,metadata flag
-bank-marketing,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-bank-marketing,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-bank-marketing,1,0,TABPFNV2 (default),TABPFNV2,metadata flag
-bank-marketing,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-bank-marketing,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-bank-marketing,2,0,TABPFNV2 (default),TABPFNV2,metadata flag
-bank-marketing,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-bank-marketing,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-bank-marketing,3,0,TABPFNV2 (default),TABPFNV2,metadata flag
-bank-marketing,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-bank-marketing,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-bank-marketing,4,0,TABPFNV2 (default),TABPFNV2,metadata flag
-bank-marketing,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-bank-marketing,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-bank-marketing,5,0,TABPFNV2 (default),TABPFNV2,metadata flag
-bank-marketing,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-bank-marketing,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-bank-marketing,6,0,TABPFNV2 (default),TABPFNV2,metadata flag
-bank-marketing,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-bank-marketing,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-bank-marketing,7,0,TABPFNV2 (default),TABPFNV2,metadata flag
-bank-marketing,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-bank-marketing,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-bank-marketing,8,0,TABPFNV2 (default),TABPFNV2,metadata flag
-bank-marketing,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-bank-marketing,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-concrete_compressive_strength,0,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,1,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,2,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,3,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,4,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,5,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,6,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,7,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,8,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,9,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,10,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,11,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,12,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,13,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,14,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,15,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,16,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,17,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,18,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,19,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,20,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,21,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,22,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,23,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,24,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,25,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,26,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,27,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,28,0,TABICL (default),TABICL,metadata flag
-concrete_compressive_strength,29,0,TABICL (default),TABICL,metadata flag
-credit_card_clients_default,0,0,TABPFNV2 (default),TABPFNV2,metadata flag
-credit_card_clients_default,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-credit_card_clients_default,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-credit_card_clients_default,1,0,TABPFNV2 (default),TABPFNV2,metadata flag
-credit_card_clients_default,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-credit_card_clients_default,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-credit_card_clients_default,2,0,TABPFNV2 (default),TABPFNV2,metadata flag
-credit_card_clients_default,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-credit_card_clients_default,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-credit_card_clients_default,3,0,TABPFNV2 (default),TABPFNV2,metadata flag
-credit_card_clients_default,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-credit_card_clients_default,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-credit_card_clients_default,4,0,TABPFNV2 (default),TABPFNV2,metadata flag
-credit_card_clients_default,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-credit_card_clients_default,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-credit_card_clients_default,5,0,TABPFNV2 (default),TABPFNV2,metadata flag
-credit_card_clients_default,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-credit_card_clients_default,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-credit_card_clients_default,6,0,TABPFNV2 (default),TABPFNV2,metadata flag
-credit_card_clients_default,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-credit_card_clients_default,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-credit_card_clients_default,7,0,TABPFNV2 (default),TABPFNV2,metadata flag
-credit_card_clients_default,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-credit_card_clients_default,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-credit_card_clients_default,8,0,TABPFNV2 (default),TABPFNV2,metadata flag
-credit_card_clients_default,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-credit_card_clients_default,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,0,0,TABPFNV2 (default),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,1,0,TABPFNV2 (default),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,2,0,TABPFNV2 (default),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,3,0,TABPFNV2 (default),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,4,0,TABPFNV2 (default),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,5,0,TABPFNV2 (default),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,6,0,TABPFNV2 (default),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,7,0,TABPFNV2 (default),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,8,0,TABPFNV2 (default),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-customer_satisfaction_in_airline,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-diamonds,0,0,TABICL (default),TABICL,metadata flag
-diamonds,0,0,TABPFNV2 (default),TABPFNV2,metadata flag
-diamonds,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-diamonds,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-diamonds,1,0,TABICL (default),TABICL,metadata flag
-diamonds,1,0,TABPFNV2 (default),TABPFNV2,metadata flag
-diamonds,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-diamonds,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-diamonds,2,0,TABICL (default),TABICL,metadata flag
-diamonds,2,0,TABPFNV2 (default),TABPFNV2,metadata flag
-diamonds,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-diamonds,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-diamonds,3,0,TABICL (default),TABICL,metadata flag
-diamonds,3,0,TABPFNV2 (default),TABPFNV2,metadata flag
-diamonds,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-diamonds,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-diamonds,4,0,TABICL (default),TABICL,metadata flag
-diamonds,4,0,TABPFNV2 (default),TABPFNV2,metadata flag
-diamonds,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-diamonds,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-diamonds,5,0,TABICL (default),TABICL,metadata flag
-diamonds,5,0,TABPFNV2 (default),TABPFNV2,metadata flag
-diamonds,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-diamonds,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-diamonds,6,0,TABICL (default),TABICL,metadata flag
-diamonds,6,0,TABPFNV2 (default),TABPFNV2,metadata flag
-diamonds,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-diamonds,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-diamonds,7,0,TABICL (default),TABICL,metadata flag
-diamonds,7,0,TABPFNV2 (default),TABPFNV2,metadata flag
-diamonds,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-diamonds,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-diamonds,8,0,TABICL (default),TABICL,metadata flag
-diamonds,8,0,TABPFNV2 (default),TABPFNV2,metadata flag
-diamonds,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-diamonds,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-healthcare_insurance_expenses,0,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,1,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,2,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,3,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,4,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,5,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,6,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,7,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,8,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,9,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,10,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,11,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,12,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,13,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,14,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,15,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,16,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,17,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,18,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,19,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,20,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,21,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,22,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,23,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,24,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,25,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,26,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,27,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,28,0,TABICL (default),TABICL,metadata flag
-healthcare_insurance_expenses,29,0,TABICL (default),TABICL,metadata flag
-hiva_agnostic,0,0,KNN (default),KNN,copy of a RandomForest row
-hiva_agnostic,0,0,TABICL (default),TABICL,metadata flag
-hiva_agnostic,0,0,TABPFNV2 (default),TABPFNV2,metadata flag
-hiva_agnostic,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-hiva_agnostic,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-hiva_agnostic,1,0,KNN (default),KNN,copy of a RandomForest row
-hiva_agnostic,1,0,TABICL (default),TABICL,metadata flag
-hiva_agnostic,1,0,TABPFNV2 (default),TABPFNV2,metadata flag
-hiva_agnostic,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-hiva_agnostic,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-hiva_agnostic,1,0,XT (tuned + ensemble),XT,copy of a RandomForest row
-hiva_agnostic,1,0,XT (tuned),XT,copy of a RandomForest row
-hiva_agnostic,2,0,KNN (default),KNN,copy of a RandomForest row
-hiva_agnostic,2,0,TABICL (default),TABICL,metadata flag
-hiva_agnostic,2,0,TABPFNV2 (default),TABPFNV2,metadata flag
-hiva_agnostic,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-hiva_agnostic,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-hiva_agnostic,2,0,XT (tuned),XT,copy of a RandomForest row
-hiva_agnostic,3,0,KNN (default),KNN,copy of a RandomForest row
-hiva_agnostic,3,0,TABICL (default),TABICL,metadata flag
-hiva_agnostic,3,0,TABPFNV2 (default),TABPFNV2,metadata flag
-hiva_agnostic,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-hiva_agnostic,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-hiva_agnostic,3,0,XT (tuned + ensemble),XT,copy of a RandomForest row
-hiva_agnostic,3,0,XT (tuned),XT,copy of a RandomForest row
-hiva_agnostic,4,0,KNN (default),KNN,copy of a RandomForest row
-hiva_agnostic,4,0,TABICL (default),TABICL,metadata flag
-hiva_agnostic,4,0,TABPFNV2 (default),TABPFNV2,metadata flag
-hiva_agnostic,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-hiva_agnostic,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-hiva_agnostic,4,0,XT (tuned + ensemble),XT,copy of a RandomForest row
-hiva_agnostic,4,0,XT (tuned),XT,copy of a RandomForest row
-hiva_agnostic,5,0,KNN (default),KNN,copy of a RandomForest row
-hiva_agnostic,5,0,TABICL (default),TABICL,metadata flag
-hiva_agnostic,5,0,TABPFNV2 (default),TABPFNV2,metadata flag
-hiva_agnostic,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-hiva_agnostic,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-hiva_agnostic,6,0,KNN (default),KNN,copy of a RandomForest row
-hiva_agnostic,6,0,TABICL (default),TABICL,metadata flag
-hiva_agnostic,6,0,TABPFNV2 (default),TABPFNV2,metadata flag
-hiva_agnostic,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-hiva_agnostic,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-hiva_agnostic,6,0,XT (tuned),XT,copy of a RandomForest row
-hiva_agnostic,7,0,KNN (default),KNN,copy of a RandomForest row
-hiva_agnostic,7,0,TABICL (default),TABICL,metadata flag
-hiva_agnostic,7,0,TABPFNV2 (default),TABPFNV2,metadata flag
-hiva_agnostic,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-hiva_agnostic,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-hiva_agnostic,7,0,XT (tuned + ensemble),XT,copy of a RandomForest row
-hiva_agnostic,7,0,XT (tuned),XT,copy of a RandomForest row
-hiva_agnostic,8,0,KNN (default),KNN,copy of a RandomForest row
-hiva_agnostic,8,0,TABICL (default),TABICL,metadata flag
-hiva_agnostic,8,0,TABPFNV2 (default),TABPFNV2,metadata flag
-hiva_agnostic,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-hiva_agnostic,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-hiva_agnostic,8,0,XT (tuned + ensemble),XT,copy of a RandomForest row
-hiva_agnostic,8,0,XT (tuned),XT,copy of a RandomForest row
-houses,0,0,TABICL (default),TABICL,metadata flag
-houses,0,0,TABPFNV2 (default),TABPFNV2,metadata flag
-houses,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-houses,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-houses,1,0,TABICL (default),TABICL,metadata flag
-houses,1,0,TABPFNV2 (default),TABPFNV2,metadata flag
-houses,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-houses,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-houses,2,0,TABICL (default),TABICL,metadata flag
-houses,2,0,TABPFNV2 (default),TABPFNV2,metadata flag
-houses,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-houses,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-houses,3,0,TABICL (default),TABICL,metadata flag
-houses,3,0,TABPFNV2 (default),TABPFNV2,metadata flag
-houses,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-houses,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-houses,4,0,TABICL (default),TABICL,metadata flag
-houses,4,0,TABPFNV2 (default),TABPFNV2,metadata flag
-houses,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-houses,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-houses,5,0,TABICL (default),TABICL,metadata flag
-houses,5,0,TABPFNV2 (default),TABPFNV2,metadata flag
-houses,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-houses,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-houses,6,0,TABICL (default),TABICL,metadata flag
-houses,6,0,TABPFNV2 (default),TABPFNV2,metadata flag
-houses,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-houses,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-houses,7,0,TABICL (default),TABICL,metadata flag
-houses,7,0,TABPFNV2 (default),TABPFNV2,metadata flag
-houses,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-houses,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-houses,8,0,TABICL (default),TABICL,metadata flag
-houses,8,0,TABPFNV2 (default),TABPFNV2,metadata flag
-houses,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-houses,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-kddcup09_appetency,0,0,MNCA (default),MNCA,copy of a RandomForest row
-kddcup09_appetency,0,0,TABM (default),TABM,copy of a RandomForest row
-kddcup09_appetency,0,0,TABPFNV2 (default),TABPFNV2,metadata flag
-kddcup09_appetency,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-kddcup09_appetency,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-kddcup09_appetency,1,0,MNCA (default),MNCA,copy of a RandomForest row
-kddcup09_appetency,1,0,TABM (default),TABM,copy of a RandomForest row
-kddcup09_appetency,1,0,TABPFNV2 (default),TABPFNV2,metadata flag
-kddcup09_appetency,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-kddcup09_appetency,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-kddcup09_appetency,2,0,MNCA (default),MNCA,copy of a RandomForest row
-kddcup09_appetency,2,0,TABM (default),TABM,copy of a RandomForest row
-kddcup09_appetency,2,0,TABPFNV2 (default),TABPFNV2,metadata flag
-kddcup09_appetency,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-kddcup09_appetency,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-kddcup09_appetency,3,0,MNCA (default),MNCA,copy of a RandomForest row
-kddcup09_appetency,3,0,TABM (default),TABM,copy of a RandomForest row
-kddcup09_appetency,3,0,TABPFNV2 (default),TABPFNV2,metadata flag
-kddcup09_appetency,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-kddcup09_appetency,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-kddcup09_appetency,4,0,MNCA (default),MNCA,copy of a RandomForest row
-kddcup09_appetency,4,0,TABPFNV2 (default),TABPFNV2,metadata flag
-kddcup09_appetency,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-kddcup09_appetency,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-kddcup09_appetency,5,0,MNCA (default),MNCA,copy of a RandomForest row
-kddcup09_appetency,5,0,TABM (default),TABM,copy of a RandomForest row
-kddcup09_appetency,5,0,TABPFNV2 (default),TABPFNV2,metadata flag
-kddcup09_appetency,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-kddcup09_appetency,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-kddcup09_appetency,6,0,MNCA (default),MNCA,copy of a RandomForest row
-kddcup09_appetency,6,0,TABM (default),TABM,copy of a RandomForest row
-kddcup09_appetency,6,0,TABPFNV2 (default),TABPFNV2,metadata flag
-kddcup09_appetency,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-kddcup09_appetency,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-kddcup09_appetency,7,0,MNCA (default),MNCA,copy of a RandomForest row
-kddcup09_appetency,7,0,TABM (default),TABM,copy of a RandomForest row
-kddcup09_appetency,7,0,TABPFNV2 (default),TABPFNV2,metadata flag
-kddcup09_appetency,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-kddcup09_appetency,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-kddcup09_appetency,8,0,MNCA (default),MNCA,copy of a RandomForest row
-kddcup09_appetency,8,0,TABM (default),TABM,copy of a RandomForest row
-kddcup09_appetency,8,0,TABPFNV2 (default),TABPFNV2,metadata flag
-kddcup09_appetency,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-kddcup09_appetency,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-miami_housing,0,0,TABICL (default),TABICL,metadata flag
-miami_housing,1,0,TABICL (default),TABICL,metadata flag
-miami_housing,2,0,TABICL (default),TABICL,metadata flag
-miami_housing,3,0,TABICL (default),TABICL,metadata flag
-miami_housing,4,0,TABICL (default),TABICL,metadata flag
-miami_housing,5,0,TABICL (default),TABICL,metadata flag
-miami_housing,6,0,TABICL (default),TABICL,metadata flag
-miami_housing,7,0,TABICL (default),TABICL,metadata flag
-miami_housing,8,0,TABICL (default),TABICL,metadata flag
-physiochemical_protein,0,0,TABICL (default),TABICL,metadata flag
-physiochemical_protein,0,0,TABPFNV2 (default),TABPFNV2,metadata flag
-physiochemical_protein,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-physiochemical_protein,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-physiochemical_protein,1,0,TABICL (default),TABICL,metadata flag
-physiochemical_protein,1,0,TABPFNV2 (default),TABPFNV2,metadata flag
-physiochemical_protein,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-physiochemical_protein,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-physiochemical_protein,2,0,TABICL (default),TABICL,metadata flag
-physiochemical_protein,2,0,TABPFNV2 (default),TABPFNV2,metadata flag
-physiochemical_protein,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-physiochemical_protein,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-physiochemical_protein,3,0,TABICL (default),TABICL,metadata flag
-physiochemical_protein,3,0,TABPFNV2 (default),TABPFNV2,metadata flag
-physiochemical_protein,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-physiochemical_protein,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-physiochemical_protein,4,0,TABICL (default),TABICL,metadata flag
-physiochemical_protein,4,0,TABPFNV2 (default),TABPFNV2,metadata flag
-physiochemical_protein,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-physiochemical_protein,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-physiochemical_protein,5,0,TABICL (default),TABICL,metadata flag
-physiochemical_protein,5,0,TABPFNV2 (default),TABPFNV2,metadata flag
-physiochemical_protein,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-physiochemical_protein,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-physiochemical_protein,6,0,TABICL (default),TABICL,metadata flag
-physiochemical_protein,6,0,TABPFNV2 (default),TABPFNV2,metadata flag
-physiochemical_protein,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-physiochemical_protein,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-physiochemical_protein,7,0,TABICL (default),TABICL,metadata flag
-physiochemical_protein,7,0,TABPFNV2 (default),TABPFNV2,metadata flag
-physiochemical_protein,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-physiochemical_protein,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-physiochemical_protein,8,0,TABICL (default),TABICL,metadata flag
-physiochemical_protein,8,0,TABPFNV2 (default),TABPFNV2,metadata flag
-physiochemical_protein,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-physiochemical_protein,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-splice,0,0,KNN (default),KNN,copy of a RandomForest row
-splice,1,0,KNN (default),KNN,copy of a RandomForest row
-splice,2,0,KNN (default),KNN,copy of a RandomForest row
-splice,3,0,KNN (default),KNN,copy of a RandomForest row
-splice,4,0,KNN (default),KNN,copy of a RandomForest row
-splice,5,0,KNN (default),KNN,copy of a RandomForest row
-splice,6,0,KNN (default),KNN,copy of a RandomForest row
-splice,7,0,KNN (default),KNN,copy of a RandomForest row
-splice,8,0,KNN (default),KNN,copy of a RandomForest row
-superconductivity,0,0,TABICL (default),TABICL,metadata flag
-superconductivity,0,0,TABPFNV2 (default),TABPFNV2,metadata flag
-superconductivity,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-superconductivity,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-superconductivity,1,0,TABICL (default),TABICL,metadata flag
-superconductivity,1,0,TABPFNV2 (default),TABPFNV2,metadata flag
-superconductivity,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-superconductivity,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-superconductivity,2,0,TABICL (default),TABICL,metadata flag
-superconductivity,2,0,TABPFNV2 (default),TABPFNV2,metadata flag
-superconductivity,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-superconductivity,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-superconductivity,3,0,TABICL (default),TABICL,metadata flag
-superconductivity,3,0,TABPFNV2 (default),TABPFNV2,metadata flag
-superconductivity,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-superconductivity,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-superconductivity,4,0,TABICL (default),TABICL,metadata flag
-superconductivity,4,0,TABPFNV2 (default),TABPFNV2,metadata flag
-superconductivity,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-superconductivity,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-superconductivity,5,0,TABICL (default),TABICL,metadata flag
-superconductivity,5,0,TABPFNV2 (default),TABPFNV2,metadata flag
-superconductivity,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-superconductivity,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-superconductivity,6,0,TABICL (default),TABICL,metadata flag
-superconductivity,6,0,TABPFNV2 (default),TABPFNV2,metadata flag
-superconductivity,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-superconductivity,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-superconductivity,7,0,TABICL (default),TABICL,metadata flag
-superconductivity,7,0,TABPFNV2 (default),TABPFNV2,metadata flag
-superconductivity,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-superconductivity,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-superconductivity,8,0,TABICL (default),TABICL,metadata flag
-superconductivity,8,0,TABPFNV2 (default),TABPFNV2,metadata flag
-superconductivity,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag
-superconductivity,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag
-website_phishing,0,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,1,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,2,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,3,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,4,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,5,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,6,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,7,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,8,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,9,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,10,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,11,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,12,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,13,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,14,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,15,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,16,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,17,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,18,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,19,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,20,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,21,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,22,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,23,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,24,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,25,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,26,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,27,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,28,0,KNN (default),KNN,copy of a RandomForest row
-website_phishing,29,0,KNN (default),KNN,copy of a RandomForest row
-wine_quality,0,0,TABICL (default),TABICL,metadata flag
-wine_quality,1,0,TABICL (default),TABICL,metadata flag
-wine_quality,2,0,TABICL (default),TABICL,metadata flag
-wine_quality,3,0,TABICL (default),TABICL,metadata flag
-wine_quality,4,0,TABICL (default),TABICL,metadata flag
-wine_quality,5,0,TABICL (default),TABICL,metadata flag
-wine_quality,6,0,TABICL (default),TABICL,metadata flag
-wine_quality,7,0,TABICL (default),TABICL,metadata flag
-wine_quality,8,0,TABICL (default),TABICL,metadata flag
+dataset,fold,seed,method,family,rule,timing,relative_error_gap
+APSFailure,0,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+APSFailure,0,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+APSFailure,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,7.518206453929711e-15
+APSFailure,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,7.518206453929711e-15
+APSFailure,1,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+APSFailure,1,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+APSFailure,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,1.0348756916454915e-14
+APSFailure,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,1.0348756916454915e-14
+APSFailure,2,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+APSFailure,2,0,TABM (default),TABM,RandomForest timing,True,0.0
+APSFailure,2,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+APSFailure,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+APSFailure,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+APSFailure,3,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+APSFailure,3,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+APSFailure,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,8.414929263889767e-15
+APSFailure,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,8.414929263889767e-15
+APSFailure,4,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+APSFailure,4,0,TABM (default),TABM,RandomForest timing,True,0.0
+APSFailure,4,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+APSFailure,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,2.7669585400051332e-14
+APSFailure,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,2.7669585400051332e-14
+APSFailure,5,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+APSFailure,5,0,TABM (default),TABM,RandomForest timing,True,0.0
+APSFailure,5,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+APSFailure,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,1.0608697002260381e-14
+APSFailure,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,1.0608697002260381e-14
+APSFailure,6,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+APSFailure,6,0,TABM (default),TABM,RandomForest timing,True,0.0
+APSFailure,6,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+APSFailure,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,1.633216669582409e-14
+APSFailure,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,1.633216669582409e-14
+APSFailure,7,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+APSFailure,7,0,TABM (default),TABM,RandomForest timing,True,0.0
+APSFailure,7,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+APSFailure,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,1.0741420168898962e-14
+APSFailure,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,1.0741420168898962e-14
+APSFailure,8,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+APSFailure,8,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+APSFailure,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+APSFailure,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+Amazon_employee_access,0,0,KNN (default),KNN,RandomForest timing,True,0.0
+Amazon_employee_access,0,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0
+Amazon_employee_access,0,0,KNN (tuned),KNN,RandomForest timing,True,0.0
+Amazon_employee_access,0,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Amazon_employee_access,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+Amazon_employee_access,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+Amazon_employee_access,1,0,KNN (default),KNN,RandomForest timing,True,0.0
+Amazon_employee_access,1,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,1.1365569495290392e-15
+Amazon_employee_access,1,0,KNN (tuned),KNN,RandomForest timing,True,1.1365569495290392e-15
+Amazon_employee_access,1,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Amazon_employee_access,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,1.1365569495290392e-15
+Amazon_employee_access,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,1.1365569495290392e-15
+Amazon_employee_access,2,0,KNN (default),KNN,RandomForest timing,True,0.0
+Amazon_employee_access,2,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,6.938196203796e-16
+Amazon_employee_access,2,0,KNN (tuned),KNN,RandomForest timing,True,6.938196203796e-16
+Amazon_employee_access,2,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Amazon_employee_access,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,6.938196203796e-16
+Amazon_employee_access,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,6.938196203796e-16
+Amazon_employee_access,3,0,KNN (default),KNN,RandomForest timing,True,0.0
+Amazon_employee_access,3,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0
+Amazon_employee_access,3,0,KNN (tuned),KNN,RandomForest timing,True,0.0
+Amazon_employee_access,3,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Amazon_employee_access,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+Amazon_employee_access,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+Amazon_employee_access,4,0,KNN (default),KNN,RandomForest timing,True,0.0
+Amazon_employee_access,4,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,4.962939731774513e-16
+Amazon_employee_access,4,0,KNN (tuned),KNN,RandomForest timing,True,4.962939731774513e-16
+Amazon_employee_access,4,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Amazon_employee_access,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,4.962939731774513e-16
+Amazon_employee_access,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,4.962939731774513e-16
+Amazon_employee_access,5,0,KNN (default),KNN,RandomForest timing,True,0.0
+Amazon_employee_access,5,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0
+Amazon_employee_access,5,0,KNN (tuned),KNN,RandomForest timing,True,0.0
+Amazon_employee_access,5,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Amazon_employee_access,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+Amazon_employee_access,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+Amazon_employee_access,6,0,KNN (default),KNN,RandomForest timing,True,0.0
+Amazon_employee_access,6,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,6.567127272354745e-16
+Amazon_employee_access,6,0,KNN (tuned),KNN,RandomForest timing,True,6.567127272354745e-16
+Amazon_employee_access,6,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Amazon_employee_access,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,6.567127272354745e-16
+Amazon_employee_access,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,6.567127272354745e-16
+Amazon_employee_access,7,0,KNN (default),KNN,RandomForest timing,True,0.0
+Amazon_employee_access,7,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,6.99811640034939e-16
+Amazon_employee_access,7,0,KNN (tuned),KNN,RandomForest timing,True,6.99811640034939e-16
+Amazon_employee_access,7,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Amazon_employee_access,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,6.99811640034939e-16
+Amazon_employee_access,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,6.99811640034939e-16
+Amazon_employee_access,8,0,KNN (default),KNN,RandomForest timing,True,0.0
+Amazon_employee_access,8,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,6.865713598819382e-16
+Amazon_employee_access,8,0,KNN (tuned),KNN,RandomForest timing,True,6.865713598819382e-16
+Amazon_employee_access,8,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Amazon_employee_access,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,6.865713598819382e-16
+Amazon_employee_access,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,6.865713598819382e-16
+Another-Dataset-on-used-Fiat-500,0,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,1,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,2,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,3,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,4,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,5,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,6,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,7,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,8,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,9,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,10,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,11,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,12,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,13,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,14,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,15,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,16,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,17,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,18,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,19,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,20,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,21,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,22,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,23,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,24,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,25,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,26,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,27,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,28,0,TABICL (default),TABICL,metadata flag,True,0.0
+Another-Dataset-on-used-Fiat-500,29,0,TABICL (default),TABICL,metadata flag,True,0.0
+Bioresponse,0,0,TABICL (default),TABICL,metadata flag,True,0.0
+Bioresponse,0,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Bioresponse,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+Bioresponse,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+Bioresponse,1,0,TABICL (default),TABICL,metadata flag,True,0.0
+Bioresponse,1,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Bioresponse,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+Bioresponse,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+Bioresponse,2,0,MNCA (tuned),MNCA,RandomForest timing,True,7.84609396672553e-16
+Bioresponse,2,0,TABICL (default),TABICL,metadata flag,True,0.0
+Bioresponse,2,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Bioresponse,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,7.84609396672553e-16
+Bioresponse,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,7.84609396672553e-16
+Bioresponse,3,0,TABICL (default),TABICL,metadata flag,True,0.0
+Bioresponse,3,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Bioresponse,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+Bioresponse,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+Bioresponse,4,0,TABICL (default),TABICL,metadata flag,True,0.0
+Bioresponse,4,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Bioresponse,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,8.8281527637663365e-16
+Bioresponse,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,8.8281527637663365e-16
+Bioresponse,5,0,TABICL (default),TABICL,metadata flag,True,0.0
+Bioresponse,5,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Bioresponse,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,8.122064696632019e-16
+Bioresponse,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,8.122064696632019e-16
+Bioresponse,6,0,TABICL (default),TABICL,metadata flag,True,0.0
+Bioresponse,6,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Bioresponse,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+Bioresponse,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+Bioresponse,7,0,TABICL (default),TABICL,metadata flag,True,0.0
+Bioresponse,7,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Bioresponse,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,1.5054925011619673e-15
+Bioresponse,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,1.5054925011619673e-15
+Bioresponse,8,0,TABICL (default),TABICL,metadata flag,True,0.0
+Bioresponse,8,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Bioresponse,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,9.239037659310758e-16
+Bioresponse,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,9.239037659310758e-16
+Diabetes130US,0,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Diabetes130US,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,2.8664579533431713e-16
+Diabetes130US,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,2.8664579533431713e-16
+Diabetes130US,1,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Diabetes130US,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,2.984220176745346e-16
+Diabetes130US,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,2.984220176745346e-16
+Diabetes130US,2,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Diabetes130US,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+Diabetes130US,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+Diabetes130US,3,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Diabetes130US,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+Diabetes130US,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+Diabetes130US,4,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Diabetes130US,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+Diabetes130US,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+Diabetes130US,5,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Diabetes130US,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,2.981540072408122e-16
+Diabetes130US,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,2.981540072408122e-16
+Diabetes130US,6,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Diabetes130US,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,3.014886782286424e-16
+Diabetes130US,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,3.014886782286424e-16
+Diabetes130US,7,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Diabetes130US,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,3.025720528644005e-16
+Diabetes130US,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,3.025720528644005e-16
+Diabetes130US,8,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Diabetes130US,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,2.9192538736850022e-16
+Diabetes130US,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,2.9192538736850022e-16
+Food_Delivery_Time,0,0,TABICL (default),TABICL,metadata flag,True,0.0
+Food_Delivery_Time,0,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Food_Delivery_Time,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,2.1502844405334637e-08
+Food_Delivery_Time,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,2.1502844405334637e-08
+Food_Delivery_Time,1,0,TABICL (default),TABICL,metadata flag,True,0.0
+Food_Delivery_Time,1,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Food_Delivery_Time,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,2.262901230307726e-08
+Food_Delivery_Time,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,2.262901230307726e-08
+Food_Delivery_Time,2,0,TABICL (default),TABICL,metadata flag,True,0.0
+Food_Delivery_Time,2,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Food_Delivery_Time,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,4.5458007254523774e-08
+Food_Delivery_Time,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,4.5458007254523774e-08
+Food_Delivery_Time,3,0,TABICL (default),TABICL,metadata flag,True,0.0
+Food_Delivery_Time,3,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Food_Delivery_Time,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,3.205237882205054e-08
+Food_Delivery_Time,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,3.205237882205054e-08
+Food_Delivery_Time,4,0,TABICL (default),TABICL,metadata flag,True,0.0
+Food_Delivery_Time,4,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Food_Delivery_Time,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,2.732005552947427e-08
+Food_Delivery_Time,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,2.732005552947427e-08
+Food_Delivery_Time,5,0,TABICL (default),TABICL,metadata flag,True,0.0
+Food_Delivery_Time,5,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Food_Delivery_Time,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,2.2618223802742636e-08
+Food_Delivery_Time,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,2.2618223802742636e-08
+Food_Delivery_Time,6,0,TABICL (default),TABICL,metadata flag,True,0.0
+Food_Delivery_Time,6,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Food_Delivery_Time,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,3.89432332410617e-08
+Food_Delivery_Time,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,3.89432332410617e-08
+Food_Delivery_Time,7,0,TABICL (default),TABICL,metadata flag,True,0.0
+Food_Delivery_Time,7,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Food_Delivery_Time,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,6.176599275087578e-09
+Food_Delivery_Time,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,6.176599275087578e-09
+Food_Delivery_Time,8,0,TABICL (default),TABICL,metadata flag,True,0.0
+Food_Delivery_Time,8,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+Food_Delivery_Time,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,1.7965262557096127e-08
+Food_Delivery_Time,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,1.7965262557096127e-08
+GiveMeSomeCredit,0,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+GiveMeSomeCredit,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,1.3236007150666857e-15
+GiveMeSomeCredit,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,1.3236007150666857e-15
+GiveMeSomeCredit,1,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+GiveMeSomeCredit,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+GiveMeSomeCredit,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+GiveMeSomeCredit,2,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+GiveMeSomeCredit,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,7.047975955165752e-16
+GiveMeSomeCredit,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,7.047975955165752e-16
+GiveMeSomeCredit,3,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+GiveMeSomeCredit,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,7.226736545073772e-16
+GiveMeSomeCredit,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,7.226736545073772e-16
+GiveMeSomeCredit,4,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+GiveMeSomeCredit,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+GiveMeSomeCredit,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+GiveMeSomeCredit,5,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+GiveMeSomeCredit,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,7.039932626310914e-16
+GiveMeSomeCredit,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,7.039932626310914e-16
+GiveMeSomeCredit,6,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+GiveMeSomeCredit,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,5.334245957873146e-16
+GiveMeSomeCredit,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,5.334245957873146e-16
+GiveMeSomeCredit,7,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+GiveMeSomeCredit,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+GiveMeSomeCredit,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+GiveMeSomeCredit,8,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+GiveMeSomeCredit,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,7.193911259995353e-16
+GiveMeSomeCredit,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,7.193911259995353e-16
+HR_Analytics_Job_Change_of_Data_Scientists,0,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+HR_Analytics_Job_Change_of_Data_Scientists,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+HR_Analytics_Job_Change_of_Data_Scientists,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+HR_Analytics_Job_Change_of_Data_Scientists,1,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+HR_Analytics_Job_Change_of_Data_Scientists,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,5.014377720532168e-16
+HR_Analytics_Job_Change_of_Data_Scientists,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,5.014377720532168e-16
+HR_Analytics_Job_Change_of_Data_Scientists,2,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+HR_Analytics_Job_Change_of_Data_Scientists,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,3.948551090698876e-16
+HR_Analytics_Job_Change_of_Data_Scientists,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,3.948551090698876e-16
+HR_Analytics_Job_Change_of_Data_Scientists,3,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+HR_Analytics_Job_Change_of_Data_Scientists,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,9.458617426424756e-16
+HR_Analytics_Job_Change_of_Data_Scientists,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,9.458617426424756e-16
+HR_Analytics_Job_Change_of_Data_Scientists,4,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+HR_Analytics_Job_Change_of_Data_Scientists,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,3.9297188089087927e-16
+HR_Analytics_Job_Change_of_Data_Scientists,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,3.9297188089087927e-16
+HR_Analytics_Job_Change_of_Data_Scientists,5,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+HR_Analytics_Job_Change_of_Data_Scientists,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+HR_Analytics_Job_Change_of_Data_Scientists,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+HR_Analytics_Job_Change_of_Data_Scientists,6,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+HR_Analytics_Job_Change_of_Data_Scientists,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,9.246130341817504e-16
+HR_Analytics_Job_Change_of_Data_Scientists,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,9.246130341817504e-16
+HR_Analytics_Job_Change_of_Data_Scientists,7,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+HR_Analytics_Job_Change_of_Data_Scientists,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,5.247877937996815e-16
+HR_Analytics_Job_Change_of_Data_Scientists,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,5.247877937996815e-16
+HR_Analytics_Job_Change_of_Data_Scientists,8,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+HR_Analytics_Job_Change_of_Data_Scientists,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,4.0436225385955204e-16
+HR_Analytics_Job_Change_of_Data_Scientists,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,4.0436225385955204e-16
+NATICUSdroid,0,0,KNN (default),KNN,RandomForest timing,True,0.0
+NATICUSdroid,0,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,4.830331194851518e-15
+NATICUSdroid,0,0,KNN (tuned),KNN,RandomForest timing,True,4.830331194851518e-15
+NATICUSdroid,1,0,KNN (default),KNN,RandomForest timing,True,0.0
+NATICUSdroid,1,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,4.788449918186669e-15
+NATICUSdroid,1,0,KNN (tuned),KNN,RandomForest timing,True,4.788449918186669e-15
+NATICUSdroid,2,0,KNN (default),KNN,RandomForest timing,True,0.0
+NATICUSdroid,2,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,8.628309491698913e-15
+NATICUSdroid,2,0,KNN (tuned),KNN,RandomForest timing,True,8.628309491698913e-15
+NATICUSdroid,3,0,KNN (default),KNN,RandomForest timing,True,0.0
+NATICUSdroid,3,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,4.41135945868275e-15
+NATICUSdroid,3,0,KNN (tuned),KNN,RandomForest timing,True,4.41135945868275e-15
+NATICUSdroid,4,0,KNN (default),KNN,RandomForest timing,True,0.0
+NATICUSdroid,4,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,3.826671416775879e-15
+NATICUSdroid,4,0,KNN (tuned),KNN,RandomForest timing,True,3.826671416775879e-15
+NATICUSdroid,5,0,KNN (default),KNN,RandomForest timing,True,0.0
+NATICUSdroid,5,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,4.5820936019203e-15
+NATICUSdroid,5,0,KNN (tuned),KNN,RandomForest timing,True,4.5820936019203e-15
+NATICUSdroid,6,0,KNN (default),KNN,RandomForest timing,True,0.0
+NATICUSdroid,6,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,8.893021945724673e-15
+NATICUSdroid,6,0,KNN (tuned),KNN,RandomForest timing,True,8.893021945724673e-15
+NATICUSdroid,7,0,KNN (default),KNN,RandomForest timing,True,0.0
+NATICUSdroid,7,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0
+NATICUSdroid,7,0,KNN (tuned),KNN,RandomForest timing,True,0.0
+NATICUSdroid,8,0,KNN (default),KNN,RandomForest timing,True,0.0
+NATICUSdroid,8,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0
+NATICUSdroid,8,0,KNN (tuned),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,0,0,KNN (default),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,0,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,0,0,KNN (tuned),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,0,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR-TID-11,0,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,1,0,KNN (default),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,1,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,1,0,KNN (tuned),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,1,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR-TID-11,1,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,2,0,KNN (default),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,2,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,2,0,KNN (tuned),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,2,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR-TID-11,2,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,3,0,KNN (default),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,3,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,3,0,KNN (tuned),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,3,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR-TID-11,3,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,4,0,KNN (default),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,4,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,4,0,KNN (tuned),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,4,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR-TID-11,4,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,5,0,KNN (default),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,5,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,5,0,KNN (tuned),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,5,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR-TID-11,5,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,6,0,KNN (default),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,6,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,6,0,KNN (tuned),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,6,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR-TID-11,6,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,7,0,KNN (default),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,7,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,7,0,KNN (tuned),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,7,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR-TID-11,7,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,8,0,KNN (default),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,8,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,8,0,KNN (tuned),KNN,RandomForest timing,True,0.0
+QSAR-TID-11,8,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR-TID-11,8,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+QSAR-TID-11,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+QSAR_fish_toxicity,0,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,1,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,2,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,3,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,4,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,5,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,6,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,7,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,8,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,9,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,10,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,11,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,12,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,13,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,14,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,15,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,16,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,17,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,18,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,19,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,20,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,21,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,22,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,23,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,24,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,25,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,26,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,27,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,28,0,TABICL (default),TABICL,metadata flag,True,0.0
+QSAR_fish_toxicity,29,0,TABICL (default),TABICL,metadata flag,True,0.0
+SDSS17,0,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+SDSS17,0,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+SDSS17,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.002380931900376974
+SDSS17,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.002380931900376974
+SDSS17,1,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+SDSS17,1,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+SDSS17,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0024844328837445857
+SDSS17,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0024844328837445857
+SDSS17,2,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+SDSS17,2,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+SDSS17,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.002857145367074755
+SDSS17,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.002857145367074755
+SDSS17,3,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+SDSS17,3,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+SDSS17,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.00263540664254378
+SDSS17,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.00263540664254378
+SDSS17,4,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+SDSS17,4,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+SDSS17,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0023005586896785247
+SDSS17,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0023005586896785247
+SDSS17,5,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+SDSS17,5,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+SDSS17,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.002900272196140255
+SDSS17,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.002900272196140255
+SDSS17,6,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+SDSS17,6,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+SDSS17,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0025940839512126877
+SDSS17,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0025940839512126877
+SDSS17,7,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+SDSS17,7,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+SDSS17,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0026073078717022496
+SDSS17,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0026073078717022496
+SDSS17,8,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+SDSS17,8,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+SDSS17,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0024760381172961015
+SDSS17,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0024760381172961015
+airfoil_self_noise,0,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,1,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,2,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,3,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,4,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,5,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,6,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,7,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,8,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,9,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,10,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,11,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,12,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,13,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,14,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,15,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,16,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,17,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,18,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,19,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,20,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,21,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,22,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,23,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,24,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,25,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,26,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,27,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,28,0,TABICL (default),TABICL,metadata flag,True,0.0
+airfoil_self_noise,29,0,TABICL (default),TABICL,metadata flag,True,0.0
+bank-marketing,0,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+bank-marketing,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,5.941774600814186e-16
+bank-marketing,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,5.941774600814186e-16
+bank-marketing,1,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+bank-marketing,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+bank-marketing,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+bank-marketing,2,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+bank-marketing,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+bank-marketing,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+bank-marketing,3,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+bank-marketing,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,4.087306201478352e-16
+bank-marketing,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,4.087306201478352e-16
+bank-marketing,4,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+bank-marketing,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,3.977379287684667e-16
+bank-marketing,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,3.977379287684667e-16
+bank-marketing,5,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+bank-marketing,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,2.0305575804179844e-16
+bank-marketing,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,2.0305575804179844e-16
+bank-marketing,6,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+bank-marketing,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,4.0054347081184e-16
+bank-marketing,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,4.0054347081184e-16
+bank-marketing,7,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+bank-marketing,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,6.217387577682464e-16
+bank-marketing,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,6.217387577682464e-16
+bank-marketing,8,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+bank-marketing,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,4.0865520367012443e-16
+bank-marketing,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,4.0865520367012443e-16
+concrete_compressive_strength,0,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,1,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,2,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,3,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,4,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,5,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,6,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,7,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,8,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,9,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,10,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,11,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,12,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,13,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,14,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,15,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,16,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,17,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,18,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,19,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,20,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,21,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,22,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,23,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,24,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,25,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,26,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,27,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,28,0,TABICL (default),TABICL,metadata flag,True,0.0
+concrete_compressive_strength,29,0,TABICL (default),TABICL,metadata flag,True,0.0
+credit_card_clients_default,0,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+credit_card_clients_default,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,4.627949070860871e-16
+credit_card_clients_default,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,4.627949070860871e-16
+credit_card_clients_default,1,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+credit_card_clients_default,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,4.597760990990834e-16
+credit_card_clients_default,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,4.597760990990834e-16
+credit_card_clients_default,2,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+credit_card_clients_default,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+credit_card_clients_default,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+credit_card_clients_default,3,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+credit_card_clients_default,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+credit_card_clients_default,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+credit_card_clients_default,4,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+credit_card_clients_default,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,4.692405380564608e-16
+credit_card_clients_default,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,4.692405380564608e-16
+credit_card_clients_default,5,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+credit_card_clients_default,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,4.726160075374655e-16
+credit_card_clients_default,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,4.726160075374655e-16
+credit_card_clients_default,6,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+credit_card_clients_default,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,4.728454452977768e-16
+credit_card_clients_default,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,4.728454452977768e-16
+credit_card_clients_default,7,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+credit_card_clients_default,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,8.544973227545511e-16
+credit_card_clients_default,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,8.544973227545511e-16
+credit_card_clients_default,8,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+credit_card_clients_default,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,4.812570997641748e-16
+credit_card_clients_default,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,4.812570997641748e-16
+customer_satisfaction_in_airline,0,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+customer_satisfaction_in_airline,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+customer_satisfaction_in_airline,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+customer_satisfaction_in_airline,1,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+customer_satisfaction_in_airline,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,2.5337879882693738e-14
+customer_satisfaction_in_airline,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,2.5337879882693738e-14
+customer_satisfaction_in_airline,2,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+customer_satisfaction_in_airline,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,1.2994277914737643e-14
+customer_satisfaction_in_airline,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,1.2994277914737643e-14
+customer_satisfaction_in_airline,3,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+customer_satisfaction_in_airline,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,1.2597309208289296e-14
+customer_satisfaction_in_airline,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,1.2597309208289296e-14
+customer_satisfaction_in_airline,4,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+customer_satisfaction_in_airline,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+customer_satisfaction_in_airline,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+customer_satisfaction_in_airline,5,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+customer_satisfaction_in_airline,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,1.3929727370586563e-14
+customer_satisfaction_in_airline,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,1.3929727370586563e-14
+customer_satisfaction_in_airline,6,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+customer_satisfaction_in_airline,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,2.617793316777118e-14
+customer_satisfaction_in_airline,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,2.617793316777118e-14
+customer_satisfaction_in_airline,7,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+customer_satisfaction_in_airline,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+customer_satisfaction_in_airline,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+customer_satisfaction_in_airline,8,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+customer_satisfaction_in_airline,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,1.2825361884893247e-14
+customer_satisfaction_in_airline,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,1.2825361884893247e-14
+diamonds,0,0,TABICL (default),TABICL,metadata flag,True,0.0
+diamonds,0,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+diamonds,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+diamonds,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+diamonds,1,0,TABICL (default),TABICL,metadata flag,True,0.0
+diamonds,1,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+diamonds,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+diamonds,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+diamonds,2,0,TABICL (default),TABICL,metadata flag,True,0.0
+diamonds,2,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+diamonds,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+diamonds,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+diamonds,3,0,TABICL (default),TABICL,metadata flag,True,0.0
+diamonds,3,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+diamonds,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+diamonds,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+diamonds,4,0,TABICL (default),TABICL,metadata flag,True,0.0
+diamonds,4,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+diamonds,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+diamonds,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+diamonds,5,0,TABICL (default),TABICL,metadata flag,True,0.0
+diamonds,5,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+diamonds,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+diamonds,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+diamonds,6,0,TABICL (default),TABICL,metadata flag,True,0.0
+diamonds,6,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+diamonds,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+diamonds,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+diamonds,7,0,TABICL (default),TABICL,metadata flag,True,0.0
+diamonds,7,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+diamonds,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+diamonds,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+diamonds,8,0,TABICL (default),TABICL,metadata flag,True,0.0
+diamonds,8,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+diamonds,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+diamonds,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+healthcare_insurance_expenses,0,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,1,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,2,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,3,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,4,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,5,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,6,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,7,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,8,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,9,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,10,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,11,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,12,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,13,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,14,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,15,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,16,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,17,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,18,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,19,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,20,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,21,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,22,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,23,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,24,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,25,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,26,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,27,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,28,0,TABICL (default),TABICL,metadata flag,True,0.0
+healthcare_insurance_expenses,29,0,TABICL (default),TABICL,metadata flag,True,0.0
+hiva_agnostic,0,0,KNN (default),KNN,RandomForest timing,True,0.0
+hiva_agnostic,0,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.005577330364915924
+hiva_agnostic,0,0,KNN (tuned),KNN,RandomForest timing,True,0.005577330364915924
+hiva_agnostic,0,0,TABICL (default),TABICL,metadata flag,True,0.0
+hiva_agnostic,0,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+hiva_agnostic,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.005577330364915924
+hiva_agnostic,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.005577330364915924
+hiva_agnostic,1,0,KNN (default),KNN,RandomForest timing,True,0.0
+hiva_agnostic,1,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.007360762443726845
+hiva_agnostic,1,0,KNN (tuned),KNN,RandomForest timing,True,0.007360762443726845
+hiva_agnostic,1,0,TABICL (default),TABICL,metadata flag,True,0.0
+hiva_agnostic,1,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+hiva_agnostic,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.007360762443726845
+hiva_agnostic,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.007360762443726845
+hiva_agnostic,2,0,KNN (default),KNN,RandomForest timing,True,0.0
+hiva_agnostic,2,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.007514257488902866
+hiva_agnostic,2,0,KNN (tuned),KNN,RandomForest timing,True,0.007514257488902866
+hiva_agnostic,2,0,TABICL (default),TABICL,metadata flag,True,0.0
+hiva_agnostic,2,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+hiva_agnostic,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.007514257488902866
+hiva_agnostic,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.007514257488902866
+hiva_agnostic,3,0,KNN (default),KNN,RandomForest timing,True,0.0
+hiva_agnostic,3,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.006260690177224099
+hiva_agnostic,3,0,KNN (tuned),KNN,RandomForest timing,True,0.006260690177224099
+hiva_agnostic,3,0,TABICL (default),TABICL,metadata flag,True,0.0
+hiva_agnostic,3,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+hiva_agnostic,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.006260690177224099
+hiva_agnostic,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.006260690177224099
+hiva_agnostic,4,0,KNN (default),KNN,RandomForest timing,True,0.0
+hiva_agnostic,4,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.007418452991297585
+hiva_agnostic,4,0,KNN (tuned),KNN,RandomForest timing,True,0.007418452991297585
+hiva_agnostic,4,0,TABICL (default),TABICL,metadata flag,True,0.0
+hiva_agnostic,4,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+hiva_agnostic,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.007418452991297585
+hiva_agnostic,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.007418452991297585
+hiva_agnostic,5,0,KNN (default),KNN,RandomForest timing,True,0.0
+hiva_agnostic,5,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.007745179247074709
+hiva_agnostic,5,0,KNN (tuned),KNN,RandomForest timing,True,0.007745179247074709
+hiva_agnostic,5,0,TABICL (default),TABICL,metadata flag,True,0.0
+hiva_agnostic,5,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+hiva_agnostic,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.007745179247074709
+hiva_agnostic,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.007745179247074709
+hiva_agnostic,6,0,KNN (default),KNN,RandomForest timing,True,0.0
+hiva_agnostic,6,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.006204458666064216
+hiva_agnostic,6,0,KNN (tuned),KNN,RandomForest timing,True,0.006204458666064216
+hiva_agnostic,6,0,TABICL (default),TABICL,metadata flag,True,0.0
+hiva_agnostic,6,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+hiva_agnostic,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.006204458666064216
+hiva_agnostic,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.006204458666064216
+hiva_agnostic,7,0,KNN (default),KNN,RandomForest timing,True,0.0
+hiva_agnostic,7,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.006426595369757482
+hiva_agnostic,7,0,KNN (tuned),KNN,RandomForest timing,True,0.006426595369757482
+hiva_agnostic,7,0,TABICL (default),TABICL,metadata flag,True,0.0
+hiva_agnostic,7,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+hiva_agnostic,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.006426595369757482
+hiva_agnostic,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.006426595369757482
+hiva_agnostic,8,0,KNN (default),KNN,RandomForest timing,True,0.0
+hiva_agnostic,8,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.006966042119714026
+hiva_agnostic,8,0,KNN (tuned),KNN,RandomForest timing,True,0.006966042119714026
+hiva_agnostic,8,0,TABICL (default),TABICL,metadata flag,True,0.0
+hiva_agnostic,8,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+hiva_agnostic,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.006966042119714026
+hiva_agnostic,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.006966042119714026
+houses,0,0,TABICL (default),TABICL,metadata flag,True,0.0
+houses,0,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+houses,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+houses,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+houses,1,0,TABICL (default),TABICL,metadata flag,True,0.0
+houses,1,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+houses,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+houses,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+houses,2,0,TABICL (default),TABICL,metadata flag,True,0.0
+houses,2,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+houses,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+houses,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+houses,3,0,TABICL (default),TABICL,metadata flag,True,0.0
+houses,3,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+houses,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+houses,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+houses,4,0,TABICL (default),TABICL,metadata flag,True,0.0
+houses,4,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+houses,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+houses,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+houses,5,0,TABICL (default),TABICL,metadata flag,True,0.0
+houses,5,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+houses,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+houses,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+houses,6,0,TABICL (default),TABICL,metadata flag,True,0.0
+houses,6,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+houses,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+houses,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+houses,7,0,TABICL (default),TABICL,metadata flag,True,0.0
+houses,7,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+houses,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+houses,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+houses,8,0,TABICL (default),TABICL,metadata flag,True,0.0
+houses,8,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+houses,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+houses,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+kddcup09_appetency,0,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+kddcup09_appetency,0,0,TABM (default),TABM,RandomForest timing,True,0.0
+kddcup09_appetency,0,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+kddcup09_appetency,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+kddcup09_appetency,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+kddcup09_appetency,1,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+kddcup09_appetency,1,0,TABM (default),TABM,RandomForest timing,True,0.0
+kddcup09_appetency,1,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+kddcup09_appetency,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,5.044675140089127e-16
+kddcup09_appetency,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,5.044675140089127e-16
+kddcup09_appetency,2,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+kddcup09_appetency,2,0,TABM (default),TABM,RandomForest timing,True,0.0
+kddcup09_appetency,2,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+kddcup09_appetency,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,4.889057002363996e-16
+kddcup09_appetency,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,4.889057002363996e-16
+kddcup09_appetency,3,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+kddcup09_appetency,3,0,TABM (default),TABM,RandomForest timing,True,0.0
+kddcup09_appetency,3,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+kddcup09_appetency,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,4.0569475370434766e-16
+kddcup09_appetency,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,4.0569475370434766e-16
+kddcup09_appetency,4,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+kddcup09_appetency,4,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+kddcup09_appetency,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+kddcup09_appetency,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+kddcup09_appetency,5,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+kddcup09_appetency,5,0,TABM (default),TABM,RandomForest timing,True,0.0
+kddcup09_appetency,5,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+kddcup09_appetency,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,4.458270587259764e-16
+kddcup09_appetency,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,4.458270587259764e-16
+kddcup09_appetency,6,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+kddcup09_appetency,6,0,TABM (default),TABM,RandomForest timing,True,0.0
+kddcup09_appetency,6,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+kddcup09_appetency,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+kddcup09_appetency,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+kddcup09_appetency,7,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+kddcup09_appetency,7,0,TABM (default),TABM,RandomForest timing,True,0.0
+kddcup09_appetency,7,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+kddcup09_appetency,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,4.995765479417833e-16
+kddcup09_appetency,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,4.995765479417833e-16
+kddcup09_appetency,8,0,MNCA (default),MNCA,RandomForest timing,True,0.0
+kddcup09_appetency,8,0,TABM (default),TABM,RandomForest timing,True,0.0
+kddcup09_appetency,8,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+kddcup09_appetency,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,5.323279587328373e-16
+kddcup09_appetency,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,5.323279587328373e-16
+miami_housing,0,0,TABICL (default),TABICL,metadata flag,True,0.0
+miami_housing,1,0,TABICL (default),TABICL,metadata flag,True,0.0
+miami_housing,2,0,TABICL (default),TABICL,metadata flag,True,0.0
+miami_housing,3,0,TABICL (default),TABICL,metadata flag,True,0.0
+miami_housing,4,0,TABICL (default),TABICL,metadata flag,True,0.0
+miami_housing,5,0,TABICL (default),TABICL,metadata flag,True,0.0
+miami_housing,6,0,TABICL (default),TABICL,metadata flag,True,0.0
+miami_housing,7,0,TABICL (default),TABICL,metadata flag,True,0.0
+miami_housing,8,0,TABICL (default),TABICL,metadata flag,True,0.0
+physiochemical_protein,0,0,TABICL (default),TABICL,metadata flag,True,0.0
+physiochemical_protein,0,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,1,0,TABICL (default),TABICL,metadata flag,True,0.0
+physiochemical_protein,1,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,2,0,TABICL (default),TABICL,metadata flag,True,0.0
+physiochemical_protein,2,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,3,0,TABICL (default),TABICL,metadata flag,True,0.0
+physiochemical_protein,3,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,4,0,TABICL (default),TABICL,metadata flag,True,0.0
+physiochemical_protein,4,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,5,0,TABICL (default),TABICL,metadata flag,True,0.0
+physiochemical_protein,5,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,6,0,TABICL (default),TABICL,metadata flag,True,0.0
+physiochemical_protein,6,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,7,0,TABICL (default),TABICL,metadata flag,True,0.0
+physiochemical_protein,7,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,8,0,TABICL (default),TABICL,metadata flag,True,0.0
+physiochemical_protein,8,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+physiochemical_protein,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+splice,0,0,KNN (default),KNN,RandomForest timing,True,0.0
+splice,0,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,3.256715722379435e-08
+splice,0,0,KNN (tuned),KNN,RandomForest timing,True,3.256715722379435e-08
+splice,1,0,KNN (default),KNN,RandomForest timing,True,0.0
+splice,1,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,3.089439572654236e-08
+splice,1,0,KNN (tuned),KNN,RandomForest timing,True,3.089439572654236e-08
+splice,2,0,KNN (default),KNN,RandomForest timing,True,0.0
+splice,2,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,3.839845621256699e-08
+splice,2,0,KNN (tuned),KNN,RandomForest timing,True,3.839845621256699e-08
+splice,3,0,KNN (default),KNN,RandomForest timing,True,0.0
+splice,3,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,4.825298221052064e-08
+splice,3,0,KNN (tuned),KNN,RandomForest timing,True,4.825298221052064e-08
+splice,4,0,KNN (default),KNN,RandomForest timing,True,0.0
+splice,4,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,3.020554254538969e-08
+splice,4,0,KNN (tuned),KNN,RandomForest timing,True,3.020554254538969e-08
+splice,5,0,KNN (default),KNN,RandomForest timing,True,0.0
+splice,5,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,5.198058080148674e-08
+splice,5,0,KNN (tuned),KNN,RandomForest timing,True,5.198058080148674e-08
+splice,6,0,KNN (default),KNN,RandomForest timing,True,0.0
+splice,6,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,2.2035465056254956e-08
+splice,6,0,KNN (tuned),KNN,RandomForest timing,True,2.2035465056254956e-08
+splice,7,0,KNN (default),KNN,RandomForest timing,True,0.0
+splice,7,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,5.4777615764593086e-08
+splice,7,0,KNN (tuned),KNN,RandomForest timing,True,5.4777615764593086e-08
+splice,8,0,KNN (default),KNN,RandomForest timing,True,0.0
+splice,8,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,7.211046227797641e-08
+splice,8,0,KNN (tuned),KNN,RandomForest timing,True,7.211046227797641e-08
+superconductivity,0,0,TABICL (default),TABICL,metadata flag,True,0.0
+superconductivity,0,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+superconductivity,0,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+superconductivity,0,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+superconductivity,1,0,TABICL (default),TABICL,metadata flag,True,0.0
+superconductivity,1,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+superconductivity,1,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+superconductivity,1,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+superconductivity,2,0,TABICL (default),TABICL,metadata flag,True,0.0
+superconductivity,2,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+superconductivity,2,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+superconductivity,2,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+superconductivity,3,0,TABICL (default),TABICL,metadata flag,True,0.0
+superconductivity,3,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+superconductivity,3,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+superconductivity,3,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+superconductivity,4,0,TABICL (default),TABICL,metadata flag,True,0.0
+superconductivity,4,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+superconductivity,4,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+superconductivity,4,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+superconductivity,5,0,TABICL (default),TABICL,metadata flag,True,0.0
+superconductivity,5,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+superconductivity,5,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+superconductivity,5,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+superconductivity,6,0,TABICL (default),TABICL,metadata flag,True,0.0
+superconductivity,6,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+superconductivity,6,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+superconductivity,6,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+superconductivity,7,0,TABICL (default),TABICL,metadata flag,True,0.0
+superconductivity,7,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+superconductivity,7,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+superconductivity,7,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+superconductivity,8,0,TABICL (default),TABICL,metadata flag,True,0.0
+superconductivity,8,0,TABPFNV2 (default),TABPFNV2,metadata flag,True,0.0
+superconductivity,8,0,TABPFNV2 (tuned + ensemble),TABPFNV2,metadata flag,True,0.0
+superconductivity,8,0,TABPFNV2 (tuned),TABPFNV2,metadata flag,True,0.0
+website_phishing,0,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,0,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0013002680961398067
+website_phishing,0,0,KNN (tuned),KNN,RandomForest timing,True,0.0013002680961398067
+website_phishing,1,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,1,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0026705519629087317
+website_phishing,1,0,KNN (tuned),KNN,RandomForest timing,True,0.0026705519629087317
+website_phishing,2,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,2,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0018526316272683555
+website_phishing,2,0,KNN (tuned),KNN,RandomForest timing,True,0.0018526316272683555
+website_phishing,3,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,3,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0027062129689298877
+website_phishing,3,0,KNN (tuned),KNN,RandomForest timing,True,0.0027062129689298877
+website_phishing,4,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,4,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.002805614740080673
+website_phishing,4,0,KNN (tuned),KNN,RandomForest timing,True,0.002805614740080673
+website_phishing,5,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,5,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.001764113992127778
+website_phishing,5,0,KNN (tuned),KNN,RandomForest timing,True,0.001764113992127778
+website_phishing,6,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,6,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.002088459144614259
+website_phishing,6,0,KNN (tuned),KNN,RandomForest timing,True,0.002088459144614259
+website_phishing,7,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,7,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.002471024149750212
+website_phishing,7,0,KNN (tuned),KNN,RandomForest timing,True,0.002471024149750212
+website_phishing,8,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,8,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.001355960769862965
+website_phishing,8,0,KNN (tuned),KNN,RandomForest timing,True,0.001355960769862965
+website_phishing,9,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,9,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0023077295689660736
+website_phishing,9,0,KNN (tuned),KNN,RandomForest timing,True,0.0023077295689660736
+website_phishing,10,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,10,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.001777149563058574
+website_phishing,10,0,KNN (tuned),KNN,RandomForest timing,True,0.001777149563058574
+website_phishing,11,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,11,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0027031406756933113
+website_phishing,11,0,KNN (tuned),KNN,RandomForest timing,True,0.0027031406756933113
+website_phishing,12,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,12,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.002651702951607833
+website_phishing,12,0,KNN (tuned),KNN,RandomForest timing,True,0.002651702951607833
+website_phishing,13,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,13,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.002491084744062766
+website_phishing,13,0,KNN (tuned),KNN,RandomForest timing,True,0.002491084744062766
+website_phishing,14,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,14,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.002306395077529895
+website_phishing,14,0,KNN (tuned),KNN,RandomForest timing,True,0.002306395077529895
+website_phishing,15,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,15,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.002736240459131682
+website_phishing,15,0,KNN (tuned),KNN,RandomForest timing,True,0.002736240459131682
+website_phishing,16,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,16,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.002967446716272491
+website_phishing,16,0,KNN (tuned),KNN,RandomForest timing,True,0.002967446716272491
+website_phishing,17,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,17,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0023433409966593503
+website_phishing,17,0,KNN (tuned),KNN,RandomForest timing,True,0.0023433409966593503
+website_phishing,18,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,18,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0025990304909865665
+website_phishing,18,0,KNN (tuned),KNN,RandomForest timing,True,0.0025990304909865665
+website_phishing,19,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,19,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0029018978221439203
+website_phishing,19,0,KNN (tuned),KNN,RandomForest timing,True,0.0029018978221439203
+website_phishing,20,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,20,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.001766438251930892
+website_phishing,20,0,KNN (tuned),KNN,RandomForest timing,True,0.001766438251930892
+website_phishing,21,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,21,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.002975535525946384
+website_phishing,21,0,KNN (tuned),KNN,RandomForest timing,True,0.002975535525946384
+website_phishing,22,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,22,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0033304998581843996
+website_phishing,22,0,KNN (tuned),KNN,RandomForest timing,True,0.0033304998581843996
+website_phishing,23,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,23,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.002721096666853052
+website_phishing,23,0,KNN (tuned),KNN,RandomForest timing,True,0.002721096666853052
+website_phishing,24,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,24,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0024164125937394497
+website_phishing,24,0,KNN (tuned),KNN,RandomForest timing,True,0.0024164125937394497
+website_phishing,25,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,25,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.003352279719373025
+website_phishing,25,0,KNN (tuned),KNN,RandomForest timing,True,0.003352279719373025
+website_phishing,26,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,26,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.0027312034158412106
+website_phishing,26,0,KNN (tuned),KNN,RandomForest timing,True,0.0027312034158412106
+website_phishing,27,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,27,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.002353334909515281
+website_phishing,27,0,KNN (tuned),KNN,RandomForest timing,True,0.002353334909515281
+website_phishing,28,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,28,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.002405028385382375
+website_phishing,28,0,KNN (tuned),KNN,RandomForest timing,True,0.002405028385382375
+website_phishing,29,0,KNN (default),KNN,RandomForest timing,True,0.0
+website_phishing,29,0,KNN (tuned + ensemble),KNN,RandomForest timing,True,0.003265876156666834
+website_phishing,29,0,KNN (tuned),KNN,RandomForest timing,True,0.003265876156666834
+wine_quality,0,0,TABICL (default),TABICL,metadata flag,True,0.0
+wine_quality,1,0,TABICL (default),TABICL,metadata flag,True,0.0
+wine_quality,2,0,TABICL (default),TABICL,metadata flag,True,0.0
+wine_quality,3,0,TABICL (default),TABICL,metadata flag,True,0.0
+wine_quality,4,0,TABICL (default),TABICL,metadata flag,True,0.0
+wine_quality,5,0,TABICL (default),TABICL,metadata flag,True,0.0
+wine_quality,6,0,TABICL (default),TABICL,metadata flag,True,0.0
+wine_quality,7,0,TABICL (default),TABICL,metadata flag,True,0.0
+wine_quality,8,0,TABICL (default),TABICL,metadata flag,True,0.0

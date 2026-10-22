@@ -19,11 +19,13 @@ export MKL_NUM_THREADS = 1
 
 .PHONY: all test tabarena tabarena-attribution tabarena-extended tabarena-shrink \
         tabarena-analyses tabrepo tabrepo-attribution tabrepo-analyses pooled compact jackknife checks compress \
+        tabrepo-grouped calibration \
         meta-sheet assets meta-recheck-draw meta-recheck-sheet meta-recheck-check meta-recheck-merge \
         meta-count-sheet meta-count-check meta-count-merge overlap smoke
 
 all: test tabarena tabarena-attribution tabarena-extended tabarena-shrink tabarena-analyses \
-     tabrepo tabrepo-attribution tabrepo-analyses pooled overlap compact jackknife checks assets
+     tabrepo tabrepo-attribution tabrepo-analyses pooled overlap compact jackknife tabrepo-grouped checks \
+     calibration assets
 
 $(LOGS):
 	mkdir -p $(LOGS)
@@ -147,11 +149,77 @@ pooled:
 	  --tabrepo-review $(OUT)/score_level_tabrepo_score_only_review --output-dir $(OUT)/pooled_cross_artifact
 
 # TabRepo contrasts without the 16 datasets that share a name with a TabArena dataset and
-# the two wine-quality halves of TabArena's wine_quality (needs `pooled`).
+# the two wine-quality halves of TabArena's wine_quality (needs `pooled`); then also without
+# the datasets that share a documented source with TabArena (dna, a processed splice, and
+# the NASA defect sets from jm1's program).
 overlap:
 	$(PYTHON) scripts/tabrepo_overlap_sensitivity.py --overlap $(OUT)/pooled_cross_artifact/overlapping_datasets.csv \
 	  --review ensemble=$(OUT)/score_level_tabrepo_nested_review \
 	  --review score_only=$(OUT)/score_level_tabrepo_score_only_review --output-dir $(OUT)/tabrepo_overlap_sensitivity
+	$(PYTHON) scripts/tabrepo_overlap_sensitivity.py --overlap $(OUT)/pooled_cross_artifact/overlapping_datasets.csv \
+	  --related wine-quality-red wine-quality-white dna kc1 kc2 mc1 pc1 pc2 pc3 pc4 \
+	  --review ensemble=$(OUT)/score_level_tabrepo_nested_review \
+	  --review score_only=$(OUT)/score_level_tabrepo_score_only_review --output-dir $(OUT)/tabrepo_overlap_sensitivity_source
+
+# ---------------------------------------------------------------- TabRepo, grouped splits (~10 h at 12 workers)
+# The TabRepo audit on 24 outer splits that keep groups of related datasets together
+# (configs/tabrepo_source_groups.csv), the cluster bootstrap over those groups, and the
+# grouped run against random 24-split subsets of the original splits.
+tabrepo-grouped: | $(LOGS)
+	$(PYTHON) scripts/grouped_outer_splits.py --config configs/score_level_tabrepo_nested.yaml --repeats 6 \
+	  --jobs $(TABREPO_WORKERS) --resume --output-dir $(OUT)/score_level_tabrepo_grouped
+	$(PYTHON) scripts/score_level_review.py --nested-output $(OUT)/score_level_tabrepo_grouped \
+	  --config configs/review_tabrepo.yaml --output-dir $(OUT)/score_level_tabrepo_grouped_review
+	$(PYTHON) scripts/score_level_policy_pool_ablation.py --nested-output $(OUT)/score_level_tabrepo_grouped \
+	  --output-dir $(OUT)/score_level_tabrepo_grouped_score_only
+	$(PYTHON) scripts/score_level_review.py --nested-output $(OUT)/score_level_tabrepo_grouped_score_only \
+	  --config configs/review_tabrepo_score_only.yaml --output-dir $(OUT)/score_level_tabrepo_grouped_score_only_review
+	$(PYTHON) scripts/corrected_resampled_test.py --review-output $(OUT)/score_level_tabrepo_grouped_review \
+	  --nested-output $(OUT)/score_level_tabrepo_grouped --review-config configs/review_tabrepo.yaml \
+	  --output-dir $(OUT)/tabrepo_grouped_corrected_test --unequal-splits
+	$(PYTHON) scripts/corrected_resampled_test.py --review-output $(OUT)/score_level_tabrepo_grouped_score_only_review \
+	  --nested-output $(OUT)/score_level_tabrepo_grouped_score_only --review-config configs/review_tabrepo_score_only.yaml \
+	  --output-dir $(OUT)/tabrepo_grouped_score_only_corrected_test --unequal-splits
+	$(PYTHON) scripts/tabrepo_source_groups.py --review ensemble=$(OUT)/score_level_tabrepo_nested_review \
+	  --review score_only=$(OUT)/score_level_tabrepo_score_only_review \
+	  --review ensemble_grouped=$(OUT)/score_level_tabrepo_grouped_review \
+	  --review score_only_grouped=$(OUT)/score_level_tabrepo_grouped_score_only_review --output-dir $(OUT)/tabrepo_source_groups
+	$(PYTHON) scripts/tabrepo_grouped_comparison.py --score-only-random $(OUT)/score_level_tabrepo_score_only_review \
+	  --score-only-grouped $(OUT)/score_level_tabrepo_grouped_score_only_review \
+	  --ensemble-random $(OUT)/score_level_tabrepo_nested_review --ensemble-grouped $(OUT)/score_level_tabrepo_grouped_review \
+	  --output-dir $(OUT)/tabrepo_grouped_comparison
+
+# ---------------------------------------------------------------- TabRepo, grouped inner estimates (~10 h at 12 workers)
+# The same 24 outer splits with each training dataset's whole group also left out of every
+# inner estimate (scripts/grouped_inner_splits.py patches the frozen pipeline in its own
+# process only), its reviews and corrected tests, the cluster bootstrap, the comparison with
+# the random splits, and the paired comparison with the outer-grouped run.
+tabrepo-grouped-inner: | $(LOGS)
+	$(PYTHON) scripts/grouped_inner_splits.py --config configs/score_level_tabrepo_nested.yaml --repeats 6 \
+	  --jobs $(TABREPO_WORKERS) --resume --output-dir $(OUT)/score_level_tabrepo_grouped_inner
+	$(PYTHON) scripts/score_level_review.py --nested-output $(OUT)/score_level_tabrepo_grouped_inner \
+	  --config configs/review_tabrepo.yaml --output-dir $(OUT)/score_level_tabrepo_grouped_inner_review
+	$(PYTHON) scripts/score_level_policy_pool_ablation.py --nested-output $(OUT)/score_level_tabrepo_grouped_inner \
+	  --output-dir $(OUT)/score_level_tabrepo_grouped_inner_score_only
+	$(PYTHON) scripts/score_level_review.py --nested-output $(OUT)/score_level_tabrepo_grouped_inner_score_only \
+	  --config configs/review_tabrepo_score_only.yaml --output-dir $(OUT)/score_level_tabrepo_grouped_inner_score_only_review
+	$(PYTHON) scripts/corrected_resampled_test.py --review-output $(OUT)/score_level_tabrepo_grouped_inner_review \
+	  --nested-output $(OUT)/score_level_tabrepo_grouped_inner --review-config configs/review_tabrepo.yaml \
+	  --output-dir $(OUT)/tabrepo_grouped_inner_corrected_test --unequal-splits
+	$(PYTHON) scripts/corrected_resampled_test.py --review-output $(OUT)/score_level_tabrepo_grouped_inner_score_only_review \
+	  --nested-output $(OUT)/score_level_tabrepo_grouped_inner_score_only --review-config configs/review_tabrepo_score_only.yaml \
+	  --output-dir $(OUT)/tabrepo_grouped_inner_score_only_corrected_test --unequal-splits
+	$(PYTHON) scripts/tabrepo_source_groups.py --review ensemble_grouped_inner=$(OUT)/score_level_tabrepo_grouped_inner_review \
+	  --review score_only_grouped_inner=$(OUT)/score_level_tabrepo_grouped_inner_score_only_review \
+	  --output-dir $(OUT)/tabrepo_source_groups_inner
+	$(PYTHON) scripts/tabrepo_grouped_comparison.py --score-only-random $(OUT)/score_level_tabrepo_score_only_review \
+	  --score-only-grouped $(OUT)/score_level_tabrepo_grouped_inner_score_only_review \
+	  --ensemble-random $(OUT)/score_level_tabrepo_nested_review --ensemble-grouped $(OUT)/score_level_tabrepo_grouped_inner_review \
+	  --grouped-splits $(OUT)/score_level_tabrepo_grouped_inner/grouped_splits.json --output-dir $(OUT)/tabrepo_grouped_inner_comparison
+	$(PYTHON) scripts/tabrepo_grouped_inner_comparison.py \
+	  --outer score_only=$(OUT)/score_level_tabrepo_grouped_score_only_review --outer ensemble=$(OUT)/score_level_tabrepo_grouped_review \
+	  --inner score_only=$(OUT)/score_level_tabrepo_grouped_inner_score_only_review --inner ensemble=$(OUT)/score_level_tabrepo_grouped_inner_review \
+	  --output-dir $(OUT)/tabrepo_grouped_inner_vs_outer
 
 compact:
 	$(PYTHON) scripts/third_artifact_validation.py --input analysis-output/v2/tabarena_ict_retraining_extended/results.csv \
@@ -167,11 +235,16 @@ jackknife: | $(LOGS)
 	  --review-config configs/review_tabrepo.yaml --reference-pool score_only \
 	  --output-dir $(OUT)/tabrepo_jackknife --subsets 20 --splits 4 --drop 40 --split-design cyclic --jobs $(TABREPO_WORKERS)
 
-# ---------------------------------------------------------------- Robustness checks (~1.5 h at 12 jobs)
-# TabArena's copied rows and the main audit rerun without them; the corrected resampled
-# t-test for every review; how much the running claim depends on single datasets; and a
-# deployable error-space optimism correction. Needs the TabArena and TabRepo runs above.
+# ---------------------------------------------------------------- Robustness checks (~4 h at 20 jobs)
+# TabArena's imputed rows and the main audit rerun without them, with the main run's own
+# choices rescored and its fitted rules reapplied on the reduced candidate sets, and again
+# without only the rows the metadata documents; the corrected resampled t-test for every
+# review; how much the running claim depends on single datasets, trimming and dataset size;
+# a rule that selects on defaults and deploys tuned + ensemble; a deployable error-space
+# optimism correction with the spread-to-noise ratio on its own offsets; and the declared and
+# reduced pools in matched Holm families. Needs the TabArena and TabRepo runs above.
 checks: | $(LOGS)
+	$(PYTHON) scripts/tabrepo_construction_check.py --output-dir $(OUT)/tabrepo_construction
 	$(PYTHON) scripts/imputed_rows.py --output-dir $(OUT)/tabarena_imputed
 	$(PYTHON) scripts/score_level_policy_benchmark.py --config configs/score_level_tabarena_no_imputed.yaml --jobs $(JOBS)
 	$(PYTHON) scripts/score_level_review.py --nested-output $(OUT)/score_level_tabarena_no_imputed \
@@ -181,6 +254,17 @@ checks: | $(LOGS)
 	$(PYTHON) scripts/corrected_resampled_test.py --review-output $(OUT)/score_level_tabarena_no_imputed_review \
 	  --nested-output $(OUT)/score_level_tabarena_no_imputed --review-config configs/review_tabarena.yaml \
 	  --output-dir $(OUT)/tabarena_imputed/corrected_test
+	$(PYTHON) scripts/imputed_rows_rescore.py --main-output $(OUT)/score_level_tabarena \
+	  --main-review $(OUT)/score_level_tabarena_review --rerun-output $(OUT)/score_level_tabarena_no_imputed \
+	  --rerun-review $(OUT)/score_level_tabarena_no_imputed_review \
+	  --candidates $(OUT)/tabarena_imputed/df_results_no_imputed.csv --review-config configs/review_tabarena.yaml \
+	  --output-dir $(OUT)/tabarena_imputed/rescored
+	$(PYTHON) scripts/provenance_reference.py --benchmark-config configs/score_level_tabarena.yaml \
+	  --review-output $(OUT)/score_level_tabarena_review --review-config configs/review_tabarena.yaml \
+	  --nested-output $(OUT)/score_level_tabarena --output-dir $(OUT)/tabarena_provenance_reference
+	$(PYTHON) scripts/provenance_reference.py --benchmark-config configs/score_level_tabarena_no_imputed.yaml \
+	  --review-output $(OUT)/score_level_tabarena_no_imputed_review --review-config configs/review_tabarena.yaml \
+	  --nested-output $(OUT)/score_level_tabarena_no_imputed --output-dir $(OUT)/tabarena_imputed/provenance_reference
 	$(PYTHON) scripts/corrected_resampled_test.py --review-output $(OUT)/score_level_tabarena_review \
 	  --nested-output $(OUT)/score_level_tabarena --review-config configs/review_tabarena.yaml \
 	  --output-dir $(OUT)/tabarena_corrected_test
@@ -201,17 +285,59 @@ checks: | $(LOGS)
 	  --output-dir $(OUT)/tabarena_influence
 	$(PYTHON) scripts/error_space_correction.py --benchmark-config configs/score_level_tabarena.yaml \
 	  --review-output $(OUT)/score_level_tabarena_review --review-config configs/review_tabarena.yaml \
-	  --output-dir $(OUT)/tabarena_error_space
+	  --output-dir $(OUT)/tabarena_error_space --provenance-output $(OUT)/tabarena_provenance
 	$(PYTHON) scripts/error_space_correction.py --benchmark-config configs/score_level_tabarena.yaml \
 	  --review-output $(OUT)/score_level_tabarena_review --review-config configs/review_tabarena.yaml \
 	  --output-dir $(OUT)/tabarena_error_space_median --scale median
 	$(PYTHON) scripts/error_space_correction.py --benchmark-config configs/score_level_tabrepo_nested.yaml \
 	  --review-output $(OUT)/score_level_tabrepo_score_only_review --review-config configs/review_tabrepo_score_only.yaml \
-	  --output-dir $(OUT)/tabrepo_error_space --family-offsets
+	  --output-dir $(OUT)/tabrepo_error_space --family-offsets --provenance-output $(OUT)/tabrepo_provenance
 	$(PYTHON) scripts/error_space_correction.py --benchmark-config configs/score_level_tabrepo_nested.yaml \
 	  --review-output $(OUT)/score_level_tabrepo_score_only_review --review-config configs/review_tabrepo_score_only.yaml \
 	  --output-dir $(OUT)/tabrepo_error_space_median --family-offsets --scale median
 	$(PYTHON) scripts/compress_unit_scores.py $(OUT)/score_level_tabarena_no_imputed/unit_scores.parquet
+	$(PYTHON) scripts/imputed_rows_reapply.py --main-output $(OUT)/score_level_tabarena \
+	  --main-review $(OUT)/score_level_tabarena_review --rerun-review $(OUT)/score_level_tabarena_no_imputed_review \
+	  --rescored-output $(OUT)/tabarena_imputed/rescored --review-config configs/review_tabarena.yaml \
+	  --check-splits 100 --check-only --jobs $(JOBS) --output-dir $(OUT)/tabarena_imputed/reapplied
+	$(PYTHON) scripts/imputed_rows_reapply.py --main-output $(OUT)/score_level_tabarena \
+	  --main-review $(OUT)/score_level_tabarena_review --rerun-review $(OUT)/score_level_tabarena_no_imputed_review \
+	  --rescored-output $(OUT)/tabarena_imputed/rescored --review-config configs/review_tabarena.yaml \
+	  --jobs $(JOBS) --output-dir $(OUT)/tabarena_imputed/reapplied
+	$(PYTHON) scripts/imputed_rows.py --mask metadata --output-dir $(OUT)/tabarena_imputed_flagged
+	$(PYTHON) scripts/score_level_policy_benchmark.py --config configs/score_level_tabarena_no_flagged.yaml --jobs $(JOBS)
+	$(PYTHON) scripts/score_level_review.py --nested-output $(OUT)/score_level_tabarena_no_flagged \
+	  --config configs/review_tabarena.yaml --output-dir $(OUT)/score_level_tabarena_no_flagged_review
+	$(PYTHON) scripts/imputed_rows_rescore.py --main-output $(OUT)/score_level_tabarena \
+	  --main-review $(OUT)/score_level_tabarena_review --rerun-output $(OUT)/score_level_tabarena_no_flagged \
+	  --rerun-review $(OUT)/score_level_tabarena_no_flagged_review \
+	  --candidates $(OUT)/tabarena_imputed_flagged/df_results_no_flagged.csv --review-config configs/review_tabarena.yaml \
+	  --output-dir $(OUT)/tabarena_imputed_flagged/rescored
+	$(PYTHON) scripts/imputed_rows_reapply.py --reduced-config configs/score_level_tabarena_no_flagged.yaml \
+	  --main-output $(OUT)/score_level_tabarena --main-review $(OUT)/score_level_tabarena_review \
+	  --rerun-review $(OUT)/score_level_tabarena_no_flagged_review --rescored-output $(OUT)/tabarena_imputed_flagged/rescored \
+	  --review-config configs/review_tabarena.yaml --jobs $(JOBS) --output-dir $(OUT)/tabarena_imputed_flagged/reapplied
+	$(PYTHON) scripts/corrected_resampled_test.py --review-output $(OUT)/score_level_tabarena_no_flagged_review \
+	  --nested-output $(OUT)/score_level_tabarena_no_flagged --review-config configs/review_tabarena.yaml \
+	  --output-dir $(OUT)/tabarena_imputed_flagged/corrected_test
+	$(PYTHON) scripts/compress_unit_scores.py $(OUT)/score_level_tabarena_no_flagged/unit_scores.parquet
+	$(PYTHON) scripts/pool_matched_family.py --declared-review $(OUT)/score_level_tabarena_review \
+	  --declared-nested $(OUT)/score_level_tabarena --reduced-review $(OUT)/score_level_tabarena_shrink_review \
+	  --reduced-nested $(OUT)/score_level_tabarena_shrink --review-config configs/review_tabarena.yaml \
+	  --output-dir $(OUT)/tabarena_pool_matched
+
+# ---------------------------------------------------------------- coverage study (~11 h at 22 workers)
+# Simulated TabArena-shaped score tables run through the audit's own code (paper App. K): how
+# well the audit's tests of the mean cover a known procedure-level contrast.
+calibration: | $(LOGS)
+	$(PYTHON) scripts/calibration_study.py --stage estimate
+	$(PYTHON) scripts/calibration_study.py --stage facts
+	$(PYTHON) scripts/calibration_study.py --stage pilot
+	$(PYTHON) scripts/calibration_study.py --stage truth --jobs $(JOBS)
+	$(PYTHON) scripts/calibration_study.py --stage truth_shared --jobs $(JOBS)
+	$(PYTHON) scripts/calibration_study.py --stage replicates --jobs $(JOBS)
+	$(PYTHON) scripts/calibration_study.py --stage bridge --jobs $(JOBS)
+	$(PYTHON) scripts/calibration_study.py --stage summarize
 
 # Recompress the nested runs' unit_scores.parquet files losslessly with zstd, so that every
 # file stays within GitHub's size limits. Run it after a nested run, before committing.

@@ -19,6 +19,16 @@ review's dataset-level scores and shared resample matrix. Before anything else, 
 code with zero offsets must reproduce the review's validation-best regrets exactly. The
 metadata also records how often the median candidate's validation error lies within one
 percent of the range from the best, where the median scale is nearly zero.
+
+The script also computes Remark 1's spread-to-noise ratio on the offsets this correction
+uses (``offset_snr_matched.csv``): the dataset-by-candidate matrix of mean normalized test
+minus validation error on the correction's validation-derived scale, with the standard error
+of an offset estimated from one outer split's training datasets. It reports the ratio for
+every candidate observed on every dataset (the set the correction corrects), for the tenth
+with the best mean validation rank, and, with ``--family-offsets``, for learner families.
+``scripts/validation_provenance.py`` computes the same ratio on test-range-normalized offsets;
+with ``--provenance-output`` the script first checks that it reproduces that ratio when given
+the test-range scale and the same candidates.
 """
 
 from __future__ import annotations
@@ -32,6 +42,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import yaml
+from scipy import stats
 
 try:
     from _path_setup import ensure_src_path
@@ -45,6 +56,7 @@ ensure_src_path()
 
 from tabular_sota_benchmark.artifacts import ARTIFACT_UNIT_COLUMNS, _method_family  # noqa: E402
 from tabular_sota_benchmark.inference import ArtifactResampler, contrast_table, paired_contrast  # noqa: E402
+from tabular_sota_benchmark.provenance import offset_snr, top_tenth  # noqa: E402
 from tabular_sota_benchmark.ranking import grouped_within_unit_ranks  # noqa: E402
 
 BENCH_PATH = Path(__file__).resolve().with_name("score_level_policy_benchmark.py")
@@ -97,6 +109,63 @@ def dataset_offsets(frame: pd.DataFrame, *, by: str) -> pd.DataFrame:
     return per_unit.groupby(["dataset", by])["z"].mean().unstack(by)
 
 
+def top_validation_tenth(frame: pd.DataFrame) -> list[str]:
+    """The tenth of candidates with the best mean validation rank, as the provenance script
+    chooses them: within-unit average ranks, averaged over a dataset's units, then datasets."""
+    ranked = frame.assign(
+        val_rank=frame.groupby("unit")["val_primary_metric"].rank(method="average")
+    )
+    per_dataset = ranked.groupby(["method", "dataset"])["val_rank"].mean().reset_index()
+    table = per_dataset.groupby("method", as_index=False)["val_rank"].mean()
+    return top_tenth(table)["method"].tolist()
+
+
+def matched_snr(
+    frame: pd.DataFrame, *, n_train: int, resampler: ArtifactResampler, family_offsets: bool, scale: str
+) -> pd.DataFrame:
+    """Remark 1's ratio on the offsets the correction estimates (columns observed everywhere)."""
+    rows = []
+    sets = [("all", "method", dataset_offsets(frame, by="method"))]
+    top = top_validation_tenth(frame)
+    sets.append(("top_tenth", "method", dataset_offsets(frame[frame["method"].isin(top)], by="method")))
+    if family_offsets:
+        sets.append(("all", "family", dataset_offsets(frame, by="family")))
+    for candidates, by, matrix in sets:
+        complete = matrix.dropna(axis=1, how="any")
+        result = offset_snr(complete, n_train=n_train, resampler=resampler)
+        association = offset_quality(frame if candidates == "all" else frame[frame["method"].isin(top)], by=by)
+        rows.append({"scale": scale, "candidates": candidates, "by": by, "n_dropped": int(matrix.shape[1] - complete.shape[1]), **result, **association})
+    return pd.DataFrame(rows)
+
+
+def offset_quality(frame: pd.DataFrame, *, by: str) -> dict[str, float]:
+    """Spearman correlation, across candidates (or families), between the mean normalized
+    test-minus-validation error and the mean test rank regret. A negative value means the
+    optimistic candidates are the better ones on test, the case in which Proposition 1(iv)
+    says that removing the offsets entirely is not optimal."""
+    offsets = dataset_offsets(frame, by=by).mean(axis=0)
+    regret = frame.groupby(["dataset", by])["regret"].mean().unstack(by).mean(axis=0)
+    common = offsets.index.intersection(regret.index)
+    rho, p = stats.spearmanr(offsets[common], regret[common])
+    return {"offset_quality_spearman": float(rho), "offset_quality_p": float(p), "offset_quality_n": int(len(common))}
+
+
+def reproduce_provenance_snr(frame: pd.DataFrame, provenance_dir: Path, *, n_train: int, resampler: ArtifactResampler) -> float:
+    """With the test-range scale and the provenance script's candidates, the matched code must
+    give the provenance script's error-space ratio."""
+    stored = pd.read_csv(provenance_dir / "offset_snr.csv").set_index("space")
+    top = pd.read_csv(provenance_dir / "offsets_top_candidates.csv")["method"].unique().tolist()
+    units = frame.groupby("unit")["primary_metric"]
+    span = units.transform("max") - units.transform("min")
+    test_scaled = frame.assign(z=(frame["primary_metric"] - frame["val_primary_metric"]) / span.where(span > 0))
+    matrix = dataset_offsets(test_scaled[test_scaled["method"].isin(top)], by="method")
+    ratio = float(offset_snr(matrix, n_train=n_train, resampler=resampler)["ratio"])
+    gap = abs(ratio - float(stored.loc["error", "ratio"]))
+    if gap > 1e-9:
+        raise ValueError(f"The matched code does not reproduce the provenance ratio (gap {gap:.3g}).")
+    return gap
+
+
 def evaluate(frame: pd.DataFrame, held_out: pd.DataFrame, offsets: pd.DataFrame | None, *, by: str) -> pd.Series:
     """Dataset-level mean held-out regret of the corrected rule (offsets None: validation-best)."""
     datasets = sorted(frame["dataset"].unique())
@@ -146,6 +215,16 @@ def run(args: argparse.Namespace) -> None:
         regret.index, seed=int(bootstrap.get("seed", 20260608)), n_resamples=int(bootstrap.get("resamples", 10_000))
     )
     margins = [float(value) for value in review_config.get("margins", [0.005, 0.010, 0.015, 0.020])]
+    heldout_counts = held_out.groupby("split_id")["dataset"].nunique().unique()
+    if len(heldout_counts) != 1:
+        raise ValueError("The outer splits hold out different numbers of datasets.")
+    n_train = int(resampler.n - heldout_counts[0])
+    reproduction_gap = (
+        reproduce_provenance_snr(frame, Path(args.provenance_output), n_train=n_train, resampler=resampler)
+        if args.provenance_output
+        else None
+    )
+    snr = matched_snr(frame, n_train=n_train, resampler=resampler, family_offsets=bool(args.family_offsets), scale=str(args.scale))
     rows = []
     for name, values in rules.items():
         for right in [VALIDATION_BEST, RANK_CORRECTION, NESTED]:
@@ -164,6 +243,7 @@ def run(args: argparse.Namespace) -> None:
     scores.index.name = "dataset"
     scores.to_csv(output_dir / "dataset_scores.csv")
     contrasts.to_csv(output_dir / "contrasts.csv", index=False)
+    snr.to_csv(output_dir / "offset_snr_matched.csv", index=False)
     (output_dir / "metadata.json").write_text(
         json.dumps(
             {
@@ -177,6 +257,8 @@ def run(args: argparse.Namespace) -> None:
                 "share_units_median_within_one_percent_of_best": float(median_near_best.mean()),
                 "family_offsets": bool(args.family_offsets),
                 "scale": str(args.scale),
+                "snr_n_train": n_train,
+                "snr_reproduces_provenance_gap": reproduction_gap,
                 "command": sys.argv,
             },
             indent=2,
@@ -195,6 +277,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--family-offsets", action="store_true")
     parser.add_argument("--scale", choices=["range", "median"], default="range")
+    parser.add_argument(
+        "--provenance-output", type=Path, default=None,
+        help="scripts/validation_provenance.py output whose error-space ratio the matched code must reproduce",
+    )
     return parser.parse_args()
 
 

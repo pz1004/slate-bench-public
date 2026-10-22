@@ -1,0 +1,34 @@
+{
+  "benchmark_config": "configs/score_level_tabarena.yaml",
+  "review_output": "analysis-output/v2/score_level_tabarena_review",
+  "review_config": "configs/review_tabarena.yaml",
+  "nested_output": "analysis-output/v2/score_level_tabarena",
+  "reproduction_max_gap": {
+    "meta_selector_single": 1.1102230246251565e-16,
+    "reference_validation_best_default": 9.020562075079397e-17
+  },
+  "endpoint_reproduction_gap": {
+    "maxmin_error_regret": 9.8879238130678e-17,
+    "total_seconds_relative": 2.8061976981779384e-16
+  },
+  "n_units": 816,
+  "n_datasets": 51,
+  "deployed_variant_share": {
+    "tuned + ensemble": 0.7475490196078431,
+    "default": 0.25245098039215685
+  },
+  "bootstrap_seed": 20260608,
+  "command": [
+    "scripts/provenance_reference.py",
+    "--benchmark-config",
+    "configs/score_level_tabarena.yaml",
+    "--review-output",
+    "analysis-output/v2/score_level_tabarena_review",
+    "--review-config",
+    "configs/review_tabarena.yaml",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabarena",
+    "--output-dir",
+    "analysis-output/v2/tabarena_provenance_reference"
+  ]
+}

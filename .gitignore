@@ -30,11 +30,13 @@ __pycache__/
 /tests/test_static_latex_check.py
 
 # Outputs: the v2 runs and the compact check's stored training results, without smoke runs,
-# per-split resume caches and run logs
+# per-split resume caches, the coverage study's per-replicate parts (its assembled CSVs are
+# published) and run logs
 /analysis-output/*
 !/analysis-output/v2/
 /analysis-output/v2/smoke/
 /analysis-output/**/split_parts/
+/analysis-output/v2/calibration_study/parts/
 /analysis-output/**/logs/
 
 # Inputs: the TabArena copies, not the local OpenML parquet cache

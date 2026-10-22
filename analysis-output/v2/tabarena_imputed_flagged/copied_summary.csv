@@ -1,0 +1,12 @@
+method,rule,rows,datasets,max_relative_error_gap,rows_total,units,units_total,datasets_total,flagged_rows,timing_rows,flagged_without_timing,exact_error_rows
+KNN (default),RandomForest timing,75,6,0.0,,,,,,,,
+KNN (tuned + ensemble),RandomForest timing,75,6,0.007745179247074709,,,,,,,,
+KNN (tuned),RandomForest timing,75,6,0.007745179247074709,,,,,,,,
+MNCA (default),RandomForest timing,27,3,0.0,,,,,,,,
+MNCA (tuned),RandomForest timing,1,1,7.84609396672553e-16,,,,,,,,
+TABICL (default),metadata flag,240,15,0.0,,,,,,,,
+TABM (default),RandomForest timing,13,2,0.0,,,,,,,,
+TABPFNV2 (default),metadata flag,162,18,0.0,,,,,,,,
+TABPFNV2 (tuned + ensemble),metadata flag,162,18,0.007745179247074709,,,,,,,,
+TABPFNV2 (tuned),metadata flag,162,18,0.007745179247074709,,,,,,,,
+all,any,992,28,0.007745179247074709,35904.0,378.0,816.0,51.0,726.0,266.0,0.0,689.0

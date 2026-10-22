@@ -1,0 +1,28 @@
+{
+  "main_output": "analysis-output/v2/score_level_tabarena",
+  "rerun_output": "analysis-output/v2/score_level_tabarena_no_imputed",
+  "main_review": "analysis-output/v2/score_level_tabarena_review",
+  "rerun_review": "analysis-output/v2/score_level_tabarena_no_imputed_review",
+  "candidates": "analysis-output/v2/tabarena_imputed/df_results_no_imputed.csv",
+  "validation_best_reproduction_max_gap": 9.540979117872439e-17,
+  "nested_choices_compared": 20394,
+  "nested_choice_changed_share": 0.428557418848681,
+  "bootstrap_seed": 20260608,
+  "command": [
+    "scripts/imputed_rows_rescore.py",
+    "--main-output",
+    "analysis-output/v2/score_level_tabarena",
+    "--main-review",
+    "analysis-output/v2/score_level_tabarena_review",
+    "--rerun-output",
+    "analysis-output/v2/score_level_tabarena_no_imputed",
+    "--rerun-review",
+    "analysis-output/v2/score_level_tabarena_no_imputed_review",
+    "--candidates",
+    "analysis-output/v2/tabarena_imputed/df_results_no_imputed.csv",
+    "--review-config",
+    "configs/review_tabarena.yaml",
+    "--output-dir",
+    "analysis-output/v2/tabarena_imputed/rescored"
+  ]
+}
