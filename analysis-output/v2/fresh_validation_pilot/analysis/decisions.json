@@ -1,0 +1,122 @@
+{
+  "decisions": {
+    "C1": {
+      "left": "validation_best_reused",
+      "right": "validation_best_fresh",
+      "mean_difference": 0.011029411764705881,
+      "ci_95": [
+        -0.04779411764705883,
+        0.07352941176470588
+      ],
+      "bootstrap_holm_p": 0.7528,
+      "ttest_holm_p": 0.7535947966440749,
+      "bootstrap_rejects": false,
+      "ttest_rejects": false,
+      "conclusion": "no difference detected",
+      "equivalence_margin": 0.029411764705882353,
+      "equivalence_supported": false
+    },
+    "C2": {
+      "left": "validation_best_reused",
+      "right": "defaults_rule",
+      "mean_difference": -0.08823529411764705,
+      "ci_95": [
+        -0.15808823529411764,
+        -0.029411764705882353
+      ],
+      "bootstrap_holm_p": 0.0008,
+      "ttest_holm_p": 0.09207076601721619,
+      "bootstrap_rejects": true,
+      "ttest_rejects": false,
+      "conclusion": "difference unresolved (the tests disagree)"
+    }
+  },
+  "n_datasets": 8,
+  "n_units": 16,
+  "n_candidates": 18,
+  "units_with_fewer_candidates": 0,
+  "rank_regret": {
+    "validation_best_reused": [
+      0.10294117647058823,
+      0.04779411764705882,
+      0.16176470588235295
+    ],
+    "validation_best_fresh": [
+      0.09191176470588236,
+      0.022058823529411766,
+      0.1801470588235294
+    ],
+    "defaults_rule": [
+      0.1911764705882353,
+      0.10661764705882354,
+      0.3088235294117647
+    ],
+    "validation_best_defaults": [
+      0.4191176470588235,
+      0.31985294117647056,
+      0.5404411764705882
+    ],
+    "oracle": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "reused_and_fresh_choose_the_same_candidate": 0.5,
+  "median_rows": 10442.5,
+  "run_metadata": {
+    "config": "configs/fresh_validation_experiment.yaml",
+    "tasks": "configs/fresh_validation_pilot_tasks.csv",
+    "protocol": "",
+    "sha256": {
+      "config": "a35265c0ad65c42904174788d3e4e2918432d9497c69f322df054703561d40cd",
+      "tasks": "50b3e160057ad0a96f070d8c1fab959a5f57879d3ae47760369a3231e85ad704",
+      "module": "e8fdeefe7fa5399ca78eb43dc64dd023b007a195d2d431e35e58b1606d9eac19",
+      "runner": "00b43e2bfe983958aa24113db6f4652728dd6c4b0c82cf163f6a7e4d218e6453"
+    },
+    "git_head": "bc9bca3fc2bc18e746107f2e31066321c6600ec4",
+    "git_status_short": "M scripts/build_paper_assets.py",
+    "repetitions": 2,
+    "n_tasks": 8,
+    "families": [
+      "hist_gradient_boosting",
+      "random_forest",
+      "extra_trees",
+      "logistic_regression",
+      "knn",
+      "mlp"
+    ],
+    "n_parts": 96,
+    "wall_seconds_this_invocation": 5880.647399663925,
+    "job_seconds_this_invocation": 29772.614441156387,
+    "failed_configurations": 0,
+    "python": "3.12.13",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.9.0",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "command": [
+      "scripts/fresh_validation_experiment.py",
+      "--config",
+      "configs/fresh_validation_experiment.yaml",
+      "--tasks",
+      "configs/fresh_validation_pilot_tasks.csv",
+      "--repetitions",
+      "2",
+      "--output-dir",
+      "analysis-output/v2/fresh_validation_pilot",
+      "--jobs",
+      "21",
+      "--resume"
+    ]
+  },
+  "command": [
+    "scripts/fresh_validation_analysis.py",
+    "--config",
+    "configs/fresh_validation_experiment.yaml",
+    "--run-dir",
+    "analysis-output/v2/fresh_validation_pilot",
+    "--output-dir",
+    "analysis-output/v2/fresh_validation_pilot/analysis"
+  ]
+}

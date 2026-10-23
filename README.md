@@ -176,10 +176,24 @@ metadata), `fresh-validation-data`, `fresh-validation-pilot`, `fresh-validation`
 `tabrepo-frozen-fit`. `literal-vb` rebuilds every TabRepo contrast with validation-best as the
 literal rule (lowest validation error, then fit time, then candidate order) as reference.
 
+The run (`analysis-output/v2/fresh_validation/`, its prespecified analysis in `analysis/`) used
+the published code, configuration and task list; the protocol lists its one deviation (18 worker
+processes rather than about 21). Validation-best on the reused scores minus on the fresh scores
+is +0.034 in normalized rank regret, 95% interval [0.014, 0.056], and both tests reject after
+Holm adjustment: a difference supported. Reused validation-best minus the defaults rule is
++0.000 [-0.021, 0.023], with no difference detected (`analysis/decisions.json`). The pilot
+(`analysis-output/v2/fresh_validation_pilot/`) is exploratory, and the frozen-fit check's
+outputs are in `analysis-output/v2/tabrepo_frozen_fit/`.
+
 ## Inference
 
 The paper calls the rank correction *offset-corrected validation*; the outputs keep the
-pipeline's label, `Optimism-corrected validation` (`reference_optimism_corrected*`). What the
+pipeline's label, `Optimism-corrected validation` (`reference_optimism_corrected*`). Its
+*validation-best* is the literal rule (lowest validation error, then fit time, then candidate
+order); the pool's row `meta_selector_single` adds 10^-6 log(1 + fit seconds) and is called
+*validation-best with a runtime term*. The TabRepo outputs under `analysis-output/v2/literal_vb/`
+rebuild every contrast with the literal rule as the reference row `meta_selector_single` and
+the pool row renamed `meta_selector_single_runtime` (`make literal-vb`). What the
 correction removes is a candidate's offset, test minus validation error, which mixes the
 optimism that configuration search and ensemble weights put into a score with the effects of
 how its validation and test predictions were built.
@@ -201,10 +215,14 @@ target:
 The bootstrap resamples the completed dataset-level differences as independent draws,
 with the fitted procedures held fixed. Each dataset also trains the procedures evaluated on
 the others, so this is a working independence approximation: the intervals and tests give
-no guarantee for the procedure, and the paper reports a difference involving a fitted
-procedure as unresolved (Section 3.4 of the paper: each comparison is classified by its
-fitting and design status and supports one of four conclusions, observed, difference
-supported, difference unresolved or no difference detected). The delete-d jackknife
+no guarantee for the procedure, and the paper reports a difference involving a procedure
+refitted across the outer splits as unresolved. Section 3.4 of the paper reports each
+comparison's test outcome apart from the conclusion it supports, the first that applies of
+observed, difference supported (every test rejects, the uncertainty procedure is justified for
+the design, and the comparison was prespecified as primary), no difference detected, and difference
+unresolved. The only prespecified analysis is the fresh-validation experiment
+(`docs/fresh_validation_protocol.md`), whose rules fit nothing across its independently
+sampled tasks. The delete-d jackknife
 (`scripts/procedure_level_jackknife.py`) refits the procedures on subsets of datasets; it
 is a refitting-sensitivity diagnostic, not a standard error with known coverage. The
 corrected resampled t-test of Nadeau and Bengio (2003) (`scripts/corrected_resampled_test.py`)

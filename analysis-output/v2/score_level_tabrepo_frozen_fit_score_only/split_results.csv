@@ -1,0 +1,5 @@
+artifact,split_id,split_mode,selected_policy,n_train_datasets,n_heldout_datasets,train_mean_rank,train_mean_total_seconds,train_mean_normalized_rank_regret,heldout_mean_rank,heldout_tied_best_rate,heldout_mean_total_seconds,heldout_mean_rank_regret,heldout_mean_normalized_rank_regret,heldout_n_units
+TabRepo,0,group_task_stratified,meta_selector_meta_feature_guard_002_k8_rt0,150,50,251.62444444444444,267.2923793637021,0.1645464835011096,286.7866666666667,0.02,206.5404476909726,285.7866666666667,0.1876134908741531,150
+TabRepo,1,group_task_stratified,meta_selector_family_prior_budgeted_500s,150,50,276.1355555555556,105.94507857571902,0.1806207056641451,204.84,0.0066666666666666,125.65460586691825,203.84,0.1339378887966881,150
+TabRepo,2,group_task_stratified,meta_selector_meta_feature_guard_005,150,50,242.45111111111112,264.5464675838056,0.1585812968733823,263.2866666666667,0.02,147.26116392255656,262.2866666666667,0.1720945596738998,150
+TabRepo,3,group_task_stratified,meta_selector_family_prior_budgeted_5000s,150,50,242.48444444444445,325.8597746867261,0.1585274807925171,299.11333333333334,0.1,457.2441356381914,298.11333333333334,0.1958315290344751,150

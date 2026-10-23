@@ -1,0 +1,24 @@
+{
+  "review_output": "analysis-output/v2/literal_vb/score_level_tabrepo_grouped_score_only_review",
+  "nested_output": "analysis-output/v2/score_level_tabrepo_grouped_score_only",
+  "review_config": "configs/review_tabrepo_score_only.yaml",
+  "n_splits": 24,
+  "n_train_datasets": 150.0,
+  "n_test_datasets": 50.0,
+  "unequal_splits": true,
+  "n_datasets": 200,
+  "split_weights": "J / (N n_d): the mean over splits is the dataset-level mean",
+  "variance_factor": 0.375,
+  "command": [
+    "scripts/corrected_resampled_test.py",
+    "--review-output",
+    "analysis-output/v2/literal_vb/score_level_tabrepo_grouped_score_only_review",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabrepo_grouped_score_only",
+    "--review-config",
+    "configs/review_tabrepo_score_only.yaml",
+    "--output-dir",
+    "analysis-output/v2/literal_vb/tabrepo_grouped_score_only_corrected_test",
+    "--unequal-splits"
+  ]
+}

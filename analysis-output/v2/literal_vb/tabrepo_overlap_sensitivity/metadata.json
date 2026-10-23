@@ -1,0 +1,58 @@
+{
+  "command": [
+    "scripts/tabrepo_overlap_sensitivity.py",
+    "--overlap",
+    "analysis-output/v2/pooled_cross_artifact/overlapping_datasets.csv",
+    "--review",
+    "ensemble=analysis-output/v2/literal_vb/score_level_tabrepo_nested_review",
+    "--review",
+    "score_only=analysis-output/v2/literal_vb/score_level_tabrepo_score_only_review",
+    "--output-dir",
+    "analysis-output/v2/literal_vb/tabrepo_overlap_sensitivity"
+  ],
+  "excluded": [
+    "APSFailure",
+    "Amazon_employee_access",
+    "Bioresponse",
+    "Diabetes130US",
+    "bank-marketing",
+    "blood-transfusion-service-center",
+    "churn",
+    "credit-g",
+    "diabetes",
+    "diamonds",
+    "hiva_agnostic",
+    "houses",
+    "jm1",
+    "qsar-biodeg",
+    "splice",
+    "wine-quality-red",
+    "wine-quality-white",
+    "wine_quality"
+  ],
+  "n_excluded": 18,
+  "n_overlap_by_name": 16,
+  "overlap_file": "analysis-output/v2/pooled_cross_artifact/overlapping_datasets.csv",
+  "panels": {
+    "ensemble": {
+      "config": "configs/review_tabrepo.yaml",
+      "derived_seed": 236537846567082,
+      "n_datasets": 200,
+      "n_kept": 182,
+      "review": "analysis-output/v2/literal_vb/score_level_tabrepo_nested_review"
+    },
+    "score_only": {
+      "config": "configs/review_tabrepo_score_only.yaml",
+      "derived_seed": 236537846567082,
+      "n_datasets": 200,
+      "n_kept": 182,
+      "review": "analysis-output/v2/literal_vb/score_level_tabrepo_score_only_review"
+    }
+  },
+  "related": [
+    "wine-quality-red",
+    "wine-quality-white"
+  ],
+  "salt": "exclude_tabarena_overlap",
+  "wall_seconds": 0.5577850341796875
+}

@@ -1,0 +1,31 @@
+{
+  "run": "analysis-output/v2/score_level_tabrepo_frozen_fit",
+  "score_only_run": "analysis-output/v2/score_level_tabrepo_frozen_fit_score_only",
+  "declared_fold": 0,
+  "split_seed": 20261022,
+  "repeats": 1,
+  "driver_sha256_now": "e471474f56e21e969e0ca7fe93c6a96a3d65bf2b88b1c2178c41c43e3fc62cfc",
+  "run_config_sha256": "d517612645e8b4fecb1bedfd50a526e3f946306660153487375ae43f117ffded",
+  "families": {
+    "ensemble": [
+      "train_selected_fixed_reference__ensemble_inclusive",
+      "train_selected_fixed_reference__score_only",
+      "meta_selector_single",
+      "meta_selector_family_prior_budgeted"
+    ],
+    "score_only": [
+      "train_selected_fixed_reference__score_only",
+      "meta_selector_single",
+      "meta_selector_family_prior_budgeted"
+    ]
+  },
+  "command": [
+    "scripts/tabrepo_frozen_fit.py",
+    "--run",
+    "analysis-output/v2/score_level_tabrepo_frozen_fit",
+    "--score-only-run",
+    "analysis-output/v2/score_level_tabrepo_frozen_fit_score_only",
+    "--output-dir",
+    "analysis-output/v2/tabrepo_frozen_fit"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "artifact": "TabRepo",
+  "runtime_weight": 1e-06,
+  "n_units": 600,
+  "units_with_other_choice": 7,
+  "units_with_other_test_error": 4,
+  "units_with_other_rank_regret": 4,
+  "changed_units": [
+    {
+      "dataset": "analcatdata_authorship",
+      "fold": "0",
+      "seed": "0",
+      "task": "multiclass",
+      "primary_metric_name": "tabrepo_metric_error:log_loss",
+      "selected_member_runtime": "NeuralNetFastAI_r11_BAG_L1",
+      "selected_member_literal": "NeuralNetFastAI_r88_BAG_L1"
+    },
+    {
+      "dataset": "cardiotocography",
+      "fold": "0",
+      "seed": "0",
+      "task": "multiclass",
+      "primary_metric_name": "tabrepo_metric_error:log_loss",
+      "selected_member_runtime": "NeuralNetTorch_r80_BAG_L1",
+      "selected_member_literal": "NeuralNetTorch_r149_BAG_L1"
+    },
+    {
+      "dataset": "cardiotocography",
+      "fold": "1",
+      "seed": "1",
+      "task": "multiclass",
+      "primary_metric_name": "tabrepo_metric_error:log_loss",
+      "selected_member_runtime": "NeuralNetFastAI_r94_BAG_L1",
+      "selected_member_literal": "NeuralNetTorch_r87_BAG_L1"
+    },
+    {
+      "dataset": "cardiotocography",
+      "fold": "2",
+      "seed": "2",
+      "task": "multiclass",
+      "primary_metric_name": "tabrepo_metric_error:log_loss",
+      "selected_member_runtime": "NeuralNetTorch_r80_BAG_L1",
+      "selected_member_literal": "NeuralNetTorch_r87_BAG_L1"
+    },
+    {
+      "dataset": "visualizing_soil",
+      "fold": "0",
+      "seed": "0",
+      "task": "binary",
+      "primary_metric_name": "tabrepo_metric_error:roc_auc",
+      "selected_member_runtime": "ExtraTrees_r73_BAG_L1",
+      "selected_member_literal": "ExtraTrees_r4_BAG_L1"
+    },
+    {
+      "dataset": "visualizing_soil",
+      "fold": "1",
+      "seed": "1",
+      "task": "binary",
+      "primary_metric_name": "tabrepo_metric_error:roc_auc",
+      "selected_member_runtime": "ExtraTrees_r74_BAG_L1",
+      "selected_member_literal": "RandomForest_r34_BAG_L1"
+    },
+    {
+      "dataset": "visualizing_soil",
+      "fold": "2",
+      "seed": "2",
+      "task": "binary",
+      "primary_metric_name": "tabrepo_metric_error:roc_auc",
+      "selected_member_runtime": "ExtraTrees_r12_BAG_L1",
+      "selected_member_literal": "XGBoost_r194_BAG_L1"
+    }
+  ],
+  "stored_rows_reproduced": true,
+  "benchmark_config": "configs/score_level_tabrepo_nested.yaml",
+  "nested_output": "analysis-output/v2/score_level_tabrepo_nested",
+  "command": [
+    "scripts/literal_validation_best.py",
+    "units",
+    "--benchmark-config",
+    "configs/score_level_tabrepo_nested.yaml",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabrepo_nested",
+    "--output",
+    "analysis-output/v2/literal_vb/tabrepo_units.parquet"
+  ]
+}

@@ -1,0 +1,81 @@
+dataset,repetition,rule,candidate,family,variant,test_loss,candidate_rank,n_candidates,normalized_rank_regret,median_error_regret,log_loss_regret,n_candidates_unit
+APSFailure,0,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.02403839643653305,2.0,18,0.058823529411764705,0.0947928252193556,0.0005486000390960387,18
+APSFailure,1,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.0228749947298573,3.0,18,0.11764705882352941,0.17381820955376662,0.0015979306814869858,18
+Amazon_employee_access,0,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.17160186641748967,1.0,18,0.0,0.0,0.0,18
+Amazon_employee_access,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.1822325431948575,3.0,18,0.11764705882352941,0.10256937191045552,0.002283744287918471,18
+Bank_Customer_Churn,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.3382629558724649,1.0,18,0.0,0.0,0.0,18
+Bank_Customer_Churn,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.35119341741146615,1.0,18,0.0,0.0,0.0,18
+E-CommereShippingData,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.49683588491749175,4.0,18,0.17647058823529413,0.2072004910903834,0.003351812625389916,18
+E-CommereShippingData,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.495695141800585,4.0,18,0.17647058823529413,0.1148950439137775,0.0021780073961042423,18
+NATICUSdroid,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.14665005300637532,2.0,18,0.058823529411764705,0.27755416133850963,0.00477714930912726,18
+NATICUSdroid,1,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.12724650597425954,4.0,18,0.17647058823529413,0.16480363081296934,0.0032027952560440692,18
+churn,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.16882641961166792,1.0,18,0.0,0.0,0.0,18
+churn,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.16473980655944426,5.0,18,0.23529411764705882,0.26196744224883856,0.015139098909949827,18
+jm1,0,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.42995084487696716,1.0,18,0.0,0.0,0.0,18
+jm1,1,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.43898457801390517,1.0,18,0.0,0.0,0.0,18
+website_phishing,0,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.2853158943174381,5.0,18,0.23529411764705882,0.2978798735443528,0.01339770640111343,18
+website_phishing,1,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.2826110229002762,6.0,18,0.29411764705882354,0.508262541838452,0.054109835441687654,18
+APSFailure,0,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.024466017524056482,3.0,18,0.11764705882352941,0.1686816478970064,0.0009762211266194712,18
+APSFailure,1,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.0228749947298573,3.0,18,0.11764705882352941,0.17381820955376662,0.0015979306814869858,18
+Amazon_employee_access,0,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.1743906515645392,6.0,18,0.29411764705882354,0.10880648219927633,0.0027887851470495273,18
+Amazon_employee_access,1,validation_best_fresh,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.18079684919717925,2.0,18,0.058823529411764705,0.038088321043028256,0.0008480502902402376,18
+Bank_Customer_Churn,0,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.3382629558724649,1.0,18,0.0,0.0,0.0,18
+Bank_Customer_Churn,1,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.35119341741146615,1.0,18,0.0,0.0,0.0,18
+E-CommereShippingData,0,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.49348407229210184,1.0,18,0.0,0.0,0.0,18
+E-CommereShippingData,1,validation_best_fresh,random_forest (tuned),random_forest,tuned,0.49351713440448075,1.0,18,0.0,0.0,0.0,18
+NATICUSdroid,0,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.14665005300637532,2.0,18,0.058823529411764705,0.27755416133850963,0.00477714930912726,18
+NATICUSdroid,1,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.12404371071821547,1.0,18,0.0,0.0,0.0,18
+churn,0,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.16882641961166792,1.0,18,0.0,0.0,0.0,18
+churn,1,validation_best_fresh,extra_trees (tuned),extra_trees,tuned,0.15035904406269143,3.0,18,0.11764705882352941,0.01312227707283244,0.0007583364131970027,18
+jm1,0,validation_best_fresh,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.42995084487696716,1.0,18,0.0,0.0,0.0,18
+jm1,1,validation_best_fresh,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.43898457801390517,1.0,18,0.0,0.0,0.0,18
+website_phishing,0,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.29522745209672685,8.0,18,0.4117647058823529,0.51824994955055,0.02330926418040219,18
+website_phishing,1,validation_best_fresh,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.2826110229002762,6.0,18,0.29411764705882354,0.508262541838452,0.054109835441687654,18
+APSFailure,0,validation_best_defaults,extra_trees (default),extra_trees,default,0.03193608659518666,11.0,18,0.5882352941176471,1.4594379391341537,0.008446290197749649,18
+APSFailure,1,validation_best_defaults,mlp (default),mlp,default,0.029894930053369368,9.0,18,0.47058823529411764,0.9374261703075054,0.008617866004999055,18
+Amazon_employee_access,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.1846626935116822,7.0,18,0.35294117647058826,0.5095776747934783,0.01306082709419254,18
+Amazon_employee_access,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.18379116057612468,6.0,18,0.29411764705882354,0.172571257275216,0.0038423616691856677,18
+Bank_Customer_Churn,0,validation_best_defaults,mlp (default),mlp,default,0.34412514770246416,5.0,18,0.23529411764705882,0.6375490099955242,0.005862191829999253,18
+Bank_Customer_Churn,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.3593508812911689,6.0,18,0.29411764705882354,0.7636974493169928,0.008157463879702731,18
+E-CommereShippingData,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5096823805920119,10.0,18,0.5294117647058824,1.0013380250288768,0.016198308299910036,18
+E-CommereShippingData,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5035922139952904,7.0,18,0.35294117647058826,0.5314842888464998,0.010075079590809666,18
+NATICUSdroid,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.14954931691517637,5.0,18,0.23529411764705882,0.44600247865796466,0.007676413217928307,18
+NATICUSdroid,1,validation_best_defaults,mlp (default),mlp,default,0.12761936754620745,5.0,18,0.23529411764705882,0.18398966549054815,0.003575656827991977,18
+churn,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.18610637246711598,6.0,18,0.29411764705882354,0.32577482127823904,0.01727995285544806,18
+churn,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.18653657392834685,8.0,18,0.4117647058823529,0.6391393882734177,0.036935866278852425,18
+jm1,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.4433752677779838,9.0,18,0.47058823529411764,0.9522420566301132,0.013424422901016642,18
+jm1,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.44734103925018803,8.0,18,0.4117647058823529,0.8935503703053254,0.008356461236282864,18
+website_phishing,0,validation_best_defaults,random_forest (default),random_forest,default,0.5482800389358974,14.0,18,0.7647058823529411,6.144531815337593,0.2763618510195727,18
+website_phishing,1,validation_best_defaults,random_forest (default),random_forest,default,0.3975488329834188,14.0,18,0.7647058823529411,1.5878922067476915,0.1690476455248303,18
+APSFailure,0,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.02524526580806041,6.0,18,0.29411764705882354,0.3033282777255103,0.001755469410623399,18
+APSFailure,1,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.0228749947298573,3.0,18,0.11764705882352941,0.17381820955376662,0.0015979306814869858,18
+Amazon_employee_access,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.1743906515645392,6.0,18,0.29411764705882354,0.10880648219927633,0.0027887851470495273,18
+Amazon_employee_access,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.1822325431948575,3.0,18,0.11764705882352941,0.10256937191045552,0.002283744287918471,18
+Bank_Customer_Churn,0,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.33981773824260253,2.0,18,0.058823529411764705,0.16909203751523438,0.0015547823701376196,18
+Bank_Customer_Churn,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.35119341741146615,1.0,18,0.0,0.0,0.0,18
+E-CommereShippingData,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.49683588491749175,4.0,18,0.17647058823529413,0.2072004910903834,0.003351812625389916,18
+E-CommereShippingData,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.495695141800585,4.0,18,0.17647058823529413,0.1148950439137775,0.0021780073961042423,18
+NATICUSdroid,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.14665005300637532,2.0,18,0.058823529411764705,0.27755416133850963,0.00477714930912726,18
+NATICUSdroid,1,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.12724650597425954,4.0,18,0.17647058823529413,0.16480363081296934,0.0032027952560440692,18
+churn,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.16882641961166792,1.0,18,0.0,0.0,0.0,18
+churn,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.16473980655944426,5.0,18,0.23529411764705882,0.26196744224883856,0.015139098909949827,18
+jm1,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.43263274475135316,2.0,18,0.058823529411764705,0.19023669552811542,0.0026818998743859956,18
+jm1,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.44178363764314904,4.0,18,0.17647058823529413,0.29930142646483365,0.002799059629243872,18
+website_phishing,0,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.29522745209672685,8.0,18,0.4117647058823529,0.51824994955055,0.02330926418040219,18
+website_phishing,1,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.38103021068490334,13.0,18,0.7058823529411765,1.4327300834741754,0.1525290232263148,18
+APSFailure,0,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.02348979639743701,1.0,18,0.0,0.0,0.0,18
+APSFailure,1,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.021277064048370313,1.0,18,0.0,0.0,0.0,18
+Amazon_employee_access,0,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.17160186641748967,1.0,18,0.0,0.0,0.0,18
+Amazon_employee_access,1,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.17994879890693902,1.0,18,0.0,0.0,0.0,18
+Bank_Customer_Churn,0,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.3382629558724649,1.0,18,0.0,0.0,0.0,18
+Bank_Customer_Churn,1,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.35119341741146615,1.0,18,0.0,0.0,0.0,18
+E-CommereShippingData,0,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.49348407229210184,1.0,18,0.0,0.0,0.0,18
+E-CommereShippingData,1,oracle,random_forest (tuned),random_forest,tuned,0.49351713440448075,1.0,18,0.0,0.0,0.0,18
+NATICUSdroid,0,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.14187290369724806,1.0,18,0.0,0.0,0.0,18
+NATICUSdroid,1,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.12404371071821547,1.0,18,0.0,0.0,0.0,18
+churn,0,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.16882641961166792,1.0,18,0.0,0.0,0.0,18
+churn,1,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.14960070764949443,1.0,18,0.0,0.0,0.0,18
+jm1,0,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.42995084487696716,1.0,18,0.0,0.0,0.0,18
+jm1,1,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.43898457801390517,1.0,18,0.0,0.0,0.0,18
+website_phishing,0,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.27191818791632466,1.0,18,0.0,0.0,0.0,18
+website_phishing,1,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.22850118745858852,1.0,18,0.0,0.0,0.0,18

@@ -1,0 +1,45 @@
+{
+  "config": "configs/fresh_validation_experiment.yaml",
+  "tasks": "configs/fresh_validation_tasks.csv",
+  "protocol": "docs/fresh_validation_protocol.md",
+  "sha256": {
+    "config": "a35265c0ad65c42904174788d3e4e2918432d9497c69f322df054703561d40cd",
+    "tasks": "cb0a90024d3ca13b33e91016e808c2911a134db8d973214451a25ab51ddeff16",
+    "module": "e8fdeefe7fa5399ca78eb43dc64dd023b007a195d2d431e35e58b1606d9eac19",
+    "runner": "00b43e2bfe983958aa24113db6f4652728dd6c4b0c82cf163f6a7e4d218e6453",
+    "protocol": "a9effe949097726452e8bd7720548d7a73adb5631c95350f2c699c528f9c0831"
+  },
+  "git_head": "bc9bca3fc2bc18e746107f2e31066321c6600ec4",
+  "git_status_short": "M README.md\n M configs/fresh_validation_tasks.csv\n M docs/claim_template.md\n M scripts/build_paper_assets.py",
+  "repetitions": 5,
+  "n_tasks": 46,
+  "families": [
+    "hist_gradient_boosting",
+    "random_forest",
+    "extra_trees",
+    "logistic_regression",
+    "knn",
+    "mlp"
+  ],
+  "n_parts": 1380,
+  "wall_seconds_this_invocation": 15689.250592470169,
+  "job_seconds_this_invocation": 257283.59546089172,
+  "failed_configurations": 0,
+  "python": "3.12.13",
+  "numpy": "2.4.6",
+  "pandas": "3.0.3",
+  "scikit-learn": "1.9.0",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "command": [
+    "scripts/fresh_validation_experiment.py",
+    "--tasks",
+    "configs/fresh_validation_tasks.csv",
+    "--protocol",
+    "docs/fresh_validation_protocol.md",
+    "--output-dir",
+    "analysis-output/v2/fresh_validation",
+    "--jobs",
+    "18",
+    "--resume"
+  ]
+}

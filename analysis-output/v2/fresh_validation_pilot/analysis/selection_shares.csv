@@ -1,0 +1,8 @@
+rule,variant,units,share
+defaults_rule,tuned + ensemble,16,1.0
+oracle,tuned,2,0.125
+oracle,tuned + ensemble,14,0.875
+validation_best_defaults,default,16,1.0
+validation_best_fresh,tuned,2,0.125
+validation_best_fresh,tuned + ensemble,14,0.875
+validation_best_reused,tuned + ensemble,16,1.0

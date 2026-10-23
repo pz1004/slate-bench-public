@@ -75,6 +75,7 @@ POLICY_KEYS = {
     "train_selected_fixed_reference__score_only": "tsfs",
     "train_selected_fixed_reference__ensemble_inclusive": "tsfe",
     "meta_selector_single": "vb",
+    "meta_selector_single_runtime": "vbrt",
     "meta_selector_ablate_validation_only": "vr",
     "meta_selector_task_adaptive_budgeted": "tad",
     "meta_selector_meta_feature_guard_002": "gtwo",
@@ -107,6 +108,39 @@ class Missing(Exception):
     pass
 
 
+# TabRepo outputs in which validation-best is a reference are read from their rebuild with
+# the literal rule (lowest validation error, then fit time, then candidate order) as the
+# reference row `meta_selector_single`; the pool keeps its runtime-term row, renamed
+# `meta_selector_single_runtime` there (scripts/literal_validation_best.py, `make literal-vb`).
+LITERAL_VB_ROOT = "literal_vb"
+LITERAL_VB_DIRS = {
+    "score_level_tabrepo_nested_review",
+    "score_level_tabrepo_score_only_review",
+    "score_level_tabrepo_grouped_review",
+    "score_level_tabrepo_grouped_score_only_review",
+    "score_level_tabrepo_grouped_inner_review",
+    "score_level_tabrepo_grouped_inner_score_only_review",
+    "attribution/inner_shared_tabrepo_score_only_review",
+    "tabrepo_corrected_test",
+    "tabrepo_score_only_corrected_test",
+    "tabrepo_grouped_corrected_test",
+    "tabrepo_grouped_score_only_corrected_test",
+    "tabrepo_grouped_inner_corrected_test",
+    "tabrepo_grouped_inner_score_only_corrected_test",
+    "tabrepo_source_groups",
+    "tabrepo_source_groups_inner",
+    "tabrepo_grouped_comparison",
+    "tabrepo_grouped_inner_comparison",
+    "tabrepo_grouped_inner_vs_outer",
+    "tabrepo_overlap_sensitivity",
+    "tabrepo_overlap_sensitivity_source",
+    "score_level_tabrepo_nested_search_inference",
+    "score_level_tabrepo_score_only_search_inference",
+    "tabrepo_error_space",
+    "tabrepo_error_space_median",
+}
+
+
 class Assets:
     def __init__(self, out: Path, *, allow_missing: bool, meta_verified_only: bool = False) -> None:
         self.out = out
@@ -118,8 +152,16 @@ class Assets:
         # Computed verdicts of every contrast, by result-key base (see ``contrast_verdicts``).
         self.verdicts: dict[str, dict[str, str]] = {}
 
+    def path(self, relative: str) -> Path:
+        """The output path, redirected to the literal validation-best rebuild where it has one."""
+        text = str(relative)
+        for directory in LITERAL_VB_DIRS:
+            if text == directory or text.startswith(directory + "/"):
+                return self.out / LITERAL_VB_ROOT / text
+        return self.out / text
+
     def csv(self, relative: str) -> pd.DataFrame:
-        path = self.out / relative
+        path = self.path(relative)
         if not path.exists():
             raise Missing(str(path))
         return pd.read_csv(path)
@@ -651,6 +693,83 @@ STATED_COMPARISONS: list[tuple[str, tuple[str, ...], Callable[..., bool]]] = [
     ("corrected test: the degrees of freedom change few verdicts, the reduced pool's among them",
      ("nb.dfflips", "ta.shrink.primary.nested.vb.nbholm", "ta.shrink.primary.nested.vb.nbholmdf"),
      lambda f, a, b: f == 2 and a < 0.05 <= b),
+    # Fifth review: the literal validation-best reference (Appendix J) and the experiment's tasks (Appendix L).
+    ("against the runtime-term rule, no TabRepo test result changes, nor with the literal rule in the pool",
+     ("lvb.tr.testchanges", "lvb.sub.testchanges"), lambda a, b: a == 0 and b == 0),
+    ("with the literal rule in the pool, one score-only split flips, for nested selection and the train-selected rule",
+     ("lvb.sub.nested.flips", "lvb.sub.nested.scoreonly.flips", "lvb.sub.tsf.scoreonly.flips"), lambda a, b, c: a == b == c == 1),
+    ("the literal rule chooses as the runtime-term rule on every TabArena unit",
+     ("lvb.ta.changed", "lvb.ta.units"), lambda changed, units: changed == 0 and units == 816),
+    ("on TabArena a fit-time tie-break changes only validation-best among tuned candidates",
+     ("lvb.ta.vbdef.changed", "lvb.ta.vbtun.changed", "lvb.ta.vbte.changed"), lambda a, b, c: a == 0 and b > 0 and c == 0),
+    ("the pool's row and the literal rule agree on all but the changed TabRepo units",
+     ("lvb.tr.agree", "lvb.tr.changed", "lvb.tr.units"), lambda agree, changed, units: agree + changed == units),
+    ("every eligible dataset is decided by the source check",
+     ("fv.excl.S", "fv.excl.T", "fv.excl.D", "fv.excl.A", "fv.excl.M", "fv.excl.Q", "fv.included", "fv.eligible"),
+     lambda *values: sum(values[:7]) == values[7]),
+    ("every included dataset passes the automatic checks and is a task", ("fv.included", "fv.tasks"), lambda a, b: a == b),
+    ("refitted without the imputed rows, the bootstrap test does not reject; reapplied, it does",
+     ("imp.primary.nested.vb.mholm", "imp.reapplied_primary.nested.vb.mholm", "imp.rescored_primary.nested.vb.mholm"),
+     lambda refit, reapplied, rescored: refit >= ALPHA and reapplied < ALPHA and rescored < ALPHA),
+    ("score-only nested minus validation-best: no test of the mean rejects",
+     ("trs.primary.nested.vb.mholm", "trs.primary.nested.vb.tholm", "trs.primary.nested.vb.nbholm"), lambda *p: min(p) >= ALPHA),
+    # Section 7: the TabRepo frozen-fit check, fold 0 declared.
+    ("frozen fit, fold 0: with ensembles, nested selection improves on validation-best and every test rejects",
+     ("trff.e.vb.diff", "trff.e.vb.mholm", "trff.e.vb.tholm", "trff.e.vb.cholm"),
+     lambda d, m, t, c: d < 0 and max(m, t, c) < ALPHA),
+    ("frozen fit, fold 0: score-only nested selection is worse than the train-selected rule, which every test rejects; against validation-best none does",
+     ("trff.s.tsfs.diff", "trff.s.tsfs.mholm", "trff.s.tsfs.tholm", "trff.s.tsfs.cholm", "trff.s.vb.mholm", "trff.s.vb.tholm", "trff.s.vb.cholm"),
+     lambda d, m, t, c, vm, vt, vc: d > 0 and max(m, t, c) < ALPHA and min(vm, vt, vc) >= ALPHA),
+    ("frozen fit: in every fold the ensemble-inclusive nested choice is ensemble-3, the reference's row, and no score-only test against validation-best rejects",
+     ("trff.folds", "trff.e.ethree", "trff.e.tsfe.allties", "trff.s.vb.rejectfolds"), lambda f, e, a, r: f == e == a == 4 and r == 0),
+    # Section 8 and Appendix L: the prespecified fresh-validation experiment.
+    ("experiment: every task, repetition and configuration ran", ("fv.units", "fv.n", "fv.reps", "fv.failed", "fv.tasks"),
+     lambda units, n, reps, failed, tasks: units == n * reps and failed == 0 and n == tasks),
+    ("C1: reused validation-best has the higher regret and both tests reject",
+     ("fv.c1.diff", "fv.c1.ci", "fv.c1.mholm", "fv.c1.tholm", "fv.c1.equivalent"),
+     lambda d, ci, m, t, eq: d > 0 and ci[0] > 0 and max(m, t) < ALPHA and eq == 0),
+    ("C1: fresh scores lower the regret on more tasks than they raise it", ("fv.c1.wins", "fv.c1.losses"), lambda w, l: l > w),
+    ("C2: neither test rejects", ("fv.c2.mholm", "fv.c2.tholm"), lambda m, t: min(m, t) >= ALPHA),
+    ("C2's interval excludes a difference as large as TabArena's post hoc estimate",
+     ("fv.c2.ci", "ta.provenance_reference.dtt.vb.diff"), lambda ci, ta: ci[0] < 0 < ci[1] and ci[1] < -ta),
+    ("C2's 90% t interval lies inside half a rank position, a margin declared only for C1",
+     ("fv.c2.tostci", "fv.c1.margin"), lambda ci, margin: -margin < ci[0] and ci[1] < margin),
+    ("on both secondary endpoints C1 is supported and C2 not detected",
+     ("fv.c1.err.diff", "fv.c1.err.mholm", "fv.c1.err.tholm", "fv.c1.ll.diff", "fv.c1.ll.mholm", "fv.c1.ll.tholm",
+      "fv.c2.err.mholm", "fv.c2.err.tholm", "fv.c2.ll.mholm", "fv.c2.ll.tholm"),
+     lambda ed, em, et, ld, lm, lt, c2em, c2et, c2lm, c2lt: ed > 0 and ld > 0 and max(em, et, lm, lt) < ALPHA and min(c2em, c2et, c2lm, c2lt) >= ALPHA),
+    ("secondary family: fresh validation-best has lower regret than the defaults rule, validation-best among defaults higher than reused; both tests reject for each",
+     ("fv.s1.diff", "fv.s1.mholm", "fv.s1.tholm", "fv.s2.diff", "fv.s2.mholm", "fv.s2.tholm"),
+     lambda d1, m1, t1, d2, m2, t2: d1 < 0 and d2 > 0 and max(m1, t1, m2, t2) < ALPHA),
+    ("reused offsets: tuned and tuned + ensemble above zero, the default's interval includes zero; fresh offsets' intervals all include zero",
+     ("fv.off.reused.tun.ci", "fv.off.reused.te.ci", "fv.off.reused.def.ci", "fv.off.fresh.def.ci", "fv.off.fresh.tun.ci", "fv.off.fresh.te.ci"),
+     lambda tun, te, de, fde, ftun, fte: tun[0] > 0 and te[0] > 0 and de[0] < 0 < de[1] and all(c[0] < 0 < c[1] for c in (fde, ftun, fte))),
+    ("reused offsets: tuned + ensemble above default on most tasks, but neither the interval nor the sign test detects it",
+     ("fv.off.reused.tedef.ci", "fv.off.reused.tedef.above", "fv.off.reused.tedef.below", "fv.off.reused.tedef.signp"),
+     lambda ci, above, below, p: ci[0] < 0 < ci[1] and above > below and p >= ALPHA),
+    ("validation-best on reused scores chooses tuned + ensemble more often than on fresh scores and than the oracle",
+     ("fv.reused.share.te", "fv.fresh.share.te", "fv.oracle.share.te"), lambda r, f, o: r > f and r > o),
+    ("the cost of reuse is larger in the smaller half of the tasks", ("fv.size.small.c1.diff", "fv.size.large.c1.diff"), lambda s, l: s > l),
+    ("leaving out any one task, C1 stays positive", ("fv.x.c1.loo.min", "fv.x.c1.loo.max", "fv.c1.diff"), lambda lo, hi, d: 0 < lo <= d <= hi),
+    ("the sign-reversed C2 interval excludes TabArena's estimate", ("fv.c2.neg.ci", "ta.provenance_reference.dtt.vb.diff", "ta.dtt.vb.gap"),
+     lambda ci, ta, gap: ta < ci[0] < 0 < ci[1] and abs(abs(ta) - gap) < 1e-9),
+    ("TabRepo: validation-best minus the single best solver, every test rejects", ("tr.mechanism.vb.sbs.diff", "tr.mechanism.vb.sbs.mholm", "tr.mechanism.vb.sbs.tholm", "tr.mechanism.vb.sbs.nbholm"),
+     lambda d, m, t, nb: d < 0 and max(m, t, nb) < ALPHA),
+    ("TabArena: validation-best among defaults has lower observed regret, no test rejects", ("ta.provenance.vb.vbdef.diff", "ta.provenance.vb.vbdef.mholm", "ta.provenance.vb.vbdef.tholm"),
+     lambda d, m, t: d > 0 and min(m, t) >= ALPHA),
+    ("fresh validation-best's share of tuned + ensemble is close to the oracle's", ("fv.fresh.share.te", "fv.oracle.share.te"), lambda f, o: abs(f - o) <= 5),
+    ("on construction scores tuned + ensemble is never worse than tuned; on fresh and test scores it is worse in some units",
+     ("fv.x.te.cv.worse", "fv.x.te.sv.worse", "fv.x.te.test.worse"), lambda cv, sv, test: cv == 0 and sv > 0 and test > 0),
+    ("reused validation-best chooses the MLP more often than fresh validation-best and the oracle",
+     ("fv.x.mlp.reused", "fv.x.mlp.fresh", "fv.x.mlp.oracle"), lambda r, f, o: r > f and r > o),
+    ("pilot: C1 not detected; C2 tests disagree", ("fvp.c1.mholm", "fvp.c1.tholm", "fvp.c2.mholm", "fvp.c2.tholm"),
+     lambda m1, t1, m2, t2: min(m1, t1) >= ALPHA and m2 < ALPHA <= t2),
+    ("reused offsets: tuned above defaults, tuned + ensemble below tuned; fresh class differences' intervals include zero",
+     ("fv.off.reused.tundef", "fv.off.reused.tetun", "fv.off.fresh.tundef.ci", "fv.off.fresh.tedef.ci", "fv.off.fresh.tetun.ci"),
+     lambda tundef, tetun, *fresh: tundef > 0 and tetun < 0 and all(c[0] < 0 < c[1] for c in fresh)),
+    ("reused offsets: neither tuned nor tuned + ensemble differs detectably from defaults (interval and sign test)",
+     ("fv.off.reused.tundef.ci", "fv.off.reused.tundef.signp", "fv.off.reused.tedef.ci", "fv.off.reused.tedef.signp"),
+     lambda c1, p1, c2, p2: c1[0] < 0 < c1[1] and c2[0] < 0 < c2[1] and min(p1, p2) >= ALPHA),
 ]
 
 
@@ -1166,6 +1285,323 @@ def build_tie_rule(assets: Assets, prefix: str, directory: str) -> None:
     assets.define(f"sens.{prefix}.vblex.diff", num(row["mean_difference"], 5, signed=True))
 
 
+LITERAL_REVIEWS = [
+    "score_level_tabrepo_nested_review",
+    "score_level_tabrepo_score_only_review",
+    "score_level_tabrepo_grouped_review",
+    "score_level_tabrepo_grouped_score_only_review",
+    "score_level_tabrepo_grouped_inner_review",
+    "score_level_tabrepo_grouped_inner_score_only_review",
+    "attribution/inner_shared_tabrepo_score_only_review",
+]
+
+
+def build_literal_vb(assets: Assets) -> None:
+    """The literal validation-best reference on TabRepo (scripts/literal_validation_best.py)."""
+    root = assets.out / LITERAL_VB_ROOT
+    for prefix, name in [("tr", "tabrepo_units.json"), ("ta", "tabarena_units.json")]:
+        path = root / name
+        if not path.exists():
+            raise Missing(str(path))
+        meta = json.loads(path.read_text(encoding="utf-8"))
+        if not meta["stored_rows_reproduced"]:
+            raise ValueError(f"{name}: the runtime-term rule does not reproduce the stored rows")
+        assets.define(f"lvb.{prefix}.units", str(int(meta["n_units"])))
+        assets.define(f"lvb.{prefix}.agree", str(int(meta["n_units"]) - int(meta["units_with_other_choice"])))
+        assets.define(f"lvb.{prefix}.changed", str(int(meta["units_with_other_choice"])))
+        assets.define(f"lvb.{prefix}.testchanged", str(int(meta["units_with_other_test_error"])))
+    # Every validation-best contrast of the rebuilt reviews against the stored runtime-term ones.
+    shifts, changes, contrasts = [], 0, 0
+    for review in LITERAL_REVIEWS:
+        original = pd.read_csv(assets.out / review / "contrasts.csv")
+        rebuilt = assets.csv(f"{review}/contrasts.csv")
+        merged = original.merge(rebuilt, on=["family", "left", "right"], suffixes=("_o", "_l"), validate="one_to_one")
+        vb = merged[merged["left"].eq("meta_selector_single") | merged["right"].eq("meta_selector_single")]
+        contrasts += len(vb)
+        shifts.extend((vb["mean_difference_l"] - vb["mean_difference_o"]).abs().tolist())
+        for test in ["bootstrap_holm_p", "ttest_holm_p"]:
+            changes += int(((merged[f"{test}_o"] < ALPHA) != (merged[f"{test}_l"] < ALPHA)).sum())
+    assets.define("lvb.tr.contrasts", str(contrasts))
+    assets.define("lvb.tr.testchanges", str(changes))
+    assets.define("lvb.tr.maxshift", num(max(shifts), 4))
+    # The literal rule inside the pool instead of the runtime-term row.
+    summaries = {}
+    for path in sorted((root / "pool_substitution").glob("*/summary.json")):
+        summaries[path.parent.name] = json.loads(path.read_text(encoding="utf-8"))
+    if not summaries:
+        raise Missing(str(root / "pool_substitution"))
+    nested_splits = sorted({split for item in summaries.values() for split in item["nested_flip_splits"]})
+    assets.define("lvb.sub.runs", str(len(summaries)))
+    assets.define("lvb.sub.nested.flips", str(sum(int(item["nested_flips"]) for item in summaries.values())))
+    assets.define("lvb.sub.nested.split", ", ".join(str(split) for split in nested_splits))
+    assets.define("lvb.sub.nested.scoreonly.flips", str(int(summaries["score_only_nested"]["nested_flips"])))
+    assets.define("lvb.sub.tsf.scoreonly.flips", str(len(summaries["score_only_nested"]["train_selected_flips"]["score_only"])))
+    assets.define("lvb.sub.testchanges", str(sum(int(item["test_results_changed"]) for item in summaries.values())))
+    assets.define("lvb.sub.maxchange", num(max(float(item["max_abs_change_in_mean_difference"]) for item in summaries.values()), 4))
+    ties = assets.csv(f"{LITERAL_VB_ROOT}/tabarena_tie_convention.csv").set_index("rule")
+    for key, rule in [("vbdef", "validation-best among default"), ("vbtun", "validation-best among tuned"),
+                      ("vbte", "validation-best among tuned + ensemble")]:
+        assets.define(f"lvb.ta.{key}.changed", str(int(ties.loc[rule, "units_with_other_choice"])))
+
+
+def build_fresh_validation_tasks(assets: Assets) -> None:
+    """Task selection of the prespecified fresh-validation experiment (docs/fresh_validation_protocol.md)."""
+    summary_path = assets.out / "fresh_validation_tasks" / "catalogue_summary.json"
+    if not summary_path.exists():
+        raise Missing(str(summary_path))
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    assets.define("fv.catalogue", f"{int(summary['n_active_datasets']):,}")
+    assets.define("fv.eligible", str(int(summary["n_eligible"])))
+    root = Path(__file__).resolve().parents[1]
+    check = pd.read_csv(root / "configs" / "fresh_validation_source_check.csv", comment="#", dtype=str).fillna("")
+    if len(check) != int(summary["n_eligible"]):
+        raise ValueError("The source check does not cover every eligible dataset")
+    excluded = check[check["decision"].eq("exclude")]
+    for reason in ["S", "T", "D", "A", "M", "Q"]:
+        assets.define(f"fv.excl.{reason}", str(int(excluded["reason"].eq(reason).sum())))
+    assets.define("fv.included", str(int(check["decision"].eq("include").sum())))
+    tasks = pd.read_csv(root / "configs" / "fresh_validation_tasks.csv", comment="#", dtype=str).fillna("")
+    assets.define("fv.tasks", str(int(tasks["use"].eq("yes").sum())))
+    config = yaml.safe_load((root / "configs" / "fresh_validation_experiment.yaml").read_text(encoding="utf-8"))
+    assets.define("fv.configs", str(int(config["n_random_configurations"])))
+    assets.define("fv.reps", str(int(config["repetitions"])))
+
+
+FV_RULES = {
+    "validation_best_reused": ("reused", "Validation-best, reused scores"),
+    "validation_best_fresh": ("fresh", "Validation-best, fresh scores"),
+    "defaults_rule": ("dtt", "Defaults rule"),
+    "validation_best_defaults": ("vbdef", "Validation-best among defaults"),
+    "oracle": ("oracle", "Oracle bound"),
+}
+FV_ENDPOINTS = {"normalized_rank_regret": "", "median_error_regret": ".err", "log_loss_regret": ".ll"}
+FV_VARIANTS = {"default": "def", "tuned": "tun", "tuned + ensemble": "te",
+               "tuned + ensemble minus default": "tedef", "tuned minus default": "tundef", "tuned + ensemble minus tuned": "tetun"}
+FV_CONTRASTS = {
+    "C1": "C1: validation-best, reused $-$ fresh",
+    "C2": "C2: validation-best, reused $-$ defaults rule",
+    "S1": "Validation-best, fresh $-$ defaults rule",
+    "S2": "Validation-best among defaults $-$ reused",
+}
+FV_ENDPOINT_LABELS = {"normalized_rank_regret": "Rank regret", "median_error_regret": "Error regret", "log_loss_regret": "Log loss"}
+
+
+def fv_conclusion(bootstrap_holm_p: float, ttest_holm_p: float) -> str:
+    """The protocol's decision rule for a prespecified contrast of rules that fit nothing."""
+    rejects = (bootstrap_holm_p < ALPHA, ttest_holm_p < ALPHA)
+    if all(rejects):
+        return "difference supported"
+    if not any(rejects):
+        return "no difference detected"
+    return "difference unresolved"
+
+
+def build_fresh_validation(assets: Assets, prefix: str, directory: str) -> None:
+    """The prespecified fresh-validation experiment (scripts/fresh_validation_analysis.py)."""
+    path = assets.out / directory / "decisions.json"
+    if not path.exists():
+        raise Missing(str(path))
+    decisions = json.loads(path.read_text(encoding="utf-8"))
+    assets.define(f"{prefix}.n", str(int(decisions["n_datasets"])))
+    assets.define(f"{prefix}.units", str(int(decisions["n_units"])))
+    assets.define(f"{prefix}.same", percent(float(decisions["reused_and_fresh_choose_the_same_candidate"])))
+    assets.define(f"{prefix}.medianrows", f"{int(round(float(decisions['median_rows']))):,}")
+    assets.define(f"{prefix}.failed", str(int(decisions["run_metadata"].get("failed_configurations", 0))))
+    summary = assets.csv(f"{directory}/rule_summary.csv").set_index("rule")
+    shares = assets.csv(f"{directory}/selection_shares.csv")
+    rows = []
+    for rule, (key, label) in FV_RULES.items():
+        estimate, low, high = decisions["rank_regret"][rule]
+        assets.define(f"{prefix}.{key}.reg", num(estimate))
+        assets.define(f"{prefix}.{key}.regci", interval(low, high))
+        assets.define(f"{prefix}.{key}.err", num(float(summary.loc[rule, "median_error_regret"])))
+        assets.define(f"{prefix}.{key}.ll", num(float(summary.loc[rule, "log_loss_regret"]), 4))
+        mine = shares[shares["rule"].eq(rule)].set_index("variant")["share"]
+        chosen = {variant: float(mine.get(variant, 0.0)) for variant in ["default", "tuned", "tuned + ensemble"]}
+        for variant, share in chosen.items():
+            assets.define(f"{prefix}.{key}.share.{FV_VARIANTS[variant]}", percent(share))
+        assets.define(f"{prefix}.{key}.te", percent(chosen["tuned + ensemble"]))
+        rows.append([label, f"{num(estimate)} {interval(low, high)}", num(float(summary.loc[rule, "median_error_regret"])),
+                     num(float(summary.loc[rule, "log_loss_regret"]), 4), *(percent(share) for share in chosen.values())])
+    tables = "fresh_validation" if prefix == "fv" else f"fresh_validation_{prefix}"
+    assets.tables[tables] = tabular(
+        "lrrrrrr",
+        ["Rule", "Rank regret [95\\% CI]", "Error regret", "Log loss above best", "Default", "Tuned", "Tuned + ens."],
+        rows,
+    )
+    units = assets.csv(f"{directory}/unit_choices.csv")
+    oracle = units[units["rule"].eq("oracle")]
+    # Candidates tied for the best share their average rank, so the oracle's rank regret is
+    # positive wherever its choice is tied.
+    assets.define(f"{prefix}.oracle.tiedunits", str(int((oracle["normalized_rank_regret"] > 0).sum())))
+    candidates = int(units["n_candidates_unit"].max())
+    assets.define(f"{prefix}.k", str(candidates))
+    # Exploratory (not in the protocol): how the reuse tilts the choice within and across families.
+    choices = units.pivot_table(index=["dataset", "repetition"], columns="rule", values="family", aggfunc="first")
+    assets.define(f"{prefix}.x.samefamily", percent(float((choices["validation_best_reused"] == choices["validation_best_fresh"]).mean())))
+    for rule, key in [("validation_best_reused", "reused"), ("validation_best_fresh", "fresh"), ("oracle", "oracle")]:
+        assets.define(f"{prefix}.x.mlp.{key}", percent(float(units[units["rule"].eq(rule)]["family"].eq("mlp").mean())))
+    pool = pd.read_parquet(assets.out / Path(directory).parent / "candidates.parquet")
+    wide = pool.pivot_table(index=["dataset", "repetition", "family"], columns="variant",
+                            values=["construction_loss", "selection_loss", "test_loss"])
+    for column, key in [("construction_loss", "cv"), ("selection_loss", "sv"), ("test_loss", "test")]:
+        gap = wide[(column, "tuned + ensemble")] - wide[(column, "tuned")]
+        assets.define(f"{prefix}.x.te.{key}.better", percent(float((gap < 0).mean())))
+        assets.define(f"{prefix}.x.te.{key}.worse", percent(float((gap > 0).mean())))
+    metadata = decisions["run_metadata"]
+    assets.define(f"{prefix}.parts", f"{int(metadata['n_parts']):,}")
+    assets.define(f"{prefix}.corehours", str(int(round(float(metadata["job_seconds_this_invocation"]) / 3600))))
+    contrasts = assets.csv(f"{directory}/contrasts.csv")
+    for _, row in contrasts.iterrows():
+        base = f"{prefix}.{str(row['contrast']).lower()}{FV_ENDPOINTS[str(row['endpoint'])]}"
+        digits = 4 if row["endpoint"] != "log_loss_regret" else 4
+        assets.define(f"{base}.diff", num(float(row["mean_difference"]), digits, signed=True))
+        assets.define(f"{base}.ci", interval(float(row["ci_low"]), float(row["ci_high"]), digits))
+        assets.define_p(f"{base}.mholm", pvalue(float(row["bootstrap_holm_p"])))
+        assets.define_p(f"{base}.tholm", pvalue(float(row["ttest_holm_p"])))
+        assets.define_p(f"{base}.rp", pvalue(float(row["wilcoxon_p"])))
+        assets.define(f"{base}.wtl", f"{int(row['wins'])}/{int(row['ties'])}/{int(row['losses'])}")
+        for column in ["wins", "ties", "losses"]:
+            assets.define(f"{base}.{column}", str(int(row[column])))
+        if row["endpoint"] == "normalized_rank_regret":
+            # The mean difference in rank positions among the unit's candidates.
+            assets.define(f"{base}.rankpos", num(float(row["mean_difference"]) * (candidates - 1), 2, signed=True))
+            assets.define(f"{base}.tostci", interval(float(row["tost_90_ci_low"]), float(row["tost_90_ci_high"]), digits))
+            assets.define(f"{base}.mde80rank", num(float(row["mde80_bootstrap_rank_positions"]), 2))
+            assets.define(f"{base}.hl", num(float(row["hodges_lehmann_difference"]), digits, signed=True))
+    contrast_rows, endpoint_rows = [], []
+    for _, row in contrasts.iterrows():
+        conclusion = fv_conclusion(float(row["bootstrap_holm_p"]), float(row["ttest_holm_p"]))
+        name, endpoint = str(row["contrast"]), str(row["endpoint"])
+        if endpoint == "normalized_rank_regret" and name in decisions["decisions"]:
+            if not str(decisions["decisions"][name]["conclusion"]).startswith(conclusion):
+                raise ValueError(f"{name}: the analysis decided {decisions['decisions'][name]['conclusion']!r}, the builder {conclusion!r}")
+        else:
+            # Only the primary family on the primary endpoint is confirmatory (Section 3.4): a
+            # secondary comparison in which both tests reject is reported by that outcome and
+            # stays unresolved.
+            conclusion = {"difference supported": "unresolved: secondary, both tests reject",
+                          "no difference detected": "no difference detected",
+                          "difference unresolved": "unresolved: tests disagree"}[conclusion]
+        cells = [num(float(row["mean_difference"]), 4, signed=True) + " " + interval(float(row["ci_low"]), float(row["ci_high"]), 4),
+                 pvalue(float(row["bootstrap_holm_p"])), pvalue(float(row["ttest_holm_p"])),
+                 f"{int(row['wins'])}/{int(row['ties'])}/{int(row['losses'])}"]
+        if endpoint == "normalized_rank_regret":
+            contrast_rows.append([FV_CONTRASTS[name], *cells, conclusion.capitalize()])
+        endpoint_rows.append([FV_CONTRASTS[name], FV_ENDPOINT_LABELS[endpoint], *cells, pvalue(float(row["wilcoxon_p"])), conclusion.capitalize()])
+    assets.tables[f"{tables}_contrasts"] = tabular(
+        "lrrrrl",
+        ["Contrast", "Difference [95\\% CI]", "Bootstrap", "$t$", "W/T/L", "Conclusion"],
+        contrast_rows,
+        groups={0: "Primary family", 2: "Secondary family"},
+    )
+    endpoint_rows.sort(key=lambda cells: (list(FV_CONTRASTS.values()).index(cells[0]), list(FV_ENDPOINT_LABELS.values()).index(cells[1])))
+    assets.tables[f"{tables}_endpoints"] = tabular(
+        "llrrrrrl",
+        ["Contrast", "Endpoint", "Difference [95\\% CI]", "Bootstrap", "$t$", "W/T/L", "Wilcoxon", "Conclusion"],
+        endpoint_rows,
+    )
+    if prefix == "fv":
+        c2 = contrasts[contrasts["contrast"].eq("C2") & contrasts["endpoint"].eq("normalized_rank_regret")].iloc[0]
+        assets.define("fv.c2.neg.diff", num(-float(c2["mean_difference"]), 4, signed=True))
+        assets.define("fv.c2.neg.ci", interval(-float(c2["ci_high"]), -float(c2["ci_low"]), 4))
+        tabarena = printed_value(assets.numbers["ta.provenance_reference.dtt.vb.diff"])
+        assets.define("ta.dtt.vb.gap", num(abs(float(tabarena)), 4))
+        scores = assets.csv(f"{directory}/dataset_scores.csv").pivot_table(
+            index="dataset", columns="rule", values="normalized_rank_regret", aggfunc="first")
+        difference = scores["validation_best_reused"] - scores["validation_best_fresh"]
+        dropped = [float(difference.drop(task).mean()) for task in difference.index]
+        assets.define("fv.x.c1.loo.min", num(min(dropped), 4, signed=True))
+        assets.define("fv.x.c1.loo.max", num(max(dropped), 4, signed=True))
+    # The share of reused validation-best's regret that fresh scores remove.
+    assets.define(f"{prefix}.c1.relative", percent(float(decisions["decisions"]["C1"]["mean_difference"])
+                                                  / float(decisions["rank_regret"]["validation_best_reused"][0])))
+    for name, decision in decisions["decisions"].items():
+        base = f"{prefix}.{name.lower()}"
+        assets.define(f"{base}.bootrejects", "1" if decision["bootstrap_rejects"] else "0")
+        assets.define(f"{base}.trejects", "1" if decision["ttest_rejects"] else "0")
+        if "equivalence_margin" in decision:
+            assets.define(f"{base}.margin", num(float(decision["equivalence_margin"]), 4))
+            assets.define(f"{base}.equivalent", "1" if decision["equivalence_supported"] else "0")
+    offsets = assets.csv(f"{directory}/offsets.csv")
+    for _, row in offsets.iterrows():
+        kind = "reused" if row["offset"] == "reused_offset" else "fresh"
+        base = f"{prefix}.off.{kind}.{FV_VARIANTS[str(row['variant'])]}"
+        assets.define(base, num(float(row["mean"]), 4, signed=True))
+        assets.define(f"{base}.ci", interval(float(row["ci_low"]), float(row["ci_high"]), 4))
+        if pd.notna(row.get("datasets_above")):
+            assets.define(f"{base}.above", str(int(row["datasets_above"])))
+            assets.define(f"{base}.below", str(int(row["datasets_below"])))
+            assets.define_p(f"{base}.signp", pvalue(float(row["sign_test_p_unadjusted"])))
+    sizes = assets.csv(f"{directory}/by_size.csv")
+    for _, row in sizes.iterrows():
+        base = f"{prefix}.size.{row['half']}.{str(row['contrast']).lower()}"
+        assets.define(f"{base}.diff", num(float(row["mean_difference"]), 4, signed=True))
+        assets.define(f"{base}.ci", interval(float(row["ci_low"]), float(row["ci_high"]), 4))
+        assets.define(f"{prefix}.size.{row['half']}.n", str(int(row["n_datasets"])))
+
+
+GROUPED_INNER_DRIVER_SHA256 = "e471474f56e21e969e0ca7fe93c6a96a3d65bf2b88b1c2178c41c43e3fc62cfc"
+
+
+def build_frozen_fit(assets: Assets) -> None:
+    """The TabRepo frozen-fit check (scripts/tabrepo_frozen_fit.py): fold 0 declared, the others separate."""
+    meta_path = assets.out / "tabrepo_frozen_fit" / "metadata.json"
+    if not meta_path.exists():
+        raise Missing(str(meta_path))
+    meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    if int(meta["declared_fold"]) != 0 or int(meta["split_seed"]) != 20261022 or int(meta["repeats"]) != 1:
+        raise ValueError("The frozen-fit check does not match its declaration")
+    if meta["driver_sha256_now"] != GROUPED_INNER_DRIVER_SHA256:
+        raise ValueError("The fully grouped driver changed since its hash was recorded")
+    contrasts = assets.csv("tabrepo_frozen_fit/contrasts.csv")
+    choices = assets.csv("tabrepo_frozen_fit/fitted_choices.csv")
+    heldout = assets.csv("tabrepo_frozen_fit/heldout_datasets.csv")
+    fold0 = heldout[heldout["fold"].eq(0)]
+    assets.define("trff.n", str(int(fold0["dataset"].nunique())))
+    assets.define("trff.groups", str(int(fold0["group"].nunique())))
+    keys = {
+        ("ensemble", "train_selected_fixed_reference__ensemble_inclusive"): "e.tsfe",
+        ("ensemble", "train_selected_fixed_reference__score_only"): "e.tsfs",
+        ("ensemble", "meta_selector_single"): "e.vb",
+        ("ensemble", "meta_selector_family_prior_budgeted"): "e.fp",
+        ("score_only", "train_selected_fixed_reference__score_only"): "s.tsfs",
+        ("score_only", "meta_selector_single"): "s.vb",
+        ("score_only", "meta_selector_family_prior_budgeted"): "s.fp",
+    }
+    for _, row in contrasts[contrasts["fold"].eq(0)].iterrows():
+        base = f"trff.{keys[(row['pool'], row['right'])]}"
+        assets.define(f"{base}.diff", num(float(row["mean_difference"]), 4, signed=True))
+        assets.define(f"{base}.ci", interval(float(row["ci_low"]), float(row["ci_high"]), 4))
+        assets.define_p(f"{base}.mholm", pvalue(float(row["bootstrap_holm_p"])))
+        assets.define_p(f"{base}.tholm", pvalue(float(row["ttest_holm_p"])))
+        assets.define_p(f"{base}.cholm", pvalue(float(row["cluster_holm_p"])))
+        assets.define(f"{base}.wtl", f"{int(row['wins'])}/{int(row['ties'])}/{int(row['losses'])}")
+    ens_vb = contrasts[contrasts["pool"].eq("ensemble") & contrasts["right"].eq("meta_selector_single")]
+    assets.define("trff.e.vb.min", num(float(ens_vb["mean_difference"].min()), 4, signed=True))
+    assets.define("trff.e.vb.max", num(float(ens_vb["mean_difference"].max()), 4, signed=True))
+    tsfe = contrasts[contrasts["pool"].eq("ensemble") & contrasts["right"].eq("train_selected_fixed_reference__ensemble_inclusive")]
+    assets.define("trff.e.tsfe.allties", str(int((tsfe["ties"] == tsfe["n_datasets"]).sum())))
+    score_vb = contrasts[contrasts["pool"].eq("score_only") & contrasts["right"].eq("meta_selector_single")]
+    assets.define("trff.s.vb.rejectfolds", str(int(((score_vb["bootstrap_holm_p"] < ALPHA) | (score_vb["ttest_holm_p"] < ALPHA)).sum())))
+    score = choices[choices["pool"].eq("score_only")]
+    assets.define("trff.s.same", str(int((score["nested_choice"] == score["train_selected_score_only"]).sum())))
+    # The fold-0 choices that Appendix H names.
+    fold0_choices = choices[choices["fold"].eq(0)].set_index("pool")
+    stated = {
+        ("ensemble", "nested_choice"): "meta_selector_tabrepo_ensemble_k3",
+        ("ensemble", "train_selected_ensemble_inclusive"): "meta_selector_tabrepo_ensemble_k3",
+        ("score_only", "nested_choice"): "meta_selector_meta_feature_guard_002_k8_rt0",
+        ("score_only", "train_selected_score_only"): "meta_selector_family_prior_budgeted",
+    }
+    for (pool, column), value in stated.items():
+        if str(fold0_choices.loc[pool, column]) != value:
+            raise ValueError(f"Frozen fit, fold 0: {pool} {column} is {fold0_choices.loc[pool, column]}, the text says {value}")
+    ens = choices[choices["pool"].eq("ensemble")]
+    assets.define("trff.e.ethree", str(int(ens["nested_choice"].eq("meta_selector_tabrepo_ensemble_k3").sum())))
+    assets.define("trff.folds", str(int(choices["fold"].nunique())))
+
+
 def build_factorial(assets: Assets, prefix: str, directory: str) -> None:
     shapley = assets.csv(f"{directory}/factorial_shapley_given_validation.csv")
     interactions = assets.csv(f"{directory}/factorial_interactions_given_validation.csv")
@@ -1639,7 +2075,7 @@ def build_misc(assets: Assets) -> None:
 def build_overlap(assets: Assets) -> None:
     """TabRepo contrasts without the datasets that TabArena also contains."""
     contrasts = assets.csv("tabrepo_overlap_sensitivity/overlap_contrasts.csv")
-    metadata_path = assets.out / "tabrepo_overlap_sensitivity" / "metadata.json"
+    metadata_path = assets.path("tabrepo_overlap_sensitivity/metadata.json")
     pooled_path = assets.out / "pooled_cross_artifact" / "metadata.json"
     for path in [metadata_path, pooled_path]:
         if not path.exists():
@@ -2428,7 +2864,7 @@ def build_corrected(assets: Assets) -> None:
     )
     # The variance factor of the correction, 1/J + n_test/n_train, for the text.
     for prefix, folder, _ in CORRECTED_RUNS:
-        meta = json.loads((assets.out / folder / "metadata.json").read_text(encoding="utf-8"))
+        meta = json.loads(assets.path(f"{folder}/metadata.json").read_text(encoding="utf-8"))
         assets.define(f"{prefix}.nbfactor", num(float(meta["variance_factor"]), 2))
 
 
@@ -2587,7 +3023,7 @@ def build_error_space(assets: Assets) -> None:
             ]
         )
     for prefix, folder in [("ta.esm", "tabarena_error_space_median"), ("tr.esm", "tabrepo_error_space_median")]:
-        meta = json.loads((assets.out / folder / "metadata.json").read_text(encoding="utf-8"))
+        meta = json.loads(assets.path(f"{folder}/metadata.json").read_text(encoding="utf-8"))
         assets.define(f"{prefix}.nearbest", percent(meta["share_units_median_within_one_percent_of_best"]))
     assets.tables["error_space"] = tabular(
         "lllrrrrr",
@@ -2725,7 +3161,7 @@ def build_source_groups(assets: Assets) -> None:
     assets.define("trgrp.datasets", str(len(groups)))
     assets.define("trgrp.doc.groups", str(documented["documented_group"].nunique()))
     assets.define("trgrp.doc.datasets", str(len(documented)))
-    meta = json.loads((assets.out / "tabrepo_source_groups" / "metadata.json").read_text(encoding="utf-8"))
+    meta = json.loads(assets.path("tabrepo_source_groups/metadata.json").read_text(encoding="utf-8"))
     assets.define("trgrp.clusters", str(int(meta["n_clusters"]["group"])))
     assets.define("trgrp.doc.clusters", str(int(meta["n_clusters"]["documented_group"])))
     clusters = assets.csv("tabrepo_source_groups/cluster_contrasts.csv")
@@ -2785,7 +3221,7 @@ def build_grouped(assets: Assets) -> None:
     ensemble = comparison[comparison["panel"].eq("ensemble") & ~comparison["right"].eq("train_selected_fixed_reference__ensemble_inclusive")]
     tails = np.minimum(ensemble["share_subsets_at_or_below_grouped"], ensemble["share_subsets_at_or_above_grouped"])
     assets.define("trg.subset.mintail", percent(float(tails.min()), 1))
-    assets.define("trg.subsets", str(int(json.loads((assets.out / "tabrepo_grouped_comparison" / "metadata.json").read_text(encoding="utf-8"))["subsets"])))
+    assets.define("trg.subsets", str(int(json.loads(assets.path("tabrepo_grouped_comparison/metadata.json").read_text(encoding="utf-8"))["subsets"])))
     tests = assets.csv("tabrepo_grouped_comparison/grouped_vs_random_tests.csv")
     for _, row in tests.iterrows():
         prefix = "trg" if row["panel"] == "ensemble" else "trgs"
@@ -2859,7 +3295,7 @@ def build_grouped_inner(assets: Assets) -> None:
     keys = ["split_id", "dataset", "method"]
     rows = {}
     for run in ["score_level_tabrepo_grouped_score_only_review", "score_level_tabrepo_grouped_inner_score_only_review"]:
-        frame = pd.read_parquet(assets.out / run / "dataset_policy_scores.parquet", columns=keys + ["mean_normalized_rank_regret"])
+        frame = pd.read_parquet(assets.path(f"{run}/dataset_policy_scores.parquet"), columns=keys + ["mean_normalized_rank_regret"])
         rows[run] = frame[frame["method"].isin(references)]
     merged = rows["score_level_tabrepo_grouped_score_only_review"].merge(
         rows["score_level_tabrepo_grouped_inner_score_only_review"], on=keys, suffixes=("_outer", "_inner"), validate="one_to_one")
@@ -2898,7 +3334,7 @@ def build_construction(assets: Assets) -> None:
 def build_overlap_source(assets: Assets) -> None:
     """TabRepo without the datasets that share a name or a documented source with TabArena."""
     contrasts = assets.csv("tabrepo_overlap_sensitivity_source/overlap_contrasts.csv")
-    meta = json.loads((assets.out / "tabrepo_overlap_sensitivity_source" / "metadata.json").read_text(encoding="utf-8"))
+    meta = json.loads(assets.path("tabrepo_overlap_sensitivity_source/metadata.json").read_text(encoding="utf-8"))
     assets.define("ovls.excluded", str(int(meta["n_excluded"])))
     assets.define("ovls.n", str(int(next(iter(meta["panels"].values()))["n_kept"])))
     full = {
@@ -3183,6 +3619,11 @@ def run(args: argparse.Namespace) -> None:
     assets.section("tabrepo source overlap", lambda: build_overlap_source(assets))
     assets.section("tabrepo construction", lambda: build_construction(assets))
     assets.section("tabrepo grouped inner", lambda: build_grouped_inner(assets))
+    assets.section("literal validation-best", lambda: build_literal_vb(assets))
+    assets.section("fresh-validation tasks", lambda: build_fresh_validation_tasks(assets))
+    assets.section("fresh-validation pilot", lambda: build_fresh_validation(assets, "fvp", "fresh_validation_pilot/analysis"))
+    assets.section("fresh-validation experiment", lambda: build_fresh_validation(assets, "fv", "fresh_validation/analysis"))
+    assets.section("tabrepo frozen fit", lambda: build_frozen_fit(assets))
     assets.section("calibration design", lambda: build_calibration_design(assets))
     assets.section("calibration", lambda: build_calibration(assets))
     if assets.allow_missing and (root / "paper" / "main.tex").exists():

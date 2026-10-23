@@ -59,11 +59,20 @@ template for its own running claim.
   the test or interval and its unit, the multiplicity family and any equivalence criterion.
   A test of another target, such as a signed-rank test of the typical dataset, is reported
   as such. State each comparison's fitting status (an observation, a contrast between rules
-  that fit nothing, or one involving a procedure fitted on the evaluation datasets) and design
-  status (fixed before the outcomes were inspected, or specified after), and the conclusion
-  it supports: observed, difference supported, difference unresolved or no difference
-  detected. For procedures fitted on the evaluation datasets, say whether the interval
-  resamples their completed losses as if independent or accounts for refitting.
+  that fit nothing, one involving a procedure refitted on the evaluation datasets, or a
+  procedure fitted once and scored on held-out tasks) and design status (prespecified in a
+  public protocol, fixed during the analysis, or specified after the results). Report the
+  test outcome, which tests reject, apart from the conclusion it supports, the first that
+  applies: observed (an exact property); difference supported (every reported test rejects,
+  the uncertainty procedure is justified for the fitting and evaluation design, and the
+  comparison was prespecified as primary); no difference detected (no test rejects; for refitted
+  procedures the difference between them stays unresolved, and equivalence needs a justified
+  interval inside a margin fixed in advance); otherwise difference unresolved. Say which
+  estimand the claim targets: the difference realized on this artifact, the procedures
+  fitted once and evaluated on new tasks, or the procedures refitted on other collections;
+  for procedures fitted on the evaluation datasets, say whether the interval resamples their
+  completed losses as if independent or accounts for refitting. Requiring two tests to agree
+  is a conservative convention, not a test of validity.
 - **Declared when:** a test or interval is named with the unit it is computed over.
 - **Declaration:**
 
@@ -91,7 +100,9 @@ template for its own running claim.
   or single-model test predictions). Then say whether the candidates' offsets, test minus
   validation error, are comparable (homogeneous). An offset mixes selection optimism with
   construction effects; uniform documented provenance does not by itself establish
-  homogeneous offsets.
+  homogeneous offsets. Where possible, store or report a validation score that no
+  construction step used, and validation-best on it, so that the effect of reused validation
+  evidence can be checked with the candidates fixed.
 - **Declared when:** comparability is discussed or controlled. A general remark on
   overfitting does not suffice; the field does not apply when the selector reads no
   validation scores on the dataset where it chooses.
@@ -114,8 +125,9 @@ on the evaluation datasets; nesting cannot restore this once it is lost.
 - Is multiplicity handled when several contrasts are tested, and are test results compared
   only within families of the same size?
 - Are observations, contrasts between rules that fit nothing and contrasts involving fitted
-  procedures kept apart, and is a difference involving a fitted procedure, or a rule specified
-  after the outcomes were seen, reported as unresolved unless inference valid for it exists?
+  procedures kept apart, and is a difference involving a refitted procedure, or a rule
+  specified after the outcomes were seen, reported as unresolved unless inference valid for it
+  exists (for example a prespecified evaluation of procedures fitted once on held-out tasks)?
 - Are related datasets (variants of one source) grouped in the outer splits, in the
   training-side estimates and in the uncertainty estimate?
 - Were the selector's design or hyperparameters tuned on the evaluation datasets without

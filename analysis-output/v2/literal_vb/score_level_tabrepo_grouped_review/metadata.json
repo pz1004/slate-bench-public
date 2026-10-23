@@ -1,0 +1,35 @@
+{
+  "bootstrap_resamples": 10000,
+  "bootstrap_seed": 20260608,
+  "command": [
+    "scripts/literal_validation_best.py",
+    "review",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabrepo_grouped",
+    "--review-config",
+    "configs/review_tabrepo.yaml",
+    "--units",
+    "analysis-output/v2/literal_vb/tabrepo_units.parquet",
+    "--original-review",
+    "analysis-output/v2/score_level_tabrepo_grouped_review",
+    "--output-dir",
+    "analysis-output/v2/literal_vb/score_level_tabrepo_grouped_review"
+  ],
+  "config": "configs/review_tabrepo.yaml",
+  "literal_units": "analysis-output/v2/literal_vb/tabrepo_units.parquet",
+  "n_datasets": 200,
+  "nested_output": "analysis-output/v2/score_level_tabrepo_grouped",
+  "original_review": "analysis-output/v2/score_level_tabrepo_grouped_review",
+  "pool_row": "meta_selector_single_runtime",
+  "reference_row": "meta_selector_single",
+  "verification": {
+    "families_with_validation_best": [
+      "mechanism",
+      "primary"
+    ],
+    "holm_adjustments_moved": [],
+    "max_mean_gap_outside_reference": 0.0,
+    "train_selected_choices_identical": true,
+    "validation_best_contrasts": 5
+  }
+}

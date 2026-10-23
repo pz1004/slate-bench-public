@@ -1,0 +1,5 @@
+artifact,split_id,split_mode,selected_policy,n_train_datasets,n_heldout_datasets,train_mean_rank,train_mean_total_seconds,train_mean_normalized_rank_regret,heldout_mean_rank,heldout_tied_best_rate,heldout_mean_total_seconds,heldout_mean_rank_regret,heldout_mean_normalized_rank_regret,heldout_n_units
+TabRepo,0,group_task_stratified,meta_selector_tabrepo_ensemble_k3,150,50,215.50333333333333,655.3602231154866,0.1408675164660865,243.38,0.02,846.1892356502166,242.38,0.1590994110951895,150
+TabRepo,1,group_task_stratified,meta_selector_tabrepo_ensemble_k3,150,50,244.26444444444445,581.6644066104147,0.1597026842487467,157.09666666666666,0.0,1067.276685165432,156.09666666666666,0.1025939077472089,150
+TabRepo,2,group_task_stratified,meta_selector_tabrepo_ensemble_k3,150,50,214.8088888888889,797.9147326269714,0.1404941329485417,245.4633333333333,0.0066666666666666,418.5257071157623,244.4633333333333,0.1602195616478237,150
+TabRepo,3,group_task_stratified,meta_selector_tabrepo_ensemble_k3,150,50,215.31333333333333,777.3305426438036,0.140637626830074,243.95,0.0666666666666666,480.2782770652655,242.95,0.1597890800032268,150

@@ -110,4 +110,4 @@ Any change after publication (a bug fix, a failed task, a changed setting) is ad
 
 ## Deviations
 
-None so far.
+- **2026-10-22, run.** The main run used 18 worker processes instead of about 21 (Section 9), because the TabRepo frozen-fit check (Section 8) ran alongside it with 4. Fit times depend on the load and enter only the tie-breaks between candidates with equal validation log loss. The code, configuration and task list are as published (commit `bc9bca3`); the task list's `use` column was set by the automatic checks as the file states.

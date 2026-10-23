@@ -1,0 +1,37 @@
+task,n_datasets,method,label,metric,estimate,ci_low,ci_high
+binary,105,nested_policy_selected,Nested selection,mean_normalized_rank_regret,0.19333993852155731,0.16201081112021867,0.22645328710241175
+binary,105,train_selected_fixed_reference__ensemble_inclusive,Train-selected fixed rule (with ensembles),mean_normalized_rank_regret,0.19333993852155731,0.16201081112021867,0.22645328710241175
+binary,105,train_selected_fixed_reference__score_only,Train-selected fixed rule,mean_normalized_rank_regret,0.22232372515671198,0.1912578437987128,0.2551261292161928
+binary,105,meta_selector_tabrepo_ensemble_k3,Ensemble ($k = 3$),mean_normalized_rank_regret,0.19226103689847898,0.16100659811768828,0.22530907992496288
+binary,105,meta_selector_single,Validation-best,mean_normalized_rank_regret,0.23227526483798766,0.19404088728861074,0.2720870136621812
+binary,105,meta_selector_family_prior_budgeted,Family-prior rule,mean_normalized_rank_regret,0.22078462198181822,0.18976397855981092,0.25356024021066703
+binary,105,nested_policy_selected,Nested selection,mean_total_seconds,345.5308627814155,138.91891729346378,622.2963287219267
+binary,105,train_selected_fixed_reference__ensemble_inclusive,Train-selected fixed rule (with ensembles),mean_total_seconds,345.5308627814155,138.91891729346378,622.2963287219267
+binary,105,train_selected_fixed_reference__score_only,Train-selected fixed rule,mean_total_seconds,153.0195258922702,94.25153761016414,225.21831914048664
+binary,105,meta_selector_tabrepo_ensemble_k3,Ensemble ($k = 3$),mean_total_seconds,345.5308627814155,138.91891729346378,622.2963287219267
+binary,105,meta_selector_single,Validation-best,mean_total_seconds,150.25215326545566,77.41986691730962,238.91056210977874
+binary,105,meta_selector_family_prior_budgeted,Family-prior rule,mean_total_seconds,218.03650845238786,121.50808654416937,333.75101577297175
+multiclass,68,nested_policy_selected,Nested selection,mean_normalized_rank_regret,0.08228142795952942,0.058941771169326605,0.10744007901808476
+multiclass,68,train_selected_fixed_reference__ensemble_inclusive,Train-selected fixed rule (with ensembles),mean_normalized_rank_regret,0.08228142795952942,0.058941771169326605,0.10744007901808476
+multiclass,68,train_selected_fixed_reference__score_only,Train-selected fixed rule,mean_normalized_rank_regret,0.10596488575682081,0.08225425936619742,0.13030107691873555
+multiclass,68,meta_selector_tabrepo_ensemble_k3,Ensemble ($k = 3$),mean_normalized_rank_regret,0.08221265055828758,0.058853769555596326,0.10733902691661695
+multiclass,68,meta_selector_single,Validation-best,mean_normalized_rank_regret,0.09419459346862842,0.06897095172123284,0.12152913940288952
+multiclass,68,meta_selector_family_prior_budgeted,Family-prior rule,mean_normalized_rank_regret,0.09696148319497093,0.07468336243326286,0.11996798742686078
+multiclass,68,nested_policy_selected,Nested selection,mean_total_seconds,1267.172355099195,558.5988471464061,2122.6563256500326
+multiclass,68,train_selected_fixed_reference__ensemble_inclusive,Train-selected fixed rule (with ensembles),mean_total_seconds,1267.172355099195,558.5988471464061,2122.6563256500326
+multiclass,68,train_selected_fixed_reference__score_only,Train-selected fixed rule,mean_total_seconds,331.72304445784636,223.4462192787819,454.3662278232511
+multiclass,68,meta_selector_tabrepo_ensemble_k3,Ensemble ($k = 3$),mean_total_seconds,1267.172355099195,558.5988471464061,2122.6563256500326
+multiclass,68,meta_selector_single,Validation-best,mean_total_seconds,428.88268408889087,238.66025904944817,644.3652907231523
+multiclass,68,meta_selector_family_prior_budgeted,Family-prior rule,mean_total_seconds,590.3933266999582,371.56629234530067,838.5487774687423
+regression,27,nested_policy_selected,Nested selection,mean_normalized_rank_regret,0.12295497859091115,0.072030542269501,0.18094952138588488
+regression,27,train_selected_fixed_reference__ensemble_inclusive,Train-selected fixed rule (with ensembles),mean_normalized_rank_regret,0.12295497859091115,0.072030542269501,0.18094952138588488
+regression,27,train_selected_fixed_reference__score_only,Train-selected fixed rule,mean_normalized_rank_regret,0.14500079854329379,0.10304473392668344,0.18960885835472188
+regression,27,meta_selector_tabrepo_ensemble_k3,Ensemble ($k = 3$),mean_normalized_rank_regret,0.12248995971735546,0.0715708056299916,0.18054609778038944
+regression,27,meta_selector_single,Validation-best,mean_normalized_rank_regret,0.15243382936174965,0.08481697968370246,0.2310532915428481
+regression,27,meta_selector_family_prior_budgeted,Family-prior rule,mean_normalized_rank_regret,0.13407543550198497,0.09357232089895995,0.17842132644461603
+regression,27,nested_policy_selected,Nested selection,mean_total_seconds,672.7790559644424,146.27093551715006,1384.3578712427618
+regression,27,train_selected_fixed_reference__ensemble_inclusive,Train-selected fixed rule (with ensembles),mean_total_seconds,672.7790559644424,146.27093551715006,1384.3578712427618
+regression,27,train_selected_fixed_reference__score_only,Train-selected fixed rule,mean_total_seconds,235.30432489670244,124.55544593095924,380.4118512218931
+regression,27,meta_selector_tabrepo_ensemble_k3,Ensemble ($k = 3$),mean_total_seconds,672.7790559644424,146.27093551715006,1384.3578712427618
+regression,27,meta_selector_single,Validation-best,mean_total_seconds,294.81165988154027,126.30214324179067,500.3734409824771
+regression,27,meta_selector_family_prior_budgeted,Family-prior rule,mean_total_seconds,355.0877450223033,145.7818867512829,628.1585169255449

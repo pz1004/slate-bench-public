@@ -1,0 +1,31 @@
+{
+  "benchmark_config": "configs/score_level_tabrepo_nested.yaml",
+  "review_output": "analysis-output/v2/literal_vb/score_level_tabrepo_score_only_review",
+  "review_config": "configs/review_tabrepo_score_only.yaml",
+  "validation_best_reproduction_max_gap": 9.84455572616838e-17,
+  "n_datasets": 200,
+  "n_splits": 100,
+  "units_without_scale": 0,
+  "share_units_median_within_one_percent_of_best": 0.16166666666666665,
+  "family_offsets": true,
+  "scale": "median",
+  "tie_rule": "lexicographic",
+  "snr_n_train": 150,
+  "snr_reproduces_provenance_gap": null,
+  "command": [
+    "scripts/error_space_correction.py",
+    "--benchmark-config",
+    "configs/score_level_tabrepo_nested.yaml",
+    "--review-output",
+    "analysis-output/v2/literal_vb/score_level_tabrepo_score_only_review",
+    "--review-config",
+    "configs/review_tabrepo_score_only.yaml",
+    "--output-dir",
+    "analysis-output/v2/literal_vb/tabrepo_error_space_median",
+    "--family-offsets",
+    "--scale",
+    "median",
+    "--tie-rule",
+    "lexicographic"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "bootstrap_resamples": 10000,
+  "bootstrap_seed": 20260608,
+  "command": [
+    "scripts/literal_validation_best.py",
+    "substitute",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabrepo_grouped",
+    "--review-config",
+    "configs/review_tabrepo.yaml",
+    "--units",
+    "analysis-output/v2/literal_vb/tabrepo_units.parquet",
+    "--original-review",
+    "analysis-output/v2/score_level_tabrepo_grouped_review",
+    "--literal-review",
+    "analysis-output/v2/literal_vb/score_level_tabrepo_grouped_review",
+    "--output-dir",
+    "analysis-output/v2/literal_vb/pool_substitution/ensemble_grouped"
+  ],
+  "n_datasets": 200,
+  "nested_output": "analysis-output/v2/score_level_tabrepo_grouped",
+  "score_only": false
+}

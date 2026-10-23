@@ -1,0 +1,15 @@
+{
+  "nested_flips": 0,
+  "nested_flip_splits": [],
+  "nested_regret_ties_literal": [
+    3,
+    7,
+    14,
+    22
+  ],
+  "train_selected_flips": {
+    "score_only": []
+  },
+  "test_results_changed": 0,
+  "max_abs_change_in_mean_difference": 3.0884383402369e-05
+}

@@ -1,0 +1,55 @@
+{
+  "config": "configs/fresh_validation_experiment.yaml",
+  "tasks": "configs/fresh_validation_pilot_tasks.csv",
+  "protocol": "",
+  "sha256": {
+    "config": "a35265c0ad65c42904174788d3e4e2918432d9497c69f322df054703561d40cd",
+    "tasks": "50b3e160057ad0a96f070d8c1fab959a5f57879d3ae47760369a3231e85ad704",
+    "module": "e8fdeefe7fa5399ca78eb43dc64dd023b007a195d2d431e35e58b1606d9eac19",
+    "runner": "00b43e2bfe983958aa24113db6f4652728dd6c4b0c82cf163f6a7e4d218e6453"
+  },
+  "git_head": "bc9bca3fc2bc18e746107f2e31066321c6600ec4",
+  "git_status_short": "M scripts/build_paper_assets.py",
+  "repetitions": 2,
+  "n_tasks": 8,
+  "families": [
+    "hist_gradient_boosting",
+    "random_forest",
+    "extra_trees",
+    "logistic_regression",
+    "knn",
+    "mlp"
+  ],
+  "n_parts": 96,
+  "wall_seconds_this_invocation": 5880.647399663925,
+  "job_seconds_this_invocation": 29772.614441156387,
+  "failed_configurations": 0,
+  "python": "3.12.13",
+  "numpy": "2.4.6",
+  "pandas": "3.0.3",
+  "scikit-learn": "1.9.0",
+  "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+  "command": [
+    "scripts/fresh_validation_experiment.py",
+    "--config",
+    "configs/fresh_validation_experiment.yaml",
+    "--tasks",
+    "configs/fresh_validation_pilot_tasks.csv",
+    "--repetitions",
+    "2",
+    "--output-dir",
+    "analysis-output/v2/fresh_validation_pilot",
+    "--jobs",
+    "21",
+    "--resume"
+  ],
+  "n_random_configurations_used": {
+    "hist_gradient_boosting": 200,
+    "random_forest": 200,
+    "extra_trees": 200,
+    "logistic_regression": 200,
+    "knn": 200,
+    "mlp": 200
+  },
+  "note": "The pilot ran with 200 random configurations per family (configurations_searched.json). The runner hashed the configuration file when the pilot ended, after the file had been set to the protocol's 100, so sha256.config describes the protocol's file, not the pilot's settings. git_head is the HEAD when the pilot ended; the pilot started before the prespecification commit bc9bca3. sha256.module is likewise the published module; the pilot ran the version before it recorded prediction times, with the same computations otherwise."
+}

@@ -1,0 +1,22 @@
+{
+  "artifact": "TabArena",
+  "runtime_weight": 1e-06,
+  "n_units": 816,
+  "units_with_other_choice": 0,
+  "units_with_other_test_error": 0,
+  "units_with_other_rank_regret": 0,
+  "changed_units": [],
+  "stored_rows_reproduced": true,
+  "benchmark_config": "configs/score_level_tabarena.yaml",
+  "nested_output": "analysis-output/v2/score_level_tabarena",
+  "command": [
+    "scripts/literal_validation_best.py",
+    "units",
+    "--benchmark-config",
+    "configs/score_level_tabarena.yaml",
+    "--nested-output",
+    "analysis-output/v2/score_level_tabarena",
+    "--output",
+    "analysis-output/v2/literal_vb/tabarena_units.parquet"
+  ]
+}

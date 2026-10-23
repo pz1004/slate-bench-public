@@ -1,0 +1,52 @@
+policy,label,mean_loss,mcs_p_value,in_mcs_90,in_mcs_75,role
+meta_selector_tabrepo_ensemble_k3,Ensemble ($k = 3$),0.14542549012336223,1.0,True,True,pool
+nested_policy_selected,Nested selection,0.1462573302174543,0.857,True,True,procedure_or_reference
+train_selected_fixed_reference__ensemble_inclusive,Train-selected fixed rule (with ensembles),0.1462573302174543,0.857,True,True,procedure_or_reference
+meta_selector_tabrepo_ensemble_k5,Ensemble ($k = 5$),0.14626320165044654,0.857,True,True,pool
+meta_selector_tabrepo_ensemble_k10,Ensemble ($k = 10$),0.14632838710929552,0.857,True,True,pool
+meta_selector_meta_feature_guard_005_k8_rt0,"Guard ($\delta = 0.05$, $k = 8$, $\lambda = 0$)",0.16907125589975947,0.1079,True,False,pool
+meta_selector_meta_feature_guard_002_k12_rt0,"Guard ($\delta = 0.02$, $k = 12$, $\lambda = 0$)",0.16926100357190385,0.1079,True,False,pool
+meta_selector_meta_feature_guard_010_k4_rt0p03,"Guard ($\delta = 0.10$, $k = 4$, $\lambda = 0.03$)",0.16927164429974098,0.1079,True,False,pool
+meta_selector_meta_feature_guard_005_k12_rt0,"Guard ($\delta = 0.05$, $k = 12$, $\lambda = 0$)",0.1693447834709721,0.1079,True,False,pool
+meta_selector_meta_feature_guard_005_k4_rt0,"Guard ($\delta = 0.05$, $k = 4$, $\lambda = 0$)",0.1693521056255275,0.1079,True,False,pool
+meta_selector_meta_feature_guard_005,Guard ($\delta = 0.05$),0.1693565880517723,0.1079,True,False,pool
+meta_selector_meta_feature_guard_005_k4_rt0p03,"Guard ($\delta = 0.05$, $k = 4$, $\lambda = 0.03$)",0.1693671099954681,0.1079,True,False,pool
+meta_selector_meta_feature_guard_010,Guard ($\delta = 0.10$),0.1693804234541744,0.1079,True,False,pool
+meta_selector_meta_feature_guard_020_k4_rt0p1,"Guard ($\delta = 0.20$, $k = 4$, $\lambda = 0.1$)",0.16939452332387867,0.1079,True,False,pool
+meta_selector_meta_feature_guard_010_k4_rt0,"Guard ($\delta = 0.10$, $k = 4$, $\lambda = 0$)",0.16943132433933275,0.1079,True,False,pool
+meta_selector_meta_feature_guard_010_k8_rt0,"Guard ($\delta = 0.10$, $k = 8$, $\lambda = 0$)",0.1694553576879305,0.1079,True,False,pool
+meta_selector_meta_feature_guard_005_k12_rt0p03,"Guard ($\delta = 0.05$, $k = 12$, $\lambda = 0.03$)",0.1694715350788335,0.1079,True,False,pool
+meta_selector_meta_feature_guard_020_k8_rt0p1,"Guard ($\delta = 0.20$, $k = 8$, $\lambda = 0.1$)",0.16952895090004247,0.1079,True,False,pool
+meta_selector_meta_feature_guard_010_k8_rt0p1,"Guard ($\delta = 0.10$, $k = 8$, $\lambda = 0.1$)",0.1695791056849538,0.1079,True,False,pool
+meta_selector_meta_feature_guard_020_k4_rt0,"Guard ($\delta = 0.20$, $k = 4$, $\lambda = 0$)",0.16959223492889447,0.1079,True,False,pool
+meta_selector_meta_feature_guard_020_k4_rt0p03,"Guard ($\delta = 0.20$, $k = 4$, $\lambda = 0.03$)",0.16959223492889447,0.1079,True,False,pool
+meta_selector_meta_feature_guard_010_k12_rt0,"Guard ($\delta = 0.10$, $k = 12$, $\lambda = 0$)",0.16959958459407823,0.1079,True,False,pool
+meta_selector_meta_feature_guard_020_k12_rt0p1,"Guard ($\delta = 0.20$, $k = 12$, $\lambda = 0.1$)",0.16960075661713966,0.1079,True,False,pool
+meta_selector_meta_feature_guard_020,Guard ($\delta = 0.20$),0.16961311219050504,0.1079,True,False,pool
+meta_selector_meta_feature_guard_020_k8_rt0,"Guard ($\delta = 0.20$, $k = 8$, $\lambda = 0$)",0.16962353571475344,0.1079,True,False,pool
+meta_selector_meta_feature_guard_020_k12_rt0p03,"Guard ($\delta = 0.20$, $k = 12$, $\lambda = 0.03$)",0.16962353571475344,0.1079,True,False,pool
+meta_selector_meta_feature_guard_010_k12_rt0p03,"Guard ($\delta = 0.10$, $k = 12$, $\lambda = 0.03$)",0.16963166883814634,0.1079,True,False,pool
+meta_selector_task_adaptive_budgeted,Task-adaptive,0.16963395923900182,0.1079,True,False,pool
+meta_selector_meta_feature_guard_020_k12_rt0,"Guard ($\delta = 0.20$, $k = 12$, $\lambda = 0$)",0.16963395923900182,0.1079,True,False,pool
+meta_selector_meta_feature_guard_002_k4_rt0,"Guard ($\delta = 0.02$, $k = 4$, $\lambda = 0$)",0.16965903720048822,0.1079,True,False,pool
+meta_selector_meta_feature_guard_002_k8_rt0,"Guard ($\delta = 0.02$, $k = 8$, $\lambda = 0$)",0.16970987384376626,0.1079,True,False,pool
+meta_selector_meta_feature_guard_010_k4_rt0p1,"Guard ($\delta = 0.10$, $k = 4$, $\lambda = 0.1$)",0.17005813878682344,0.1079,True,False,pool
+meta_selector_meta_feature_guard_010_k12_rt0p1,"Guard ($\delta = 0.10$, $k = 12$, $\lambda = 0.1$)",0.17015280308906522,0.1079,True,False,pool
+meta_selector_family_prior_budgeted_5000s,Family-prior (5000 s),0.17093522181547754,0.1079,True,False,pool
+meta_selector_family_prior_budgeted,Family-prior rule,0.17096396032892064,0.1079,True,False,pool
+meta_selector_family_prior_budgeted_1000s,Family-prior (1000 s),0.17152873288151352,0.1079,True,False,pool
+meta_selector_single_runtime,meta_selector_single_runtime,0.17460156456205386,0.1079,True,False,pool
+meta_selector_ablate_validation_only,Validation rank,0.17531499381864857,0.1079,True,False,pool
+meta_selector_family_prior_budgeted_100s,Family-prior (100 s),0.17661403341438583,0.1079,True,False,pool
+meta_selector_meta_feature_guard_002_k8_rt0p1,"Guard ($\delta = 0.02$, $k = 8$, $\lambda = 0.1$)",0.17732319223943796,0.1079,True,False,pool
+meta_selector_meta_feature_guard_002_k4_rt0p1,"Guard ($\delta = 0.02$, $k = 4$, $\lambda = 0.1$)",0.17735249340531456,0.0934,False,False,pool
+meta_selector_meta_feature_guard_002_k12_rt0p1,"Guard ($\delta = 0.02$, $k = 12$, $\lambda = 0.1$)",0.17788033949137105,0.09,False,False,pool
+meta_selector_meta_feature_guard_002,Guard ($\delta = 0.02$),0.17131650388562325,0.0843,False,False,pool
+meta_selector_meta_feature_guard_005_k12_rt0p1,"Guard ($\delta = 0.05$, $k = 12$, $\lambda = 0.1$)",0.1771313401813607,0.075,False,False,pool
+meta_selector_meta_feature_guard_002_k12_rt0p03,"Guard ($\delta = 0.02$, $k = 12$, $\lambda = 0.03$)",0.17198688511373061,0.065,False,False,pool
+meta_selector_meta_feature_guard_005_k8_rt0p1,"Guard ($\delta = 0.05$, $k = 8$, $\lambda = 0.1$)",0.1770172147716719,0.0628,False,False,pool
+meta_selector_meta_feature_guard_005_k4_rt0p1,"Guard ($\delta = 0.05$, $k = 4$, $\lambda = 0.1$)",0.17658598365590436,0.0598,False,False,pool
+meta_selector_family_prior_budgeted_500s,Family-prior (500 s),0.17590281495790716,0.0554,False,False,pool
+meta_selector_meta_feature_guard_002_k4_rt0p03,"Guard ($\delta = 0.02$, $k = 4$, $\lambda = 0.03$)",0.17246321210595297,0.037,False,False,pool
+train_selected_fixed_reference__score_only,Train-selected fixed rule,0.17515136329047876,0.0042,False,False,procedure_or_reference
+meta_selector_calibrated_budget_10000s,Calibrated rule,0.18108140110744939,0.0042,False,False,pool

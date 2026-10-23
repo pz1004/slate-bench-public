@@ -1,0 +1,26 @@
+{
+  "bootstrap_resamples": 10000,
+  "bootstrap_seed": 20260608,
+  "command": [
+    "scripts/literal_validation_best.py",
+    "substitute",
+    "--nested-output",
+    "analysis-output/v2/attribution/inner_shared_tabrepo",
+    "--score-only",
+    "--stored-splits",
+    "analysis-output/v2/attribution/inner_shared_tabrepo_score_only/split_results.csv",
+    "--review-config",
+    "configs/review_tabrepo_score_only.yaml",
+    "--units",
+    "analysis-output/v2/literal_vb/tabrepo_units.parquet",
+    "--original-review",
+    "analysis-output/v2/attribution/inner_shared_tabrepo_score_only_review",
+    "--literal-review",
+    "analysis-output/v2/literal_vb/attribution/inner_shared_tabrepo_score_only_review",
+    "--output-dir",
+    "analysis-output/v2/literal_vb/pool_substitution/score_only_attribution_inner_shared"
+  ],
+  "n_datasets": 200,
+  "nested_output": "analysis-output/v2/attribution/inner_shared_tabrepo",
+  "score_only": true
+}
