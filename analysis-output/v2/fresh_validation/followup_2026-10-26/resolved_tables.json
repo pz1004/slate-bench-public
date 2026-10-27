@@ -1,0 +1,124 @@
+{
+  "model_contribution_appendix": "D",
+  "tables": [
+    {
+      "label": "tab:fresh_cohorts",
+      "number": "1",
+      "label_page": "4",
+      "page": "4",
+      "caption_tex": "Frozen-candidate comparisons under four eligibility selections. Positive C1 means higher rank regret from reused evidence; positive C2 favours the defaults rule. Intervals are unadjusted 95\\% dataset-bootstrap intervals; $p$-values are Holm-adjusted within C1/C2 separately for each test and cohort, not across cohorts. Only the original analysis retains its historical design status; all changed cohorts are post hoc eligibility corrections."
+    },
+    {
+      "label": "tab:claims",
+      "number": "2",
+      "label_page": "6",
+      "page": "6",
+      "caption_tex": "Supporting artifact findings and their limits. Detailed estimates, tests and design status are consolidated in Table\\nonbreakingspace \\ref {tab:claims_detail}."
+    },
+    {
+      "label": "tab:declaration",
+      "number": "3",
+      "label_page": "7",
+      "page": "7",
+      "caption_tex": "Nine-field declaration for the supporting TabArena comparison of nested selection with validation-best. Appendix\\nonbreakingspace \\ref {sec:audit_configuration} supplies the full settings."
+    },
+    {
+      "label": "tab:claims_detail",
+      "number": "4",
+      "label_page": "12",
+      "page": "12",
+      "caption_tex": "Detailed central comparisons and their inferential limits."
+    },
+    {
+      "label": "tab:provenance",
+      "number": "5",
+      "label_page": "21",
+      "page": "21",
+      "caption_tex": "Documented provenance of the candidates at two levels: selection across configurations or ensemble weights, and the construction of validation and test predictions. Sources: TabArena's Section\\nonbreakingspace 2.1 and Appendices\\nonbreakingspace A.1 and C.1--C.4 \\blx@tocontentsinit {0}\\parencite {tabarena}; TabRepo's Section\\nonbreakingspace 3 and Appendix\\nonbreakingspace E \\blx@tocontentsinit {0}\\parencite {tabrepo}, which document 1310 of the slice's 1530 configurations; and a check of the analysed slice's prediction vectors (Appendix\\nonbreakingspace \\ref {app:tabrepo_details}). TabRepo's paper describes every model as bagged, which TabArena's paper contradicts for RandomForest and ExtraTrees, and the slice for these and KNN. ``Inferred'' marks what the sources do not state."
+    },
+    {
+      "label": "tab:clustered_main",
+      "number": "6",
+      "label_page": "24",
+      "page": "24",
+      "caption_tex": "TabArena results over 51 datasets, with 95\\% bootstrap intervals from the shared resample matrix, under the working independence approximation (Appendix\\nonbreakingspace \\ref {sec:inference}); rows are defined in Table\\nonbreakingspace \\ref {tab:policy_glossary} and Appendix\\nonbreakingspace \\ref {sec:rq2}. Gap closed is $(\\bar  \\Delta _{\\mathrm  {SBS}}-\\bar  \\Delta _p)/(\\bar  \\Delta _{\\mathrm  {SBS}}-\\bar  \\Delta _{\\mathrm  {oracle}})$ in mean rank regret, with SBS the global single best solver, and error regret is the max--min normalized test error. Runtime is the recorded fit-plus-prediction time of the selected candidate (Appendix\\nonbreakingspace \\ref {sec:endpoints})."
+    },
+    {
+      "label": "tab:tabrepo",
+      "number": "7",
+      "label_page": "28",
+      "page": "28",
+      "caption_tex": "TabRepo results over 200 datasets for both pools, with 95\\% bootstrap intervals under the working independence approximation (Appendix\\nonbreakingspace \\ref {sec:inference}). Error regret is the max--min normalized test error; ``outperforms all'' is the share of units in which the output outperforms every candidate. Ensemble runtimes sum their five eligible members (Appendix\\nonbreakingspace \\ref {app:scoring_components})."
+    },
+    {
+      "label": "tab:audit_configuration",
+      "number": "8",
+      "label_page": "33",
+      "page": "33",
+      "caption_tex": "Settings of the audit beyond the nine fields of the running claim (Table\\nonbreakingspace \\ref {tab:declaration})."
+    },
+    {
+      "label": "tab:corrected_tests",
+      "number": "9",
+      "label_page": "34",
+      "page": "34",
+      "caption_tex": "The dataset bootstrap and the corrected resampled $t$-test for the contrasts discussed in Appendices\\nonbreakingspace \\ref {app:tabarena_results} and\\nonbreakingspace \\ref {app:tabrepo_results}: nested selection minus each reference, the standard error (SE) of each method and Holm adjustment within the contrast families of this appendix. The corrected 90\\% CI is the $t$ interval at the corrected SE behind the equivalence results. The extended pool adds four descriptor policies; the reduced pool has eight policies (Appendix\\nonbreakingspace \\ref {app:objective_task_sensitivity})."
+    },
+    {
+      "label": "tab:policy_glossary",
+      "number": "10",
+      "label_page": "35",
+      "page": "35",
+      "caption_tex": "Policy rows and their pool membership. ``Pool'' rows compete in the nested choice; ``fixed pool'' rows form the reference pool of the train-selected fixed rule; ``added later'' rows were specified after the main results were known."
+    },
+    {
+      "label": "tab:design_status",
+      "number": "11",
+      "label_page": "37",
+      "page": "37",
+      "caption_tex": "Design status of every analysis, with the sections that report it. The original experiment was prespecified; its eligibility corrections are post hoc."
+    },
+    {
+      "label": "tab:comparator_pool_sweep",
+      "number": "12",
+      "label_page": "38",
+      "page": "38",
+      "caption_tex": "Reference-pool sweep on TabArena: train-selected references over five pools (the row without a parenthesis uses the declared fixed pool, and ``fixed and adaptive rows'' the 13-row pool described under Reference pool below), and nested selection minus each."
+    },
+    {
+      "label": "tab:imputed_stages",
+      "number": "13",
+      "label_page": "40",
+      "page": "40",
+      "caption_tex": "Nested selection on TabArena without the imputed result rows, in three stages scored on the same reduced candidate sets: the main run's choices rescored, the main run's fitted rules reapplied, and the procedure refitted. Regret is normalized rank regret; Holm adjustment is within the primary family."
+    },
+    {
+      "label": "tab:calibration_coverage",
+      "number": "14",
+      "label_page": "47",
+      "page": "47",
+      "caption_tex": "Coverage of $\\theta $ by 95\\% intervals at 20 outer splits (SE ratio in parentheses), over 100 base replicates and 50 per other scenario. Adequacy-rule labels: $^{-}$ anti-conservative, $^{?}$ inconclusive, none adequate; the conservative label is unreachable with these numbers of replicates, so SE ratios above one mark intervals wider than needed. ``Corrected'' is the audit's corrected test; with task weights, its split statistics weight each task by its share of the datasets."
+    },
+    {
+      "label": "tab:cohort_tasks",
+      "number": "15",
+      "label_page": "47",
+      "page": "47",
+      "caption_tex": "Eligibility of all originally trained tasks. Full source citations, retained features and rationales are in the hashed audit register."
+    },
+    {
+      "label": "tab:fresh_endpoints",
+      "number": "16",
+      "label_page": "49",
+      "page": "49",
+      "caption_tex": "The verified cohort's post hoc contrasts on all three endpoints. C1/C2 are defined in Section\\nonbreakingspace \\ref {sec:fresh}; S1 is fresh validation-best minus the defaults rule, and S2 is validation-best among defaults minus reused validation-best. On each endpoint C1/C2 and the secondary contrasts retain separate Holm families. Rejections do not confer confirmatory status (Appendix\\nonbreakingspace \\ref {sec:inference}). Holm-adjusted $p$-values of the bootstrap and paired $t$-tests over tasks, unadjusted Wilcoxon $p$, and win/tie/loss counts (a win: the left rule has the lower regret). Error regret: the chosen candidate's test log loss minus the unit's best, over the median candidate's minus the best; log loss: the chosen candidate's test log loss minus the unit's best."
+    },
+    {
+      "label": "tab:fresh",
+      "number": "17",
+      "label_page": "50",
+      "page": "50",
+      "caption_tex": "Verified-cohort choices: mean rank regret and its 95\\% interval, median-normalized error regret, test log loss above the unit's best, and shares choosing each variant. The oracle's positive rank regret reflects average ranks for ties. All results use only the 11 verified tasks."
+    }
+  ]
+}

@@ -1,0 +1,276 @@
+dataset,repetition,rule,candidate,family,variant,test_loss,candidate_rank,n_candidates,normalized_rank_regret,median_error_regret,log_loss_regret,n_candidates_unit
+Cardiovascular-Disease-dataset,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5322768562427989,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.551572338879176,3.0,18,0.11764705882352941,0.16330276982612624,0.0026951176923947218,18
+Cardiovascular-Disease-dataset,2,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5413658638031292,4.0,18,0.17647058823529413,0.09100474669716963,0.0008574013968456473,18
+Cardiovascular-Disease-dataset,3,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5314501769677915,2.0,18,0.058823529411764705,0.05738788813704285,0.0008304577612636699,18
+Cardiovascular-Disease-dataset,4,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5488626383122713,1.0,18,0.0,0.0,0.0,18
+HMEQ_Data_New,0,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.23019764394104683,11.0,18,0.5882352941176471,1.464728245740461,0.03640139068130477,18
+HMEQ_Data_New,1,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19248567755811705,1.0,18,0.0,0.0,0.0,18
+HMEQ_Data_New,2,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.1902742146869461,3.0,18,0.11764705882352941,0.13775146877954483,0.004432882014686584,18
+HMEQ_Data_New,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.21215400923438504,4.0,18,0.17647058823529413,0.42660610026251694,0.014186882764817443,18
+HMEQ_Data_New,4,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19157105758300222,1.0,18,0.0,0.0,0.0,18
+KDD98,0,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.3545368092599076,1.0,18,0.0,0.0,0.0,18
+KDD98,1,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35340893757612657,1.0,18,0.0,0.0,0.0,18
+KDD98,2,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35309890808743843,1.0,18,0.0,0.0,0.0,18
+KDD98,3,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35424395602403863,1.0,18,0.0,0.0,0.0,18
+KDD98,4,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35604749658263,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5696664209355782,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,1,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5575271267452412,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,2,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.578399781070422,2.0,18,0.058823529411764705,0.014658393128249321,0.0014328791163622512,18
+Otto-Group-Product-Classification-Challenge,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5640478363047825,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,4,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5564274892581075,1.0,18,0.0,0.0,0.0,18
+Pumpkin_Seeds,0,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.3151529596333682,6.0,18,0.29411764705882354,0.6702144004711234,0.00952250131992044,18
+Pumpkin_Seeds,1,validation_best_reused,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.25858370314209694,6.0,18,0.29411764705882354,0.651858515811301,0.01672160207182921,18
+Pumpkin_Seeds,2,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.34597799314147243,8.0,18,0.4117647058823529,0.7131338182523514,0.01841360588212193,18
+Pumpkin_Seeds,3,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.2988372288381795,4.0,18,0.17647058823529413,0.3503718723553527,0.005852469099318303,18
+Pumpkin_Seeds,4,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.3310757768605348,8.0,18,0.4117647058823529,0.9640008113392035,0.02464962268083215,18
+Santander_Customer_Satisfaction,0,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.13564231889549877,2.0,18,0.058823529411764705,0.0012312368049525251,1.1100390883228561e-05,18
+Santander_Customer_Satisfaction,1,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.13308668348951494,2.0,18,0.058823529411764705,0.01012414786110859,0.00012247627796266314,18
+Santander_Customer_Satisfaction,2,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.1318947366468388,2.0,18,0.058823529411764705,0.014043298960726492,0.0001792811500310465,18
+Santander_Customer_Satisfaction,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.12931203735716915,3.0,18,0.11764705882352941,0.12360512602585581,0.001860167009661684,18
+Santander_Customer_Satisfaction,4,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.13810295819509644,1.0,18,0.0,0.0,0.0,18
+South_Asian_Churn_dataset,0,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.536663968365882,4.0,18,0.17647058823529413,0.1937877169533446,0.0033375549514378378,18
+South_Asian_Churn_dataset,1,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5680951862906748,10.0,18,0.5294117647058824,1.297414355138179,0.0376327150961272,18
+South_Asian_Churn_dataset,2,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.545189253935034,7.0,18,0.35294117647058826,0.6477740202646214,0.02107598187748616,18
+South_Asian_Churn_dataset,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5513177501612492,3.0,18,0.11764705882352941,0.5961054282499592,0.007971121773016066,18
+South_Asian_Churn_dataset,4,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.515731304910065,1.0,18,0.0,0.0,0.0,18
+banknote-authentication,0,validation_best_reused,knn (tuned),knn,tuned,1.1102230246251571e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+banknote-authentication,1,validation_best_reused,knn (tuned),knn,tuned,0.12559555052694904,16.5,18,0.9117647058823529,4.748273726443334,0.12559539332650782,18
+banknote-authentication,2,validation_best_reused,mlp (tuned),mlp,tuned,1.8970557033336219e-06,1.5,18,0.029411764705882353,0.0,0.0,18
+banknote-authentication,3,validation_best_reused,knn (tuned),knn,tuned,0.004018823672965971,3.5,18,0.14705882352941177,0.13544647637365084,0.004018580552948072,18
+banknote-authentication,4,validation_best_reused,mlp (tuned),mlp,tuned,1.3014011802629489e-06,1.5,18,0.029411764705882353,0.0,0.0,18
+compas-two-years,0,validation_best_reused,random_forest (tuned),random_forest,tuned,0.6103469730779594,7.5,18,0.38235294117647056,0.886335734911045,0.006014385854499982,18
+compas-two-years,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.6039931795753669,1.0,18,0.0,0.0,0.0,18
+compas-two-years,2,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6119980830283372,3.0,18,0.11764705882352941,0.2115019126685517,0.0014737302733451862,18
+compas-two-years,3,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6227940108271574,3.0,18,0.11764705882352941,0.3632147670393427,0.0029820824413919755,18
+compas-two-years,4,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6101478394943515,9.0,18,0.47058823529411764,0.9551905066945746,0.0044909065049848484,18
+hepatitis_c_virus_hcv_for_egyptian_patients,0,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,1.4041507696965045,10.0,18,0.5294117647058824,1.0654587066381032,0.025526720415121495,18
+hepatitis_c_virus_hcv_for_egyptian_patients,1,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,1.3990631980452,9.0,18,0.47058823529411764,0.6478435252268118,0.011424846577329895,18
+hepatitis_c_virus_hcv_for_egyptian_patients,2,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,1.3749840686241552,2.0,18,0.058823529411764705,0.12389565371746568,0.0027281514052479583,18
+hepatitis_c_virus_hcv_for_egyptian_patients,3,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,1.4013557179540108,6.0,18,0.29411764705882354,0.7046531099040473,0.014032740891614992,18
+hepatitis_c_virus_hcv_for_egyptian_patients,4,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,1.4076824641393246,9.0,18,0.47058823529411764,0.8202215045587067,0.021004913506149192,18
+law-school-admission-bianry,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5303381935855728,2.0,18,0.058823529411764705,0.15581467009465375,0.001978598528332709,18
+law-school-admission-bianry,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5377917906174149,2.0,18,0.058823529411764705,0.050706254966213254,0.0006593631257658661,18
+law-school-admission-bianry,2,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5343312279544241,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5269698484449984,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,4,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.534749833512859,3.0,18,0.11764705882352941,0.17107696720233326,0.0021367248266316308,18
+Cardiovascular-Disease-dataset,0,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5369302128683172,6.0,18,0.29411764705882354,0.24464674102671485,0.004653356625518357,18
+Cardiovascular-Disease-dataset,1,validation_best_fresh,random_forest (tuned),random_forest,tuned,0.5490213480250514,2.0,18,0.058823529411764705,0.008732944005455798,0.00014412683827014217,18
+Cardiovascular-Disease-dataset,2,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5405084624062836,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,3,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5306197192065278,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,4,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.5505603704738066,2.0,18,0.058823529411764705,0.10426119531945317,0.001697732161535237,18
+HMEQ_Data_New,0,validation_best_fresh,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19380452526854858,3.0,18,0.11764705882352941,0.0003328511554405703,8.272008806514686e-06,18
+HMEQ_Data_New,1,validation_best_fresh,extra_trees (default),extra_trees,default,0.19354297300660012,2.5,18,0.08823529411764706,0.037464081928008826,0.0010572954484830699,18
+HMEQ_Data_New,2,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.18584133267225952,1.0,18,0.0,0.0,0.0,18
+HMEQ_Data_New,3,validation_best_fresh,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19840029431850117,2.0,18,0.058823529411764705,0.013025556766489086,0.0004331678489335744,18
+HMEQ_Data_New,4,validation_best_fresh,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19157105758300222,1.0,18,0.0,0.0,0.0,18
+KDD98,0,validation_best_fresh,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.3545368092599076,1.0,18,0.0,0.0,0.0,18
+KDD98,1,validation_best_fresh,extra_trees (tuned),extra_trees,tuned,0.3537900270217934,4.0,18,0.17647058823529413,0.07073435185718202,0.0003810894456668379,18
+KDD98,2,validation_best_fresh,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35309890808743843,1.0,18,0.0,0.0,0.0,18
+KDD98,3,validation_best_fresh,random_forest (tuned),random_forest,tuned,0.35473612582104164,4.0,18,0.17647058823529413,0.06990226592096371,0.0004921697970030059,18
+KDD98,4,validation_best_fresh,extra_trees (tuned),extra_trees,tuned,0.3561630980086537,2.0,18,0.058823529411764705,0.02282200888749772,0.00011560142602368151,18
+Otto-Group-Product-Classification-Challenge,0,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5696664209355782,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,1,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5598458834507173,2.0,18,0.058823529411764705,0.022704905278111465,0.0023187567054760994,18
+Otto-Group-Product-Classification-Challenge,2,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.578399781070422,2.0,18,0.058823529411764705,0.014658393128249321,0.0014328791163622512,18
+Otto-Group-Product-Classification-Challenge,3,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5786272857480194,3.0,18,0.11764705882352941,0.1482859766606668,0.014579449443236858,18
+Otto-Group-Product-Classification-Challenge,4,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5564274892581075,1.0,18,0.0,0.0,0.0,18
+Pumpkin_Seeds,0,validation_best_fresh,random_forest (tuned),random_forest,tuned,0.30777282612608736,3.0,18,0.11764705882352941,0.15078451668294213,0.0021423678126396006,18
+Pumpkin_Seeds,1,validation_best_fresh,mlp (tuned),mlp,tuned,0.2579935827839013,5.0,18,0.23529411764705882,0.6288538432212554,0.016131481713633544,18
+Pumpkin_Seeds,2,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.34597799314147243,8.0,18,0.4117647058823529,0.7131338182523514,0.01841360588212193,18
+Pumpkin_Seeds,3,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.2988372288381795,4.0,18,0.17647058823529413,0.3503718723553527,0.005852469099318303,18
+Pumpkin_Seeds,4,validation_best_fresh,logistic_regression (tuned),logistic_regression,tuned,0.33991211606317845,13.0,18,0.7058823529411765,1.3095735720630735,0.0334859618834758,18
+Santander_Customer_Satisfaction,0,validation_best_fresh,random_forest (tuned),random_forest,tuned,0.13563121850461554,1.0,18,0.0,0.0,0.0,18
+Santander_Customer_Satisfaction,1,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.13308668348951494,2.0,18,0.058823529411764705,0.01012414786110859,0.00012247627796266314,18
+Santander_Customer_Satisfaction,2,validation_best_fresh,random_forest (tuned),random_forest,tuned,0.13344940771808753,3.0,18,0.11764705882352941,0.13582247449233206,0.001733952221279783,18
+Santander_Customer_Satisfaction,3,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.12831533268196968,2.0,18,0.058823529411764705,0.05737569267460191,0.0008634623344622172,18
+Santander_Customer_Satisfaction,4,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.13863302761557728,4.0,18,0.17647058823529413,0.05291786384877939,0.0005300694204808387,18
+South_Asian_Churn_dataset,0,validation_best_fresh,random_forest (default),random_forest,default,0.5372741654074261,5.0,18,0.23529411764705882,0.22921745318033027,0.003947751992981918,18
+South_Asian_Churn_dataset,1,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5304624711945476,1.0,18,0.0,0.0,0.0,18
+South_Asian_Churn_dataset,2,validation_best_fresh,random_forest (tuned),random_forest,tuned,0.5265949242567739,2.0,18,0.058823529411764705,0.07627401804270874,0.0024816521992260254,18
+South_Asian_Churn_dataset,3,validation_best_fresh,random_forest (default),random_forest,default,0.55356045212078,5.0,18,0.23529411764705882,0.7638216983173387,0.010213823732546867,18
+South_Asian_Churn_dataset,4,validation_best_fresh,logistic_regression (default),logistic_regression,default,0.5484606128473938,12.0,18,0.6470588235294118,1.281224871831682,0.032729307937328755,18
+banknote-authentication,0,validation_best_fresh,mlp (tuned),mlp,tuned,1.4058795428615818e-05,3.5,18,0.14705882352941177,0.0005824831081461414,1.4058795427505595e-05,18
+banknote-authentication,1,validation_best_fresh,knn (tuned),knn,tuned,0.12559555052694904,16.5,18,0.9117647058823529,4.748273726443334,0.12559539332650782,18
+banknote-authentication,2,validation_best_fresh,mlp (tuned),mlp,tuned,1.8970557033336219e-06,1.5,18,0.029411764705882353,0.0,0.0,18
+banknote-authentication,3,validation_best_fresh,mlp (tuned),mlp,tuned,2.4312001789860357e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+banknote-authentication,4,validation_best_fresh,mlp (tuned),mlp,tuned,1.3014011802629489e-06,1.5,18,0.029411764705882353,0.0,0.0,18
+compas-two-years,0,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6043325872234594,1.0,18,0.0,0.0,0.0,18
+compas-two-years,1,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6080466908436372,8.0,18,0.4117647058823529,0.6619011038877679,0.004053511268270249,18
+compas-two-years,2,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6119980830283372,3.0,18,0.11764705882352941,0.2115019126685517,0.0014737302733451862,18
+compas-two-years,3,validation_best_fresh,mlp (tuned),mlp,tuned,0.6198119283857654,1.0,18,0.0,0.0,0.0,18
+compas-two-years,4,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6101478394943515,9.0,18,0.47058823529411764,0.9551905066945746,0.0044909065049848484,18
+hepatitis_c_virus_hcv_for_egyptian_patients,0,validation_best_fresh,logistic_regression (tuned),logistic_regression,tuned,1.3833022160168513,4.0,18,0.17647058823529413,0.19526180403718377,0.004678166735468281,18
+hepatitis_c_virus_hcv_for_egyptian_patients,1,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,1.38763835146787,1.0,18,0.0,0.0,0.0,18
+hepatitis_c_virus_hcv_for_egyptian_patients,2,validation_best_fresh,logistic_regression (tuned),logistic_regression,tuned,1.3849359517308677,3.0,18,0.11764705882352941,0.5758482326154388,0.012680034511960425,18
+hepatitis_c_virus_hcv_for_egyptian_patients,3,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,1.4012375243801496,5.0,18,0.23529411764705882,0.69871802779605,0.013914547317753767,18
+hepatitis_c_virus_hcv_for_egyptian_patients,4,validation_best_fresh,extra_trees (tuned),extra_trees,tuned,1.394506253186356,4.5,18,0.20588235294117646,0.30570324343551536,0.007828702553180467,18
+law-school-admission-bianry,0,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.5283595950572401,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,1,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.537132427491649,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,2,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5343312279544241,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,3,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5269698484449984,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,4,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5326131086862274,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5344638062755873,5.0,18,0.23529411764705882,0.11497726079620312,0.0021869500327884595,18
+Cardiovascular-Disease-dataset,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5536093018087453,5.0,18,0.23529411764705882,0.28672657776241284,0.004732080621964063,18
+Cardiovascular-Disease-dataset,2,validation_best_defaults,mlp (default),mlp,default,0.5442995119549803,8.0,18,0.4117647058823529,0.4023827173186544,0.00379104954869669,18
+Cardiovascular-Disease-dataset,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.533942744385799,6.0,18,0.29411764705882354,0.2296340719056079,0.0033230251792711885,18
+Cardiovascular-Disease-dataset,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5559584879247482,6.0,18,0.29411764705882354,0.43577059984238503,0.00709584961247689,18
+HMEQ_Data_New,0,validation_best_defaults,extra_trees (default),extra_trees,default,0.19379625325974206,1.5,18,0.029411764705882353,0.0,0.0,18
+HMEQ_Data_New,1,validation_best_defaults,extra_trees (default),extra_trees,default,0.19354297300660012,2.5,18,0.08823529411764706,0.037464081928008826,0.0010572954484830699,18
+HMEQ_Data_New,2,validation_best_defaults,extra_trees (default),extra_trees,default,0.19112541747267908,4.5,18,0.20588235294117646,0.16420253009258715,0.005284084800419558,18
+HMEQ_Data_New,3,validation_best_defaults,extra_trees (default),extra_trees,default,0.20070682752120406,3.0,18,0.11764705882352941,0.08238407273106023,0.002739701051636456,18
+HMEQ_Data_New,4,validation_best_defaults,extra_trees (default),extra_trees,default,0.1918782561360196,2.5,18,0.08823529411764706,0.010096122452634254,0.0003071985530173904,18
+KDD98,0,validation_best_defaults,extra_trees (default),extra_trees,default,0.36065423372052213,10.0,18,0.5294117647058824,1.0578609233515466,0.006117424460614529,18
+KDD98,1,validation_best_defaults,extra_trees (default),extra_trees,default,0.3583344268708534,9.0,18,0.47058823529411764,0.9142244604343465,0.004925489294726804,18
+KDD98,2,validation_best_defaults,extra_trees (default),extra_trees,default,0.36128434062578074,12.0,18,0.6470588235294118,1.3092161269180511,0.008185432538342308,18
+KDD98,3,validation_best_defaults,extra_trees (default),extra_trees,default,0.3609174279592121,8.0,18,0.4117647058823529,0.9478249430769843,0.006673471935173481,18
+KDD98,4,validation_best_defaults,extra_trees (default),extra_trees,default,0.3642257401760274,12.0,18,0.6470588235294118,1.6145471071818867,0.00817824359339736,18
+Otto-Group-Product-Classification-Challenge,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.6022029452109187,4.0,18,0.17647058823529413,0.29540803098662016,0.032536524275340484,18
+Otto-Group-Product-Classification-Challenge,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5896620338834134,5.0,18,0.23529411764705882,0.31466001627941353,0.03213490713817224,18
+Otto-Group-Product-Classification-Challenge,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.6096759151171818,4.0,18,0.17647058823529413,0.3346141124586745,0.032709013163122025,18
+Otto-Group-Product-Classification-Challenge,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5955371675204947,4.0,18,0.17647058823529413,0.3202745242125151,0.03148933121571218,18
+Otto-Group-Product-Classification-Challenge,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5965575141545071,4.0,18,0.17647058823529413,0.36110561972069677,0.04013002489639961,18
+Pumpkin_Seeds,0,validation_best_defaults,mlp (default),mlp,default,0.3161859222101685,7.0,18,0.35294117647058826,0.742916558324445,0.01055546389672074,18
+Pumpkin_Seeds,1,validation_best_defaults,mlp (default),mlp,default,0.2541432545051918,4.0,18,0.17647058823529413,0.47875642633712845,0.012281153434924086,18
+Pumpkin_Seeds,2,validation_best_defaults,mlp (default),mlp,default,0.3406501309070974,7.0,18,0.35294117647058826,0.5067929873121525,0.013085743647746895,18
+Pumpkin_Seeds,3,validation_best_defaults,mlp (default),mlp,default,0.30667125589376687,8.0,18,0.4117647058823529,0.8193743875276861,0.013686496154905692,18
+Pumpkin_Seeds,4,validation_best_defaults,mlp (default),mlp,default,0.3318576802395955,9.0,18,0.47058823529411764,0.9945795955081599,0.02543152605989285,18
+Santander_Customer_Satisfaction,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.14121765079497106,7.0,18,0.35294117647058826,0.6196377331768707,0.00558643229035552,18
+Santander_Customer_Satisfaction,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.1374476461381306,7.0,18,0.35294117647058826,0.3706105327005964,0.00448343892657832,18
+Santander_Customer_Satisfaction,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.13485916381704674,5.0,18,0.23529411764705882,0.2462502933453647,0.003143708320238997,18
+Santander_Customer_Satisfaction,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.13397537698008255,7.0,18,0.35294117647058826,0.43347659390895343,0.006523506632575088,18
+Santander_Customer_Satisfaction,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.1440472130128879,8.0,18,0.4117647058823529,0.5934265493847896,0.005944254817791456,18
+South_Asian_Churn_dataset,0,validation_best_defaults,random_forest (default),random_forest,default,0.5372741654074261,5.0,18,0.23529411764705882,0.22921745318033027,0.003947751992981918,18
+South_Asian_Churn_dataset,1,validation_best_defaults,mlp (default),mlp,default,0.5847864150208681,13.0,18,0.7058823529411765,1.8728562201253858,0.05432394382632055,18
+South_Asian_Churn_dataset,2,validation_best_defaults,random_forest (default),random_forest,default,0.5306132314681342,4.0,18,0.17647058823529413,0.19977739890971014,0.006499959410586342,18
+South_Asian_Churn_dataset,3,validation_best_defaults,random_forest (default),random_forest,default,0.55356045212078,5.0,18,0.23529411764705882,0.7638216983173387,0.010213823732546867,18
+South_Asian_Churn_dataset,4,validation_best_defaults,random_forest (default),random_forest,default,0.5253511827531274,5.0,18,0.23529411764705882,0.3765807324772904,0.009619877843062397,18
+banknote-authentication,0,validation_best_defaults,knn (default),knn,default,0.001857547722786527,5.0,18,0.23529411764705882,0.07696179780672792,0.0018575477227854168,18
+banknote-authentication,1,validation_best_defaults,knn (default),knn,default,0.12884127490970115,18.0,18,1.0,4.87098195165533,0.12884111770925993,18
+banknote-authentication,2,validation_best_defaults,extra_trees (default),extra_trees,default,0.028388461365708075,10.0,18,0.5294117647058824,1.0782739405860444,0.02838656431000474,18
+banknote-authentication,3,validation_best_defaults,knn (default),knn,default,0.007623807307574818,5.0,18,0.23529411764705882,0.2569526460917709,0.007623564187556919,18
+banknote-authentication,4,validation_best_defaults,extra_trees (default),extra_trees,default,0.02170219464491675,8.0,18,0.4117647058823529,0.7818408228157543,0.021700893243736488,18
+compas-two-years,0,validation_best_defaults,mlp (default),mlp,default,0.6080287019313851,2.0,18,0.058823529411764705,0.5446937767575681,0.003696114707925746,18
+compas-two-years,1,validation_best_defaults,mlp (default),mlp,default,0.6115942431051355,10.0,18,0.5294117647058824,1.2411837560332855,0.007601063529768637,18
+compas-two-years,2,validation_best_defaults,mlp (default),mlp,default,0.613589966209814,6.0,18,0.29411764705882354,0.4399605008625724,0.003065613454821925,18
+compas-two-years,3,validation_best_defaults,mlp (default),mlp,default,0.6227011769249435,2.0,18,0.058823529411764705,0.351907687228965,0.0028892485391781575,18
+compas-two-years,4,validation_best_defaults,mlp (default),mlp,default,0.612539552350199,12.0,18,0.6470588235294118,1.4638943534812054,0.006882619360832343,18
+hepatitis_c_virus_hcv_for_egyptian_patients,0,validation_best_defaults,extra_trees (default),extra_trees,default,1.406196934814275,13.0,18,0.7058823529411765,1.150863506177349,0.027572885532892055,18
+hepatitis_c_virus_hcv_for_egyptian_patients,1,validation_best_defaults,random_forest (default),random_forest,default,1.411483893904091,10.0,18,0.5294117647058824,1.3521564747731882,0.023845542436220946,18
+hepatitis_c_virus_hcv_for_egyptian_patients,2,validation_best_defaults,random_forest (default),random_forest,default,1.4078873868721449,14.0,18,0.7647058823529411,1.6181595409660472,0.0356314696532376,18
+hepatitis_c_virus_hcv_for_egyptian_patients,3,validation_best_defaults,random_forest (default),random_forest,default,1.416357184607387,11.0,18,0.5882352941176471,1.4579507166987262,0.029034207544991197,18
+hepatitis_c_virus_hcv_for_egyptian_patients,4,validation_best_defaults,random_forest (default),random_forest,default,1.4232753952211914,12.0,18,0.6470588235294118,1.4291103432918348,0.03659784458801596,18
+law-school-admission-bianry,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.534099843126429,3.0,18,0.11764705882352941,0.45204463985720095,0.005740248069188936,18
+law-school-admission-bianry,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5428743627266372,4.0,18,0.17647058823529413,0.4415655359656587,0.005741935234988227,18
+law-school-admission-bianry,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5410267452514489,6.0,18,0.29411764705882354,0.5560840849523839,0.006695517297024778,18
+law-school-admission-bianry,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5314355582886104,3.0,18,0.11764705882352941,0.29767642417573065,0.0044657098436120535,18
+law-school-admission-bianry,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.536006107924773,4.0,18,0.17647058823529413,0.2716606332343069,0.0033929992385456353,18
+Cardiovascular-Disease-dataset,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5322768562427989,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.551572338879176,3.0,18,0.11764705882352941,0.16330276982612624,0.0026951176923947218,18
+Cardiovascular-Disease-dataset,2,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5413658638031292,4.0,18,0.17647058823529413,0.09100474669716963,0.0008574013968456473,18
+Cardiovascular-Disease-dataset,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5306197192065278,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5510510261150499,3.0,18,0.11764705882352941,0.13439335915853476,0.002188387802778524,18
+HMEQ_Data_New,0,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19380452526854858,3.0,18,0.11764705882352941,0.0003328511554405703,8.272008806514686e-06,18
+HMEQ_Data_New,1,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19248567755811705,1.0,18,0.0,0.0,0.0,18
+HMEQ_Data_New,2,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.1902742146869461,3.0,18,0.11764705882352941,0.13775146877954483,0.004432882014686584,18
+HMEQ_Data_New,3,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19840029431850117,2.0,18,0.058823529411764705,0.013025556766489086,0.0004331678489335744,18
+HMEQ_Data_New,4,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19157105758300222,1.0,18,0.0,0.0,0.0,18
+KDD98,0,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.3545368092599076,1.0,18,0.0,0.0,0.0,18
+KDD98,1,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35340893757612657,1.0,18,0.0,0.0,0.0,18
+KDD98,2,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35309890808743843,1.0,18,0.0,0.0,0.0,18
+KDD98,3,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35424395602403863,1.0,18,0.0,0.0,0.0,18
+KDD98,4,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35604749658263,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5696664209355782,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5598458834507173,2.0,18,0.058823529411764705,0.022704905278111465,0.0023187567054760994,18
+Otto-Group-Product-Classification-Challenge,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.578399781070422,2.0,18,0.058823529411764705,0.014658393128249321,0.0014328791163622512,18
+Otto-Group-Product-Classification-Challenge,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5640478363047825,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5564274892581075,1.0,18,0.0,0.0,0.0,18
+Pumpkin_Seeds,0,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.3151529596333682,6.0,18,0.29411764705882354,0.6702144004711234,0.00952250131992044,18
+Pumpkin_Seeds,1,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.26076812380044934,7.0,18,0.35294117647058826,0.7370138258195466,0.018906022730181604,18
+Pumpkin_Seeds,2,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.34597799314147243,8.0,18,0.4117647058823529,0.7131338182523514,0.01841360588212193,18
+Pumpkin_Seeds,3,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.2988372288381795,4.0,18,0.17647058823529413,0.3503718723553527,0.005852469099318303,18
+Pumpkin_Seeds,4,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.3310757768605348,8.0,18,0.4117647058823529,0.9640008113392035,0.02464962268083215,18
+Santander_Customer_Satisfaction,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.13713664709003706,3.0,18,0.11764705882352941,0.16697962270851924,0.00150542858542152,18
+Santander_Customer_Satisfaction,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.13359393857600804,5.0,18,0.23529411764705882,0.05205492486039951,0.0006297313644557656,18
+Santander_Customer_Satisfaction,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.1318947366468388,2.0,18,0.058823529411764705,0.014043298960726492,0.0001792811500310465,18
+Santander_Customer_Satisfaction,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.12931203735716915,3.0,18,0.11764705882352941,0.12360512602585581,0.001860167009661684,18
+Santander_Customer_Satisfaction,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.13810295819509644,1.0,18,0.0,0.0,0.0,18
+South_Asian_Churn_dataset,0,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.536663968365882,4.0,18,0.17647058823529413,0.1937877169533446,0.0033375549514378378,18
+South_Asian_Churn_dataset,1,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5680951862906748,10.0,18,0.5294117647058824,1.297414355138179,0.0376327150961272,18
+South_Asian_Churn_dataset,2,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.5267184167985134,3.0,18,0.11764705882352941,0.08006958309397395,0.002605144740965515,18
+South_Asian_Churn_dataset,3,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.5539360667749554,6.0,18,0.29411764705882354,0.7919113374748024,0.010589438386722327,18
+South_Asian_Churn_dataset,4,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.5200514486521058,3.0,18,0.11764705882352941,0.16911679351086337,0.004320143742040816,18
+banknote-authentication,0,defaults_rule,knn (tuned + ensemble),knn,tuned + ensemble,1.1102230246251571e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+banknote-authentication,1,defaults_rule,knn (tuned + ensemble),knn,tuned + ensemble,0.12559555052694904,16.5,18,0.9117647058823529,4.748273726443334,0.12559539332650782,18
+banknote-authentication,2,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.02426719280006766,8.5,18,0.4411764705882353,0.9217260594139555,0.024265295744364326,18
+banknote-authentication,3,defaults_rule,knn (tuned + ensemble),knn,tuned + ensemble,0.004018823672965971,3.5,18,0.14705882352941177,0.13544647637365084,0.004018580552948072,18
+banknote-authentication,4,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.018149679035347692,6.5,18,0.3235294117647059,0.653850620013713,0.01814837763416743,18
+compas-two-years,0,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6043325872234594,1.0,18,0.0,0.0,0.0,18
+compas-two-years,1,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6080466908436372,8.0,18,0.4117647058823529,0.6619011038877679,0.004053511268270249,18
+compas-two-years,2,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6119980830283372,3.0,18,0.11764705882352941,0.2115019126685517,0.0014737302733451862,18
+compas-two-years,3,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6227940108271574,3.0,18,0.11764705882352941,0.3632147670393427,0.0029820824413919755,18
+compas-two-years,4,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6101478394943515,9.0,18,0.47058823529411764,0.9551905066945746,0.0044909065049848484,18
+hepatitis_c_virus_hcv_for_egyptian_patients,0,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,1.3814927311935146,3.0,18,0.11764705882352941,0.11973579332365732,0.002868681912131521,18
+hepatitis_c_virus_hcv_for_egyptian_patients,1,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.3949244359149142,6.0,18,0.29411764705882354,0.4131558880308831,0.00728608444704415,18
+hepatitis_c_virus_hcv_for_egyptian_patients,2,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.4021461146110752,11.0,18,0.5882352941176471,1.3574266950591574,0.029890197392167916,18
+hepatitis_c_virus_hcv_for_egyptian_patients,3,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.4004789550087626,4.0,18,0.17647058823529413,0.6606265194617673,0.013155977946366804,18
+hepatitis_c_virus_hcv_for_egyptian_patients,4,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.3963440265540281,7.0,18,0.35294117647058826,0.37746651140749427,0.00966647592085268,18
+law-school-admission-bianry,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5303381935855728,2.0,18,0.058823529411764705,0.15581467009465375,0.001978598528332709,18
+law-school-admission-bianry,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5377917906174149,2.0,18,0.058823529411764705,0.050706254966213254,0.0006593631257658661,18
+law-school-admission-bianry,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5343312279544241,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5269698484449984,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5326131086862274,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,0,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5322768562427989,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,1,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.5488772211867813,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,2,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5405084624062836,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,3,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5306197192065278,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,4,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5488626383122713,1.0,18,0.0,0.0,0.0,18
+HMEQ_Data_New,0,oracle,extra_trees (default),extra_trees,default,0.19379625325974206,1.5,18,0.029411764705882353,0.0,0.0,18
+HMEQ_Data_New,1,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19248567755811705,1.0,18,0.0,0.0,0.0,18
+HMEQ_Data_New,2,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.18584133267225952,1.0,18,0.0,0.0,0.0,18
+HMEQ_Data_New,3,oracle,extra_trees (tuned),extra_trees,tuned,0.1979671264695676,1.0,18,0.0,0.0,0.0,18
+HMEQ_Data_New,4,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19157105758300222,1.0,18,0.0,0.0,0.0,18
+KDD98,0,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.3545368092599076,1.0,18,0.0,0.0,0.0,18
+KDD98,1,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35340893757612657,1.0,18,0.0,0.0,0.0,18
+KDD98,2,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35309890808743843,1.0,18,0.0,0.0,0.0,18
+KDD98,3,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35424395602403863,1.0,18,0.0,0.0,0.0,18
+KDD98,4,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35604749658263,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,0,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5696664209355782,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,1,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5575271267452412,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,2,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5769669019540598,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,3,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5640478363047825,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,4,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5564274892581075,1.0,18,0.0,0.0,0.0,18
+Pumpkin_Seeds,0,oracle,extra_trees (tuned),extra_trees,tuned,0.30563045831344776,1.0,18,0.0,0.0,0.0,18
+Pumpkin_Seeds,1,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.24186210107026773,1.0,18,0.0,0.0,0.0,18
+Pumpkin_Seeds,2,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.3275643872593505,1.0,18,0.0,0.0,0.0,18
+Pumpkin_Seeds,3,oracle,random_forest (tuned),random_forest,tuned,0.2929847597388612,1.0,18,0.0,0.0,0.0,18
+Pumpkin_Seeds,4,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.30642615417970265,1.0,18,0.0,0.0,0.0,18
+Santander_Customer_Satisfaction,0,oracle,random_forest (tuned),random_forest,tuned,0.13563121850461554,1.0,18,0.0,0.0,0.0,18
+Santander_Customer_Satisfaction,1,oracle,extra_trees (tuned),extra_trees,tuned,0.13296420721155228,1.0,18,0.0,0.0,0.0,18
+Santander_Customer_Satisfaction,2,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.13171545549680774,1.0,18,0.0,0.0,0.0,18
+Santander_Customer_Satisfaction,3,oracle,random_forest (tuned),random_forest,tuned,0.12745187034750746,1.0,18,0.0,0.0,0.0,18
+Santander_Customer_Satisfaction,4,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.13810295819509644,1.0,18,0.0,0.0,0.0,18
+South_Asian_Churn_dataset,0,oracle,random_forest (tuned),random_forest,tuned,0.5333264134144442,1.0,18,0.0,0.0,0.0,18
+South_Asian_Churn_dataset,1,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5304624711945476,1.0,18,0.0,0.0,0.0,18
+South_Asian_Churn_dataset,2,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5241132720575479,1.0,18,0.0,0.0,0.0,18
+South_Asian_Churn_dataset,3,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5433466283882331,1.0,18,0.0,0.0,0.0,18
+South_Asian_Churn_dataset,4,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.515731304910065,1.0,18,0.0,0.0,0.0,18
+banknote-authentication,0,oracle,knn (tuned),knn,tuned,1.1102230246251571e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+banknote-authentication,1,oracle,mlp (tuned),mlp,tuned,1.5720044122973208e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+banknote-authentication,2,oracle,mlp (tuned),mlp,tuned,1.8970557033336219e-06,1.5,18,0.029411764705882353,0.0,0.0,18
+banknote-authentication,3,oracle,mlp (tuned),mlp,tuned,2.4312001789860357e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+banknote-authentication,4,oracle,mlp (tuned),mlp,tuned,1.3014011802629489e-06,1.5,18,0.029411764705882353,0.0,0.0,18
+compas-two-years,0,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6043325872234594,1.0,18,0.0,0.0,0.0,18
+compas-two-years,1,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.6039931795753669,1.0,18,0.0,0.0,0.0,18
+compas-two-years,2,oracle,random_forest (tuned),random_forest,tuned,0.6105243527549921,1.0,18,0.0,0.0,0.0,18
+compas-two-years,3,oracle,mlp (tuned),mlp,tuned,0.6198119283857654,1.0,18,0.0,0.0,0.0,18
+compas-two-years,4,oracle,logistic_regression (tuned),logistic_regression,tuned,0.6056569329893666,1.0,18,0.0,0.0,0.0,18
+hepatitis_c_virus_hcv_for_egyptian_patients,0,oracle,extra_trees (tuned),extra_trees,tuned,1.378624049281383,1.0,18,0.0,0.0,0.0,18
+hepatitis_c_virus_hcv_for_egyptian_patients,1,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,1.38763835146787,1.0,18,0.0,0.0,0.0,18
+hepatitis_c_virus_hcv_for_egyptian_patients,2,oracle,mlp (tuned),mlp,tuned,1.3722559172189073,1.0,18,0.0,0.0,0.0,18
+hepatitis_c_virus_hcv_for_egyptian_patients,3,oracle,logistic_regression (tuned),logistic_regression,tuned,1.3873229770623958,1.0,18,0.0,0.0,0.0,18
+hepatitis_c_virus_hcv_for_egyptian_patients,4,oracle,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,1.3866775506331754,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,0,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.5283595950572401,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,1,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.537132427491649,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,2,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5343312279544241,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,3,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5269698484449984,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,4,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5326131086862274,1.0,18,0.0,0.0,0.0,18

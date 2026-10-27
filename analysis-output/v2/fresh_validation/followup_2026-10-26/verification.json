@@ -1,0 +1,144 @@
+{
+  "date": "2026-10-26",
+  "pass": "targeted textual follow-up; separate from prior packaging verification",
+  "status": "local only; correction unpublished; disclosure through repository dist/ planned before submission",
+  "archive": {
+    "archive_sha256": "083d7679618c65211c6ae99ffb1d6dd8062aaf0358f4183a7c437625838b923f",
+    "archive_bytes": 1668861,
+    "verifier": {
+      "files_verified": 457,
+      "screened": 181,
+      "inspected_trained_tasks": 46,
+      "cohorts": {
+        "original": 46,
+        "three-exclusion": 43,
+        "eligible": 11,
+        "eligible-unresolved": 34
+      },
+      "missing_feature_schemas": [
+        46520
+      ],
+      "historical_hashes_checked": 47
+    },
+    "checkout_allowlist_files_matching_archive": 447,
+    "stored_score_reproduction_rerun": false
+  },
+  "preservation": {
+    "files_checked": 12299,
+    "changed": [],
+    "all_prior_packaging_hashes_matched_before_edit": true,
+    "generated_assets_checked": 56,
+    "analysis_output_files_checked": 11706,
+    "earlier_response_records_unchanged": true
+  },
+  "content_checks": {
+    "result_macros_unchanged": true,
+    "structure_unchanged": true,
+    "tables_unchanged": true,
+    "personal_review_attestation_unchanged": true,
+    "theory_and_proofs_unchanged": true,
+    "stale_wording_absent": true,
+    "table_bodies_unchanged": true,
+    "longtable_bodies_unchanged": true,
+    "narrow_ignore_rules": true,
+    "only_archive_and_sidecar_visible_in_dist": true,
+    "proof_appendix_unchanged": true
+  },
+  "tests": {
+    "latex_reference_tests_passed": 10,
+    "jair_static_check": "passed; unused bibliography treated as error",
+    "full_suite_rerun": false
+  },
+  "render": {
+    "pages": 54,
+    "words_checked": 38685,
+    "words_outside_page_bounds": [],
+    "latex_layout_reference_issues": [],
+    "affected_passages": {
+      "An explanatory model": [
+        2
+      ],
+      "References include validation-best": [
+        5
+      ],
+      "Under our reporting convention": [
+        6
+      ],
+      "Code and Data Availability": [
+        8,
+        53
+      ],
+      "A field matters": [
+        15
+      ],
+      "same trained candidate pool": [
+        32
+      ],
+      "Disclosure through that retrieval route": [
+        53
+      ],
+      "Table 4. Detailed": [
+        12
+      ],
+      "Table 15. Eligibility": [
+        47
+      ]
+    },
+    "affected_passages_note": "Page 32 was confirmed visually; its phrase crosses a line-number boundary in extracted text.",
+    "visual_inspection_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      12,
+      13,
+      14,
+      15,
+      16,
+      20,
+      21,
+      22,
+      32,
+      47,
+      48,
+      49,
+      50,
+      53,
+      54
+    ],
+    "visual_findings": "No clipping, overflow, stale targeted wording or pagination defect on inspected pages.",
+    "remaining_log_warnings": "Underfull boxes and acmart template/style warnings; no overfull boxes, oversized floats or unresolved references."
+  },
+  "reference_checks": "All 17 table labels matched captions; model contribution resolves to Appendix D; see resolved_tables.json",
+  "rank_position_result": "+0.37 [−0.34, +1.22]",
+  "excluded_work": {
+    "training": false,
+    "raw_data_audit": false,
+    "new_simulations": false,
+    "stored_score_replay": false,
+    "asset_generation": false,
+    "archive_rebuild": false,
+    "review_zip": false,
+    "embedded_attachments": false,
+    "commit": false,
+    "push": false,
+    "publication": false,
+    "submission": false
+  },
+  "sha256": {
+    "paper/main.tex": "cea34a0573a3c104ae58d92735dd3cad1d0143f05820ae4c39d69833328097f8",
+    "paper/main.pdf": "76225d96da042d090ff3a9cb5326810c2164304c74e21bdd870b40497ac9582c",
+    "README.md": "0339043622275cc2e9c1e48e2699e6827d5d9464d175385a3d8c9605c034c692",
+    ".gitignore": "d316fb8c47f440518041d1aab362e075dc2f96b325dfdc52bb3f88d9358a258a",
+    "docs/validation_reuse_followup_2026-10-26.md": "2c78ecd0b467de3d8427bbc6092890420d54605cdc4c153a2d6ad27457e3f452",
+    "paper/package-sha256.tex": "0acd17be768592c5708e92ece189a64ae4dd8846520a876db1507320d47f0ed8",
+    "paper/generated/numbers.tex": "dbd2da118a9af077ad0aecd7c2d3e198328e5bc4e7875837e878b388ea3bd70e",
+    "dist/validation-reuse-correction-2026-10-26.tar.gz": "083d7679618c65211c6ae99ffb1d6dd8062aaf0358f4183a7c437625838b923f",
+    "dist/validation-reuse-correction-2026-10-26.tar.gz.sha256": "92d5887cef2355ef6a7e8a5300b057192cecb5c74fbe8e74b31acceeaf725d33"
+  }
+}

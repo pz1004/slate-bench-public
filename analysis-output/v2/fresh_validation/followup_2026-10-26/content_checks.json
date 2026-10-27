@@ -1,0 +1,31 @@
+{
+  "checks": {
+    "result_macros_unchanged": true,
+    "structure_unchanged": true,
+    "tables_unchanged": true,
+    "personal_review_attestation_unchanged": true,
+    "theory_and_proofs_unchanged": true,
+    "stale_wording_absent": true,
+    "table_bodies_unchanged": true,
+    "longtable_bodies_unchanged": true,
+    "narrow_ignore_rules": true,
+    "only_archive_and_sidecar_visible_in_dist": true,
+    "proof_appendix_unchanged": true
+  },
+  "ignore_probes": {
+    "dist/validation-reuse-correction-2026-10-26.tar.gz": 1,
+    "dist/validation-reuse-correction-2026-10-26.tar.gz.sha256": 1,
+    "dist/other.tar.gz": 0,
+    "dist/other.tar.gz.sha256": 0,
+    "dist/validation-reuse-correction-2026-10-26.tar.gz.bak": 0,
+    "dist/validation-reuse-correction-2026-10-27.tar.gz": 0,
+    "dist/nested/validation-reuse-correction-2026-10-26.tar.gz": 0,
+    "dist/review.zip": 0,
+    "dist/.hidden": 0,
+    "dist/random.txt": 0
+  },
+  "visible_distribution_files": [
+    "dist/validation-reuse-correction-2026-10-26.tar.gz",
+    "dist/validation-reuse-correction-2026-10-26.tar.gz.sha256"
+  ]
+}

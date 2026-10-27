@@ -19,6 +19,12 @@
 !/src/
 !/tests/
 
+# Only the dated correction archive and its checksum are intended for distribution.
+!/dist/
+/dist/*
+!/dist/validation-reuse-correction-2026-10-26.tar.gz
+!/dist/validation-reuse-correction-2026-10-26.tar.gz.sha256
+
 # Python caches and build files
 __pycache__/
 *.py[cod]
@@ -56,3 +62,11 @@ __pycache__/
 !/docs/claim_template.md
 !/docs/positioning_coverage.csv
 !/docs/fresh_validation_protocol.md
+
+# Dated eligibility audit and verification documentation
+!/docs/fresh_validation_eligibility_audit.md
+!/docs/validation_reuse_revision_2026-10-25.md
+!/docs/validation_reuse_revision_2026-10-26.md
+!/docs/validation_reuse_followup_2026-10-26.md
+!/docs/validation_revision_package.md
+!/docs/validation_revision_notice.md

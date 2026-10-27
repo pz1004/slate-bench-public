@@ -510,3 +510,26 @@ assets:
 
 # Optional local targets, not part of the repository.
 -include local.mk
+
+# Reanalyse frozen candidates only; requires the original local metadata/data cache.
+.PHONY: fresh-validation-corrected
+fresh-validation-corrected:
+	$(PYTHON) scripts/fresh_validation_audit.py
+	@for cohort in original three-exclusion eligible eligible-unresolved; do \
+	  $(PYTHON) scripts/fresh_validation_analysis.py --run-dir $(FV_OUT) \
+	    --cohort-manifest configs/fresh_validation_cohort_2026-10-25.csv \
+	    --cohort-selection $$cohort --output-dir $(FV_OUT)/analysis_2026-10-25_$$cohort || exit 1; \
+	done
+
+# Read only preserved scores and audit snapshots. Never rerun raw-data inspection.
+FV_REPLAY_OUT ?= /tmp/validation-replay-2026-10-26
+FV_GENERATED ?= /tmp/validation-assets-2026-10-26
+.PHONY: fresh-validation-reproduce fresh-validation-package fresh-validation-assets
+fresh-validation-reproduce:
+	$(PYTHON) scripts/validation_revision_package.py reproduce --output $(FV_REPLAY_OUT)
+
+fresh-validation-package:
+	$(PYTHON) scripts/validation_revision_package.py build
+
+fresh-validation-assets:
+	$(PYTHON) scripts/build_paper_assets.py --out $(OUT) --fresh-validation-only --generated $(FV_GENERATED)

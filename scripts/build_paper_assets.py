@@ -722,7 +722,8 @@ STATED_COMPARISONS: list[tuple[str, tuple[str, ...], Callable[..., bool]]] = [
      lambda d, m, t, c, vm, vt, vc: d > 0 and max(m, t, c) < ALPHA and min(vm, vt, vc) >= ALPHA),
     ("frozen fit: in every fold the ensemble-inclusive nested choice is ensemble-3, the reference's row, and no score-only test against validation-best rejects",
      ("trff.folds", "trff.e.ethree", "trff.e.tsfe.allties", "trff.s.vb.rejectfolds"), lambda f, e, a, r: f == e == a == 4 and r == 0),
-    # Section 8 and Appendix L: the prespecified fresh-validation experiment.
+    # Historical 46-task reproduction guards. These are not claims about the
+    # corrected cohort, whose assertions are listed separately below.
     ("experiment: every task, repetition and configuration ran", ("fv.units", "fv.n", "fv.reps", "fv.failed", "fv.tasks"),
      lambda units, n, reps, failed, tasks: units == n * reps and failed == 0 and n == tasks),
     ("C1: reused validation-best has the higher regret and both tests reject",
@@ -770,6 +771,17 @@ STATED_COMPARISONS: list[tuple[str, tuple[str, ...], Callable[..., bool]]] = [
     ("reused offsets: neither tuned nor tuned + ensemble differs detectably from defaults (interval and sign test)",
      ("fv.off.reused.tundef.ci", "fv.off.reused.tundef.signp", "fv.off.reused.tedef.ci", "fv.off.reused.tedef.signp"),
      lambda c1, p1, c2, p2: c1[0] < 0 < c1[1] and c2[0] < 0 < c2[1] and min(p1, p2) >= ALPHA),
+    ("audited main cohort: positive C1 estimate, neither test rejects, no equivalence",
+     ("fvc.c1.diff", "fvc.c1.ci", "fvc.c1.mholm", "fvc.c1.tholm", "fvc.c1.equivalent"),
+     lambda d, ci, b, t, eq: d > 0 and ci[0] < 0 < ci[1] and min(b, t) >= ALPHA and eq == 0),
+    ("audited main cohort: C2 not detected",
+     ("fvc.c2.mholm", "fvc.c2.tholm"), lambda b, t: min(b, t) >= ALPHA),
+    ("eligible plus unresolved sensitivity: C1 both tests reject, C2 neither",
+     ("fvu.c1.diff", "fvu.c1.mholm", "fvu.c1.tholm", "fvu.c2.mholm", "fvu.c2.tholm"),
+     lambda d, b, t, b2, t2: d > 0 and max(b, t) < ALPHA and min(b2, t2) >= ALPHA),
+    ("audited main cohort has all repetitions and excludes unresolved tasks",
+     ("fvc.n", "fvc.units", "fv.reps", "fva.eligible", "fva.ineligible", "fva.unresolved", "fv.n"),
+     lambda n, u, r, e, i, q, original: n == e and u == n * r and e + i + q == original),
 ]
 
 
@@ -1396,12 +1408,13 @@ def fv_conclusion(bootstrap_holm_p: float, ttest_holm_p: float) -> str:
     return "difference unresolved"
 
 
-def build_fresh_validation(assets: Assets, prefix: str, directory: str) -> None:
+def build_fresh_validation(assets: Assets, prefix: str, directory: str, *, artifact_comparison: bool = True) -> None:
     """The prespecified fresh-validation experiment (scripts/fresh_validation_analysis.py)."""
     path = assets.out / directory / "decisions.json"
     if not path.exists():
         raise Missing(str(path))
     decisions = json.loads(path.read_text(encoding="utf-8"))
+    corrected = decisions.get("analysis_status") == "post hoc eligibility correction"
     assets.define(f"{prefix}.n", str(int(decisions["n_datasets"])))
     assets.define(f"{prefix}.units", str(int(decisions["n_units"])))
     assets.define(f"{prefix}.same", percent(float(decisions["reused_and_fresh_choose_the_same_candidate"])))
@@ -1442,6 +1455,10 @@ def build_fresh_validation(assets: Assets, prefix: str, directory: str) -> None:
     for rule, key in [("validation_best_reused", "reused"), ("validation_best_fresh", "fresh"), ("oracle", "oracle")]:
         assets.define(f"{prefix}.x.mlp.{key}", percent(float(units[units["rule"].eq(rule)]["family"].eq("mlp").mean())))
     pool = pd.read_parquet(assets.out / Path(directory).parent / "candidates.parquet")
+    if "cohort" in decisions:
+        pool = pool[pool["dataset_id"].isin(decisions["cohort"]["selected_dataset_ids"])]
+    if set(pool["dataset"]) != set(units["dataset"]):
+        raise ValueError(f"{prefix}: candidate and choice cohorts differ")
     wide = pool.pivot_table(index=["dataset", "repetition", "family"], columns="variant",
                             values=["construction_loss", "selection_loss", "test_loss"])
     for column, key in [("construction_loss", "cv"), ("selection_loss", "sv"), ("test_loss", "test")]:
@@ -1466,6 +1483,8 @@ def build_fresh_validation(assets: Assets, prefix: str, directory: str) -> None:
         if row["endpoint"] == "normalized_rank_regret":
             # The mean difference in rank positions among the unit's candidates.
             assets.define(f"{base}.rankpos", num(float(row["mean_difference"]) * (candidates - 1), 2, signed=True))
+            assets.define(f"{base}.rankci", "[" + num(float(row["ci_low"]) * (candidates - 1), 2, signed=True)
+                          + ", " + num(float(row["ci_high"]) * (candidates - 1), 2, signed=True) + "]")
             assets.define(f"{base}.tostci", interval(float(row["tost_90_ci_low"]), float(row["tost_90_ci_high"]), digits))
             assets.define(f"{base}.mde80rank", num(float(row["mde80_bootstrap_rank_positions"]), 2))
             assets.define(f"{base}.hl", num(float(row["hodges_lehmann_difference"]), digits, signed=True))
@@ -1473,7 +1492,16 @@ def build_fresh_validation(assets: Assets, prefix: str, directory: str) -> None:
     for _, row in contrasts.iterrows():
         conclusion = fv_conclusion(float(row["bootstrap_holm_p"]), float(row["ttest_holm_p"]))
         name, endpoint = str(row["contrast"]), str(row["endpoint"])
-        if endpoint == "normalized_rank_regret" and name in decisions["decisions"]:
+        if corrected:
+            conclusion = ("no difference detected" if conclusion == "no difference detected"
+                          else "unresolved: post hoc correction")
+            if endpoint == "normalized_rank_regret" and name in decisions["decisions"]:
+                decision = decisions["decisions"][name]
+                if decision.get("confirmatory") is not False or decision["conclusion"] == "difference supported":
+                    raise ValueError(f"{prefix}: corrected analyses cannot inherit confirmatory labels")
+                if (decision["bootstrap_rejects"], decision["ttest_rejects"]) != (row["bootstrap_holm_p"] < ALPHA, row["ttest_holm_p"] < ALPHA):
+                    raise ValueError(f"{prefix}: stored decision and tests disagree")
+        elif endpoint == "normalized_rank_regret" and name in decisions["decisions"]:
             if not str(decisions["decisions"][name]["conclusion"]).startswith(conclusion):
                 raise ValueError(f"{name}: the analysis decided {decisions['decisions'][name]['conclusion']!r}, the builder {conclusion!r}")
         else:
@@ -1488,14 +1516,14 @@ def build_fresh_validation(assets: Assets, prefix: str, directory: str) -> None:
                  f"{int(row['wins'])}/{int(row['ties'])}/{int(row['losses'])}"]
         if endpoint == "normalized_rank_regret":
             contrast_rows.append([FV_CONTRASTS[name], *cells, conclusion.capitalize()])
-        endpoint_rows.append([FV_CONTRASTS[name], FV_ENDPOINT_LABELS[endpoint], *cells, pvalue(float(row["wilcoxon_p"])), conclusion.capitalize()])
+        endpoint_rows.append([name if corrected else FV_CONTRASTS[name], FV_ENDPOINT_LABELS[endpoint], *cells, pvalue(float(row["wilcoxon_p"])), conclusion.capitalize()])
     assets.tables[f"{tables}_contrasts"] = tabular(
         "lrrrrl",
         ["Contrast", "Difference [95\\% CI]", "Bootstrap", "$t$", "W/T/L", "Conclusion"],
         contrast_rows,
         groups={0: "Primary family", 2: "Secondary family"},
     )
-    endpoint_rows.sort(key=lambda cells: (list(FV_CONTRASTS.values()).index(cells[0]), list(FV_ENDPOINT_LABELS.values()).index(cells[1])))
+    endpoint_rows.sort(key=lambda cells: ((list(FV_CONTRASTS) if corrected else list(FV_CONTRASTS.values())).index(cells[0]), list(FV_ENDPOINT_LABELS.values()).index(cells[1])))
     assets.tables[f"{tables}_endpoints"] = tabular(
         "llrrrrrl",
         ["Contrast", "Endpoint", "Difference [95\\% CI]", "Bootstrap", "$t$", "W/T/L", "Wilcoxon", "Conclusion"],
@@ -1505,8 +1533,9 @@ def build_fresh_validation(assets: Assets, prefix: str, directory: str) -> None:
         c2 = contrasts[contrasts["contrast"].eq("C2") & contrasts["endpoint"].eq("normalized_rank_regret")].iloc[0]
         assets.define("fv.c2.neg.diff", num(-float(c2["mean_difference"]), 4, signed=True))
         assets.define("fv.c2.neg.ci", interval(-float(c2["ci_high"]), -float(c2["ci_low"]), 4))
-        tabarena = printed_value(assets.numbers["ta.provenance_reference.dtt.vb.diff"])
-        assets.define("ta.dtt.vb.gap", num(abs(float(tabarena)), 4))
+        if artifact_comparison:
+            tabarena = printed_value(assets.numbers["ta.provenance_reference.dtt.vb.diff"])
+            assets.define("ta.dtt.vb.gap", num(abs(float(tabarena)), 4))
         scores = assets.csv(f"{directory}/dataset_scores.csv").pivot_table(
             index="dataset", columns="rule", values="normalized_rank_regret", aggfunc="first")
         difference = scores["validation_best_reused"] - scores["validation_best_fresh"]
@@ -1539,6 +1568,54 @@ def build_fresh_validation(assets: Assets, prefix: str, directory: str) -> None:
         assets.define(f"{base}.diff", num(float(row["mean_difference"]), 4, signed=True))
         assets.define(f"{base}.ci", interval(float(row["ci_low"]), float(row["ci_high"]), 4))
         assets.define(f"{prefix}.size.{row['half']}.n", str(int(row["n_datasets"])))
+
+
+def build_fresh_validation_cohorts(assets: Assets) -> None:
+    """All audited cohorts, with test outcomes separated from design status."""
+    root = Path(__file__).resolve().parents[1]
+    audit_path = root / "configs/fresh_validation_eligibility_audit.csv"
+    manifest_path = root / "configs/fresh_validation_cohort_2026-10-25.csv"
+    audit = pd.read_csv(audit_path)
+    manifest = pd.read_csv(manifest_path)
+    import hashlib
+    audit_hash = hashlib.sha256(audit_path.read_bytes()).hexdigest()
+    manifest_hash = hashlib.sha256(manifest_path.read_bytes()).hexdigest()
+    evidence_path = assets.out / "fresh_validation/audit_2026-10-25/evidence.json"
+    if not manifest.audit_sha256.eq(audit_hash).all() or not manifest.evidence_sha256.eq(hashlib.sha256(evidence_path.read_bytes()).hexdigest()).all():
+        raise ValueError("Cohort manifest is stale relative to the audit evidence")
+    for status in ["eligible", "ineligible", "unresolved"]:
+        assets.define(f"fva.{status}", str(int(manifest.status.eq(status).sum())))
+        assets.define(f"fva.all.{status}", str(int(audit.status.eq(status).sum())))
+    assets.define("fva.screened", str(len(audit)))
+    assets.define("fva.rationale_errors", str(int(audit.original_rationale_error.eq("yes").sum())))
+    rows = []
+    for selection, label in [("eligible", "Verified eligible (main)"), ("original", "Original cohort"),
+                             ("three-exclusion", "Three reported exclusions"),
+                             ("eligible-unresolved", "Eligible + unresolved")]:
+        directory = f"fresh_validation/analysis_2026-10-25_{selection}"
+        decisions = json.loads((assets.out / directory / "decisions.json").read_text())
+        if decisions["cohort"]["manifest_sha256"] != manifest_hash:
+            raise ValueError(f"{selection}: rerun analysis after changing the audit manifest")
+        contrasts = assets.csv(f"{directory}/contrasts.csv")
+        for name in ["C1", "C2"]:
+            row = contrasts[contrasts.contrast.eq(name) & contrasts.endpoint.eq("normalized_rank_regret")].iloc[0]
+            rows.append([label, str(decisions["n_datasets"]), name,
+                         num(float(row.mean_difference), 5, signed=True) + " " + interval(float(row.ci_low), float(row.ci_high), 5),
+                         pvalue(float(row.bootstrap_holm_p)), pvalue(float(row.ttest_holm_p))])
+    assets.tables["fresh_validation_cohorts"] = tabular("lrlrrr",
+        ["Cohort", "Tasks", "Contrast", "Difference [95\\% CI]", "Bootstrap", "$t$"], rows)
+    # A readable, multipage task decision table; detailed evidence stays in the CSV/JSON.
+    lines = [r"\begin{longtable}{@{}r p{0.37\linewidth} l p{0.17\linewidth}@{}}",
+             r"\caption{Eligibility of all originally trained tasks. Full source citations, retained features and rationales are in the hashed audit register.}\label{tab:cohort_tasks}\\",
+             r"\toprule OpenML ID & Task & Status & Criterion \\ \midrule\endfirsthead",
+             r"\toprule OpenML ID & Task & Status & Criterion \\ \midrule\endhead",
+             r"\midrule\multicolumn{4}{r}{Continued on next page}\\\endfoot",
+             r"\bottomrule\endlastfoot"]
+    for row in manifest.itertuples():
+        criterion = "Passed audit" if row.status == "eligible" else row.criterion
+        lines.append(f"{row.dataset_id} & {latex_escape(row.name)} & {row.status.capitalize()} & {latex_escape(criterion)}" + r" \\")
+    lines.append(r"\end{longtable}")
+    assets.tables["fresh_validation_cohort_tasks"] = "\n".join(lines) + "\n"
 
 
 GROUPED_INNER_DRIVER_SHA256 = "e471474f56e21e969e0ca7fe93c6a96a3d65bf2b88b1c2178c41c43e3fc62cfc"
@@ -3556,9 +3633,30 @@ def write(assets: Assets, generated: Path) -> None:
 
 def run(args: argparse.Namespace) -> None:
     root = Path(__file__).resolve().parents[1]
+    partial = getattr(args, "fresh_validation_only", False)
+    generated = Path(args.generated)
+    if partial:
+        protected = (root / "paper/generated").resolve()
+        resolved = generated.resolve()
+        if resolved == protected or protected in resolved.parents or resolved in protected.parents:
+            raise ValueError("--fresh-validation-only requires a separate --generated directory")
+        if generated.exists() and any(generated.iterdir()):
+            marker = generated / "fresh-validation-only.json"
+            if not marker.exists():
+                raise ValueError("Partial builds require an empty directory or a previous partial build")
     assets = Assets(
         Path(args.out), allow_missing=bool(args.allow_missing), meta_verified_only=bool(args.meta_verified_only)
     )
+    if partial:
+        build_fresh_validation_tasks(assets)
+        build_fresh_validation(assets, "fv", "fresh_validation/analysis", artifact_comparison=False)
+        for prefix, selection in [("fvc", "eligible"), ("fvs", "three-exclusion"), ("fvu", "eligible-unresolved")]:
+            build_fresh_validation(assets, prefix, f"fresh_validation/analysis_2026-10-25_{selection}")
+        build_fresh_validation_cohorts(assets)
+        write(assets, generated)
+        (generated / "fresh-validation-only.json").write_text(json.dumps({"scope": "fresh validation only"}) + "\n")
+        print(f"{len(assets.numbers)} numbers, {len(assets.tables)} tables (fresh validation only)")
+        return
     assets.section("tabarena", lambda: build_tabarena(assets))
     assets.section("mean tests", lambda: build_mean_tests(assets))
     assets.section(
@@ -3623,6 +3721,10 @@ def run(args: argparse.Namespace) -> None:
     assets.section("fresh-validation tasks", lambda: build_fresh_validation_tasks(assets))
     assets.section("fresh-validation pilot", lambda: build_fresh_validation(assets, "fvp", "fresh_validation_pilot/analysis"))
     assets.section("fresh-validation experiment", lambda: build_fresh_validation(assets, "fv", "fresh_validation/analysis"))
+    for prefix, selection in [("fvc", "eligible"), ("fvs", "three-exclusion"), ("fvu", "eligible-unresolved")]:
+        assets.section(f"fresh-validation {selection}", lambda p=prefix, s=selection:
+                       build_fresh_validation(assets, p, f"fresh_validation/analysis_2026-10-25_{s}"))
+    assets.section("fresh-validation cohort audit", lambda: build_fresh_validation_cohorts(assets))
     assets.section("tabrepo frozen fit", lambda: build_frozen_fit(assets))
     assets.section("calibration design", lambda: build_calibration_design(assets))
     assets.section("calibration", lambda: build_calibration(assets))
@@ -3648,6 +3750,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--out", default="analysis-output/v2")
     parser.add_argument("--generated", default="paper/generated")
     parser.add_argument("--allow-missing", action="store_true")
+    parser.add_argument("--fresh-validation-only", action="store_true",
+                        help="Build only the stored-score experiment assets; requires a separate --generated directory.")
     parser.add_argument(
         "--meta-verified-only",
         action="store_true",

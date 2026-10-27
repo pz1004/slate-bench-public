@@ -1,0 +1,288 @@
+{
+  "date": "2026-10-25",
+  "no_training": true,
+  "original_inputs_unchanged": true,
+  "original_csv_reproduction": [
+    {
+      "file": "by_size.csv",
+      "frames_exact": true,
+      "byte_identical": true
+    },
+    {
+      "file": "contrasts.csv",
+      "frames_exact": true,
+      "byte_identical": true
+    },
+    {
+      "file": "dataset_scores.csv",
+      "frames_exact": true,
+      "byte_identical": true
+    },
+    {
+      "file": "offsets.csv",
+      "frames_exact": true,
+      "byte_identical": true
+    },
+    {
+      "file": "rule_summary.csv",
+      "frames_exact": true,
+      "byte_identical": true
+    },
+    {
+      "file": "selection_shares.csv",
+      "frames_exact": true,
+      "byte_identical": true
+    },
+    {
+      "file": "unit_choices.csv",
+      "frames_exact": true,
+      "byte_identical": true
+    }
+  ],
+  "original_decisions_reproduced": true,
+  "screening_tasks": 181,
+  "cohorts": {
+    "original": {
+      "n_datasets": 46,
+      "analysis_status": "original reproduction",
+      "decisions": {
+        "C1": {
+          "left": "validation_best_reused",
+          "right": "validation_best_fresh",
+          "mean_difference": 0.034143222506393865,
+          "ci_95": [
+            0.01432225063938619,
+            0.056393861892583115
+          ],
+          "bootstrap_holm_p": 0.0,
+          "ttest_holm_p": 0.005218282361507058,
+          "bootstrap_rejects": true,
+          "ttest_rejects": true,
+          "conclusion": "difference supported",
+          "equivalence_margin": 0.029411764705882353,
+          "equivalence_supported": false
+        },
+        "C2": {
+          "left": "validation_best_reused",
+          "right": "defaults_rule",
+          "mean_difference": 0.0002557544757033269,
+          "ci_95": [
+            -0.021227621483375956,
+            0.023401534526854225
+          ],
+          "bootstrap_holm_p": 0.9822,
+          "ttest_holm_p": 0.9824638277074074,
+          "bootstrap_rejects": false,
+          "ttest_rejects": false,
+          "conclusion": "no difference detected"
+        }
+      }
+    },
+    "three-exclusion": {
+      "n_datasets": 43,
+      "analysis_status": "post hoc eligibility correction",
+      "decisions": {
+        "C1": {
+          "left": "validation_best_reused",
+          "right": "validation_best_fresh",
+          "mean_difference": 0.03365253077975376,
+          "ci_95": [
+            0.014774281805745559,
+            0.055266757865937065
+          ],
+          "bootstrap_holm_p": 0.0,
+          "ttest_holm_p": 0.004509427298200005,
+          "bootstrap_rejects": true,
+          "ttest_rejects": true,
+          "conclusion": "difference unresolved (post hoc eligibility correction)",
+          "test_outcome": "both tests reject",
+          "confirmatory": false,
+          "equivalence_margin": 0.029411764705882353,
+          "equivalence_supported": false,
+          "equivalence_interval_inside_margin": false
+        },
+        "C2": {
+          "left": "validation_best_reused",
+          "right": "defaults_rule",
+          "mean_difference": 0.005198358413132695,
+          "ci_95": [
+            -0.017099863201094388,
+            0.028590971272229825
+          ],
+          "bootstrap_holm_p": 0.6488,
+          "ttest_holm_p": 0.6650043042266868,
+          "bootstrap_rejects": false,
+          "ttest_rejects": false,
+          "conclusion": "no difference detected",
+          "test_outcome": "neither test rejects",
+          "confirmatory": false
+        }
+      }
+    },
+    "eligible": {
+      "n_datasets": 11,
+      "analysis_status": "post hoc eligibility correction",
+      "decisions": {
+        "C1": {
+          "left": "validation_best_reused",
+          "right": "validation_best_fresh",
+          "mean_difference": 0.021925133689839567,
+          "ci_95": [
+            -0.019786096256684496,
+            0.07165775401069518
+          ],
+          "bootstrap_holm_p": 0.7292,
+          "ttest_holm_p": 0.8019648765791361,
+          "bootstrap_rejects": false,
+          "ttest_rejects": false,
+          "conclusion": "no difference detected",
+          "test_outcome": "neither test rejects",
+          "confirmatory": false,
+          "equivalence_margin": 0.029411764705882353,
+          "equivalence_supported": false,
+          "equivalence_interval_inside_margin": false
+        },
+        "C2": {
+          "left": "validation_best_reused",
+          "right": "defaults_rule",
+          "mean_difference": -0.0037433155080213985,
+          "ci_95": [
+            -0.040641711229946524,
+            0.031016042780748654
+          ],
+          "bootstrap_holm_p": 0.8348,
+          "ttest_holm_p": 0.8491114748679633,
+          "bootstrap_rejects": false,
+          "ttest_rejects": false,
+          "conclusion": "no difference detected",
+          "test_outcome": "neither test rejects",
+          "confirmatory": false
+        }
+      }
+    },
+    "eligible-unresolved": {
+      "n_datasets": 34,
+      "analysis_status": "post hoc eligibility correction",
+      "decisions": {
+        "C1": {
+          "left": "validation_best_reused",
+          "right": "validation_best_fresh",
+          "mean_difference": 0.03321799307958478,
+          "ci_95": [
+            0.011245674740484431,
+            0.05795847750865051
+          ],
+          "bootstrap_holm_p": 0.002,
+          "ttest_holm_p": 0.02011956819388717,
+          "bootstrap_rejects": true,
+          "ttest_rejects": true,
+          "conclusion": "difference unresolved (post hoc eligibility correction)",
+          "test_outcome": "both tests reject",
+          "confirmatory": false,
+          "equivalence_margin": 0.029411764705882353,
+          "equivalence_supported": false,
+          "equivalence_interval_inside_margin": false
+        },
+        "C2": {
+          "left": "validation_best_reused",
+          "right": "defaults_rule",
+          "mean_difference": 0.018858131487889274,
+          "ci_95": [
+            -0.003114186851211071,
+            0.04342993079584769
+          ],
+          "bootstrap_holm_p": 0.0968,
+          "ttest_holm_p": 0.13097955564874514,
+          "bootstrap_rejects": false,
+          "ttest_rejects": false,
+          "conclusion": "no difference detected",
+          "test_outcome": "neither test rejects",
+          "confirmatory": false
+        }
+      }
+    }
+  },
+  "source_group_outer_splits": 24,
+  "frozen_fit_declared_fold": 0,
+  "frozen_fit_ensemble_reference_identity": true,
+  "frozen_fit_stored_score_replay": [
+    {
+      "file": "contrasts.csv",
+      "frames_exact": true,
+      "replay_sha256": "4639d1399f4dfdd086e9d5e4c26e11b47166323b57c3f795d16e264e9b8f3bf8"
+    },
+    {
+      "file": "fitted_choices.csv",
+      "frames_exact": true,
+      "replay_sha256": "410ec5e59dc634b5f01bd58bb0c1005df029ea7aa8602e4198d2a2d7f1fd0097"
+    },
+    {
+      "file": "heldout_datasets.csv",
+      "frames_exact": true,
+      "replay_sha256": "9175d062da10698f4a6913b1756811181a498c70114b709cb1b1ab3904ac2398"
+    }
+  ],
+  "coverage_rows_verified": 168,
+  "input_and_output_sha256": {
+    "analysis-output/v2/calibration_study/bridge_contrasts.csv": "8dd9c1478a1b6e22c5e7226a60acbbcd44858cd68cd552133d90d130fd50d54f",
+    "analysis-output/v2/calibration_study/bridge_contrasts_short.csv": "fa32af6439f157d4430b34dc8f8447eb6e6b8fb04a2fca3266e56f501f374971",
+    "analysis-output/v2/calibration_study/coverage.csv": "0a3f1acd5dca33ef44ef9b98c8b758709893a6ae72ba3e0f37a6dcae7474386d",
+    "analysis-output/v2/calibration_study/replicate_contrasts.csv": "3d10aec86cc29c2a692b622b74ece9eb5a8335aa88c25624ae5b8da40fb8afb6",
+    "analysis-output/v2/calibration_study/truth_runs.csv": "055482d37c3dbf73fd1858bfa9ce8976296a2787734e49b340b9126765f4f902",
+    "analysis-output/v2/calibration_study/truth_runs_shared.csv": "a2167593037b10c5b2d7b5727e4f12dea825cf2ff468e9d5aea868fc803f4f47",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_eligible/by_size.csv": "c18edc1fb2c93b93c482a1822ae422d3114475dcf8bbf12df13556bee538c1bc",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_eligible/contrasts.csv": "df5d3e8de1947368990c66ed5eab5b60e211d9e5bec674f1d8b48c948dab02fd",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_eligible/dataset_scores.csv": "fb65dccb526f357d0fc9054b0378e1ab11bf855604ae10a81113aa087867f6cb",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_eligible/decisions.json": "4c925d53256cced6fe90805f476cddd2b748dca65e57fd058fcbdf40323a90d4",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_eligible/offsets.csv": "17f5ddf7263be62cb648ff04545ff4205d57a78b6c1c7ba54fbb90f8e9fc6633",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_eligible/rule_summary.csv": "b60a1aa0be92bb7a5e9026c6b7824d4bb0bdf718ea66963c08448fd5b014fd2a",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_eligible/selection_shares.csv": "46bbbee0c02595499889119de5333f8e59c877c05b7a44391d33d1d6f8908fbf",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_eligible/unit_choices.csv": "9cdc503263941aa7bf5b2099e8593da213b9e5481de49747adfea300a8ec6022",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_eligible-unresolved/by_size.csv": "f277c8df341da4aa2fb6be581f386825834259fb0cf3731265ac324dd4a9f278",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_eligible-unresolved/contrasts.csv": "d1975f410e7ddf6d7875c700881eb56a652ac3d966073723eac42781b5a71d90",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_eligible-unresolved/dataset_scores.csv": "b32b0e3bb04897567b50d65ba470227f6c8fa0c76df83e43c4a732b32b22f5a2",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_eligible-unresolved/decisions.json": "452736462e41e1b3d234047745cf4cbe1049c0b46463363e5e0af9e5f7e43578",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_eligible-unresolved/offsets.csv": "ef6afa5a7e02dbc9cf7988f0ddf6c159d79237a11700d531d0dbd4ae54e2d13c",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_eligible-unresolved/rule_summary.csv": "55f2eb24f4cdaa8ff23a66029de30d8b75d7f616ebc51154cf17e664459351b1",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_eligible-unresolved/selection_shares.csv": "317c2da739c069b5e4318fcca91d516d896e56c28c05bc1a368b1ec547888350",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_eligible-unresolved/unit_choices.csv": "661a4637b018b2a3e7d4a53ee0bf11f142d4ec8cc209bc17b0cf39e87480246f",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_original/by_size.csv": "5c272aca45a648f650eed8b8b87f07b0999d7fcec8c7118f45ddb32221ad0158",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_original/contrasts.csv": "df279d004176ab86a00d73791623a088914e4d1b328ff5132ba6869787bf67dd",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_original/dataset_scores.csv": "8925a9b5bc5bf791e88350c87457e4016719391d687a361cc1978379a606091e",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_original/decisions.json": "d1f47a54d3114eb2081c3be0a86f8042dafb4438ea8ff75bb00d948282c0a296",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_original/offsets.csv": "b71cf0cdac423699f4def400626a52c6f92435260f5cd0f71afad5be2d4375f6",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_original/rule_summary.csv": "350932136f6dddba619fc79c44e411a62de4e9823a9ccd42dc8bd22a782e3638",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_original/selection_shares.csv": "42ddec60ff8ff0852386b1cbdf414fbd614af43b39534b950a539f11ea3e89a9",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_original/unit_choices.csv": "fee7f153af1ed21a94bf7850e7e48f8bb5f369b6d23ba4fb4bb94159d1a4bca3",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_three-exclusion/by_size.csv": "0ad67ab9e32757d9311a280fccf0303c6affd1231f04e6ddfc5e9d6f2a20d10e",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_three-exclusion/contrasts.csv": "47ec7af0fda34feaa360b6e3e880ea872bb498109ecd734352d1af21d811fda3",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_three-exclusion/dataset_scores.csv": "b244e8c13b2caa1ef0601043d0685290b42d194b93eb8784619d28dbc5263fad",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_three-exclusion/decisions.json": "b61dd83ebdcaf1de67db57aacef5c2b09c5b61fae6f5bff79a2327d0937d8830",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_three-exclusion/offsets.csv": "02707e044ec6fbd030c0253d3d76fb750066946e82184155754c3b503f5a6e42",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_three-exclusion/rule_summary.csv": "0f0d362871c340db82ece7de7b5274634f658aacc144861c00c177bd0cee666a",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_three-exclusion/selection_shares.csv": "efde5551a1ebfbe9e1753bbd95978cf6de1254d59964e298ff59043a1a9f98d2",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_three-exclusion/unit_choices.csv": "247b49dd819818853bc39e2d7b3cfaea06547863745f9f7dfbde33cd255ddc1f",
+    "analysis-output/v2/fresh_validation/audit_2026-10-25/evidence.json": "859439bbcc5eca9f929e343836b7ea774473776ccc6bf2b01a8d7797e7501327",
+    "analysis-output/v2/fresh_validation/audit_2026-10-25/protocol_at_training.md": "a9effe949097726452e8bd7720548d7a73adb5631c95350f2c699c528f9c0831",
+    "analysis-output/v2/fresh_validation/audit_2026-10-25/protocol_before_correction.md": "4a437a3b7d6b623bcc43683016bf1bca431edff6afc123ef03fa2a743d8ce17d",
+    "analysis-output/v2/fresh_validation/audit_2026-10-25/summary.json": "4b022e7e9040db04d4b587102159c6d575256cb8c6e2bcc4ce2abc701db840fa",
+    "analysis-output/v2/fresh_validation/candidates.parquet": "c8b270a4942b2c8c57a471ca7c9cdd3d76362e13a39f9fc51fb840a3d0223eaa",
+    "analysis-output/v2/fresh_validation/metadata.json": "8c5572b903887c057ab4c2cfb8448c8b112942361a77915655aff8c070bff071",
+    "analysis-output/v2/score_level_tabrepo_grouped_inner/grouped_splits.json": "3a56a6c0fe98725ba1acb0cf8fd21e5a51fc0129740f13a545ccf432d2b23fa5",
+    "analysis-output/v2/tabrepo_frozen_fit/contrasts.csv": "4639d1399f4dfdd086e9d5e4c26e11b47166323b57c3f795d16e264e9b8f3bf8",
+    "analysis-output/v2/tabrepo_frozen_fit/fitted_choices.csv": "410ec5e59dc634b5f01bd58bb0c1005df029ea7aa8602e4198d2a2d7f1fd0097",
+    "analysis-output/v2/tabrepo_frozen_fit/heldout_datasets.csv": "9175d062da10698f4a6913b1756811181a498c70114b709cb1b1ab3904ac2398",
+    "analysis-output/v2/tabrepo_frozen_fit/metadata.json": "3d7ee621d28f1a078c77bc82afa9c0e6debed59d0549463c466799bef3df083c",
+    "configs/fresh_validation_cohort_2026-10-25.csv": "58ca960f322e1adf30ddb8b4ebd3ec48004d4b39a88a0fd0f6ec114a53097e93",
+    "configs/fresh_validation_eligibility_audit.csv": "ece4bfadb9586433596ce5dd0340434c8769562135de258ba7e60f695fa12cd6",
+    "configs/fresh_validation_experiment.yaml": "a35265c0ad65c42904174788d3e4e2918432d9497c69f322df054703561d40cd",
+    "configs/fresh_validation_source_check.csv": "ecb32d283012e1ddacc7b1a4379eb76df700be72d72453e4ef84ba8a5ca90d8f",
+    "configs/fresh_validation_tasks.csv": "cb0a90024d3ca13b33e91016e808c2911a134db8d973214451a25ab51ddeff16",
+    "configs/tabrepo_source_groups.csv": "ffb79acad49d9c4428d09b6aaa5361fb08b888eeb11b76438b347ba3bb8c9113",
+    "scripts/build_paper_assets.py": "2a6dad0d1cc1318ed9f78f7cef4d3de62e5b204e28a8161e41bd9d6428655b72",
+    "scripts/fresh_validation_analysis.py": "348745d9d3f67a1f2a27cd6a0cc5cbd1bcbb0b6f3ff6d112208e07772baa2d39",
+    "scripts/fresh_validation_experiment.py": "00b43e2bfe983958aa24113db6f4652728dd6c4b0c82cf163f6a7e4d218e6453",
+    "scripts/verify_validation_revision.py": "59a5ea69a002d3ed94705b42a4dc4ed31baf69b126297a32505d10c901fdf4c8",
+    "src/tabular_sota_benchmark/fresh_validation.py": "e8fdeefe7fa5399ca78eb43dc64dd023b007a195d2d431e35e58b1606d9eac19"
+  }
+}

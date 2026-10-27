@@ -1,0 +1,198 @@
+{
+  "date": "2026-10-26",
+  "network_disabled": true,
+  "raw_task_data_used": false,
+  "training_performed": false,
+  "integrity": {
+    "files_verified": 457,
+    "screened": 181,
+    "inspected_trained_tasks": 46,
+    "cohorts": {
+      "original": 46,
+      "three-exclusion": 43,
+      "eligible": 11,
+      "eligible-unresolved": 34
+    },
+    "missing_feature_schemas": [
+      46520
+    ],
+    "historical_hashes_checked": 47
+  },
+  "cohorts": {
+    "original": {
+      "n_datasets": 46,
+      "decisions": {
+        "C1": {
+          "left": "validation_best_reused",
+          "right": "validation_best_fresh",
+          "mean_difference": 0.034143222506393865,
+          "ci_95": [
+            0.01432225063938619,
+            0.056393861892583115
+          ],
+          "bootstrap_holm_p": 0.0,
+          "ttest_holm_p": 0.005218282361507058,
+          "bootstrap_rejects": true,
+          "ttest_rejects": true,
+          "conclusion": "difference supported",
+          "equivalence_margin": 0.029411764705882353,
+          "equivalence_supported": false
+        },
+        "C2": {
+          "left": "validation_best_reused",
+          "right": "defaults_rule",
+          "mean_difference": 0.0002557544757033269,
+          "ci_95": [
+            -0.021227621483375956,
+            0.023401534526854225
+          ],
+          "bootstrap_holm_p": 0.9822,
+          "ttest_holm_p": 0.9824638277074074,
+          "bootstrap_rejects": false,
+          "ttest_rejects": false,
+          "conclusion": "no difference detected"
+        }
+      },
+      "all_seven_csvs_exact": true,
+      "decision_fields_exact_except_command": true
+    },
+    "three-exclusion": {
+      "n_datasets": 43,
+      "decisions": {
+        "C1": {
+          "left": "validation_best_reused",
+          "right": "validation_best_fresh",
+          "mean_difference": 0.03365253077975376,
+          "ci_95": [
+            0.014774281805745559,
+            0.055266757865937065
+          ],
+          "bootstrap_holm_p": 0.0,
+          "ttest_holm_p": 0.004509427298200005,
+          "bootstrap_rejects": true,
+          "ttest_rejects": true,
+          "conclusion": "difference unresolved (post hoc eligibility correction)",
+          "test_outcome": "both tests reject",
+          "confirmatory": false,
+          "equivalence_margin": 0.029411764705882353,
+          "equivalence_supported": false,
+          "equivalence_interval_inside_margin": false
+        },
+        "C2": {
+          "left": "validation_best_reused",
+          "right": "defaults_rule",
+          "mean_difference": 0.005198358413132695,
+          "ci_95": [
+            -0.017099863201094388,
+            0.028590971272229825
+          ],
+          "bootstrap_holm_p": 0.6488,
+          "ttest_holm_p": 0.6650043042266868,
+          "bootstrap_rejects": false,
+          "ttest_rejects": false,
+          "conclusion": "no difference detected",
+          "test_outcome": "neither test rejects",
+          "confirmatory": false
+        }
+      },
+      "all_seven_csvs_exact": true,
+      "decision_fields_exact_except_command": true
+    },
+    "eligible": {
+      "n_datasets": 11,
+      "decisions": {
+        "C1": {
+          "left": "validation_best_reused",
+          "right": "validation_best_fresh",
+          "mean_difference": 0.021925133689839567,
+          "ci_95": [
+            -0.019786096256684496,
+            0.07165775401069518
+          ],
+          "bootstrap_holm_p": 0.7292,
+          "ttest_holm_p": 0.8019648765791361,
+          "bootstrap_rejects": false,
+          "ttest_rejects": false,
+          "conclusion": "no difference detected",
+          "test_outcome": "neither test rejects",
+          "confirmatory": false,
+          "equivalence_margin": 0.029411764705882353,
+          "equivalence_supported": false,
+          "equivalence_interval_inside_margin": false
+        },
+        "C2": {
+          "left": "validation_best_reused",
+          "right": "defaults_rule",
+          "mean_difference": -0.0037433155080213985,
+          "ci_95": [
+            -0.040641711229946524,
+            0.031016042780748654
+          ],
+          "bootstrap_holm_p": 0.8348,
+          "ttest_holm_p": 0.8491114748679633,
+          "bootstrap_rejects": false,
+          "ttest_rejects": false,
+          "conclusion": "no difference detected",
+          "test_outcome": "neither test rejects",
+          "confirmatory": false
+        }
+      },
+      "all_seven_csvs_exact": true,
+      "decision_fields_exact_except_command": true
+    },
+    "eligible-unresolved": {
+      "n_datasets": 34,
+      "decisions": {
+        "C1": {
+          "left": "validation_best_reused",
+          "right": "validation_best_fresh",
+          "mean_difference": 0.03321799307958478,
+          "ci_95": [
+            0.011245674740484431,
+            0.05795847750865051
+          ],
+          "bootstrap_holm_p": 0.002,
+          "ttest_holm_p": 0.02011956819388717,
+          "bootstrap_rejects": true,
+          "ttest_rejects": true,
+          "conclusion": "difference unresolved (post hoc eligibility correction)",
+          "test_outcome": "both tests reject",
+          "confirmatory": false,
+          "equivalence_margin": 0.029411764705882353,
+          "equivalence_supported": false,
+          "equivalence_interval_inside_margin": false
+        },
+        "C2": {
+          "left": "validation_best_reused",
+          "right": "defaults_rule",
+          "mean_difference": 0.018858131487889274,
+          "ci_95": [
+            -0.003114186851211071,
+            0.04342993079584769
+          ],
+          "bootstrap_holm_p": 0.0968,
+          "ttest_holm_p": 0.13097955564874514,
+          "bootstrap_rejects": false,
+          "ttest_rejects": false,
+          "conclusion": "no difference detected",
+          "test_outcome": "neither test rejects",
+          "confirmatory": false
+        }
+      },
+      "all_seven_csvs_exact": true,
+      "decision_fields_exact_except_command": true
+    }
+  },
+  "dependencies": {
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.9.0",
+    "PyYAML": "6.0.3",
+    "pyarrow": "26.0.0",
+    "joblib": "1.5.3",
+    "threadpoolctl": "3.6.0",
+    "python-dateutil": "2.9.0.post0",
+    "six": "1.17.0"
+  }
+}

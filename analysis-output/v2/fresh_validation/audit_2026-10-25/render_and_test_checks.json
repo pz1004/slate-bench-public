@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-25",
+  "pdf_pages": 56,
+  "static_jair_check": "passed",
+  "bib_unused_check": "passed",
+  "latex_build": "passed",
+  "log_overfull_boxes": 0,
+  "log_oversized_floats": 0,
+  "log_unresolved_references": 0,
+  "pdf_words_inside_page_bounds": true,
+  "full_suite_tests_exercised": 194,
+  "full_suite_original_passes": 193,
+  "initial_failure": "new test fixture omitted Assets.allow_missing; corrected",
+  "final_cohort_and_asset_tests_passed": 37,
+  "unique_tests_passed_after_fix": 194,
+  "new_training": false,
+  "visual_pages_inspected": [
+    1,
+    4,
+    15,
+    30,
+    31,
+    50,
+    51,
+    52
+  ],
+  "sha256": {
+    "paper/main.tex": "5384ab3ddba64fed93e07580e9a983c383a3331e190d8514b410151d02ac0016",
+    "paper/main.pdf": "3ec3abb4e94d9da9e8e8f09f8a68aeeb83e4d1f92c95778632d8f980c099cbd4",
+    "paper/generated/numbers.tex": "4ffa43bbfe60c75d53d97d688ba17e764c158d7dee52296566bd0edea819f40e",
+    "configs/fresh_validation_eligibility_audit.csv": "ece4bfadb9586433596ce5dd0340434c8769562135de258ba7e60f695fa12cd6",
+    "configs/fresh_validation_cohort_2026-10-25.csv": "58ca960f322e1adf30ddb8b4ebd3ec48004d4b39a88a0fd0f6ec114a53097e93"
+  }
+}

@@ -15,6 +15,7 @@ each primary contrast's test outcome and supported conclusion under the protocol
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -50,6 +51,61 @@ ENDPOINTS = {
     "log_loss_regret": "test log loss above the unit's best candidate",
 }
 ALPHA = 0.05
+COHORT_SELECTIONS = ("eligible", "eligible-unresolved", "original", "three-exclusion")
+REPORTED_FAILURES = {46527, 40666, 46864}
+
+
+def sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def select_cohort(candidates: pd.DataFrame, manifest: Path, selection: str) -> tuple[pd.DataFrame, dict]:
+    """Validate a complete audit of the trained tasks, then filter by stable OpenML ID.
+
+    Untrained screening decisions belong in the full audit, not this manifest. Requiring
+    exact coverage prevents a typo or an omitted unresolved task silently changing a run.
+    """
+    table = pd.read_csv(manifest, comment="#", keep_default_na=False)
+    required = {"dataset_id", "status"}
+    if not required.issubset(table.columns):
+        raise ValueError(f"Cohort manifest requires {sorted(required)}")
+    ids = pd.to_numeric(table["dataset_id"], errors="raise")
+    if ids.isna().any() or (ids % 1 != 0).any():
+        raise ValueError("Cohort dataset IDs must be integers")
+    table["dataset_id"] = ids.astype(int)
+    if table["dataset_id"].duplicated().any():
+        raise ValueError("Duplicate cohort dataset IDs")
+    if not table["status"].isin(["eligible", "ineligible", "unresolved"]).all():
+        raise ValueError("Unknown cohort eligibility status")
+    expected = set(candidates["dataset_id"].astype(int))
+    supplied = set(table["dataset_id"])
+    if supplied != expected:
+        raise ValueError(f"Cohort IDs: unknown={sorted(supplied - expected)}, missing={sorted(expected - supplied)}")
+    if candidates.groupby("dataset")["dataset_id"].nunique().max() != 1 or candidates.groupby("dataset_id")["dataset"].nunique().max() != 1:
+        raise ValueError("Dataset names and IDs must map one to one")
+    if selection == "eligible":
+        selected = set(table.loc[table["status"].eq("eligible"), "dataset_id"])
+    elif selection == "eligible-unresolved":
+        selected = set(table.loc[~table["status"].eq("ineligible"), "dataset_id"])
+    elif selection == "three-exclusion":
+        if not REPORTED_FAILURES <= expected:
+            raise ValueError("Three-exclusion sensitivity requires all three reported dataset IDs")
+        selected = expected - REPORTED_FAILURES
+    elif selection == "original":
+        selected = expected
+    else:
+        raise ValueError(f"Unknown cohort selection: {selection}")
+    if len(selected) < 2:
+        raise ValueError("Cohort inference requires at least two datasets")
+    return candidates[candidates["dataset_id"].isin(selected)].copy(), {
+        "selection": selection,
+        "manifest": str(manifest),
+        "manifest_sha256": sha256(manifest),
+        "selected_dataset_ids": sorted(selected),
+        "excluded_dataset_ids": sorted(expected - selected),
+        "status_counts": table["status"].value_counts().to_dict(),
+        "analysis_status": "original reproduction" if selection == "original" else "post hoc eligibility correction",
+    }
 
 
 def unit_endpoints(candidates: pd.DataFrame, choices: pd.DataFrame) -> pd.DataFrame:
@@ -71,7 +127,7 @@ def unit_endpoints(candidates: pd.DataFrame, choices: pd.DataFrame) -> pd.DataFr
                  "normalized_rank_regret", "median_error_regret", "log_loss_regret"]].reset_index(drop=True)
 
 
-def decide(row: pd.Series, margin: float | None) -> dict[str, object]:
+def decide(row: pd.Series, margin: float | None, *, corrected: bool = False) -> dict[str, object]:
     """The protocol's supported conclusion for a prespecified contrast between rules that fit nothing."""
     boot, t = bool(row["bootstrap_holm_p"] < ALPHA), bool(row["ttest_holm_p"] < ALPHA)
     if boot and t:
@@ -80,11 +136,18 @@ def decide(row: pd.Series, margin: float | None) -> dict[str, object]:
         conclusion = "no difference detected"
     else:
         conclusion = "difference unresolved (the tests disagree)"
+    outcome = "both tests reject" if boot and t else "neither test rejects" if not boot and not t else "tests disagree"
+    if corrected and (boot or t):
+        conclusion = "difference unresolved (post hoc eligibility correction)"
     out: dict[str, object] = {"bootstrap_rejects": boot, "ttest_rejects": t, "conclusion": conclusion}
+    if corrected:
+        out.update(test_outcome=outcome, confirmatory=False)
     if margin is not None:
         inside = bool(abs(float(row["tost_90_ci_low"])) < margin and abs(float(row["tost_90_ci_high"])) < margin)
         out["equivalence_margin"] = margin
-        out["equivalence_supported"] = bool(conclusion == "no difference detected" and inside)
+        out["equivalence_supported"] = bool(not corrected and conclusion == "no difference detected" and inside)
+        if corrected:
+            out["equivalence_interval_inside_margin"] = inside
     return out
 
 
@@ -92,6 +155,15 @@ def run(args: argparse.Namespace) -> None:
     config = yaml.safe_load(Path(args.config).read_text(encoding="utf-8"))
     run_dir = Path(args.run_dir)
     candidates = pd.read_parquet(run_dir / "candidates.parquet")
+    manifest, selection = getattr(args, "cohort_manifest", None), getattr(args, "cohort_selection", None)
+    if bool(manifest) != bool(selection):
+        raise ValueError("--cohort-manifest and --cohort-selection must be supplied together")
+    cohort = None
+    if manifest:
+        if Path(args.output_dir).resolve() == (run_dir / "analysis").resolve():
+            raise ValueError("Cohort analyses must not overwrite the original analysis directory")
+        candidates, cohort = select_cohort(candidates, Path(manifest), selection)
+    corrected = bool(cohort and selection != "original")
     families = list(config["families"])
     order = fv.candidate_order(families)
     candidates["order"] = candidates["candidate"].map(order)
@@ -137,7 +209,7 @@ def run(args: argparse.Namespace) -> None:
             "ci_95": [float(row["ci_low"]), float(row["ci_high"])],
             "bootstrap_holm_p": float(row["bootstrap_holm_p"]),
             "ttest_holm_p": float(row["ttest_holm_p"]),
-            **decide(row, margin if name == "C1" else None),
+            **decide(row, margin if name == "C1" else None, corrected=corrected),
         }
 
     # Offsets by class: test minus construction (reused) and test minus selection (fresh) log loss.
@@ -208,6 +280,11 @@ def run(args: argparse.Namespace) -> None:
                 "median_rows": median_rows,
                 "run_metadata": json.loads((run_dir / "metadata.json").read_text(encoding="utf-8")),
                 "command": sys.argv,
+                **({"cohort": cohort, "analysis_status": cohort["analysis_status"],
+                    "input_sha256": {"candidates": sha256(run_dir / "candidates.parquet"),
+                                     "config": sha256(Path(args.config)),
+                                     "analysis_code": sha256(Path(__file__))}}
+                   if cohort else {}),
             },
             indent=2,
         ),
@@ -221,6 +298,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--config", type=Path, default=Path("configs/fresh_validation_experiment.yaml"))
     parser.add_argument("--run-dir", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--cohort-manifest", type=Path)
+    parser.add_argument("--cohort-selection", choices=COHORT_SELECTIONS)
     return parser.parse_args()
 
 

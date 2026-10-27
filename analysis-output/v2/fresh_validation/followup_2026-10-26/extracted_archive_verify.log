@@ -1,0 +1,15 @@
+{
+  "files_verified": 457,
+  "screened": 181,
+  "inspected_trained_tasks": 46,
+  "cohorts": {
+    "original": 46,
+    "three-exclusion": 43,
+    "eligible": 11,
+    "eligible-unresolved": 34
+  },
+  "missing_feature_schemas": [
+    46520
+  ],
+  "historical_hashes_checked": 47
+}

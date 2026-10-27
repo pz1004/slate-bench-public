@@ -1,25 +1,34 @@
-# Auditing score-level selection claims in tabular benchmark artifacts
+# Validation reuse with frozen candidates
 
-Code, configurations and results for the paper *Auditing Score-Level Selection Claims in
-Tabular Benchmark Artifacts* (Sooyoung Jang, Hanbat National University).
+Code, configurations and results for *Validation Reuse in Tabular Model Selection:
+Frozen Candidates and Audited Evidence* (Sooyoung Jang, Hanbat National University).
 
-The paper asks when a claim that a selector beats a baseline in a reused benchmark table
-means what it appears to mean. It formalizes such claims as a declaration of nine fields.
-It then runs a nested, dataset-level audit on the TabArena results artifact (51 datasets,
-45 policies, 100 outer splits) and the same protocol on TabRepo (200 datasets). Robustness
-checks rerun the TabArena audit without the result rows that TabArena imputed from
-RandomForest (found by the prediction time they share with the unit's RandomForest row), and
-again without only the rows its metadata documents; they rescore the main run's own choices
-and reapply its fitted rules on the reduced candidate sets, apply a corrected resampled
-t-test, measure the influence of single datasets, trimming and dataset size, add the defaults
-rule, which selects on defaults and deploys tuned + ensemble, evaluate an error-space optimism
-correction, and compare the declared and reduced pools in matched Holm families. On TabRepo,
-related datasets are grouped (`configs/tabrepo_source_groups.csv`) for a cluster bootstrap
-and a rerun on outer splits that keep each group together. A coverage study runs the
-audit's own code on simulated TabArena-shaped tables to measure how well its tests of the
-mean cover a known contrast. An earlier version of the paper also coded
-13 published selection claims against the nine fields; the current version does not report
-that meta-study, and its records remain in `docs/meta_study/`.
+The central experiment compares reused construction-validation scores with fresh
+scores while holding the pool of 18 trained candidates fixed. On the 11 verified eligible tasks,
+C1 is +0.37 [−0.34, +1.22] rank positions: it permits benefit and appreciable
+harm, establishing neither increased regret nor equivalence. Original and broader
+cohorts remain preserved; they cannot supply the missing verified-cohort conclusion.
+The supporting TabArena and TabRepo audits concern internally developed policies.
+The unequal-quality model explains why removing offsets need not improve selection;
+the nine-field declaration synthesizes established reporting principles. TabRepo's
+exact choice identity is limited to the enumerated pools. No new training,
+simulations, replacement datasets or independent evaluation were added.
+
+The corrected materials accompany the **local revision and are not yet published**.
+The intended retrieval route is this repository's `dist/` directory:
+[correction archive](dist/validation-reuse-correction-2026-10-26.tar.gz) and
+[SHA-256 sidecar](dist/validation-reuse-correction-2026-10-26.tar.gz.sha256).
+These files are prepared for repository inclusion; disclosure through this route
+is planned before submission. Until that disclosure occurs, the correction remains
+unpublished. The archive's SHA-256 is
+`083d7679618c65211c6ae99ffb1d6dd8062aaf0358f4183a7c437625838b923f`.
+The earlier verification remains in
+[the October 26 revision record](docs/validation_reuse_revision_2026-10-26.md);
+this pass is recorded separately in
+[the dated follow-up](docs/validation_reuse_followup_2026-10-26.md).
+See [package instructions](docs/validation_revision_package.md) for contents,
+notices, limitations and offline reproduction. Editorial revision and inspectable
+calculations do not resolve the remaining scientific-significance objection.
 
 Every number, table and figure in the paper is generated from the outputs in
 `analysis-output/v2/`. `scripts/build_paper_assets.py` writes the numbers to
@@ -163,7 +172,7 @@ a dedicated machine is faster.
 - The jackknife uses cyclic splits (`--split-design cyclic`): every kept dataset is held out
   once in every cycle of four splits.
 
-### Fresh-validation experiment and TabRepo frozen-fit check (prespecified)
+### Fresh-validation experiment, eligibility correction and frozen-fit check
 
 `docs/fresh_validation_protocol.md` fixes, before any of its task data were downloaded, a
 controlled experiment on 46 untouched OpenML classification datasets: each learner family's
@@ -176,14 +185,45 @@ metadata), `fresh-validation-data`, `fresh-validation-pilot`, `fresh-validation`
 `tabrepo-frozen-fit`. `literal-vb` rebuilds every TabRepo contrast with validation-best as the
 literal rule (lowest validation error, then fit time, then candidate order) as reference.
 
-The run (`analysis-output/v2/fresh_validation/`, its prespecified analysis in `analysis/`) used
-the published code, configuration and task list; the protocol lists its one deviation (18 worker
-processes rather than about 21). Validation-best on the reused scores minus on the fresh scores
-is +0.034 in normalized rank regret, 95% interval [0.014, 0.056], and both tests reject after
-Holm adjustment: a difference supported. Reused validation-best minus the defaults rule is
-+0.000 [-0.021, 0.023], with no difference detected (`analysis/decisions.json`). The pilot
-(`analysis-output/v2/fresh_validation_pilot/`) is exploratory, and the frozen-fit check's
-outputs are in `analysis-output/v2/tabrepo_frozen_fit/`.
+The original run and its `analysis/` remain preserved. A post hoc source and
+feature audit reassessed all 181 screening decisions: among the 46 trained tasks,
+11 are verified eligible, 12 ineligible and 23 unresolved. On the verified main
+cohort, reused minus fresh validation-best is +0.02193 in normalized rank regret,
+95% interval [-0.01979, 0.07166], or +0.37 [−0.34, +1.22] rank positions
+among 18 candidates; neither increased regret nor equivalence is established. The original 46 tasks reproduce +0.03414 [0.01432, 0.05639].
+Removing only the three initially identified failures reproduces +0.03365
+[0.01477, 0.05527]; retaining eligible plus unresolved tasks yields +0.03322
+[0.01125, 0.05796]. Both tests reject C1 in these three broader analyses, but no
+cohort detects C2. The corrected analyses do not inherit confirmatory labels.
+
+See [the audit record](docs/fresh_validation_eligibility_audit.md),
+[the decision register](configs/fresh_validation_eligibility_audit.csv), and
+[the revision and verification record](docs/validation_reuse_revision_2026-10-25.md).
+Use `make fresh-validation-reproduce` to replay and verify all four cohorts from
+stored candidate scores and the preserved audit snapshots, without raw data,
+network access, Git history, training or reinspection. Its output defaults to
+`/tmp/validation-replay-2026-10-26` and must be empty; set `FV_REPLAY_OUT` to change
+it. `make fresh-validation-package` builds the dated archive from the explicit
+file allowlist, including currently untracked corrections. The archive verifier
+checks the included snapshots and hashes; the standalone instructions work after
+extraction without this checkout.
+
+`make fresh-validation-assets` generates only the experiment's assets into
+`FV_GENERATED` (default `/tmp/validation-assets-2026-10-26`). Equivalently:
+
+```sh
+.venv/bin/python scripts/build_paper_assets.py --fresh-validation-only --generated /tmp/fresh-assets
+```
+
+Partial builds refuse the full manuscript output directory and a nonempty
+directory lacking a partial-build marker. Existing full invocations, including
+`make assets META_FLAGS=--meta-verified-only`, keep their behavior.
+`make fresh-validation-corrected` is the older raw-data audit/reanalysis command;
+it requires the original local metadata/data cache and rewrites dated outputs.
+It is not needed for stored-score reproduction or packaging. The October 26 work
+preserves the October 25 records without rerunning that command. The pilot remains
+exploratory; the TabRepo frozen-fit check remains post hoc because other outcomes
+from that artifact were already known.
 
 ## Inference
 
@@ -216,13 +256,13 @@ The bootstrap resamples the completed dataset-level differences as independent d
 with the fitted procedures held fixed. Each dataset also trains the procedures evaluated on
 the others, so this is a working independence approximation: the intervals and tests give
 no guarantee for the procedure, and the paper reports a difference involving a procedure
-refitted across the outer splits as unresolved. Section 3.4 of the paper reports each
+refitted across the outer splits as unresolved. The inference section of the paper reports each
 comparison's test outcome apart from the conclusion it supports, the first that applies of
 observed, difference supported (every test rejects, the uncertainty procedure is justified for
 the design, and the comparison was prespecified as primary), no difference detected, and difference
-unresolved. The only prespecified analysis is the fresh-validation experiment
-(`docs/fresh_validation_protocol.md`), whose rules fit nothing across its independently
-sampled tasks. The delete-d jackknife
+unresolved. The original fresh-validation design was prespecified
+(`docs/fresh_validation_protocol.md`), but its changed-cohort analyses are post hoc;
+the audit does not certify independent population sampling. The delete-d jackknife
 (`scripts/procedure_level_jackknife.py`) refits the procedures on subsets of datasets; it
 is a refitting-sensitivity diagnostic, not a standard error with known coverage. The
 corrected resampled t-test of Nadeau and Bengio (2003) (`scripts/corrected_resampled_test.py`)
@@ -354,7 +394,7 @@ Claude (Anthropic), and no human coder was involved.
 
 - **Code:** MIT License (`LICENSE`).
 - **Outputs and records:** the outputs in `analysis-output/` and the meta-study and coverage
-  records in `docs/` are also released under the MIT License. The outputs derive from the TabArena benchmark results (CC BY 4.0) and
+  records in `docs/` are also licensed under the MIT License. The outputs derive from the TabArena benchmark results (CC BY 4.0) and
   from TabRepo (Apache 2.0); credit both when reusing them.
 - **Data copies:** the files in `data/tabarena/` keep their own licences; see
   `data/tabarena/NOTICE.md`.

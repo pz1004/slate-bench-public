@@ -1,0 +1,36 @@
+{
+  "latex_reference_tests": {
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "pytest",
+      "tests/test_static_latex_check.py"
+    ],
+    "exit_code": 0
+  },
+  "jair_static_check": {
+    "command": [
+      ".venv/bin/python",
+      "scripts/static_latex_check.py",
+      "paper/main.tex",
+      "--venue",
+      "jair",
+      "--bib",
+      "paper/main.bib",
+      "--fail-unused-bib"
+    ],
+    "exit_code": 0
+  },
+  "pdf_build": {
+    "command": [
+      "latexmk",
+      "-pdf",
+      "-interaction=nonstopmode",
+      "-halt-on-error",
+      "main.tex"
+    ],
+    "cwd": "paper",
+    "exit_code": 0,
+    "log": "latexmk.log"
+  }
+}

@@ -1,0 +1,1076 @@
+dataset,repetition,rule,candidate,family,variant,test_loss,candidate_rank,n_candidates,normalized_rank_regret,median_error_regret,log_loss_regret,n_candidates_unit
+Advanced_IoT_Dataset,0,validation_best_reused,knn (default),knn,default,5.329015007049534e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,1,validation_best_reused,knn (default),knn,default,5.329181540503228e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,2,validation_best_reused,knn (default),knn,default,5.329126029351996e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,3,validation_best_reused,knn (default),knn,default,5.329126029351996e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,4,validation_best_reused,knn (default),knn,default,5.329015007049534e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+BitcoinHeist_Ransomware,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.30784652893052383,1.0,18,0.0,0.0,0.0,18
+BitcoinHeist_Ransomware,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.3167649907047734,1.0,18,0.0,0.0,0.0,18
+BitcoinHeist_Ransomware,2,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.31176473909963,1.0,18,0.0,0.0,0.0,18
+BitcoinHeist_Ransomware,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.316246884806156,1.0,18,0.0,0.0,0.0,18
+BitcoinHeist_Ransomware,4,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.3207254620085269,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5322768562427989,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.551572338879176,3.0,18,0.11764705882352941,0.16330276982612624,0.0026951176923947218,18
+Cardiovascular-Disease-dataset,2,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5413658638031292,4.0,18,0.17647058823529413,0.09100474669716963,0.0008574013968456473,18
+Cardiovascular-Disease-dataset,3,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5314501769677915,2.0,18,0.058823529411764705,0.05738788813704285,0.0008304577612636699,18
+Cardiovascular-Disease-dataset,4,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5488626383122713,1.0,18,0.0,0.0,0.0,18
+Credit-Risk-Classification-Dataset,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4836651082450333,3.0,18,0.11764705882352941,0.23352339578449127,0.002537578677784591,18
+Credit-Risk-Classification-Dataset,1,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.49770551574049104,10.0,18,0.5294117647058824,1.0888406403084625,0.015456207038445524,18
+Credit-Risk-Classification-Dataset,2,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4960375523174334,11.0,18,0.5882352941176471,1.2124135398523634,0.015118443915420776,18
+Credit-Risk-Classification-Dataset,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4794087191113816,1.0,18,0.0,0.0,0.0,18
+Credit-Risk-Classification-Dataset,4,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.4995760058009206,11.0,18,0.5882352941176471,1.1219778869080899,0.02334306665801411,18
+Credit_Risk_Modeling,0,validation_best_reused,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,5.090617362553407e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+Credit_Risk_Modeling,1,validation_best_reused,random_forest (tuned),random_forest,tuned,0.0007245335355164688,2.5,18,0.08823529411764706,0.0011213335125924667,0.00010964493774307524,18
+Credit_Risk_Modeling,2,validation_best_reused,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.002464846642227183,3.5,18,0.14705882352941177,0.014513570102978839,0.001606199093812132,18
+Credit_Risk_Modeling,3,validation_best_reused,random_forest (tuned),random_forest,tuned,0.0007355708529144759,1.5,18,0.029411764705882353,0.0,0.0,18
+Credit_Risk_Modeling,4,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.009344987711636733,4.0,18,0.17647058823529413,0.05932844300860058,0.005621047342372445,18
+Credit_Score,0,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6559880664966997,1.0,18,0.0,0.0,0.0,18
+Credit_Score,1,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6472528786224234,1.0,18,0.0,0.0,0.0,18
+Credit_Score,2,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6417775548473178,1.0,18,0.0,0.0,0.0,18
+Credit_Score,3,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6490011472497744,1.0,18,0.0,0.0,0.0,18
+Credit_Score,4,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6617025225746475,1.0,18,0.0,0.0,0.0,18
+EDA-Home-Mortgage-NY-Sampled,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4281663677214065,1.0,18,0.0,0.0,0.0,18
+EDA-Home-Mortgage-NY-Sampled,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.42560504909451513,1.0,18,0.0,0.0,0.0,18
+EDA-Home-Mortgage-NY-Sampled,2,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4182833898011064,1.0,18,0.0,0.0,0.0,18
+EDA-Home-Mortgage-NY-Sampled,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.43382043590658403,1.0,18,0.0,0.0,0.0,18
+EDA-Home-Mortgage-NY-Sampled,4,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4368543538603118,1.0,18,0.0,0.0,0.0,18
+Employee,0,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.37467683570598354,1.0,18,0.0,0.0,0.0,18
+Employee,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.3806977560326287,1.0,18,0.0,0.0,0.0,18
+Employee,2,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.37194420109988424,4.0,18,0.17647058823529413,0.2130916178837786,0.005865570049862434,18
+Employee,3,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.3815425009599453,8.0,18,0.4117647058823529,0.37907772714879423,0.010838812497075634,18
+Employee,4,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.3744258066554048,3.0,18,0.11764705882352941,0.13019987839328204,0.0030132788805758426,18
+Fraud-Detection-Updated,0,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.28009254354773794,5.0,18,0.23529411764705882,0.2527888987986225,0.002546806305090854,18
+Fraud-Detection-Updated,1,validation_best_reused,random_forest (tuned),random_forest,tuned,0.27072980027456695,10.5,18,0.5588235294117647,1.0506252870431618,0.010785128976029179,18
+Fraud-Detection-Updated,2,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.2776445234641364,7.0,18,0.35294117647058826,0.8709641153770452,0.008875082860731132,18
+Fraud-Detection-Updated,3,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.2793832628668971,14.0,18,0.7647058823529411,1.4300373221512803,0.013555707916877213,18
+Fraud-Detection-Updated,4,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.26906647923088606,3.0,18,0.11764705882352941,0.44374211474678515,0.0038470209032593905,18
+HMEQ_Data_New,0,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.23019764394104683,11.0,18,0.5882352941176471,1.464728245740461,0.03640139068130477,18
+HMEQ_Data_New,1,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19248567755811705,1.0,18,0.0,0.0,0.0,18
+HMEQ_Data_New,2,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.1902742146869461,3.0,18,0.11764705882352941,0.13775146877954483,0.004432882014686584,18
+HMEQ_Data_New,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.21215400923438504,4.0,18,0.17647058823529413,0.42660610026251694,0.014186882764817443,18
+HMEQ_Data_New,4,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19157105758300222,1.0,18,0.0,0.0,0.0,18
+Interest_Rate,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.9425135213841167,1.0,18,0.0,0.0,0.0,18
+Interest_Rate,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.9246797222216601,1.0,18,0.0,0.0,0.0,18
+Interest_Rate,2,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.9262337797580801,2.0,18,0.058823529411764705,0.07205533179644315,0.0016437047326157694,18
+Interest_Rate,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.9312898423766699,2.0,18,0.058823529411764705,0.03711693420289035,0.0006858827013318525,18
+Interest_Rate,4,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.9241290374574358,2.0,18,0.058823529411764705,0.07392481410943753,0.0017329810809860735,18
+KDD98,0,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.3545368092599076,1.0,18,0.0,0.0,0.0,18
+KDD98,1,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35340893757612657,1.0,18,0.0,0.0,0.0,18
+KDD98,2,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35309890808743843,1.0,18,0.0,0.0,0.0,18
+KDD98,3,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35424395602403863,1.0,18,0.0,0.0,0.0,18
+KDD98,4,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35604749658263,1.0,18,0.0,0.0,0.0,18
+MembershipWoes,0,validation_best_reused,mlp (tuned),mlp,tuned,6.2250092862427e-08,1.5,18,0.029411764705882353,0.0,0.0,18
+MembershipWoes,1,validation_best_reused,knn (tuned),knn,tuned,0.04998375744560266,15.5,18,0.8529411764705882,4.1743667119047165,0.04998340805297938,18
+MembershipWoes,2,validation_best_reused,random_forest (tuned),random_forest,tuned,1.9491275753660493e-05,4.5,18,0.20588235294117646,0.010053993979595291,1.9158188195015133e-05,18
+MembershipWoes,3,validation_best_reused,mlp (tuned),mlp,tuned,0.01666125262443211,11.5,18,0.6176470588235294,13.02122100927141,0.016661095583182486,18
+MembershipWoes,4,validation_best_reused,knn (tuned),knn,tuned,1.110223024625157e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+Mobile_Price,0,validation_best_reused,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.0806400758644444,2.0,18,0.058823529411764705,0.006812846637969347,0.0011541441985746526,18
+Mobile_Price,1,validation_best_reused,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.07888318452255967,2.0,18,0.058823529411764705,0.007757772352117216,0.0014137850479956499,18
+Mobile_Price,2,validation_best_reused,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.0732467193148677,2.0,18,0.058823529411764705,0.002601742687974483,0.000498821221824583,18
+Mobile_Price,3,validation_best_reused,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.07883731070005878,1.0,18,0.0,0.0,0.0,18
+Mobile_Price,4,validation_best_reused,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.09070193357156478,1.0,18,0.0,0.0,0.0,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5060580222190479,2.0,18,0.058823529411764705,0.013538296802742667,0.003171579147410064,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.46097260283091185,1.0,18,0.0,0.0,0.0,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,2,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5464180572784717,2.0,18,0.058823529411764705,0.023853001424510842,0.005567806026758881,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5095108548029099,2.0,18,0.058823529411764705,0.008584984216087362,0.0023389980105920083,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,4,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4964414436639715,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.267106095568379,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.276660816084542,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,2,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.2865687101714198,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.2975646023964532,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,4,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.2899861636305418,2.0,18,0.058823529411764705,0.02612372353619982,0.001623873598409764,18
+Otto-Group-Product-Classification-Challenge,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5696664209355782,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,1,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5575271267452412,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,2,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.578399781070422,2.0,18,0.058823529411764705,0.014658393128249321,0.0014328791163622512,18
+Otto-Group-Product-Classification-Challenge,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5640478363047825,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,4,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5564274892581075,1.0,18,0.0,0.0,0.0,18
+Phishing_Legitimate_full,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.04793847673202849,1.0,18,0.0,0.0,0.0,18
+Phishing_Legitimate_full,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.04266769633236937,1.0,18,0.0,0.0,0.0,18
+Phishing_Legitimate_full,2,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.047926183263848884,1.0,18,0.0,0.0,0.0,18
+Phishing_Legitimate_full,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.045943211840608005,1.0,18,0.0,0.0,0.0,18
+Phishing_Legitimate_full,4,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.05092108551656011,2.0,18,0.058823529411764705,0.018355180967578034,0.0007114574475781538,18
+PostPartum_Depression,0,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.1144993817702328,1.0,18,0.0,0.0,0.0,18
+PostPartum_Depression,1,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.1350467310137782,11.0,18,0.5882352941176471,1.1483581000440826,0.06295686247606976,18
+PostPartum_Depression,2,validation_best_reused,knn (tuned + ensemble),knn,tuned + ensemble,0.11620523944601044,5.0,18,0.23529411764705882,0.31083403036957635,0.021898250088535756,18
+PostPartum_Depression,3,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.09342014704922794,1.0,18,0.0,0.0,0.0,18
+PostPartum_Depression,4,validation_best_reused,knn (tuned + ensemble),knn,tuned + ensemble,0.062259775756535726,4.0,18,0.17647058823529413,0.22469017358342697,0.006314598413170093,18
+Pulsar-Dataset-HTRU2,0,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.0651744946134476,2.0,18,0.058823529411764705,0.015954576184023128,0.00010079555013656205,18
+Pulsar-Dataset-HTRU2,1,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.06564001436184028,1.0,18,0.0,0.0,0.0,18
+Pulsar-Dataset-HTRU2,2,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.07810488276894165,6.0,18,0.29411764705882354,0.5849658452698613,0.0026797372264976693,18
+Pulsar-Dataset-HTRU2,3,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.06997479823567056,1.0,18,0.0,0.0,0.0,18
+Pulsar-Dataset-HTRU2,4,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.06850248881360924,1.0,18,0.0,0.0,0.0,18
+Pumpkin_Seeds,0,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.3151529596333682,6.0,18,0.29411764705882354,0.6702144004711234,0.00952250131992044,18
+Pumpkin_Seeds,1,validation_best_reused,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.25858370314209694,6.0,18,0.29411764705882354,0.651858515811301,0.01672160207182921,18
+Pumpkin_Seeds,2,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.34597799314147243,8.0,18,0.4117647058823529,0.7131338182523514,0.01841360588212193,18
+Pumpkin_Seeds,3,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.2988372288381795,4.0,18,0.17647058823529413,0.3503718723553527,0.005852469099318303,18
+Pumpkin_Seeds,4,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.3310757768605348,8.0,18,0.4117647058823529,0.9640008113392035,0.02464962268083215,18
+Risk_Level_Classification,0,validation_best_reused,extra_trees (tuned),extra_trees,tuned,8.347253185745606e-07,8.5,18,0.4411764705882353,0.01744318618479831,8.347253163784284e-07,18
+Risk_Level_Classification,1,validation_best_reused,random_forest (tuned),random_forest,tuned,2.1961321650110244e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+Risk_Level_Classification,2,validation_best_reused,extra_trees (tuned),extra_trees,tuned,2.504175951331251e-06,8.5,18,0.4411764705882353,0.026840788845046266,2.504175949135119e-06,18
+Risk_Level_Classification,3,validation_best_reused,random_forest (tuned),random_forest,tuned,2.1961321650110244e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+Risk_Level_Classification,4,validation_best_reused,extra_trees (tuned),extra_trees,tuned,2.1961321650110244e-15,2.5,18,0.08823529411764706,0.0,0.0,18
+Santander_Customer_Satisfaction,0,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.13564231889549877,2.0,18,0.058823529411764705,0.0012312368049525251,1.1100390883228561e-05,18
+Santander_Customer_Satisfaction,1,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.13308668348951494,2.0,18,0.058823529411764705,0.01012414786110859,0.00012247627796266314,18
+Santander_Customer_Satisfaction,2,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.1318947366468388,2.0,18,0.058823529411764705,0.014043298960726492,0.0001792811500310465,18
+Santander_Customer_Satisfaction,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.12931203735716915,3.0,18,0.11764705882352941,0.12360512602585581,0.001860167009661684,18
+Santander_Customer_Satisfaction,4,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.13810295819509644,1.0,18,0.0,0.0,0.0,18
+South_Asian_Churn_dataset,0,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.536663968365882,4.0,18,0.17647058823529413,0.1937877169533446,0.0033375549514378378,18
+South_Asian_Churn_dataset,1,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5680951862906748,10.0,18,0.5294117647058824,1.297414355138179,0.0376327150961272,18
+South_Asian_Churn_dataset,2,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.545189253935034,7.0,18,0.35294117647058826,0.6477740202646214,0.02107598187748616,18
+South_Asian_Churn_dataset,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5513177501612492,3.0,18,0.11764705882352941,0.5961054282499592,0.007971121773016066,18
+South_Asian_Churn_dataset,4,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.515731304910065,1.0,18,0.0,0.0,0.0,18
+Support2,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.1370422120088343,3.0,18,0.11764705882352941,0.03923545262569463,0.001135968425154843,18
+Support2,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.14642549033170812,3.0,18,0.11764705882352941,0.10677951710415262,0.0023910512120078886,18
+Support2,2,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.15117676530099813,3.0,18,0.11764705882352941,0.1448423148717217,0.0036312716041690396,18
+Support2,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.15062238949630977,4.0,18,0.17647058823529413,0.08880822690010798,0.0027051234952875647,18
+Support2,4,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.15132742991628645,3.0,18,0.11764705882352941,0.06307632462271612,0.0019952575669874573,18
+WBCAtt,0,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.03236521722144992,1.0,18,0.0,0.0,0.0,18
+WBCAtt,1,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.028882237471096476,4.0,18,0.17647058823529413,0.3385805200972901,0.001018635030212385,18
+WBCAtt,2,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.030797831174774845,6.0,18,0.29411764705882354,0.4031274071268896,0.0028880969983142123,18
+WBCAtt,3,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.036089879374142285,7.0,18,0.35294117647058826,0.5705080222762089,0.0019069197801918347,18
+WBCAtt,4,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.022769150393071046,5.0,18,0.23529411764705882,0.27809951339126504,0.0006624844289224337,18
+air-quality-and-pollution-assessment,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.121492371051436,2.0,18,0.058823529411764705,0.003230969714018934,8.259327003967698e-05,18
+air-quality-and-pollution-assessment,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.12297732883922999,1.0,18,0.0,0.0,0.0,18
+air-quality-and-pollution-assessment,2,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.15532111838999577,2.0,18,0.058823529411764705,0.08963213681436241,0.0006375775005678097,18
+air-quality-and-pollution-assessment,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.12898409646269754,1.0,18,0.0,0.0,0.0,18
+air-quality-and-pollution-assessment,4,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.11620281461198842,1.0,18,0.0,0.0,0.0,18
+analcatdata_supreme,0,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.14415751919980385,15.0,18,0.8235294117647058,2.4184375528603255,0.11808011094474498,18
+analcatdata_supreme,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.02728516937046034,2.0,18,0.058823529411764705,0.13497270656802826,0.005560136761631279,18
+analcatdata_supreme,2,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.00683423824192996,2.0,18,0.058823529411764705,0.008604569910365947,5.9264233180862484e-05,18
+analcatdata_supreme,3,validation_best_reused,hist_gradient_boosting (default),hist_gradient_boosting,default,0.015302419210195846,7.0,18,0.35294117647058826,0.25850343019956096,0.0028386926659673076,18
+analcatdata_supreme,4,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.024571727098943674,7.0,18,0.35294117647058826,0.6318908090107228,0.00989687209274817,18
+banknote-authentication,0,validation_best_reused,knn (tuned),knn,tuned,1.1102230246251571e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+banknote-authentication,1,validation_best_reused,knn (tuned),knn,tuned,0.12559555052694904,16.5,18,0.9117647058823529,4.748273726443334,0.12559539332650782,18
+banknote-authentication,2,validation_best_reused,mlp (tuned),mlp,tuned,1.8970557033336219e-06,1.5,18,0.029411764705882353,0.0,0.0,18
+banknote-authentication,3,validation_best_reused,knn (tuned),knn,tuned,0.004018823672965971,3.5,18,0.14705882352941177,0.13544647637365084,0.004018580552948072,18
+banknote-authentication,4,validation_best_reused,mlp (tuned),mlp,tuned,1.3014011802629489e-06,1.5,18,0.029411764705882353,0.0,0.0,18
+compas-two-years,0,validation_best_reused,random_forest (tuned),random_forest,tuned,0.6103469730779594,7.5,18,0.38235294117647056,0.886335734911045,0.006014385854499982,18
+compas-two-years,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.6039931795753669,1.0,18,0.0,0.0,0.0,18
+compas-two-years,2,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6119980830283372,3.0,18,0.11764705882352941,0.2115019126685517,0.0014737302733451862,18
+compas-two-years,3,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6227940108271574,3.0,18,0.11764705882352941,0.3632147670393427,0.0029820824413919755,18
+compas-two-years,4,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6101478394943515,9.0,18,0.47058823529411764,0.9551905066945746,0.0044909065049848484,18
+dataset_china,0,validation_best_reused,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,2.62088993411305e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+dataset_china,1,validation_best_reused,random_forest (tuned),random_forest,tuned,4.2217340734396285e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+dataset_china,2,validation_best_reused,random_forest (tuned),random_forest,tuned,4.2217340734396285e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+dataset_china,3,validation_best_reused,random_forest (tuned),random_forest,tuned,4.2217340734396285e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+dataset_china,4,validation_best_reused,random_forest (tuned),random_forest,tuned,4.2217340734396285e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+depression_2020,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4541691121344873,2.0,18,0.058823529411764705,0.10218078571291439,0.0020636460703954973,18
+depression_2020,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4614943528984137,6.0,18,0.29411764705882354,0.6434530686874474,0.013186184363062514,18
+depression_2020,2,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.4469411832996115,2.0,18,0.058823529411764705,0.0274819811712221,0.0005185099208765975,18
+depression_2020,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.45563616416218533,8.0,18,0.4117647058823529,0.8924956283663952,0.006096179406353819,18
+depression_2020,4,validation_best_reused,knn (tuned + ensemble),knn,tuned + ensemble,0.6321862367430853,15.0,18,0.8235294117647058,12.874395915006799,0.18611349509360547,18
+football-player-position,0,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.410419867859085,3.0,18,0.11764705882352941,0.16940262857626398,0.004075867837621205,18
+football-player-position,1,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.37348166329084614,1.0,18,0.0,0.0,0.0,18
+football-player-position,2,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.35541635581543185,6.0,18,0.29411764705882354,0.38208245290533643,0.011153668077046652,18
+football-player-position,3,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.36506013082878797,1.0,18,0.0,0.0,0.0,18
+football-player-position,4,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.3815759614910133,1.0,18,0.0,0.0,0.0,18
+hepatitis_c_virus_hcv_for_egyptian_patients,0,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,1.4041507696965045,10.0,18,0.5294117647058824,1.0654587066381032,0.025526720415121495,18
+hepatitis_c_virus_hcv_for_egyptian_patients,1,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,1.3990631980452,9.0,18,0.47058823529411764,0.6478435252268118,0.011424846577329895,18
+hepatitis_c_virus_hcv_for_egyptian_patients,2,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,1.3749840686241552,2.0,18,0.058823529411764705,0.12389565371746568,0.0027281514052479583,18
+hepatitis_c_virus_hcv_for_egyptian_patients,3,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,1.4013557179540108,6.0,18,0.29411764705882354,0.7046531099040473,0.014032740891614992,18
+hepatitis_c_virus_hcv_for_egyptian_patients,4,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,1.4076824641393246,9.0,18,0.47058823529411764,0.8202215045587067,0.021004913506149192,18
+ipums_la_97-small,0,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.2520763494667655,4.0,18,0.17647058823529413,0.04348287480782255,0.003293209774611894,18
+ipums_la_97-small,1,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.2323134904188626,1.0,18,0.0,0.0,0.0,18
+ipums_la_97-small,2,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.2226913185404509,1.0,18,0.0,0.0,0.0,18
+ipums_la_97-small,3,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.2076206841046842,1.0,18,0.0,0.0,0.0,18
+ipums_la_97-small,4,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.2296071336668997,1.0,18,0.0,0.0,0.0,18
+kr-vs-kp,0,validation_best_reused,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.01998538894738893,4.5,18,0.20588235294117646,0.04588595026195734,0.0010992216672853113,18
+kr-vs-kp,1,validation_best_reused,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.016002909068282382,1.5,18,0.029411764705882353,0.0,0.0,18
+kr-vs-kp,2,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.02427395676651534,2.0,18,0.058823529411764705,0.09995158682655622,0.0024099607476201178,18
+kr-vs-kp,3,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.02958675298604806,8.0,18,0.4117647058823529,0.33837863370877336,0.012298594931776912,18
+kr-vs-kp,4,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.024694019253107772,4.0,18,0.17647058823529413,0.2995893781409357,0.009527144449992418,18
+law-school-admission-bianry,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5303381935855728,2.0,18,0.058823529411764705,0.15581467009465375,0.001978598528332709,18
+law-school-admission-bianry,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5377917906174149,2.0,18,0.058823529411764705,0.050706254966213254,0.0006593631257658661,18
+law-school-admission-bianry,2,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5343312279544241,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5269698484449984,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,4,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.534749833512859,3.0,18,0.11764705882352941,0.17107696720233326,0.0021367248266316308,18
+mushroom,0,validation_best_reused,knn (default),knn,default,0.0006287084600207898,15.0,18,0.8235294117647058,5.7143982777478355,0.0006285491713779446,18
+mushroom,1,validation_best_reused,knn (tuned),knn,tuned,1.1102230246251571e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+mushroom,2,validation_best_reused,knn (tuned),knn,tuned,1.1102230246251571e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+mushroom,3,validation_best_reused,knn (tuned),knn,tuned,1.1102230246251571e-15,2.5,18,0.08823529411764706,0.0,0.0,18
+mushroom,4,validation_best_reused,knn (tuned),knn,tuned,1.1102230246251571e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+national-longitudinal-survey-binary,0,validation_best_reused,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,6.608083300724276e-07,3.5,18,0.14705882352941177,3.0465749958651875e-05,6.608083289622046e-07,18
+national-longitudinal-survey-binary,1,validation_best_reused,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,7.125240582537677e-07,3.5,18,0.14705882352941177,3.319132654437547e-05,7.125240571435446e-07,18
+national-longitudinal-survey-binary,2,validation_best_reused,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,7.125240582537677e-07,3.5,18,0.14705882352941177,3.630551550212458e-05,7.125240571435446e-07,18
+national-longitudinal-survey-binary,3,validation_best_reused,random_forest (tuned),random_forest,tuned,0.00013404118378770427,4.5,18,0.20588235294117646,0.0058729802583602445,0.0001334103930292104,18
+national-longitudinal-survey-binary,4,validation_best_reused,random_forest (tuned),random_forest,tuned,0.00013792054062748818,4.5,18,0.20588235294117646,0.005737819258212944,0.00013720801656923442,18
+open_payments,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.16288159962032653,1.0,18,0.0,0.0,0.0,18
+open_payments,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.16519900372341104,1.0,18,0.0,0.0,0.0,18
+open_payments,2,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.16962161106323034,1.0,18,0.0,0.0,0.0,18
+open_payments,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.1627074126306584,1.0,18,0.0,0.0,0.0,18
+open_payments,4,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.17518472584250905,2.0,18,0.058823529411764705,0.05774605352507237,0.00040794683025441314,18
+rl,0,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.48024933609648246,2.0,18,0.058823529411764705,0.006785915533207149,0.00046756174483825186,18
+rl,1,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.48880540793447225,3.0,18,0.11764705882352941,0.14358628357897957,0.012355254166141694,18
+rl,2,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.47134974987961903,2.0,18,0.058823529411764705,0.03170770668266074,0.0030379767268826074,18
+rl,3,validation_best_reused,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.49721954297495663,3.0,18,0.11764705882352941,0.21681197045909958,0.01764548047870579,18
+rl,4,validation_best_reused,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.48004558328993907,3.0,18,0.11764705882352941,0.103809186237935,0.009823139809310766,18
+solar-flare,0,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.393915564370993,11.0,18,0.5882352941176471,1.5779242398000382,0.006877681685880266,18
+solar-flare,1,validation_best_reused,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.40194129232790304,11.0,18,0.5882352941176471,1.0062241822733904,0.019851758091226857,18
+solar-flare,2,validation_best_reused,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.4253350062966968,9.0,18,0.47058823529411764,0.9959029828569158,0.01990608531205984,18
+solar-flare,3,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.44594165158696647,8.0,18,0.4117647058823529,0.8190979655092011,0.011112361946334304,18
+solar-flare,4,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.39380913621838337,8.0,18,0.4117647058823529,0.5632514724646274,0.008334078900568087,18
+student_depression_dataset,0,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.3676706500560098,4.0,18,0.17647058823529413,0.1284350992828445,0.00187940665383024,18
+student_depression_dataset,1,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.35144676073372666,1.0,18,0.0,0.0,0.0,18
+student_depression_dataset,2,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.34880770596165905,1.0,18,0.0,0.0,0.0,18
+student_depression_dataset,3,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.3485961587145681,7.0,18,0.35294117647058826,0.5315950833495555,0.005897926658097408,18
+student_depression_dataset,4,validation_best_reused,mlp (tuned + ensemble),mlp,tuned + ensemble,0.3642872050513726,3.0,18,0.11764705882352941,0.002967921552147558,2.3774554025468575e-05,18
+Advanced_IoT_Dataset,0,validation_best_fresh,knn (default),knn,default,5.329015007049534e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,1,validation_best_fresh,knn (default),knn,default,5.329181540503228e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,2,validation_best_fresh,knn (default),knn,default,5.329126029351996e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,3,validation_best_fresh,knn (default),knn,default,5.329126029351996e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,4,validation_best_fresh,knn (default),knn,default,5.329015007049534e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+BitcoinHeist_Ransomware,0,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.30784652893052383,1.0,18,0.0,0.0,0.0,18
+BitcoinHeist_Ransomware,1,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.3167649907047734,1.0,18,0.0,0.0,0.0,18
+BitcoinHeist_Ransomware,2,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.31176473909963,1.0,18,0.0,0.0,0.0,18
+BitcoinHeist_Ransomware,3,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.316246884806156,1.0,18,0.0,0.0,0.0,18
+BitcoinHeist_Ransomware,4,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.3207254620085269,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,0,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5369302128683172,6.0,18,0.29411764705882354,0.24464674102671485,0.004653356625518357,18
+Cardiovascular-Disease-dataset,1,validation_best_fresh,random_forest (tuned),random_forest,tuned,0.5490213480250514,2.0,18,0.058823529411764705,0.008732944005455798,0.00014412683827014217,18
+Cardiovascular-Disease-dataset,2,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5405084624062836,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,3,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5306197192065278,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,4,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.5505603704738066,2.0,18,0.058823529411764705,0.10426119531945317,0.001697732161535237,18
+Credit-Risk-Classification-Dataset,0,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.49017936310233123,8.0,18,0.4117647058823529,0.8330046763451913,0.009051833535082543,18
+Credit-Risk-Classification-Dataset,1,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.482623195834016,4.0,18,0.17647058823529413,0.026339159611749437,0.00037388713197050727,18
+Credit-Risk-Classification-Dataset,2,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4960375523174334,11.0,18,0.5882352941176471,1.2124135398523634,0.015118443915420776,18
+Credit-Risk-Classification-Dataset,3,validation_best_fresh,logistic_regression (tuned),logistic_regression,tuned,0.48688562584996764,7.5,18,0.38235294117647056,0.6555206587777173,0.007476906738586031,18
+Credit-Risk-Classification-Dataset,4,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.47874052459774136,3.5,18,0.14705882352941177,0.12052638460384886,0.002507585454834871,18
+Credit_Risk_Modeling,0,validation_best_fresh,random_forest (tuned),random_forest,tuned,0.0008041560634922627,4.5,18,0.20588235294117646,0.009605261040186549,0.0008036470017560073,18
+Credit_Risk_Modeling,1,validation_best_fresh,random_forest (tuned),random_forest,tuned,0.0007245335355164688,2.5,18,0.08823529411764706,0.0011213335125924667,0.00010964493774307524,18
+Credit_Risk_Modeling,2,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.002464846642227183,3.5,18,0.14705882352941177,0.014513570102978839,0.001606199093812132,18
+Credit_Risk_Modeling,3,validation_best_fresh,hist_gradient_boosting (default),hist_gradient_boosting,default,0.0025648712782220928,5.0,18,0.23529411764705882,0.020842920196105695,0.0018293004253076169,18
+Credit_Risk_Modeling,4,validation_best_fresh,hist_gradient_boosting (default),hist_gradient_boosting,default,0.007945228622320473,3.0,18,0.11764705882352941,0.044554412067736845,0.0042212882530561855,18
+Credit_Score,0,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6559880664966997,1.0,18,0.0,0.0,0.0,18
+Credit_Score,1,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6472528786224234,1.0,18,0.0,0.0,0.0,18
+Credit_Score,2,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6417775548473178,1.0,18,0.0,0.0,0.0,18
+Credit_Score,3,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6490011472497744,1.0,18,0.0,0.0,0.0,18
+Credit_Score,4,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6617025225746475,1.0,18,0.0,0.0,0.0,18
+EDA-Home-Mortgage-NY-Sampled,0,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4281663677214065,1.0,18,0.0,0.0,0.0,18
+EDA-Home-Mortgage-NY-Sampled,1,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.42614864926197377,2.0,18,0.058823529411764705,0.008847275536953449,0.0005436001674586355,18
+EDA-Home-Mortgage-NY-Sampled,2,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.41984809966742104,2.0,18,0.058823529411764705,0.024355033221162982,0.0015647098663146286,18
+EDA-Home-Mortgage-NY-Sampled,3,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.43382043590658403,1.0,18,0.0,0.0,0.0,18
+EDA-Home-Mortgage-NY-Sampled,4,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4368543538603118,1.0,18,0.0,0.0,0.0,18
+Employee,0,validation_best_fresh,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.37467683570598354,1.0,18,0.0,0.0,0.0,18
+Employee,1,validation_best_fresh,extra_trees (tuned),extra_trees,tuned,0.39052654449616375,7.0,18,0.35294117647058826,0.21486307624758733,0.009828788463535076,18
+Employee,2,validation_best_fresh,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.36827985226568666,2.0,18,0.058823529411764705,0.07996866224061577,0.0022012212156648503,18
+Employee,3,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.37070368846286966,1.0,18,0.0,0.0,0.0,18
+Employee,4,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.37141252777482897,1.0,18,0.0,0.0,0.0,18
+Fraud-Detection-Updated,0,validation_best_fresh,random_forest (tuned),random_forest,tuned,0.2790207821266845,3.0,18,0.11764705882352941,0.14640884592166234,0.0014750448840374353,18
+Fraud-Detection-Updated,1,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.2631774925848095,6.0,18,0.29411764705882354,0.31492287198395447,0.0032328212862717254,18
+Fraud-Detection-Updated,2,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.2725487093512023,3.0,18,0.11764705882352941,0.3708818850876629,0.003779268747797049,18
+Fraud-Detection-Updated,3,validation_best_fresh,mlp (tuned),mlp,tuned,0.27755274032816063,13.0,18,0.7058823529411765,1.23692932915793,0.011725185378140768,18
+Fraud-Detection-Updated,4,validation_best_fresh,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.27236059202729496,8.0,18,0.4117647058823529,0.8237079676108738,0.0071411336996682895,18
+HMEQ_Data_New,0,validation_best_fresh,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19380452526854858,3.0,18,0.11764705882352941,0.0003328511554405703,8.272008806514686e-06,18
+HMEQ_Data_New,1,validation_best_fresh,extra_trees (default),extra_trees,default,0.19354297300660012,2.5,18,0.08823529411764706,0.037464081928008826,0.0010572954484830699,18
+HMEQ_Data_New,2,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.18584133267225952,1.0,18,0.0,0.0,0.0,18
+HMEQ_Data_New,3,validation_best_fresh,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19840029431850117,2.0,18,0.058823529411764705,0.013025556766489086,0.0004331678489335744,18
+HMEQ_Data_New,4,validation_best_fresh,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19157105758300222,1.0,18,0.0,0.0,0.0,18
+Interest_Rate,0,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.9425135213841167,1.0,18,0.0,0.0,0.0,18
+Interest_Rate,1,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.9246797222216601,1.0,18,0.0,0.0,0.0,18
+Interest_Rate,2,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.9245900750254643,1.0,18,0.0,0.0,0.0,18
+Interest_Rate,3,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.9312898423766699,2.0,18,0.058823529411764705,0.03711693420289035,0.0006858827013318525,18
+Interest_Rate,4,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.9241290374574358,2.0,18,0.058823529411764705,0.07392481410943753,0.0017329810809860735,18
+KDD98,0,validation_best_fresh,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.3545368092599076,1.0,18,0.0,0.0,0.0,18
+KDD98,1,validation_best_fresh,extra_trees (tuned),extra_trees,tuned,0.3537900270217934,4.0,18,0.17647058823529413,0.07073435185718202,0.0003810894456668379,18
+KDD98,2,validation_best_fresh,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35309890808743843,1.0,18,0.0,0.0,0.0,18
+KDD98,3,validation_best_fresh,random_forest (tuned),random_forest,tuned,0.35473612582104164,4.0,18,0.17647058823529413,0.06990226592096371,0.0004921697970030059,18
+KDD98,4,validation_best_fresh,extra_trees (tuned),extra_trees,tuned,0.3561630980086537,2.0,18,0.058823529411764705,0.02282200888749772,0.00011560142602368151,18
+MembershipWoes,0,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,2.987970282714031e-07,3.5,18,0.14705882352941177,0.00010040018126271225,2.3654693540897608e-07,18
+MembershipWoes,1,validation_best_fresh,knn (tuned),knn,tuned,0.04998375744560266,15.5,18,0.8529411764705882,4.1743667119047165,0.04998340805297938,18
+MembershipWoes,2,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,3.330875586453601e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+MembershipWoes,3,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,1.5704124962696874e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+MembershipWoes,4,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,3.319018766716416e-07,3.5,18,0.14705882352941177,0.004295891281775089,3.319018755614186e-07,18
+Mobile_Price,0,validation_best_fresh,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.0806400758644444,2.0,18,0.058823529411764705,0.006812846637969347,0.0011541441985746526,18
+Mobile_Price,1,validation_best_fresh,logistic_regression (tuned),logistic_regression,tuned,0.07746939947456402,1.0,18,0.0,0.0,0.0,18
+Mobile_Price,2,validation_best_fresh,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.0732467193148677,2.0,18,0.058823529411764705,0.002601742687974483,0.000498821221824583,18
+Mobile_Price,3,validation_best_fresh,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.07883731070005878,1.0,18,0.0,0.0,0.0,18
+Mobile_Price,4,validation_best_fresh,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.09070193357156478,1.0,18,0.0,0.0,0.0,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,0,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.5028864430716379,1.0,18,0.0,0.0,0.0,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,1,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.46097260283091185,1.0,18,0.0,0.0,0.0,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,2,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.5408502512517128,1.0,18,0.0,0.0,0.0,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,3,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.5071718567923179,1.0,18,0.0,0.0,0.0,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,4,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4964414436639715,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,0,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.267106095568379,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,1,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.276660816084542,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,2,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.2865687101714198,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,3,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.2975646023964532,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,4,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.2899861636305418,2.0,18,0.058823529411764705,0.02612372353619982,0.001623873598409764,18
+Otto-Group-Product-Classification-Challenge,0,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5696664209355782,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,1,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5598458834507173,2.0,18,0.058823529411764705,0.022704905278111465,0.0023187567054760994,18
+Otto-Group-Product-Classification-Challenge,2,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.578399781070422,2.0,18,0.058823529411764705,0.014658393128249321,0.0014328791163622512,18
+Otto-Group-Product-Classification-Challenge,3,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5786272857480194,3.0,18,0.11764705882352941,0.1482859766606668,0.014579449443236858,18
+Otto-Group-Product-Classification-Challenge,4,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5564274892581075,1.0,18,0.0,0.0,0.0,18
+Phishing_Legitimate_full,0,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.04793847673202849,1.0,18,0.0,0.0,0.0,18
+Phishing_Legitimate_full,1,validation_best_fresh,hist_gradient_boosting (default),hist_gradient_boosting,default,0.04688164045258151,3.0,18,0.11764705882352941,0.14687191321103285,0.004213944120212136,18
+Phishing_Legitimate_full,2,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.047926183263848884,1.0,18,0.0,0.0,0.0,18
+Phishing_Legitimate_full,3,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.045943211840608005,1.0,18,0.0,0.0,0.0,18
+Phishing_Legitimate_full,4,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.05020962806898196,1.0,18,0.0,0.0,0.0,18
+PostPartum_Depression,0,validation_best_fresh,extra_trees (tuned),extra_trees,tuned,0.11460496925799414,2.0,18,0.058823529411764705,0.0012949480242082968,0.00010558748776133553,18
+PostPartum_Depression,1,validation_best_fresh,knn (tuned),knn,tuned,0.0725900340904502,2.0,18,0.058823529411764705,0.009123217728207749,0.000500165552741752,18
+PostPartum_Depression,2,validation_best_fresh,extra_trees (tuned),extra_trees,tuned,0.09430698935747468,1.0,18,0.0,0.0,0.0,18
+PostPartum_Depression,3,validation_best_fresh,knn (tuned + ensemble),knn,tuned + ensemble,0.10448890687689107,5.0,18,0.23529411764705882,0.25743634191778697,0.01106875982766313,18
+PostPartum_Depression,4,validation_best_fresh,extra_trees (default),extra_trees,default,0.05607332620386438,2.5,18,0.08823529411764706,0.004559876626505424,0.00012814886049875018,18
+Pulsar-Dataset-HTRU2,0,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.0651744946134476,2.0,18,0.058823529411764705,0.015954576184023128,0.00010079555013656205,18
+Pulsar-Dataset-HTRU2,1,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.06564001436184028,1.0,18,0.0,0.0,0.0,18
+Pulsar-Dataset-HTRU2,2,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.07664223779404147,2.0,18,0.058823529411764705,0.26568179547127957,0.0012170922515974958,18
+Pulsar-Dataset-HTRU2,3,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.06997479823567056,1.0,18,0.0,0.0,0.0,18
+Pulsar-Dataset-HTRU2,4,validation_best_fresh,mlp (default),mlp,default,0.06917014672609614,2.0,18,0.058823529411764705,0.1377953651389183,0.0006676579124869075,18
+Pumpkin_Seeds,0,validation_best_fresh,random_forest (tuned),random_forest,tuned,0.30777282612608736,3.0,18,0.11764705882352941,0.15078451668294213,0.0021423678126396006,18
+Pumpkin_Seeds,1,validation_best_fresh,mlp (tuned),mlp,tuned,0.2579935827839013,5.0,18,0.23529411764705882,0.6288538432212554,0.016131481713633544,18
+Pumpkin_Seeds,2,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.34597799314147243,8.0,18,0.4117647058823529,0.7131338182523514,0.01841360588212193,18
+Pumpkin_Seeds,3,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.2988372288381795,4.0,18,0.17647058823529413,0.3503718723553527,0.005852469099318303,18
+Pumpkin_Seeds,4,validation_best_fresh,logistic_regression (tuned),logistic_regression,tuned,0.33991211606317845,13.0,18,0.7058823529411765,1.3095735720630735,0.0334859618834758,18
+Risk_Level_Classification,0,validation_best_fresh,extra_trees (tuned),extra_trees,tuned,8.347253185745606e-07,8.5,18,0.4411764705882353,0.01744318618479831,8.347253163784284e-07,18
+Risk_Level_Classification,1,validation_best_fresh,random_forest (tuned),random_forest,tuned,2.1961321650110244e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+Risk_Level_Classification,2,validation_best_fresh,random_forest (tuned),random_forest,tuned,2.1961321650110244e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+Risk_Level_Classification,3,validation_best_fresh,random_forest (tuned),random_forest,tuned,2.1961321650110244e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+Risk_Level_Classification,4,validation_best_fresh,extra_trees (tuned),extra_trees,tuned,2.1961321650110244e-15,2.5,18,0.08823529411764706,0.0,0.0,18
+Santander_Customer_Satisfaction,0,validation_best_fresh,random_forest (tuned),random_forest,tuned,0.13563121850461554,1.0,18,0.0,0.0,0.0,18
+Santander_Customer_Satisfaction,1,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.13308668348951494,2.0,18,0.058823529411764705,0.01012414786110859,0.00012247627796266314,18
+Santander_Customer_Satisfaction,2,validation_best_fresh,random_forest (tuned),random_forest,tuned,0.13344940771808753,3.0,18,0.11764705882352941,0.13582247449233206,0.001733952221279783,18
+Santander_Customer_Satisfaction,3,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.12831533268196968,2.0,18,0.058823529411764705,0.05737569267460191,0.0008634623344622172,18
+Santander_Customer_Satisfaction,4,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.13863302761557728,4.0,18,0.17647058823529413,0.05291786384877939,0.0005300694204808387,18
+South_Asian_Churn_dataset,0,validation_best_fresh,random_forest (default),random_forest,default,0.5372741654074261,5.0,18,0.23529411764705882,0.22921745318033027,0.003947751992981918,18
+South_Asian_Churn_dataset,1,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5304624711945476,1.0,18,0.0,0.0,0.0,18
+South_Asian_Churn_dataset,2,validation_best_fresh,random_forest (tuned),random_forest,tuned,0.5265949242567739,2.0,18,0.058823529411764705,0.07627401804270874,0.0024816521992260254,18
+South_Asian_Churn_dataset,3,validation_best_fresh,random_forest (default),random_forest,default,0.55356045212078,5.0,18,0.23529411764705882,0.7638216983173387,0.010213823732546867,18
+South_Asian_Churn_dataset,4,validation_best_fresh,logistic_regression (default),logistic_regression,default,0.5484606128473938,12.0,18,0.6470588235294118,1.281224871831682,0.032729307937328755,18
+Support2,0,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.1370422120088343,3.0,18,0.11764705882352941,0.03923545262569463,0.001135968425154843,18
+Support2,1,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.14642549033170812,3.0,18,0.11764705882352941,0.10677951710415262,0.0023910512120078886,18
+Support2,2,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.14868782599024655,2.0,18,0.058823529411764705,0.04556476952628533,0.001142332293417453,18
+Support2,3,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.1479172660010222,1.0,18,0.0,0.0,0.0,18
+Support2,4,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.15132742991628645,3.0,18,0.11764705882352941,0.06307632462271612,0.0019952575669874573,18
+WBCAtt,0,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.03329873365471372,6.0,18,0.29411764705882354,0.24006563431296687,0.0009335164332637952,18
+WBCAtt,1,validation_best_fresh,logistic_regression (tuned),logistic_regression,tuned,0.028875988002313793,3.0,18,0.11764705882352941,0.33650328111766137,0.0010123855614297024,18
+WBCAtt,2,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.030797831174774845,6.0,18,0.29411764705882354,0.4031274071268896,0.0028880969983142123,18
+WBCAtt,3,validation_best_fresh,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.034492479299280655,4.0,18,0.17647058823529413,0.0926014176252795,0.0003095197053302051,18
+WBCAtt,4,validation_best_fresh,mlp (default),mlp,default,0.022106665964148613,1.0,18,0.0,0.0,0.0,18
+air-quality-and-pollution-assessment,0,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.121492371051436,2.0,18,0.058823529411764705,0.003230969714018934,8.259327003967698e-05,18
+air-quality-and-pollution-assessment,1,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.12297732883922999,1.0,18,0.0,0.0,0.0,18
+air-quality-and-pollution-assessment,2,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.15532111838999577,2.0,18,0.058823529411764705,0.08963213681436241,0.0006375775005678097,18
+air-quality-and-pollution-assessment,3,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.12898409646269754,1.0,18,0.0,0.0,0.0,18
+air-quality-and-pollution-assessment,4,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.1269573304696491,3.0,18,0.11764705882352941,0.2593822932489885,0.010754515857660685,18
+analcatdata_supreme,0,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.03350583189499673,2.0,18,0.058823529411764705,0.15214398551664482,0.007428423639937853,18
+analcatdata_supreme,1,validation_best_fresh,hist_gradient_boosting (default),hist_gradient_boosting,default,0.028527810280646753,3.0,18,0.11764705882352941,0.16513790108220247,0.006802777671817691,18
+analcatdata_supreme,2,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.007346861373328821,3.0,18,0.11764705882352941,0.08303228684936734,0.0005718873645797233,18
+analcatdata_supreme,3,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.012772858445126843,2.0,18,0.058823529411764705,0.028150865968821576,0.00030913190089830456,18
+analcatdata_supreme,4,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.014674855006195505,1.0,18,0.0,0.0,0.0,18
+banknote-authentication,0,validation_best_fresh,mlp (tuned),mlp,tuned,1.4058795428615818e-05,3.5,18,0.14705882352941177,0.0005824831081461414,1.4058795427505595e-05,18
+banknote-authentication,1,validation_best_fresh,knn (tuned),knn,tuned,0.12559555052694904,16.5,18,0.9117647058823529,4.748273726443334,0.12559539332650782,18
+banknote-authentication,2,validation_best_fresh,mlp (tuned),mlp,tuned,1.8970557033336219e-06,1.5,18,0.029411764705882353,0.0,0.0,18
+banknote-authentication,3,validation_best_fresh,mlp (tuned),mlp,tuned,2.4312001789860357e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+banknote-authentication,4,validation_best_fresh,mlp (tuned),mlp,tuned,1.3014011802629489e-06,1.5,18,0.029411764705882353,0.0,0.0,18
+compas-two-years,0,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6043325872234594,1.0,18,0.0,0.0,0.0,18
+compas-two-years,1,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6080466908436372,8.0,18,0.4117647058823529,0.6619011038877679,0.004053511268270249,18
+compas-two-years,2,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6119980830283372,3.0,18,0.11764705882352941,0.2115019126685517,0.0014737302733451862,18
+compas-two-years,3,validation_best_fresh,mlp (tuned),mlp,tuned,0.6198119283857654,1.0,18,0.0,0.0,0.0,18
+compas-two-years,4,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6101478394943515,9.0,18,0.47058823529411764,0.9551905066945746,0.0044909065049848484,18
+dataset_china,0,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,2.62088993411305e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+dataset_china,1,validation_best_fresh,random_forest (tuned),random_forest,tuned,4.2217340734396285e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+dataset_china,2,validation_best_fresh,random_forest (tuned),random_forest,tuned,4.2217340734396285e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+dataset_china,3,validation_best_fresh,random_forest (tuned),random_forest,tuned,4.2217340734396285e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+dataset_china,4,validation_best_fresh,random_forest (tuned),random_forest,tuned,4.2217340734396285e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+depression_2020,0,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.47136014280748545,9.0,18,0.47058823529411764,0.9533892591916597,0.01925467674339365,18
+depression_2020,1,validation_best_fresh,knn (tuned),knn,tuned,0.44872127191847533,2.0,18,0.058823529411764705,0.02015841977009015,0.0004131033831241693,18
+depression_2020,2,validation_best_fresh,logistic_regression (tuned),logistic_regression,tuned,0.45100574561938295,5.0,18,0.23529411764705882,0.2429112731553993,0.004583072240648023,18
+depression_2020,3,validation_best_fresh,random_forest (tuned),random_forest,tuned,0.4495399847558315,1.0,18,0.0,0.0,0.0,18
+depression_2020,4,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.45975232683242334,9.0,18,0.47058823529411764,0.9462849295785802,0.013679585182943543,18
+football-player-position,0,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.410419867859085,3.0,18,0.11764705882352941,0.16940262857626398,0.004075867837621205,18
+football-player-position,1,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.39566600419195525,6.0,18,0.29411764705882354,0.7295148440052495,0.0221843409011091,18
+football-player-position,2,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.3442626877383852,1.0,18,0.0,0.0,0.0,18
+football-player-position,3,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.36506013082878797,1.0,18,0.0,0.0,0.0,18
+football-player-position,4,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.38556951028783076,3.0,18,0.11764705882352941,0.14531325227499436,0.003993548796817459,18
+hepatitis_c_virus_hcv_for_egyptian_patients,0,validation_best_fresh,logistic_regression (tuned),logistic_regression,tuned,1.3833022160168513,4.0,18,0.17647058823529413,0.19526180403718377,0.004678166735468281,18
+hepatitis_c_virus_hcv_for_egyptian_patients,1,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,1.38763835146787,1.0,18,0.0,0.0,0.0,18
+hepatitis_c_virus_hcv_for_egyptian_patients,2,validation_best_fresh,logistic_regression (tuned),logistic_regression,tuned,1.3849359517308677,3.0,18,0.11764705882352941,0.5758482326154388,0.012680034511960425,18
+hepatitis_c_virus_hcv_for_egyptian_patients,3,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,1.4012375243801496,5.0,18,0.23529411764705882,0.69871802779605,0.013914547317753767,18
+hepatitis_c_virus_hcv_for_egyptian_patients,4,validation_best_fresh,extra_trees (tuned),extra_trees,tuned,1.394506253186356,4.5,18,0.20588235294117646,0.30570324343551536,0.007828702553180467,18
+ipums_la_97-small,0,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.2520763494667655,4.0,18,0.17647058823529413,0.04348287480782255,0.003293209774611894,18
+ipums_la_97-small,1,validation_best_fresh,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,1.2438335837837395,2.0,18,0.058823529411764705,0.14801758581091184,0.011520093364876915,18
+ipums_la_97-small,2,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.2226913185404509,1.0,18,0.0,0.0,0.0,18
+ipums_la_97-small,3,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.2076206841046842,1.0,18,0.0,0.0,0.0,18
+ipums_la_97-small,4,validation_best_fresh,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.2296071336668997,1.0,18,0.0,0.0,0.0,18
+kr-vs-kp,0,validation_best_fresh,random_forest (tuned),random_forest,tuned,0.019956147983069335,3.0,18,0.11764705882352941,0.044665314357195465,0.001069980702965715,18
+kr-vs-kp,1,validation_best_fresh,mlp (tuned),mlp,tuned,0.029378246923059247,6.5,18,0.3235294117647059,0.23260401667462527,0.013375337854776865,18
+kr-vs-kp,2,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.02427395676651534,2.0,18,0.058823529411764705,0.09995158682655622,0.0024099607476201178,18
+kr-vs-kp,3,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.019253757382815977,4.0,18,0.17647058823529413,0.054080715634707455,0.0019655993285448287,18
+kr-vs-kp,4,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.024694019253107772,4.0,18,0.17647058823529413,0.2995893781409357,0.009527144449992418,18
+law-school-admission-bianry,0,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.5283595950572401,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,1,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.537132427491649,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,2,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5343312279544241,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,3,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5269698484449984,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,4,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5326131086862274,1.0,18,0.0,0.0,0.0,18
+mushroom,0,validation_best_fresh,mlp (tuned),mlp,tuned,1.5928864284522854e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+mushroom,1,validation_best_fresh,knn (tuned),knn,tuned,1.1102230246251571e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+mushroom,2,validation_best_fresh,knn (tuned),knn,tuned,1.1102230246251571e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+mushroom,3,validation_best_fresh,knn (tuned),knn,tuned,1.1102230246251571e-15,2.5,18,0.08823529411764706,0.0,0.0,18
+mushroom,4,validation_best_fresh,knn (tuned),knn,tuned,1.1102230246251571e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+national-longitudinal-survey-binary,0,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,6.608083300724276e-07,3.5,18,0.14705882352941177,3.0465749958651875e-05,6.608083289622046e-07,18
+national-longitudinal-survey-binary,1,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,7.125240582537677e-07,3.5,18,0.14705882352941177,3.319132654437547e-05,7.125240571435446e-07,18
+national-longitudinal-survey-binary,2,validation_best_fresh,random_forest (tuned),random_forest,tuned,1.110223024625157e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+national-longitudinal-survey-binary,3,validation_best_fresh,random_forest (tuned),random_forest,tuned,0.00013404118378770427,4.5,18,0.20588235294117646,0.0058729802583602445,0.0001334103930292104,18
+national-longitudinal-survey-binary,4,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,7.125240582537677e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+open_payments,0,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.16288159962032653,1.0,18,0.0,0.0,0.0,18
+open_payments,1,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.16519900372341104,1.0,18,0.0,0.0,0.0,18
+open_payments,2,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.16962161106323034,1.0,18,0.0,0.0,0.0,18
+open_payments,3,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.1627074126306584,1.0,18,0.0,0.0,0.0,18
+open_payments,4,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.17477677901225463,1.0,18,0.0,0.0,0.0,18
+rl,0,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.48024933609648246,2.0,18,0.058823529411764705,0.006785915533207149,0.00046756174483825186,18
+rl,1,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.48880540793447225,3.0,18,0.11764705882352941,0.14358628357897957,0.012355254166141694,18
+rl,2,validation_best_fresh,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.47134974987961903,2.0,18,0.058823529411764705,0.03170770668266074,0.0030379767268826074,18
+rl,3,validation_best_fresh,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.47957406249625084,1.0,18,0.0,0.0,0.0,18
+rl,4,validation_best_fresh,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.4717364931851849,2.0,18,0.058823529411764705,0.016000206736835006,0.001514049704556597,18
+solar-flare,0,validation_best_fresh,knn (tuned),knn,tuned,0.38713426824831276,2.0,18,0.058823529411764705,0.022113427676119977,9.638556320001879e-05,18
+solar-flare,1,validation_best_fresh,mlp (default),mlp,default,0.4021981165082496,13.0,18,0.7058823529411765,1.0192418051796184,0.020108582271573416,18
+solar-flare,2,validation_best_fresh,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.40542892098463695,1.0,18,0.0,0.0,0.0,18
+solar-flare,3,validation_best_fresh,logistic_regression (default),logistic_regression,default,0.4538633581688891,14.0,18,0.7647058823529411,1.4030110684075583,0.019034068528256953,18
+solar-flare,4,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.39380913621838337,8.0,18,0.4117647058823529,0.5632514724646274,0.008334078900568087,18
+student_depression_dataset,0,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.3676706500560098,4.0,18,0.17647058823529413,0.1284350992828445,0.00187940665383024,18
+student_depression_dataset,1,validation_best_fresh,mlp (tuned),mlp,tuned,0.35260300223906293,5.0,18,0.23529411764705882,0.0895897363228264,0.0011562415053362751,18
+student_depression_dataset,2,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.34880770596165905,1.0,18,0.0,0.0,0.0,18
+student_depression_dataset,3,validation_best_fresh,logistic_regression (tuned),logistic_regression,tuned,0.3427326047031568,2.0,18,0.058823529411764705,0.0030980937945294246,3.4372646686098296e-05,18
+student_depression_dataset,4,validation_best_fresh,mlp (tuned + ensemble),mlp,tuned + ensemble,0.3642872050513726,3.0,18,0.11764705882352941,0.002967921552147558,2.3774554025468575e-05,18
+Advanced_IoT_Dataset,0,validation_best_defaults,knn (default),knn,default,5.329015007049534e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,1,validation_best_defaults,knn (default),knn,default,5.329181540503228e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,2,validation_best_defaults,knn (default),knn,default,5.329126029351996e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,3,validation_best_defaults,knn (default),knn,default,5.329126029351996e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,4,validation_best_defaults,knn (default),knn,default,5.329015007049534e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+BitcoinHeist_Ransomware,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.3106590752068582,2.0,18,0.058823529411764705,0.025366694889770294,0.002812546276334371,18
+BitcoinHeist_Ransomware,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.32202430964971945,3.0,18,0.11764705882352941,0.043630776373297736,0.005259318944946079,18
+BitcoinHeist_Ransomware,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.31771813238982827,3.0,18,0.11764705882352941,0.05515286774807604,0.005953393290198283,18
+BitcoinHeist_Ransomware,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.32187730759976085,3.0,18,0.11764705882352941,0.056245202792402575,0.005630422793604872,18
+BitcoinHeist_Ransomware,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.3257706782191905,2.0,18,0.058823529411764705,0.04326243662679918,0.005045216210663561,18
+Cardiovascular-Disease-dataset,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5344638062755873,5.0,18,0.23529411764705882,0.11497726079620312,0.0021869500327884595,18
+Cardiovascular-Disease-dataset,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5536093018087453,5.0,18,0.23529411764705882,0.28672657776241284,0.004732080621964063,18
+Cardiovascular-Disease-dataset,2,validation_best_defaults,mlp (default),mlp,default,0.5442995119549803,8.0,18,0.4117647058823529,0.4023827173186544,0.00379104954869669,18
+Cardiovascular-Disease-dataset,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.533942744385799,6.0,18,0.29411764705882354,0.2296340719056079,0.0033230251792711885,18
+Cardiovascular-Disease-dataset,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5559584879247482,6.0,18,0.29411764705882354,0.43577059984238503,0.00709584961247689,18
+Credit-Risk-Classification-Dataset,0,validation_best_defaults,mlp (default),mlp,default,0.4984041608407275,14.0,18,0.7647058823529411,1.5899004976750455,0.017276631273478782,18
+Credit-Risk-Classification-Dataset,1,validation_best_defaults,mlp (default),mlp,default,0.49948209163292406,11.0,18,0.5882352941176471,1.2139947630153938,0.017232782930878543,18
+Credit-Risk-Classification-Dataset,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.49755511950323883,13.0,18,0.7058823529411765,1.3341138295117663,0.0166360111012262,18
+Credit-Risk-Classification-Dataset,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5053561203175103,15.0,18,0.8235294117647058,2.2748789207751754,0.025947401206128706,18
+Credit-Risk-Classification-Dataset,4,validation_best_defaults,mlp (default),mlp,default,0.5163910381879098,15.0,18,0.8235294117647058,1.9301876556690474,0.04015809904500328,18
+Credit_Risk_Modeling,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,6.599051465855537e-07,3.0,18,0.11764705882352941,1.802893968679997e-06,1.5084341033021307e-07,18
+Credit_Risk_Modeling,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.0025001182405498296,5.0,18,0.23529411764705882,0.01928015301838641,0.001885229642776436,18
+Credit_Risk_Modeling,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.0025870960240236764,5.0,18,0.23529411764705882,0.015618212098846358,0.0017284484756086255,18
+Credit_Risk_Modeling,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.0025648712782220928,5.0,18,0.23529411764705882,0.020842920196105695,0.0018293004253076169,18
+Credit_Risk_Modeling,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.007945228622320473,3.0,18,0.11764705882352941,0.044554412067736845,0.0042212882530561855,18
+Credit_Score,0,validation_best_defaults,random_forest (default),random_forest,default,0.6652246465996954,3.0,18,0.11764705882352941,0.1320114019168359,0.009236580102995662,18
+Credit_Score,1,validation_best_defaults,random_forest (default),random_forest,default,0.6660758460477071,5.0,18,0.23529411764705882,0.27564553378088713,0.018822967425283665,18
+Credit_Score,2,validation_best_defaults,random_forest (default),random_forest,default,0.6486142897780931,3.0,18,0.11764705882352941,0.0993890104804064,0.006836734930775301,18
+Credit_Score,3,validation_best_defaults,random_forest (default),random_forest,default,0.6602537088360184,3.0,18,0.11764705882352941,0.15222582423233508,0.011252561586243992,18
+Credit_Score,4,validation_best_defaults,random_forest (default),random_forest,default,0.671774248015784,5.0,18,0.23529411764705882,0.14810458630679507,0.010071725441136548,18
+EDA-Home-Mortgage-NY-Sampled,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.44679012722759126,3.0,18,0.11764705882352941,0.3295138258906159,0.01862375950618478,18
+EDA-Home-Mortgage-NY-Sampled,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.4438946819758741,3.0,18,0.11764705882352941,0.2976699259082177,0.018289632881358986,18
+EDA-Home-Mortgage-NY-Sampled,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.4338850775140748,3.0,18,0.11764705882352941,0.24284350136458446,0.015601687712968382,18
+EDA-Home-Mortgage-NY-Sampled,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.4463606367813723,3.0,18,0.11764705882352941,0.19134792346932888,0.012540200874788243,18
+EDA-Home-Mortgage-NY-Sampled,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.45847350235740314,3.0,18,0.11764705882352941,0.3566351329090364,0.021619148497091345,18
+Employee,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.3917554475934925,8.0,18,0.4117647058823529,0.49287923450375193,0.017078611887508977,18
+Employee,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.38574673790027614,6.0,18,0.29411764705882354,0.11037370272295421,0.005048981867647462,18
+Employee,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.3808963698288553,8.0,18,0.4117647058823529,0.5383169756594899,0.014817738778833467,18
+Employee,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.37799078337256053,5.0,18,0.23529411764705882,0.254859596162261,0.007287094909690872,18
+Employee,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.38043727766078145,7.0,18,0.35294117647058826,0.389947755999355,0.009024749885952477,18
+Fraud-Detection-Updated,0,validation_best_defaults,extra_trees (default),extra_trees,default,0.30712148650520626,13.0,18,0.7058823529411765,2.93560647791776,0.02957574926255918,18
+Fraud-Detection-Updated,1,validation_best_defaults,random_forest (default),random_forest,default,0.30488637983037453,16.0,18,0.8823529411764706,4.377962983235016,0.044941708531836766,18
+Fraud-Detection-Updated,2,validation_best_defaults,extra_trees (default),extra_trees,default,0.2832224553958988,14.0,18,0.7647058823529411,1.4183594047299397,0.014453014792493557,18
+Fraud-Detection-Updated,3,validation_best_defaults,mlp (default),mlp,default,0.2774649115332334,12.0,18,0.6470588235294118,1.2276639735250336,0.01163735658321352,18
+Fraud-Detection-Updated,4,validation_best_defaults,random_forest (default),random_forest,default,0.27042074621253753,6.0,18,0.29411764705882354,0.5999526759788856,0.005201287884910866,18
+HMEQ_Data_New,0,validation_best_defaults,extra_trees (default),extra_trees,default,0.19379625325974206,1.5,18,0.029411764705882353,0.0,0.0,18
+HMEQ_Data_New,1,validation_best_defaults,extra_trees (default),extra_trees,default,0.19354297300660012,2.5,18,0.08823529411764706,0.037464081928008826,0.0010572954484830699,18
+HMEQ_Data_New,2,validation_best_defaults,extra_trees (default),extra_trees,default,0.19112541747267908,4.5,18,0.20588235294117646,0.16420253009258715,0.005284084800419558,18
+HMEQ_Data_New,3,validation_best_defaults,extra_trees (default),extra_trees,default,0.20070682752120406,3.0,18,0.11764705882352941,0.08238407273106023,0.002739701051636456,18
+HMEQ_Data_New,4,validation_best_defaults,extra_trees (default),extra_trees,default,0.1918782561360196,2.5,18,0.08823529411764706,0.010096122452634254,0.0003071985530173904,18
+Interest_Rate,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.9558828231855007,6.0,18,0.29411764705882354,0.6840231681860879,0.01336930180138396,18
+Interest_Rate,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.9346105330470302,5.0,18,0.23529411764705882,0.42732665723154484,0.009930810825370173,18
+Interest_Rate,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.9379938151139355,4.0,18,0.17647058823529413,0.5875817719713577,0.013403740088471228,18
+Interest_Rate,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.9405027807137383,5.0,18,0.23529411764705882,0.5356803553363292,0.00989882103840023,18
+Interest_Rate,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.934196059179965,4.0,18,0.17647058823529413,0.5033598019687298,0.01180000280351523,18
+KDD98,0,validation_best_defaults,extra_trees (default),extra_trees,default,0.36065423372052213,10.0,18,0.5294117647058824,1.0578609233515466,0.006117424460614529,18
+KDD98,1,validation_best_defaults,extra_trees (default),extra_trees,default,0.3583344268708534,9.0,18,0.47058823529411764,0.9142244604343465,0.004925489294726804,18
+KDD98,2,validation_best_defaults,extra_trees (default),extra_trees,default,0.36128434062578074,12.0,18,0.6470588235294118,1.3092161269180511,0.008185432538342308,18
+KDD98,3,validation_best_defaults,extra_trees (default),extra_trees,default,0.3609174279592121,8.0,18,0.4117647058823529,0.9478249430769843,0.006673471935173481,18
+KDD98,4,validation_best_defaults,extra_trees (default),extra_trees,default,0.3642257401760274,12.0,18,0.6470588235294118,1.6145471071818867,0.00817824359339736,18
+MembershipWoes,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,3.7301313472684703e-07,5.0,18,0.23529411764705882,0.00013190052823552944,3.1076304186442e-07,18
+MembershipWoes,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,3.7301313472684703e-07,3.0,18,0.11764705882352941,1.972668141801526e-06,2.362051144274957e-08,18
+MembershipWoes,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,3.7301313472684703e-07,3.0,18,0.11764705882352941,2.0952477210741093e-05,3.992557608148696e-08,18
+MembershipWoes,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,3.7301313472684703e-07,3.0,18,0.11764705882352941,0.00016878947927728748,2.159718850998783e-07,18
+MembershipWoes,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,3.730131347268471e-07,5.0,18,0.23529411764705882,0.004828004861318515,3.7301313361662406e-07,18
+Mobile_Price,0,validation_best_defaults,logistic_regression (default),logistic_regression,default,0.22920402542843385,6.0,18,0.29411764705882354,0.8837772723660996,0.14971809376256412,18
+Mobile_Price,1,validation_best_defaults,logistic_regression (default),logistic_regression,default,0.22861575626263395,5.0,18,0.23529411764705882,0.82937574525639,0.15114635678806992,18
+Mobile_Price,2,validation_best_defaults,logistic_regression (default),logistic_regression,default,0.24741706904765778,7.0,18,0.35294117647058826,0.9110362960971714,0.17466917095461465,18
+Mobile_Price,3,validation_best_defaults,logistic_regression (default),logistic_regression,default,0.2549565021913274,5.0,18,0.23529411764705882,0.9480230199461313,0.17611919149126865,18
+Mobile_Price,4,validation_best_defaults,logistic_regression (default),logistic_regression,default,0.23110575437530756,7.0,18,0.35294117647058826,0.9229480453818605,0.14040382080374278,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.6256612406187562,3.0,18,0.11764705882352941,0.5240801417321916,0.12277479754711829,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5375437679569359,3.0,18,0.11764705882352941,0.32039638581396274,0.07657116512602408,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.6743788323433334,3.0,18,0.11764705882352941,0.5720489219063933,0.13352858109162058,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5976334911378394,3.0,18,0.11764705882352941,0.33202751755278537,0.09046163434552146,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5683700651376759,3.0,18,0.11764705882352941,0.3085997253079823,0.07192862147370432,18
+NewspaperChurn,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.2726919636541399,3.0,18,0.11764705882352941,0.09761679891888383,0.005585868085760892,18
+NewspaperChurn,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.28057832727391047,2.0,18,0.058823529411764705,0.06723054016958807,0.00391751118936845,18
+NewspaperChurn,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.2935912356599652,5.0,18,0.23529411764705882,0.11778725708280503,0.0070225254885453725,18
+NewspaperChurn,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.304347718108075,3.0,18,0.11764705882352941,0.16536336277662536,0.006783115711621768,18
+NewspaperChurn,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.29359138308556504,3.0,18,0.11764705882352941,0.08412193006076354,0.005229093053432998,18
+Otto-Group-Product-Classification-Challenge,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.6022029452109187,4.0,18,0.17647058823529413,0.29540803098662016,0.032536524275340484,18
+Otto-Group-Product-Classification-Challenge,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5896620338834134,5.0,18,0.23529411764705882,0.31466001627941353,0.03213490713817224,18
+Otto-Group-Product-Classification-Challenge,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.6096759151171818,4.0,18,0.17647058823529413,0.3346141124586745,0.032709013163122025,18
+Otto-Group-Product-Classification-Challenge,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5955371675204947,4.0,18,0.17647058823529413,0.3202745242125151,0.03148933121571218,18
+Otto-Group-Product-Classification-Challenge,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5965575141545071,4.0,18,0.17647058823529413,0.36110561972069677,0.04013002489639961,18
+Phishing_Legitimate_full,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.05150488356274127,3.0,18,0.11764705882352941,0.1172959098152607,0.0035664068307127844,18
+Phishing_Legitimate_full,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.04688164045258151,3.0,18,0.11764705882352941,0.14687191321103285,0.004213944120212136,18
+Phishing_Legitimate_full,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.054227364983144864,3.0,18,0.11764705882352941,0.16822264238070558,0.00630118171929598,18
+Phishing_Legitimate_full,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.049628683795626176,3.0,18,0.11764705882352941,0.10106889300328821,0.0036854719550181714,18
+Phishing_Legitimate_full,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.051054999063383615,3.0,18,0.11764705882352941,0.021810071199345003,0.0008453709944016563,18
+PostPartum_Depression,0,validation_best_defaults,extra_trees (default),extra_trees,default,0.11937913426561002,3.0,18,0.11764705882352941,0.059846350988077536,0.0048797524953772126,18
+PostPartum_Depression,1,validation_best_defaults,extra_trees (default),extra_trees,default,0.08529858405769399,3.0,18,0.11764705882352941,0.2409322012245916,0.013208715519985537,18
+PostPartum_Depression,2,validation_best_defaults,extra_trees (default),extra_trees,default,0.09931408187734282,3.0,18,0.11764705882352941,0.07107301917237535,0.005007092519868139,18
+PostPartum_Depression,3,validation_best_defaults,extra_trees (default),extra_trees,default,0.09402594341639064,2.5,18,0.08823529411764706,0.014089564064773621,0.0006057963671627087,18
+PostPartum_Depression,4,validation_best_defaults,extra_trees (default),extra_trees,default,0.05607332620386438,2.5,18,0.08823529411764706,0.004559876626505424,0.00012814886049875018,18
+Pulsar-Dataset-HTRU2,0,validation_best_defaults,mlp (default),mlp,default,0.06721839908453597,3.0,18,0.11764705882352941,0.33947708836500823,0.002144700021224938,18
+Pulsar-Dataset-HTRU2,1,validation_best_defaults,mlp (default),mlp,default,0.06620161926485271,2.0,18,0.058823529411764705,0.10889384590302423,0.0005616049030124359,18
+Pulsar-Dataset-HTRU2,2,validation_best_defaults,mlp (default),mlp,default,0.07542514554244398,1.0,18,0.0,0.0,0.0,18
+Pulsar-Dataset-HTRU2,3,validation_best_defaults,mlp (default),mlp,default,0.07097958509139124,8.0,18,0.4117647058823529,0.5494498055766179,0.0010047868557206824,18
+Pulsar-Dataset-HTRU2,4,validation_best_defaults,mlp (default),mlp,default,0.06917014672609614,2.0,18,0.058823529411764705,0.1377953651389183,0.0006676579124869075,18
+Pumpkin_Seeds,0,validation_best_defaults,mlp (default),mlp,default,0.3161859222101685,7.0,18,0.35294117647058826,0.742916558324445,0.01055546389672074,18
+Pumpkin_Seeds,1,validation_best_defaults,mlp (default),mlp,default,0.2541432545051918,4.0,18,0.17647058823529413,0.47875642633712845,0.012281153434924086,18
+Pumpkin_Seeds,2,validation_best_defaults,mlp (default),mlp,default,0.3406501309070974,7.0,18,0.35294117647058826,0.5067929873121525,0.013085743647746895,18
+Pumpkin_Seeds,3,validation_best_defaults,mlp (default),mlp,default,0.30667125589376687,8.0,18,0.4117647058823529,0.8193743875276861,0.013686496154905692,18
+Pumpkin_Seeds,4,validation_best_defaults,mlp (default),mlp,default,0.3318576802395955,9.0,18,0.47058823529411764,0.9945795955081599,0.02543152605989285,18
+Risk_Level_Classification,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,2.5127666419047556e-07,7.0,18,0.35294117647058826,0.0052509077094708275,2.512766619943434e-07,18
+Risk_Level_Classification,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,2.510895950338496e-07,7.0,18,0.35294117647058826,0.004990654306247261,2.510895928377174e-07,18
+Risk_Level_Classification,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,2.525621688362689e-07,7.0,18,0.35294117647058826,0.0027070652872361414,2.5256216664013673e-07,18
+Risk_Level_Classification,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,2.515337631109443e-07,7.0,18,0.35294117647058826,0.002334835309927846,2.515337609148121e-07,18
+Risk_Level_Classification,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,2.5302863231832657e-07,9.0,18,0.47058823529411764,0.00418040842957494,2.530286301221944e-07,18
+Santander_Customer_Satisfaction,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.14121765079497106,7.0,18,0.35294117647058826,0.6196377331768707,0.00558643229035552,18
+Santander_Customer_Satisfaction,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.1374476461381306,7.0,18,0.35294117647058826,0.3706105327005964,0.00448343892657832,18
+Santander_Customer_Satisfaction,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.13485916381704674,5.0,18,0.23529411764705882,0.2462502933453647,0.003143708320238997,18
+Santander_Customer_Satisfaction,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.13397537698008255,7.0,18,0.35294117647058826,0.43347659390895343,0.006523506632575088,18
+Santander_Customer_Satisfaction,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.1440472130128879,8.0,18,0.4117647058823529,0.5934265493847896,0.005944254817791456,18
+South_Asian_Churn_dataset,0,validation_best_defaults,random_forest (default),random_forest,default,0.5372741654074261,5.0,18,0.23529411764705882,0.22921745318033027,0.003947751992981918,18
+South_Asian_Churn_dataset,1,validation_best_defaults,mlp (default),mlp,default,0.5847864150208681,13.0,18,0.7058823529411765,1.8728562201253858,0.05432394382632055,18
+South_Asian_Churn_dataset,2,validation_best_defaults,random_forest (default),random_forest,default,0.5306132314681342,4.0,18,0.17647058823529413,0.19977739890971014,0.006499959410586342,18
+South_Asian_Churn_dataset,3,validation_best_defaults,random_forest (default),random_forest,default,0.55356045212078,5.0,18,0.23529411764705882,0.7638216983173387,0.010213823732546867,18
+South_Asian_Churn_dataset,4,validation_best_defaults,random_forest (default),random_forest,default,0.5253511827531274,5.0,18,0.23529411764705882,0.3765807324772904,0.009619877843062397,18
+Support2,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.14733440643694232,5.0,18,0.23529411764705882,0.39471972310040127,0.011428162853262869,18
+Support2,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.14987907309085596,5.0,18,0.23529411764705882,0.26100954674511395,0.005844633971155727,18
+Support2,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.15236645275958466,5.0,18,0.23529411764705882,0.19229596314129527,0.004820959062755564,18
+Support2,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.1583452746509652,5.0,18,0.23529411764705882,0.3423477559947702,0.010428008649943005,18
+Support2,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.16196475729912346,5.0,18,0.23529411764705882,0.3993554728486718,0.012632584949824471,18
+WBCAtt,0,validation_best_defaults,mlp (default),mlp,default,0.032427486305321475,3.0,18,0.11764705882352941,0.016013287592000325,6.226908387155228e-05,18
+WBCAtt,1,validation_best_defaults,mlp (default),mlp,default,0.030148246424714913,7.0,18,0.35294117647058826,0.7593847897821681,0.0022846439838308218,18
+WBCAtt,2,validation_best_defaults,mlp (default),mlp,default,0.02903292403585809,4.0,18,0.17647058823529413,0.15677749604476782,0.0011231898593974561,18
+WBCAtt,3,validation_best_defaults,mlp (default),mlp,default,0.03437706780897377,3.0,18,0.11764705882352941,0.05807286442294771,0.000194108215023317,18
+WBCAtt,4,validation_best_defaults,mlp (default),mlp,default,0.022106665964148613,1.0,18,0.0,0.0,0.0,18
+air-quality-and-pollution-assessment,0,validation_best_defaults,mlp (default),mlp,default,0.15809779138534402,13.0,18,0.7058823529411765,1.4351999958946446,0.0366880136039477,18
+air-quality-and-pollution-assessment,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.13539240766672223,3.0,18,0.11764705882352941,0.3736227647770428,0.012415078827492237,18
+air-quality-and-pollution-assessment,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.17881563302625902,15.0,18,0.8235294117647058,3.3925459761345422,0.024132092136831068,18
+air-quality-and-pollution-assessment,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.15344035209199147,7.0,18,0.35294117647058826,0.7628284368129905,0.024456255629293933,18
+air-quality-and-pollution-assessment,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.13365707857670106,4.0,18,0.17647058823529413,0.42096985806343196,0.01745426396471264,18
+analcatdata_supreme,0,validation_best_defaults,random_forest (default),random_forest,default,0.07423042072770353,9.0,18,0.47058823529411764,0.9862376713186699,0.048153012472644655,18
+analcatdata_supreme,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.028527810280646753,3.0,18,0.11764705882352941,0.16513790108220247,0.006802777671817691,18
+analcatdata_supreme,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.008791327202907649,6.0,18,0.29411764705882354,0.29275418058947444,0.0020163531941585515,18
+analcatdata_supreme,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.015302419210195846,7.0,18,0.35294117647058826,0.25850343019956096,0.0028386926659673076,18
+analcatdata_supreme,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.01506772762722531,2.0,18,0.058823529411764705,0.02508394531263983,0.0003928726210298047,18
+banknote-authentication,0,validation_best_defaults,knn (default),knn,default,0.001857547722786527,5.0,18,0.23529411764705882,0.07696179780672792,0.0018575477227854168,18
+banknote-authentication,1,validation_best_defaults,knn (default),knn,default,0.12884127490970115,18.0,18,1.0,4.87098195165533,0.12884111770925993,18
+banknote-authentication,2,validation_best_defaults,extra_trees (default),extra_trees,default,0.028388461365708075,10.0,18,0.5294117647058824,1.0782739405860444,0.02838656431000474,18
+banknote-authentication,3,validation_best_defaults,knn (default),knn,default,0.007623807307574818,5.0,18,0.23529411764705882,0.2569526460917709,0.007623564187556919,18
+banknote-authentication,4,validation_best_defaults,extra_trees (default),extra_trees,default,0.02170219464491675,8.0,18,0.4117647058823529,0.7818408228157543,0.021700893243736488,18
+compas-two-years,0,validation_best_defaults,mlp (default),mlp,default,0.6080287019313851,2.0,18,0.058823529411764705,0.5446937767575681,0.003696114707925746,18
+compas-two-years,1,validation_best_defaults,mlp (default),mlp,default,0.6115942431051355,10.0,18,0.5294117647058824,1.2411837560332855,0.007601063529768637,18
+compas-two-years,2,validation_best_defaults,mlp (default),mlp,default,0.613589966209814,6.0,18,0.29411764705882354,0.4399605008625724,0.003065613454821925,18
+compas-two-years,3,validation_best_defaults,mlp (default),mlp,default,0.6227011769249435,2.0,18,0.058823529411764705,0.351907687228965,0.0028892485391781575,18
+compas-two-years,4,validation_best_defaults,mlp (default),mlp,default,0.612539552350199,12.0,18,0.6470588235294118,1.4638943534812054,0.006882619360832343,18
+dataset_china,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,3.3417612393909893e-07,3.0,18,0.11764705882352941,1.326937145638702e-05,7.208713052779393e-08,18
+dataset_china,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,3.502821349145422e-07,5.0,18,0.23529411764705882,1.8344881154666965e-05,3.5028213069280813e-07,18
+dataset_china,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,3.318839276980109e-07,5.0,18,0.23529411764705882,4.656910031489106e-05,3.318839234762768e-07,18
+dataset_china,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,3.395212684350207e-07,5.0,18,0.23529411764705882,6.5563614250447e-05,3.3952126421328665e-07,18
+dataset_china,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,3.7428223815101015e-07,5.0,18,0.23529411764705882,9.584288480544076e-05,3.742822339292761e-07,18
+depression_2020,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.476149136396347,12.0,18,0.6470588235294118,1.190514769570578,0.024043670332255185,18
+depression_2020,1,validation_best_defaults,random_forest (default),random_forest,default,0.4919676506023672,15.0,18,0.8235294117647058,2.1304743616372006,0.04365948206701603,18
+depression_2020,2,validation_best_defaults,random_forest (default),random_forest,default,0.4663554149796318,11.0,18,0.5882352941176471,1.0564720313173224,0.019932741600896864,18
+depression_2020,3,validation_best_defaults,mlp (default),mlp,default,0.4608828364774717,13.0,18,0.7058823529411765,1.6606213334569537,0.01134285172164018,18
+depression_2020,4,validation_best_defaults,mlp (default),mlp,default,0.4460727416494798,1.0,18,0.0,0.0,0.0,18
+football-player-position,0,validation_best_defaults,extra_trees (default),extra_trees,default,0.4342223093388118,10.0,18,0.5294117647058824,1.1586879326728068,0.02787830931734797,18
+football-player-position,1,validation_best_defaults,mlp (default),mlp,default,0.3972999164795665,7.0,18,0.35294117647058826,0.7832447822949813,0.02381825318872033,18
+football-player-position,2,validation_best_defaults,mlp (default),mlp,default,0.36929690903584134,9.0,18,0.47058823529411764,0.8575776698601363,0.02503422129745614,18
+football-player-position,3,validation_best_defaults,mlp (default),mlp,default,0.37468029887445636,3.0,18,0.11764705882352941,0.2783195782568418,0.009620168045668398,18
+football-player-position,4,validation_best_defaults,mlp (default),mlp,default,0.4061162762430801,9.0,18,0.47058823529411764,0.8929483849844766,0.024540314752066805,18
+hepatitis_c_virus_hcv_for_egyptian_patients,0,validation_best_defaults,extra_trees (default),extra_trees,default,1.406196934814275,13.0,18,0.7058823529411765,1.150863506177349,0.027572885532892055,18
+hepatitis_c_virus_hcv_for_egyptian_patients,1,validation_best_defaults,random_forest (default),random_forest,default,1.411483893904091,10.0,18,0.5294117647058824,1.3521564747731882,0.023845542436220946,18
+hepatitis_c_virus_hcv_for_egyptian_patients,2,validation_best_defaults,random_forest (default),random_forest,default,1.4078873868721449,14.0,18,0.7647058823529411,1.6181595409660472,0.0356314696532376,18
+hepatitis_c_virus_hcv_for_egyptian_patients,3,validation_best_defaults,random_forest (default),random_forest,default,1.416357184607387,11.0,18,0.5882352941176471,1.4579507166987262,0.029034207544991197,18
+hepatitis_c_virus_hcv_for_egyptian_patients,4,validation_best_defaults,random_forest (default),random_forest,default,1.4232753952211914,12.0,18,0.6470588235294118,1.4291103432918348,0.03659784458801596,18
+ipums_la_97-small,0,validation_best_defaults,random_forest (default),random_forest,default,1.3641273146524873,12.0,18,0.6470588235294118,1.5229811226352403,0.11534417496033367,18
+ipums_la_97-small,1,validation_best_defaults,mlp (default),mlp,default,1.3359479216355346,11.0,18,0.5882352941176471,1.3315619786856365,0.10363443121667193,18
+ipums_la_97-small,2,validation_best_defaults,mlp (default),mlp,default,1.325756835752803,11.0,18,0.5882352941176471,1.363074160380619,0.10306551721235202,18
+ipums_la_97-small,3,validation_best_defaults,mlp (default),mlp,default,1.3345164239765956,11.0,18,0.5882352941176471,1.3495177314716467,0.1268957398719115,18
+ipums_la_97-small,4,validation_best_defaults,mlp (default),mlp,default,1.3288519665253569,11.0,18,0.5882352941176471,1.0781556081889476,0.0992448328584572,18
+kr-vs-kp,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.01948278071089814,2.0,18,0.058823529411764705,0.024905053298906108,0.0005966134307945209,18
+kr-vs-kp,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.019873884056122004,3.0,18,0.11764705882352941,0.06731824948234369,0.003870974987839622,18
+kr-vs-kp,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.035048077646627415,8.0,18,0.4117647058823529,0.5468013870532962,0.013184081627732193,18
+kr-vs-kp,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.02046789685694004,7.0,18,0.35294117647058826,0.08748606467376475,0.003179738802668891,18
+kr-vs-kp,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.03614056023531566,9.0,18,0.47058823529411764,0.659535856618768,0.020973685432200302,18
+law-school-admission-bianry,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.534099843126429,3.0,18,0.11764705882352941,0.45204463985720095,0.005740248069188936,18
+law-school-admission-bianry,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5428743627266372,4.0,18,0.17647058823529413,0.4415655359656587,0.005741935234988227,18
+law-school-admission-bianry,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5410267452514489,6.0,18,0.29411764705882354,0.5560840849523839,0.006695517297024778,18
+law-school-admission-bianry,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5314355582886104,3.0,18,0.11764705882352941,0.29767642417573065,0.0044657098436120535,18
+law-school-admission-bianry,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.536006107924773,4.0,18,0.17647058823529413,0.2716606332343069,0.0033929992385456353,18
+mushroom,0,validation_best_defaults,knn (default),knn,default,0.0006287084600207898,15.0,18,0.8235294117647058,5.7143982777478355,0.0006285491713779446,18
+mushroom,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,1.093340766190482e-06,3.0,18,0.11764705882352941,0.018621200848115062,1.093340765080259e-06,18
+mushroom,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,2.8456041252102293e-06,7.0,18,0.35294117647058826,0.016029960298186,2.8456041241000063e-06,18
+mushroom,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,9.982614825706856e-07,5.0,18,0.23529411764705882,0.013964456120368594,9.982614814604625e-07,18
+mushroom,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,1.042675874036058e-06,7.0,18,0.35294117647058826,0.0158195475193123,1.0426758729258349e-06,18
+national-longitudinal-survey-binary,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,8.378859014386152e-07,5.0,18,0.23529411764705882,3.862969217318193e-05,8.378859003283922e-07,18
+national-longitudinal-survey-binary,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,8.378859014386152e-07,5.0,18,0.23529411764705882,3.903102533298046e-05,8.378859003283922e-07,18
+national-longitudinal-survey-binary,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,8.378859014386154e-07,5.0,18,0.23529411764705882,4.269312627188347e-05,8.378859003283924e-07,18
+national-longitudinal-survey-binary,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,8.378859014386153e-07,3.0,18,0.11764705882352941,9.116723656233965e-06,2.070951429447608e-07,18
+national-longitudinal-survey-binary,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,8.378859014386152e-07,3.0,18,0.11764705882352941,5.242431281033296e-06,1.2536184318484754e-07,18
+open_payments,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.16688980789855376,4.0,18,0.17647058823529413,0.30827995232079297,0.004008208278227232,18
+open_payments,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.16894623654704005,3.0,18,0.11764705882352941,0.2704531186817673,0.0037472328236290153,18
+open_payments,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.17622606583000525,7.0,18,0.35294117647058826,0.713335515912239,0.006604454766774903,18
+open_payments,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.16778194755946624,5.0,18,0.23529411764705882,0.4135424140249704,0.005074534928807828,18
+open_payments,4,validation_best_defaults,mlp (default),mlp,default,0.1811528579725745,7.0,18,0.35294117647058826,0.9025524152083672,0.006376078960319859,18
+rl,0,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.4997246095837426,7.0,18,0.35294117647058826,0.2894385540983542,0.019942835232098388,18
+rl,1,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5104050490283261,7.0,18,0.35294117647058826,0.3946059833440703,0.03395489525999551,18
+rl,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.49846160402553424,7.0,18,0.35294117647058826,0.3146771946562853,0.030149830872797823,18
+rl,3,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.49797840358660933,4.0,18,0.17647058823529413,0.22613617473422665,0.01840434109035849,18
+rl,4,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.5083056382252907,7.0,18,0.35294117647058826,0.4024563970917967,0.03808319474466243,18
+solar-flare,0,validation_best_defaults,mlp (default),mlp,default,0.40299390135268537,14.0,18,0.7647058823529411,3.6607376985697657,0.015956018667572625,18
+solar-flare,1,validation_best_defaults,logistic_regression (default),logistic_regression,default,0.40572024345536123,14.0,18,0.7647058823529411,1.1977675201784677,0.023630709218685042,18
+solar-flare,2,validation_best_defaults,hist_gradient_boosting (default),hist_gradient_boosting,default,0.45175073161060986,15.0,18,0.8235294117647058,2.317483756878662,0.0463218106259729,18
+solar-flare,3,validation_best_defaults,mlp (default),mlp,default,0.43828599390687834,3.0,18,0.11764705882352941,0.25479546522359414,0.003456704266246169,18
+solar-flare,4,validation_best_defaults,mlp (default),mlp,default,0.3854750573178153,1.0,18,0.0,0.0,0.0,18
+student_depression_dataset,0,validation_best_defaults,logistic_regression (default),logistic_regression,default,0.3671867389093718,3.0,18,0.11764705882352941,0.09536552594922877,0.001395495507192257,18
+student_depression_dataset,1,validation_best_defaults,logistic_regression (default),logistic_regression,default,0.35158804857696185,4.0,18,0.17647058823529413,0.01094748853301238,0.00014128784323519383,18
+student_depression_dataset,2,validation_best_defaults,logistic_regression (default),logistic_regression,default,0.3501342756506582,3.0,18,0.11764705882352941,0.07334454822580841,0.0013265696889991352,18
+student_depression_dataset,3,validation_best_defaults,logistic_regression (default),logistic_regression,default,0.34571855612832725,5.0,18,0.23529411764705882,0.2722294663527043,0.0030203240718565394,18
+student_depression_dataset,4,validation_best_defaults,logistic_regression (default),logistic_regression,default,0.36587330049185485,6.0,18,0.29411764705882354,0.20096982041121686,0.00160986999450774,18
+Advanced_IoT_Dataset,0,defaults_rule,knn (tuned + ensemble),knn,tuned + ensemble,5.329015007049534e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,1,defaults_rule,knn (tuned + ensemble),knn,tuned + ensemble,5.329181540503228e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,2,defaults_rule,knn (tuned + ensemble),knn,tuned + ensemble,5.329126029351996e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,3,defaults_rule,knn (tuned + ensemble),knn,tuned + ensemble,5.329126029351996e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,4,defaults_rule,knn (tuned + ensemble),knn,tuned + ensemble,5.329015007049534e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+BitcoinHeist_Ransomware,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.30784652893052383,1.0,18,0.0,0.0,0.0,18
+BitcoinHeist_Ransomware,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.3167649907047734,1.0,18,0.0,0.0,0.0,18
+BitcoinHeist_Ransomware,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.31176473909963,1.0,18,0.0,0.0,0.0,18
+BitcoinHeist_Ransomware,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.316246884806156,1.0,18,0.0,0.0,0.0,18
+BitcoinHeist_Ransomware,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.3207254620085269,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5322768562427989,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.551572338879176,3.0,18,0.11764705882352941,0.16330276982612624,0.0026951176923947218,18
+Cardiovascular-Disease-dataset,2,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5413658638031292,4.0,18,0.17647058823529413,0.09100474669716963,0.0008574013968456473,18
+Cardiovascular-Disease-dataset,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5306197192065278,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5510510261150499,3.0,18,0.11764705882352941,0.13439335915853476,0.002188387802778524,18
+Credit-Risk-Classification-Dataset,0,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.49453854937161296,11.0,18,0.5882352941176471,1.234163461832988,0.013411019804364266,18
+Credit-Risk-Classification-Dataset,1,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.49770551574049104,10.0,18,0.5294117647058824,1.0888406403084625,0.015456207038445524,18
+Credit-Risk-Classification-Dataset,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4960375523174334,11.0,18,0.5882352941176471,1.2124135398523634,0.015118443915420776,18
+Credit-Risk-Classification-Dataset,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4794087191113816,1.0,18,0.0,0.0,0.0,18
+Credit-Risk-Classification-Dataset,4,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.4995760058009206,11.0,18,0.5882352941176471,1.1219778869080899,0.02334306665801411,18
+Credit_Risk_Modeling,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,5.090617362553407e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+Credit_Risk_Modeling,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.0006148885977733936,1.0,18,0.0,0.0,0.0,18
+Credit_Risk_Modeling,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.002464846642227183,3.5,18,0.14705882352941177,0.014513570102978839,0.001606199093812132,18
+Credit_Risk_Modeling,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.0014835727264600174,3.0,18,0.11764705882352941,0.008522680660409045,0.0007480018735455415,18
+Credit_Risk_Modeling,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.0037422654422170484,2.0,18,0.058823529411764705,0.00019341556476687,1.8325072952760178e-05,18
+Credit_Score,0,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6559880664966997,1.0,18,0.0,0.0,0.0,18
+Credit_Score,1,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6472528786224234,1.0,18,0.0,0.0,0.0,18
+Credit_Score,2,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6417775548473178,1.0,18,0.0,0.0,0.0,18
+Credit_Score,3,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6490011472497744,1.0,18,0.0,0.0,0.0,18
+Credit_Score,4,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6617025225746475,1.0,18,0.0,0.0,0.0,18
+EDA-Home-Mortgage-NY-Sampled,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4281663677214065,1.0,18,0.0,0.0,0.0,18
+EDA-Home-Mortgage-NY-Sampled,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.42560504909451513,1.0,18,0.0,0.0,0.0,18
+EDA-Home-Mortgage-NY-Sampled,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4182833898011064,1.0,18,0.0,0.0,0.0,18
+EDA-Home-Mortgage-NY-Sampled,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.43382043590658403,1.0,18,0.0,0.0,0.0,18
+EDA-Home-Mortgage-NY-Sampled,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4368543538603118,1.0,18,0.0,0.0,0.0,18
+Employee,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.38270364202716417,4.0,18,0.17647058823529413,0.23164916336010444,0.008026806321180635,18
+Employee,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.3806977560326287,1.0,18,0.0,0.0,0.0,18
+Employee,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.37194420109988424,4.0,18,0.17647058823529413,0.2130916178837786,0.005865570049862434,18
+Employee,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.37070368846286966,1.0,18,0.0,0.0,0.0,18
+Employee,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.37141252777482897,1.0,18,0.0,0.0,0.0,18
+Fraud-Detection-Updated,0,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.2862877085592306,9.0,18,0.47058823529411764,0.8677037189797013,0.008741971316583497,18
+Fraud-Detection-Updated,1,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.27072980027456695,10.5,18,0.5588235294117647,1.0506252870431618,0.010785128976029179,18
+Fraud-Detection-Updated,2,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.2768926315055466,5.0,18,0.23529411764705882,0.7971765322244635,0.008123190902141364,18
+Fraud-Detection-Updated,3,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.2793832628668971,14.0,18,0.7647058823529411,1.4300373221512803,0.013555707916877213,18
+Fraud-Detection-Updated,4,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.26906647923088606,3.0,18,0.11764705882352941,0.44374211474678515,0.0038470209032593905,18
+HMEQ_Data_New,0,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19380452526854858,3.0,18,0.11764705882352941,0.0003328511554405703,8.272008806514686e-06,18
+HMEQ_Data_New,1,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19248567755811705,1.0,18,0.0,0.0,0.0,18
+HMEQ_Data_New,2,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.1902742146869461,3.0,18,0.11764705882352941,0.13775146877954483,0.004432882014686584,18
+HMEQ_Data_New,3,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19840029431850117,2.0,18,0.058823529411764705,0.013025556766489086,0.0004331678489335744,18
+HMEQ_Data_New,4,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19157105758300222,1.0,18,0.0,0.0,0.0,18
+Interest_Rate,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.9425135213841167,1.0,18,0.0,0.0,0.0,18
+Interest_Rate,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.9246797222216601,1.0,18,0.0,0.0,0.0,18
+Interest_Rate,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.9262337797580801,2.0,18,0.058823529411764705,0.07205533179644315,0.0016437047326157694,18
+Interest_Rate,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.9312898423766699,2.0,18,0.058823529411764705,0.03711693420289035,0.0006858827013318525,18
+Interest_Rate,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.9241290374574358,2.0,18,0.058823529411764705,0.07392481410943753,0.0017329810809860735,18
+KDD98,0,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.3545368092599076,1.0,18,0.0,0.0,0.0,18
+KDD98,1,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35340893757612657,1.0,18,0.0,0.0,0.0,18
+KDD98,2,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35309890808743843,1.0,18,0.0,0.0,0.0,18
+KDD98,3,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35424395602403863,1.0,18,0.0,0.0,0.0,18
+KDD98,4,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35604749658263,1.0,18,0.0,0.0,0.0,18
+MembershipWoes,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,2.987970282714031e-07,3.5,18,0.14705882352941177,0.00010040018126271225,2.3654693540897608e-07,18
+MembershipWoes,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,3.4939262328409746e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+MembershipWoes,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,3.330875586453601e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+MembershipWoes,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,1.5704124962696874e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+MembershipWoes,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,3.319018766716416e-07,3.5,18,0.14705882352941177,0.004295891281775089,3.319018755614186e-07,18
+Mobile_Price,0,defaults_rule,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.0806400758644444,2.0,18,0.058823529411764705,0.006812846637969347,0.0011541441985746526,18
+Mobile_Price,1,defaults_rule,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.07888318452255967,2.0,18,0.058823529411764705,0.007757772352117216,0.0014137850479956499,18
+Mobile_Price,2,defaults_rule,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.0732467193148677,2.0,18,0.058823529411764705,0.002601742687974483,0.000498821221824583,18
+Mobile_Price,3,defaults_rule,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.07883731070005878,1.0,18,0.0,0.0,0.0,18
+Mobile_Price,4,defaults_rule,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.09070193357156478,1.0,18,0.0,0.0,0.0,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5060580222190479,2.0,18,0.058823529411764705,0.013538296802742667,0.003171579147410064,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.46097260283091185,1.0,18,0.0,0.0,0.0,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5464180572784717,2.0,18,0.058823529411764705,0.023853001424510842,0.005567806026758881,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5095108548029099,2.0,18,0.058823529411764705,0.008584984216087362,0.0023389980105920083,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4964414436639715,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.267106095568379,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.276660816084542,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.2865687101714198,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.2975646023964532,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.2899861636305418,2.0,18,0.058823529411764705,0.02612372353619982,0.001623873598409764,18
+Otto-Group-Product-Classification-Challenge,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5696664209355782,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5598458834507173,2.0,18,0.058823529411764705,0.022704905278111465,0.0023187567054760994,18
+Otto-Group-Product-Classification-Challenge,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.578399781070422,2.0,18,0.058823529411764705,0.014658393128249321,0.0014328791163622512,18
+Otto-Group-Product-Classification-Challenge,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5640478363047825,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5564274892581075,1.0,18,0.0,0.0,0.0,18
+Phishing_Legitimate_full,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.04793847673202849,1.0,18,0.0,0.0,0.0,18
+Phishing_Legitimate_full,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.04266769633236937,1.0,18,0.0,0.0,0.0,18
+Phishing_Legitimate_full,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.047926183263848884,1.0,18,0.0,0.0,0.0,18
+Phishing_Legitimate_full,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.045943211840608005,1.0,18,0.0,0.0,0.0,18
+Phishing_Legitimate_full,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.05092108551656011,2.0,18,0.058823529411764705,0.018355180967578034,0.0007114574475781538,18
+PostPartum_Depression,0,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.1144993817702328,1.0,18,0.0,0.0,0.0,18
+PostPartum_Depression,1,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.09377922113358965,4.0,18,0.17647058823529413,0.3956223794929372,0.0216893525958812,18
+PostPartum_Depression,2,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.09638458514223444,2.0,18,0.058823529411764705,0.02949036880320421,0.0020775957847597587,18
+PostPartum_Depression,3,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.09342014704922794,1.0,18,0.0,0.0,0.0,18
+PostPartum_Depression,4,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.05594517734336563,1.0,18,0.0,0.0,0.0,18
+Pulsar-Dataset-HTRU2,0,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.0651744946134476,2.0,18,0.058823529411764705,0.015954576184023128,0.00010079555013656205,18
+Pulsar-Dataset-HTRU2,1,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.06564001436184028,1.0,18,0.0,0.0,0.0,18
+Pulsar-Dataset-HTRU2,2,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.07664223779404147,2.0,18,0.058823529411764705,0.26568179547127957,0.0012170922515974958,18
+Pulsar-Dataset-HTRU2,3,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.06997479823567056,1.0,18,0.0,0.0,0.0,18
+Pulsar-Dataset-HTRU2,4,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.06850248881360924,1.0,18,0.0,0.0,0.0,18
+Pumpkin_Seeds,0,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.3151529596333682,6.0,18,0.29411764705882354,0.6702144004711234,0.00952250131992044,18
+Pumpkin_Seeds,1,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.26076812380044934,7.0,18,0.35294117647058826,0.7370138258195466,0.018906022730181604,18
+Pumpkin_Seeds,2,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.34597799314147243,8.0,18,0.4117647058823529,0.7131338182523514,0.01841360588212193,18
+Pumpkin_Seeds,3,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.2988372288381795,4.0,18,0.17647058823529413,0.3503718723553527,0.005852469099318303,18
+Pumpkin_Seeds,4,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.3310757768605348,8.0,18,0.4117647058823529,0.9640008113392035,0.02464962268083215,18
+Risk_Level_Classification,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,2.357816966245429e-07,5.5,18,0.2647058823529412,0.004927110648477603,2.3578169442841075e-07,18
+Risk_Level_Classification,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,2.461219883679292e-07,5.5,18,0.2647058823529412,0.004891918204448563,2.46121986171797e-07,18
+Risk_Level_Classification,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,2.3823724960857114e-07,5.5,18,0.2647058823529412,0.0025535249050813763,2.38237247412439e-07,18
+Risk_Level_Classification,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,2.494411705934927e-07,5.5,18,0.2647058823529412,0.002315411043057,2.494411683973605e-07,18
+Risk_Level_Classification,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,2.4663557978627913e-07,7.5,18,0.38235294117647056,0.004074785715328018,2.4663557759014695e-07,18
+Santander_Customer_Satisfaction,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.13713664709003706,3.0,18,0.11764705882352941,0.16697962270851924,0.00150542858542152,18
+Santander_Customer_Satisfaction,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.13359393857600804,5.0,18,0.23529411764705882,0.05205492486039951,0.0006297313644557656,18
+Santander_Customer_Satisfaction,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.1318947366468388,2.0,18,0.058823529411764705,0.014043298960726492,0.0001792811500310465,18
+Santander_Customer_Satisfaction,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.12931203735716915,3.0,18,0.11764705882352941,0.12360512602585581,0.001860167009661684,18
+Santander_Customer_Satisfaction,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.13810295819509644,1.0,18,0.0,0.0,0.0,18
+South_Asian_Churn_dataset,0,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.536663968365882,4.0,18,0.17647058823529413,0.1937877169533446,0.0033375549514378378,18
+South_Asian_Churn_dataset,1,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5680951862906748,10.0,18,0.5294117647058824,1.297414355138179,0.0376327150961272,18
+South_Asian_Churn_dataset,2,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.5267184167985134,3.0,18,0.11764705882352941,0.08006958309397395,0.002605144740965515,18
+South_Asian_Churn_dataset,3,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.5539360667749554,6.0,18,0.29411764705882354,0.7919113374748024,0.010589438386722327,18
+South_Asian_Churn_dataset,4,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.5200514486521058,3.0,18,0.11764705882352941,0.16911679351086337,0.004320143742040816,18
+Support2,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.1370422120088343,3.0,18,0.11764705882352941,0.03923545262569463,0.001135968425154843,18
+Support2,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.14642549033170812,3.0,18,0.11764705882352941,0.10677951710415262,0.0023910512120078886,18
+Support2,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.14868782599024655,2.0,18,0.058823529411764705,0.04556476952628533,0.001142332293417453,18
+Support2,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.15062238949630977,4.0,18,0.17647058823529413,0.08880822690010798,0.0027051234952875647,18
+Support2,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.15132742991628645,3.0,18,0.11764705882352941,0.06307632462271612,0.0019952575669874573,18
+WBCAtt,0,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.03236521722144992,1.0,18,0.0,0.0,0.0,18
+WBCAtt,1,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.028882237471096476,4.0,18,0.17647058823529413,0.3385805200972901,0.001018635030212385,18
+WBCAtt,2,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.030797831174774845,6.0,18,0.29411764705882354,0.4031274071268896,0.0028880969983142123,18
+WBCAtt,3,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.036089879374142285,7.0,18,0.35294117647058826,0.5705080222762089,0.0019069197801918347,18
+WBCAtt,4,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.022769150393071046,5.0,18,0.23529411764705882,0.27809951339126504,0.0006624844289224337,18
+air-quality-and-pollution-assessment,0,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.12506772294886326,4.0,18,0.17647058823529413,0.14309531570732104,0.003657945167466939,18
+air-quality-and-pollution-assessment,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.12297732883922999,1.0,18,0.0,0.0,0.0,18
+air-quality-and-pollution-assessment,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.15532111838999577,2.0,18,0.058823529411764705,0.08963213681436241,0.0006375775005678097,18
+air-quality-and-pollution-assessment,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.12898409646269754,1.0,18,0.0,0.0,0.0,18
+air-quality-and-pollution-assessment,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.11620281461198842,1.0,18,0.0,0.0,0.0,18
+analcatdata_supreme,0,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.0755743109560268,10.0,18,0.5294117647058824,1.0137623286813304,0.04949690270096793,18
+analcatdata_supreme,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.02728516937046034,2.0,18,0.058823529411764705,0.13497270656802826,0.005560136761631279,18
+analcatdata_supreme,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.00683423824192996,2.0,18,0.058823529411764705,0.008604569910365947,5.9264233180862484e-05,18
+analcatdata_supreme,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.015302419210195846,7.0,18,0.35294117647058826,0.25850343019956096,0.0028386926659673076,18
+analcatdata_supreme,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.015438180865683552,3.0,18,0.11764705882352941,0.04873646848928522,0.0007633258594880472,18
+banknote-authentication,0,defaults_rule,knn (tuned + ensemble),knn,tuned + ensemble,1.1102230246251571e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+banknote-authentication,1,defaults_rule,knn (tuned + ensemble),knn,tuned + ensemble,0.12559555052694904,16.5,18,0.9117647058823529,4.748273726443334,0.12559539332650782,18
+banknote-authentication,2,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.02426719280006766,8.5,18,0.4411764705882353,0.9217260594139555,0.024265295744364326,18
+banknote-authentication,3,defaults_rule,knn (tuned + ensemble),knn,tuned + ensemble,0.004018823672965971,3.5,18,0.14705882352941177,0.13544647637365084,0.004018580552948072,18
+banknote-authentication,4,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.018149679035347692,6.5,18,0.3235294117647059,0.653850620013713,0.01814837763416743,18
+compas-two-years,0,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6043325872234594,1.0,18,0.0,0.0,0.0,18
+compas-two-years,1,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6080466908436372,8.0,18,0.4117647058823529,0.6619011038877679,0.004053511268270249,18
+compas-two-years,2,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6119980830283372,3.0,18,0.11764705882352941,0.2115019126685517,0.0014737302733451862,18
+compas-two-years,3,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6227940108271574,3.0,18,0.11764705882352941,0.3632147670393427,0.0029820824413919755,18
+compas-two-years,4,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6101478394943515,9.0,18,0.47058823529411764,0.9551905066945746,0.0044909065049848484,18
+dataset_china,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,2.62088993411305e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+dataset_china,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,2.880447172569348e-07,3.5,18,0.14705882352941177,1.508539992436845e-05,2.880447130352007e-07,18
+dataset_china,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,2.682430280849033e-07,3.5,18,0.14705882352941177,3.763917262460158e-05,2.682430238631692e-07,18
+dataset_china,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,3.1631572409072656e-07,3.5,18,0.14705882352941177,6.108248296876922e-05,3.163157198689925e-07,18
+dataset_china,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,2.8202040192602905e-07,3.5,18,0.14705882352941177,7.221728962712353e-05,2.8202039770429497e-07,18
+depression_2020,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4541691121344873,2.0,18,0.058823529411764705,0.10218078571291439,0.0020636460703954973,18
+depression_2020,1,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.4647139678034074,7.0,18,0.35294117647058826,0.8005622849375462,0.016405799268056243,18
+depression_2020,2,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.4469411832996115,2.0,18,0.058823529411764705,0.0274819811712221,0.0005185099208765975,18
+depression_2020,3,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.4550745633027525,6.0,18,0.29411764705882354,0.8102758840773372,0.005534578546920965,18
+depression_2020,4,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.45975232683242334,9.0,18,0.47058823529411764,0.9462849295785802,0.013679585182943543,18
+football-player-position,0,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.4077155643508732,2.0,18,0.058823529411764705,0.05700543097074366,0.0013715643294093804,18
+football-player-position,1,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.37348166329084614,1.0,18,0.0,0.0,0.0,18
+football-player-position,2,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.35541635581543185,6.0,18,0.29411764705882354,0.38208245290533643,0.011153668077046652,18
+football-player-position,3,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.36506013082878797,1.0,18,0.0,0.0,0.0,18
+football-player-position,4,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.3815759614910133,1.0,18,0.0,0.0,0.0,18
+hepatitis_c_virus_hcv_for_egyptian_patients,0,defaults_rule,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,1.3814927311935146,3.0,18,0.11764705882352941,0.11973579332365732,0.002868681912131521,18
+hepatitis_c_virus_hcv_for_egyptian_patients,1,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.3949244359149142,6.0,18,0.29411764705882354,0.4131558880308831,0.00728608444704415,18
+hepatitis_c_virus_hcv_for_egyptian_patients,2,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.4021461146110752,11.0,18,0.5882352941176471,1.3574266950591574,0.029890197392167916,18
+hepatitis_c_virus_hcv_for_egyptian_patients,3,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.4004789550087626,4.0,18,0.17647058823529413,0.6606265194617673,0.013155977946366804,18
+hepatitis_c_virus_hcv_for_egyptian_patients,4,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.3963440265540281,7.0,18,0.35294117647058826,0.37746651140749427,0.00966647592085268,18
+ipums_la_97-small,0,defaults_rule,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.2520763494667655,4.0,18,0.17647058823529413,0.04348287480782255,0.003293209774611894,18
+ipums_la_97-small,1,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,1.2557524424025106,4.0,18,0.17647058823529413,0.30115876466201935,0.023438951983647982,18
+ipums_la_97-small,2,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,1.251886066107053,5.0,18,0.23529411764705882,0.38610979795385014,0.02919474756660212,18
+ipums_la_97-small,3,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,1.2403394203562794,4.0,18,0.17647058823529413,0.3479589997855052,0.03271873625159527,18
+ipums_la_97-small,4,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,1.2580789610902108,5.0,18,0.23529411764705882,0.3093063842992294,0.028471827423311113,18
+kr-vs-kp,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.01998538894738893,4.5,18,0.20588235294117646,0.04588595026195734,0.0010992216672853113,18
+kr-vs-kp,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.016002909068282382,1.5,18,0.029411764705882353,0.0,0.0,18
+kr-vs-kp,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.032359841874197846,7.0,18,0.35294117647058826,0.43530852083811467,0.010495845855302624,18
+kr-vs-kp,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.019253757382815977,4.0,18,0.17647058823529413,0.054080715634707455,0.0019655993285448287,18
+kr-vs-kp,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.015166874803115354,1.5,18,0.029411764705882353,0.0,0.0,18
+law-school-admission-bianry,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5303381935855728,2.0,18,0.058823529411764705,0.15581467009465375,0.001978598528332709,18
+law-school-admission-bianry,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5377917906174149,2.0,18,0.058823529411764705,0.050706254966213254,0.0006593631257658661,18
+law-school-admission-bianry,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5343312279544241,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5269698484449984,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5326131086862274,1.0,18,0.0,0.0,0.0,18
+mushroom,0,defaults_rule,knn (tuned + ensemble),knn,tuned + ensemble,0.0006287084600207898,15.0,18,0.8235294117647058,5.7143982777478355,0.0006285491713779446,18
+mushroom,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,1.1245491027099659e-06,4.5,18,0.20588235294117646,0.019152724706938906,1.1245491015997429e-06,18
+mushroom,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,1.5217001442534978e-06,5.5,18,0.2647058823529412,0.008572096404325207,1.5217001431432747e-06,18
+mushroom,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,1.346323328541849e-06,6.5,18,0.3235294117647059,0.018833415271359646,1.346323327431626e-06,18
+mushroom,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,8.669670112812065e-07,5.5,18,0.2647058823529412,0.013153680996368015,8.669670101709834e-07,18
+national-longitudinal-survey-binary,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,6.608083300724276e-07,3.5,18,0.14705882352941177,3.0465749958651875e-05,6.608083289622046e-07,18
+national-longitudinal-survey-binary,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,7.125240582537677e-07,3.5,18,0.14705882352941177,3.319132654437547e-05,7.125240571435446e-07,18
+national-longitudinal-survey-binary,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,7.125240582537677e-07,3.5,18,0.14705882352941177,3.630551550212458e-05,7.125240571435446e-07,18
+national-longitudinal-survey-binary,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,6.307907584938545e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+national-longitudinal-survey-binary,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,7.125240582537677e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+open_payments,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.16288159962032653,1.0,18,0.0,0.0,0.0,18
+open_payments,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.16519900372341104,1.0,18,0.0,0.0,0.0,18
+open_payments,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.16962161106323034,1.0,18,0.0,0.0,0.0,18
+open_payments,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.1627074126306584,1.0,18,0.0,0.0,0.0,18
+open_payments,4,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.18001841157925177,5.0,18,0.23529411764705882,0.7419682476361267,0.00524163256699714,18
+rl,0,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.48024933609648246,2.0,18,0.058823529411764705,0.006785915533207149,0.00046756174483825186,18
+rl,1,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.48880540793447225,3.0,18,0.11764705882352941,0.14358628357897957,0.012355254166141694,18
+rl,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.47134974987961903,2.0,18,0.058823529411764705,0.03170770668266074,0.0030379767268826074,18
+rl,3,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.49721954297495663,3.0,18,0.11764705882352941,0.21681197045909958,0.01764548047870579,18
+rl,4,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4702224434806283,1.0,18,0.0,0.0,0.0,18
+solar-flare,0,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.393915564370993,11.0,18,0.5882352941176471,1.5779242398000382,0.006877681685880266,18
+solar-flare,1,defaults_rule,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.40194129232790304,11.0,18,0.5882352941176471,1.0062241822733904,0.019851758091226857,18
+solar-flare,2,defaults_rule,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4249145731033509,8.0,18,0.4117647058823529,0.9748686777797863,0.019485652118713948,18
+solar-flare,3,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.44594165158696647,8.0,18,0.4117647058823529,0.8190979655092011,0.011112361946334304,18
+solar-flare,4,defaults_rule,mlp (tuned + ensemble),mlp,tuned + ensemble,0.39380913621838337,8.0,18,0.4117647058823529,0.5632514724646274,0.008334078900568087,18
+student_depression_dataset,0,defaults_rule,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.36579124340217956,1.0,18,0.0,0.0,0.0,18
+student_depression_dataset,1,defaults_rule,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.35151971702827395,2.0,18,0.058823529411764705,0.005652915209682847,7.295629454728836e-05,18
+student_depression_dataset,2,defaults_rule,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.3502669829036827,4.0,18,0.17647058823529413,0.0806817832011632,0.0014592769420236351,18
+student_depression_dataset,3,defaults_rule,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.3428744844410283,3.0,18,0.11764705882352941,0.015886074292025494,0.00017625238455759584,18
+student_depression_dataset,4,defaults_rule,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.3642634304973471,1.0,18,0.0,0.0,0.0,18
+Advanced_IoT_Dataset,0,oracle,knn (default),knn,default,5.329015007049534e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,1,oracle,knn (default),knn,default,5.329181540503228e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,2,oracle,knn (default),knn,default,5.329126029351996e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,3,oracle,knn (default),knn,default,5.329126029351996e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+Advanced_IoT_Dataset,4,oracle,knn (default),knn,default,5.329015007049534e-15,3.0,18,0.11764705882352941,0.0,0.0,18
+BitcoinHeist_Ransomware,0,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.30784652893052383,1.0,18,0.0,0.0,0.0,18
+BitcoinHeist_Ransomware,1,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.3167649907047734,1.0,18,0.0,0.0,0.0,18
+BitcoinHeist_Ransomware,2,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.31176473909963,1.0,18,0.0,0.0,0.0,18
+BitcoinHeist_Ransomware,3,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.316246884806156,1.0,18,0.0,0.0,0.0,18
+BitcoinHeist_Ransomware,4,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.3207254620085269,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,0,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5322768562427989,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,1,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.5488772211867813,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,2,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5405084624062836,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,3,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5306197192065278,1.0,18,0.0,0.0,0.0,18
+Cardiovascular-Disease-dataset,4,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5488626383122713,1.0,18,0.0,0.0,0.0,18
+Credit-Risk-Classification-Dataset,0,oracle,extra_trees (tuned),extra_trees,tuned,0.4811275295672487,1.0,18,0.0,0.0,0.0,18
+Credit-Risk-Classification-Dataset,1,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.4822493087020455,1.0,18,0.0,0.0,0.0,18
+Credit-Risk-Classification-Dataset,2,oracle,random_forest (tuned),random_forest,tuned,0.48091910840201263,1.0,18,0.0,0.0,0.0,18
+Credit-Risk-Classification-Dataset,3,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4794087191113816,1.0,18,0.0,0.0,0.0,18
+Credit-Risk-Classification-Dataset,4,oracle,random_forest (tuned),random_forest,tuned,0.4762329391429065,1.0,18,0.0,0.0,0.0,18
+Credit_Risk_Modeling,0,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,5.090617362553407e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+Credit_Risk_Modeling,1,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.0006148885977733936,1.0,18,0.0,0.0,0.0,18
+Credit_Risk_Modeling,2,oracle,random_forest (tuned),random_forest,tuned,0.0008586475484150508,1.0,18,0.0,0.0,0.0,18
+Credit_Risk_Modeling,3,oracle,random_forest (tuned),random_forest,tuned,0.0007355708529144759,1.5,18,0.029411764705882353,0.0,0.0,18
+Credit_Risk_Modeling,4,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.0037239403692642882,1.0,18,0.0,0.0,0.0,18
+Credit_Score,0,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6559880664966997,1.0,18,0.0,0.0,0.0,18
+Credit_Score,1,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6472528786224234,1.0,18,0.0,0.0,0.0,18
+Credit_Score,2,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6417775548473178,1.0,18,0.0,0.0,0.0,18
+Credit_Score,3,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6490011472497744,1.0,18,0.0,0.0,0.0,18
+Credit_Score,4,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.6617025225746475,1.0,18,0.0,0.0,0.0,18
+EDA-Home-Mortgage-NY-Sampled,0,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4281663677214065,1.0,18,0.0,0.0,0.0,18
+EDA-Home-Mortgage-NY-Sampled,1,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.42560504909451513,1.0,18,0.0,0.0,0.0,18
+EDA-Home-Mortgage-NY-Sampled,2,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4182833898011064,1.0,18,0.0,0.0,0.0,18
+EDA-Home-Mortgage-NY-Sampled,3,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.43382043590658403,1.0,18,0.0,0.0,0.0,18
+EDA-Home-Mortgage-NY-Sampled,4,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4368543538603118,1.0,18,0.0,0.0,0.0,18
+Employee,0,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.37467683570598354,1.0,18,0.0,0.0,0.0,18
+Employee,1,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.3806977560326287,1.0,18,0.0,0.0,0.0,18
+Employee,2,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.3660786310500218,1.0,18,0.0,0.0,0.0,18
+Employee,3,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.37070368846286966,1.0,18,0.0,0.0,0.0,18
+Employee,4,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.37141252777482897,1.0,18,0.0,0.0,0.0,18
+Fraud-Detection-Updated,0,oracle,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.2775457372426471,1.0,18,0.0,0.0,0.0,18
+Fraud-Detection-Updated,1,oracle,mlp (tuned),mlp,tuned,0.25994467129853777,1.0,18,0.0,0.0,0.0,18
+Fraud-Detection-Updated,2,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.26876944060340524,1.0,18,0.0,0.0,0.0,18
+Fraud-Detection-Updated,3,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.26582755495001986,1.0,18,0.0,0.0,0.0,18
+Fraud-Detection-Updated,4,oracle,extra_trees (tuned),extra_trees,tuned,0.26521945832762667,1.0,18,0.0,0.0,0.0,18
+HMEQ_Data_New,0,oracle,extra_trees (default),extra_trees,default,0.19379625325974206,1.5,18,0.029411764705882353,0.0,0.0,18
+HMEQ_Data_New,1,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19248567755811705,1.0,18,0.0,0.0,0.0,18
+HMEQ_Data_New,2,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.18584133267225952,1.0,18,0.0,0.0,0.0,18
+HMEQ_Data_New,3,oracle,extra_trees (tuned),extra_trees,tuned,0.1979671264695676,1.0,18,0.0,0.0,0.0,18
+HMEQ_Data_New,4,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.19157105758300222,1.0,18,0.0,0.0,0.0,18
+Interest_Rate,0,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.9425135213841167,1.0,18,0.0,0.0,0.0,18
+Interest_Rate,1,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.9246797222216601,1.0,18,0.0,0.0,0.0,18
+Interest_Rate,2,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.9245900750254643,1.0,18,0.0,0.0,0.0,18
+Interest_Rate,3,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.930603959675338,1.0,18,0.0,0.0,0.0,18
+Interest_Rate,4,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.9223960563764497,1.0,18,0.0,0.0,0.0,18
+KDD98,0,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.3545368092599076,1.0,18,0.0,0.0,0.0,18
+KDD98,1,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35340893757612657,1.0,18,0.0,0.0,0.0,18
+KDD98,2,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35309890808743843,1.0,18,0.0,0.0,0.0,18
+KDD98,3,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35424395602403863,1.0,18,0.0,0.0,0.0,18
+KDD98,4,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.35604749658263,1.0,18,0.0,0.0,0.0,18
+MembershipWoes,0,oracle,mlp (tuned),mlp,tuned,6.2250092862427e-08,1.5,18,0.029411764705882353,0.0,0.0,18
+MembershipWoes,1,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,3.4939262328409746e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+MembershipWoes,2,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,3.330875586453601e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+MembershipWoes,3,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,1.5704124962696874e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+MembershipWoes,4,oracle,knn (tuned),knn,tuned,1.110223024625157e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+Mobile_Price,0,oracle,logistic_regression (tuned),logistic_regression,tuned,0.07948593166586974,1.0,18,0.0,0.0,0.0,18
+Mobile_Price,1,oracle,logistic_regression (tuned),logistic_regression,tuned,0.07746939947456402,1.0,18,0.0,0.0,0.0,18
+Mobile_Price,2,oracle,logistic_regression (tuned),logistic_regression,tuned,0.07274789809304312,1.0,18,0.0,0.0,0.0,18
+Mobile_Price,3,oracle,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.07883731070005878,1.0,18,0.0,0.0,0.0,18
+Mobile_Price,4,oracle,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.09070193357156478,1.0,18,0.0,0.0,0.0,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,0,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.5028864430716379,1.0,18,0.0,0.0,0.0,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,1,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.46097260283091185,1.0,18,0.0,0.0,0.0,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,2,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.5408502512517128,1.0,18,0.0,0.0,0.0,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,3,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.5071718567923179,1.0,18,0.0,0.0,0.0,18
+Multiclass_Classification_for_Corporate_Credit_Ratings,4,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4964414436639715,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,0,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.267106095568379,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,1,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.276660816084542,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,2,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.2865687101714198,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,3,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.2975646023964532,1.0,18,0.0,0.0,0.0,18
+NewspaperChurn,4,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.28836229003213204,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,0,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5696664209355782,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,1,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5575271267452412,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,2,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5769669019540598,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,3,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5640478363047825,1.0,18,0.0,0.0,0.0,18
+Otto-Group-Product-Classification-Challenge,4,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5564274892581075,1.0,18,0.0,0.0,0.0,18
+Phishing_Legitimate_full,0,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.04793847673202849,1.0,18,0.0,0.0,0.0,18
+Phishing_Legitimate_full,1,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.04266769633236937,1.0,18,0.0,0.0,0.0,18
+Phishing_Legitimate_full,2,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.047926183263848884,1.0,18,0.0,0.0,0.0,18
+Phishing_Legitimate_full,3,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.045943211840608005,1.0,18,0.0,0.0,0.0,18
+Phishing_Legitimate_full,4,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.05020962806898196,1.0,18,0.0,0.0,0.0,18
+PostPartum_Depression,0,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.1144993817702328,1.0,18,0.0,0.0,0.0,18
+PostPartum_Depression,1,oracle,knn (tuned + ensemble),knn,tuned + ensemble,0.07208986853770845,1.0,18,0.0,0.0,0.0,18
+PostPartum_Depression,2,oracle,extra_trees (tuned),extra_trees,tuned,0.09430698935747468,1.0,18,0.0,0.0,0.0,18
+PostPartum_Depression,3,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.09342014704922794,1.0,18,0.0,0.0,0.0,18
+PostPartum_Depression,4,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.05594517734336563,1.0,18,0.0,0.0,0.0,18
+Pulsar-Dataset-HTRU2,0,oracle,mlp (tuned),mlp,tuned,0.06507369906331104,1.0,18,0.0,0.0,0.0,18
+Pulsar-Dataset-HTRU2,1,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.06564001436184028,1.0,18,0.0,0.0,0.0,18
+Pulsar-Dataset-HTRU2,2,oracle,mlp (default),mlp,default,0.07542514554244398,1.0,18,0.0,0.0,0.0,18
+Pulsar-Dataset-HTRU2,3,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.06997479823567056,1.0,18,0.0,0.0,0.0,18
+Pulsar-Dataset-HTRU2,4,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.06850248881360924,1.0,18,0.0,0.0,0.0,18
+Pumpkin_Seeds,0,oracle,extra_trees (tuned),extra_trees,tuned,0.30563045831344776,1.0,18,0.0,0.0,0.0,18
+Pumpkin_Seeds,1,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.24186210107026773,1.0,18,0.0,0.0,0.0,18
+Pumpkin_Seeds,2,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.3275643872593505,1.0,18,0.0,0.0,0.0,18
+Pumpkin_Seeds,3,oracle,random_forest (tuned),random_forest,tuned,0.2929847597388612,1.0,18,0.0,0.0,0.0,18
+Pumpkin_Seeds,4,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.30642615417970265,1.0,18,0.0,0.0,0.0,18
+Risk_Level_Classification,0,oracle,random_forest (tuned),random_forest,tuned,2.1961321650110244e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+Risk_Level_Classification,1,oracle,random_forest (tuned),random_forest,tuned,2.1961321650110244e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+Risk_Level_Classification,2,oracle,random_forest (tuned),random_forest,tuned,2.1961321650110244e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+Risk_Level_Classification,3,oracle,random_forest (tuned),random_forest,tuned,2.1961321650110244e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+Risk_Level_Classification,4,oracle,extra_trees (tuned),extra_trees,tuned,2.1961321650110244e-15,2.5,18,0.08823529411764706,0.0,0.0,18
+Santander_Customer_Satisfaction,0,oracle,random_forest (tuned),random_forest,tuned,0.13563121850461554,1.0,18,0.0,0.0,0.0,18
+Santander_Customer_Satisfaction,1,oracle,extra_trees (tuned),extra_trees,tuned,0.13296420721155228,1.0,18,0.0,0.0,0.0,18
+Santander_Customer_Satisfaction,2,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.13171545549680774,1.0,18,0.0,0.0,0.0,18
+Santander_Customer_Satisfaction,3,oracle,random_forest (tuned),random_forest,tuned,0.12745187034750746,1.0,18,0.0,0.0,0.0,18
+Santander_Customer_Satisfaction,4,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.13810295819509644,1.0,18,0.0,0.0,0.0,18
+South_Asian_Churn_dataset,0,oracle,random_forest (tuned),random_forest,tuned,0.5333264134144442,1.0,18,0.0,0.0,0.0,18
+South_Asian_Churn_dataset,1,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5304624711945476,1.0,18,0.0,0.0,0.0,18
+South_Asian_Churn_dataset,2,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5241132720575479,1.0,18,0.0,0.0,0.0,18
+South_Asian_Churn_dataset,3,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.5433466283882331,1.0,18,0.0,0.0,0.0,18
+South_Asian_Churn_dataset,4,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.515731304910065,1.0,18,0.0,0.0,0.0,18
+Support2,0,oracle,random_forest (tuned),random_forest,tuned,0.13590624358367945,1.0,18,0.0,0.0,0.0,18
+Support2,1,oracle,random_forest (tuned),random_forest,tuned,0.14403443911970024,1.5,18,0.029411764705882353,0.0,0.0,18
+Support2,2,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.1475454936968291,1.0,18,0.0,0.0,0.0,18
+Support2,3,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.1479172660010222,1.0,18,0.0,0.0,0.0,18
+Support2,4,oracle,random_forest (tuned),random_forest,tuned,0.149332172349299,1.0,18,0.0,0.0,0.0,18
+WBCAtt,0,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.03236521722144992,1.0,18,0.0,0.0,0.0,18
+WBCAtt,1,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.02786360244088409,1.0,18,0.0,0.0,0.0,18
+WBCAtt,2,oracle,logistic_regression (tuned),logistic_regression,tuned,0.027909734176460633,1.5,18,0.029411764705882353,0.0,0.0,18
+WBCAtt,3,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.03418295959395045,1.0,18,0.0,0.0,0.0,18
+WBCAtt,4,oracle,mlp (default),mlp,default,0.022106665964148613,1.0,18,0.0,0.0,0.0,18
+air-quality-and-pollution-assessment,0,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.12140977778139632,1.0,18,0.0,0.0,0.0,18
+air-quality-and-pollution-assessment,1,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.12297732883922999,1.0,18,0.0,0.0,0.0,18
+air-quality-and-pollution-assessment,2,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.15468354088942796,1.0,18,0.0,0.0,0.0,18
+air-quality-and-pollution-assessment,3,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.12898409646269754,1.0,18,0.0,0.0,0.0,18
+air-quality-and-pollution-assessment,4,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.11620281461198842,1.0,18,0.0,0.0,0.0,18
+analcatdata_supreme,0,oracle,hist_gradient_boosting (default),hist_gradient_boosting,default,0.026077408255058877,1.0,18,0.0,0.0,0.0,18
+analcatdata_supreme,1,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.021725032608829062,1.0,18,0.0,0.0,0.0,18
+analcatdata_supreme,2,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.006774974008749097,1.0,18,0.0,0.0,0.0,18
+analcatdata_supreme,3,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.012463726544228539,1.0,18,0.0,0.0,0.0,18
+analcatdata_supreme,4,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,0.014674855006195505,1.0,18,0.0,0.0,0.0,18
+banknote-authentication,0,oracle,knn (tuned),knn,tuned,1.1102230246251571e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+banknote-authentication,1,oracle,mlp (tuned),mlp,tuned,1.5720044122973208e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+banknote-authentication,2,oracle,mlp (tuned),mlp,tuned,1.8970557033336219e-06,1.5,18,0.029411764705882353,0.0,0.0,18
+banknote-authentication,3,oracle,mlp (tuned),mlp,tuned,2.4312001789860357e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+banknote-authentication,4,oracle,mlp (tuned),mlp,tuned,1.3014011802629489e-06,1.5,18,0.029411764705882353,0.0,0.0,18
+compas-two-years,0,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.6043325872234594,1.0,18,0.0,0.0,0.0,18
+compas-two-years,1,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.6039931795753669,1.0,18,0.0,0.0,0.0,18
+compas-two-years,2,oracle,random_forest (tuned),random_forest,tuned,0.6105243527549921,1.0,18,0.0,0.0,0.0,18
+compas-two-years,3,oracle,mlp (tuned),mlp,tuned,0.6198119283857654,1.0,18,0.0,0.0,0.0,18
+compas-two-years,4,oracle,logistic_regression (tuned),logistic_regression,tuned,0.6056569329893666,1.0,18,0.0,0.0,0.0,18
+dataset_china,0,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,2.62088993411305e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+dataset_china,1,oracle,random_forest (tuned),random_forest,tuned,4.2217340734396285e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+dataset_china,2,oracle,random_forest (tuned),random_forest,tuned,4.2217340734396285e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+dataset_china,3,oracle,random_forest (tuned),random_forest,tuned,4.2217340734396285e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+dataset_china,4,oracle,random_forest (tuned),random_forest,tuned,4.2217340734396285e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+depression_2020,0,oracle,logistic_regression (tuned),logistic_regression,tuned,0.4521054660640918,1.0,18,0.0,0.0,0.0,18
+depression_2020,1,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.44830816853535116,1.0,18,0.0,0.0,0.0,18
+depression_2020,2,oracle,random_forest (tuned),random_forest,tuned,0.4464226733787349,1.0,18,0.0,0.0,0.0,18
+depression_2020,3,oracle,random_forest (tuned),random_forest,tuned,0.4495399847558315,1.0,18,0.0,0.0,0.0,18
+depression_2020,4,oracle,mlp (default),mlp,default,0.4460727416494798,1.0,18,0.0,0.0,0.0,18
+football-player-position,0,oracle,extra_trees (tuned),extra_trees,tuned,0.4063440000214638,1.0,18,0.0,0.0,0.0,18
+football-player-position,1,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.37348166329084614,1.0,18,0.0,0.0,0.0,18
+football-player-position,2,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.3442626877383852,1.0,18,0.0,0.0,0.0,18
+football-player-position,3,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.36506013082878797,1.0,18,0.0,0.0,0.0,18
+football-player-position,4,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.3815759614910133,1.0,18,0.0,0.0,0.0,18
+hepatitis_c_virus_hcv_for_egyptian_patients,0,oracle,extra_trees (tuned),extra_trees,tuned,1.378624049281383,1.0,18,0.0,0.0,0.0,18
+hepatitis_c_virus_hcv_for_egyptian_patients,1,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,1.38763835146787,1.0,18,0.0,0.0,0.0,18
+hepatitis_c_virus_hcv_for_egyptian_patients,2,oracle,mlp (tuned),mlp,tuned,1.3722559172189073,1.0,18,0.0,0.0,0.0,18
+hepatitis_c_virus_hcv_for_egyptian_patients,3,oracle,logistic_regression (tuned),logistic_regression,tuned,1.3873229770623958,1.0,18,0.0,0.0,0.0,18
+hepatitis_c_virus_hcv_for_egyptian_patients,4,oracle,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,1.3866775506331754,1.0,18,0.0,0.0,0.0,18
+ipums_la_97-small,0,oracle,extra_trees (tuned),extra_trees,tuned,1.2487831396921536,1.0,18,0.0,0.0,0.0,18
+ipums_la_97-small,1,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.2323134904188626,1.0,18,0.0,0.0,0.0,18
+ipums_la_97-small,2,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.2226913185404509,1.0,18,0.0,0.0,0.0,18
+ipums_la_97-small,3,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.2076206841046842,1.0,18,0.0,0.0,0.0,18
+ipums_la_97-small,4,oracle,random_forest (tuned + ensemble),random_forest,tuned + ensemble,1.2296071336668997,1.0,18,0.0,0.0,0.0,18
+kr-vs-kp,0,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.01888616728010362,1.0,18,0.0,0.0,0.0,18
+kr-vs-kp,1,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.016002909068282382,1.5,18,0.029411764705882353,0.0,0.0,18
+kr-vs-kp,2,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.021863996018895222,1.0,18,0.0,0.0,0.0,18
+kr-vs-kp,3,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.017288158054271148,1.0,18,0.0,0.0,0.0,18
+kr-vs-kp,4,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.015166874803115354,1.5,18,0.029411764705882353,0.0,0.0,18
+law-school-admission-bianry,0,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.5283595950572401,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,1,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.537132427491649,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,2,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5343312279544241,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,3,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5269698484449984,1.0,18,0.0,0.0,0.0,18
+law-school-admission-bianry,4,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.5326131086862274,1.0,18,0.0,0.0,0.0,18
+mushroom,0,oracle,mlp (tuned),mlp,tuned,1.5928864284522854e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+mushroom,1,oracle,knn (tuned),knn,tuned,1.1102230246251571e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+mushroom,2,oracle,knn (tuned),knn,tuned,1.1102230246251571e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+mushroom,3,oracle,knn (tuned),knn,tuned,1.1102230246251571e-15,2.5,18,0.08823529411764706,0.0,0.0,18
+mushroom,4,oracle,knn (tuned),knn,tuned,1.1102230246251571e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+national-longitudinal-survey-binary,0,oracle,random_forest (tuned),random_forest,tuned,1.110223024625157e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+national-longitudinal-survey-binary,1,oracle,random_forest (tuned),random_forest,tuned,1.110223024625157e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+national-longitudinal-survey-binary,2,oracle,random_forest (tuned),random_forest,tuned,1.110223024625157e-15,1.5,18,0.029411764705882353,0.0,0.0,18
+national-longitudinal-survey-binary,3,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,6.307907584938545e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+national-longitudinal-survey-binary,4,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,7.125240582537677e-07,1.5,18,0.029411764705882353,0.0,0.0,18
+open_payments,0,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.16288159962032653,1.0,18,0.0,0.0,0.0,18
+open_payments,1,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.16519900372341104,1.0,18,0.0,0.0,0.0,18
+open_payments,2,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.16962161106323034,1.0,18,0.0,0.0,0.0,18
+open_payments,3,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.1627074126306584,1.0,18,0.0,0.0,0.0,18
+open_payments,4,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.17477677901225463,1.0,18,0.0,0.0,0.0,18
+rl,0,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.4797817743516442,1.0,18,0.0,0.0,0.0,18
+rl,1,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.47645015376833055,1.0,18,0.0,0.0,0.0,18
+rl,2,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.4683117731527364,1.0,18,0.0,0.0,0.0,18
+rl,3,oracle,extra_trees (tuned + ensemble),extra_trees,tuned + ensemble,0.47957406249625084,1.0,18,0.0,0.0,0.0,18
+rl,4,oracle,hist_gradient_boosting (tuned + ensemble),hist_gradient_boosting,tuned + ensemble,0.4702224434806283,1.0,18,0.0,0.0,0.0,18
+solar-flare,0,oracle,extra_trees (tuned),extra_trees,tuned,0.38703788268511274,1.0,18,0.0,0.0,0.0,18
+solar-flare,1,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.3820895342366762,1.0,18,0.0,0.0,0.0,18
+solar-flare,2,oracle,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.40542892098463695,1.0,18,0.0,0.0,0.0,18
+solar-flare,3,oracle,logistic_regression (tuned),logistic_regression,tuned,0.43482928964063217,1.0,18,0.0,0.0,0.0,18
+solar-flare,4,oracle,mlp (default),mlp,default,0.3854750573178153,1.0,18,0.0,0.0,0.0,18
+student_depression_dataset,0,oracle,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.36579124340217956,1.0,18,0.0,0.0,0.0,18
+student_depression_dataset,1,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.35144676073372666,1.0,18,0.0,0.0,0.0,18
+student_depression_dataset,2,oracle,mlp (tuned + ensemble),mlp,tuned + ensemble,0.34880770596165905,1.0,18,0.0,0.0,0.0,18
+student_depression_dataset,3,oracle,hist_gradient_boosting (tuned),hist_gradient_boosting,tuned,0.3426982320564707,1.0,18,0.0,0.0,0.0,18
+student_depression_dataset,4,oracle,logistic_regression (tuned + ensemble),logistic_regression,tuned + ensemble,0.3642634304973471,1.0,18,0.0,0.0,0.0,18

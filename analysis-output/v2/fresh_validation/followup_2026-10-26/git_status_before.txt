@@ -1,0 +1,26 @@
+ M .gitignore
+ M Makefile
+ M README.md
+ M docs/fresh_validation_protocol.md
+ M scripts/build_paper_assets.py
+ M scripts/fresh_validation_analysis.py
+?? analysis-output/v2/fresh_validation/analysis_2026-10-25_eligible-unresolved/
+?? analysis-output/v2/fresh_validation/analysis_2026-10-25_eligible/
+?? analysis-output/v2/fresh_validation/analysis_2026-10-25_original/
+?? analysis-output/v2/fresh_validation/analysis_2026-10-25_three-exclusion/
+?? analysis-output/v2/fresh_validation/audit_2026-10-25/
+?? analysis-output/v2/fresh_validation/followup_2026-10-26/
+?? analysis-output/v2/fresh_validation/packaging_2026-10-26/
+?? configs/fresh_validation_cohort_2026-10-25.csv
+?? configs/fresh_validation_eligibility_audit.csv
+?? configs/validation_revision_package_2026-10-26.txt
+?? docs/fresh_validation_eligibility_audit.md
+?? docs/validation_reuse_revision_2026-10-25.md
+?? docs/validation_reuse_revision_2026-10-26.md
+?? docs/validation_revision_notice.md
+?? docs/validation_revision_package.md
+?? scripts/fresh_validation_audit.py
+?? scripts/validation_revision_package.py
+?? scripts/verify_validation_revision.py
+?? tests/test_fresh_validation_cohort.py
+?? tests/test_validation_revision_package.py

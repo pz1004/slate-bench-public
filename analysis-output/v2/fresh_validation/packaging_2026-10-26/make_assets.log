@@ -1,0 +1,2 @@
+.venv/bin/python scripts/build_paper_assets.py --out analysis-output/v2 --fresh-validation-only --generated /tmp/validation-make-assets-20261026
+1176 numbers, 14 tables (fresh validation only)

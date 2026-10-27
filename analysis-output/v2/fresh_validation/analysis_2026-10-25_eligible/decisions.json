@@ -1,0 +1,195 @@
+{
+  "decisions": {
+    "C1": {
+      "left": "validation_best_reused",
+      "right": "validation_best_fresh",
+      "mean_difference": 0.021925133689839567,
+      "ci_95": [
+        -0.019786096256684496,
+        0.07165775401069518
+      ],
+      "bootstrap_holm_p": 0.7292,
+      "ttest_holm_p": 0.8019648765791361,
+      "bootstrap_rejects": false,
+      "ttest_rejects": false,
+      "conclusion": "no difference detected",
+      "test_outcome": "neither test rejects",
+      "confirmatory": false,
+      "equivalence_margin": 0.029411764705882353,
+      "equivalence_supported": false,
+      "equivalence_interval_inside_margin": false
+    },
+    "C2": {
+      "left": "validation_best_reused",
+      "right": "defaults_rule",
+      "mean_difference": -0.0037433155080213985,
+      "ci_95": [
+        -0.040641711229946524,
+        0.031016042780748654
+      ],
+      "bootstrap_holm_p": 0.8348,
+      "ttest_holm_p": 0.8491114748679633,
+      "bootstrap_rejects": false,
+      "ttest_rejects": false,
+      "conclusion": "no difference detected",
+      "test_outcome": "neither test rejects",
+      "confirmatory": false
+    }
+  },
+  "n_datasets": 11,
+  "n_units": 55,
+  "n_candidates": 18,
+  "units_with_fewer_candidates": 0,
+  "rank_regret": {
+    "validation_best_reused": [
+      0.1572192513368984,
+      0.08609625668449197,
+      0.2288770053475936
+    ],
+    "validation_best_fresh": [
+      0.13529411764705881,
+      0.08128342245989305,
+      0.1962566844919786
+    ],
+    "defaults_rule": [
+      0.1609625668449198,
+      0.0855614973262032,
+      0.24064171122994651
+    ],
+    "validation_best_defaults": [
+      0.3422459893048128,
+      0.2524064171122995,
+      0.4353208556149729
+    ],
+    "oracle": [
+      0.0032085561497326204,
+      0.0,
+      0.008556149732620321
+    ]
+  },
+  "reused_and_fresh_choose_the_same_candidate": 0.2909090909090909,
+  "median_rows": 5960.0,
+  "run_metadata": {
+    "config": "configs/fresh_validation_experiment.yaml",
+    "tasks": "configs/fresh_validation_tasks.csv",
+    "protocol": "docs/fresh_validation_protocol.md",
+    "sha256": {
+      "config": "a35265c0ad65c42904174788d3e4e2918432d9497c69f322df054703561d40cd",
+      "tasks": "cb0a90024d3ca13b33e91016e808c2911a134db8d973214451a25ab51ddeff16",
+      "module": "e8fdeefe7fa5399ca78eb43dc64dd023b007a195d2d431e35e58b1606d9eac19",
+      "runner": "00b43e2bfe983958aa24113db6f4652728dd6c4b0c82cf163f6a7e4d218e6453",
+      "protocol": "a9effe949097726452e8bd7720548d7a73adb5631c95350f2c699c528f9c0831"
+    },
+    "git_head": "bc9bca3fc2bc18e746107f2e31066321c6600ec4",
+    "git_status_short": "M README.md\n M configs/fresh_validation_tasks.csv\n M docs/claim_template.md\n M scripts/build_paper_assets.py",
+    "repetitions": 5,
+    "n_tasks": 46,
+    "families": [
+      "hist_gradient_boosting",
+      "random_forest",
+      "extra_trees",
+      "logistic_regression",
+      "knn",
+      "mlp"
+    ],
+    "n_parts": 1380,
+    "wall_seconds_this_invocation": 15689.250592470169,
+    "job_seconds_this_invocation": 257283.59546089172,
+    "failed_configurations": 0,
+    "python": "3.12.13",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.9.0",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "command": [
+      "scripts/fresh_validation_experiment.py",
+      "--tasks",
+      "configs/fresh_validation_tasks.csv",
+      "--protocol",
+      "docs/fresh_validation_protocol.md",
+      "--output-dir",
+      "analysis-output/v2/fresh_validation",
+      "--jobs",
+      "18",
+      "--resume"
+    ]
+  },
+  "command": [
+    "scripts/fresh_validation_analysis.py",
+    "--run-dir",
+    "analysis-output/v2/fresh_validation",
+    "--cohort-manifest",
+    "configs/fresh_validation_cohort_2026-10-25.csv",
+    "--cohort-selection",
+    "eligible",
+    "--output-dir",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_eligible"
+  ],
+  "cohort": {
+    "selection": "eligible",
+    "manifest": "configs/fresh_validation_cohort_2026-10-25.csv",
+    "manifest_sha256": "58ca960f322e1adf30ddb8b4ebd3ec48004d4b39a88a0fd0f6ec114a53097e93",
+    "selected_dataset_ids": [
+      1462,
+      42343,
+      43904,
+      44227,
+      45039,
+      45547,
+      45548,
+      46483,
+      46851,
+      46859,
+      46951
+    ],
+    "excluded_dataset_ids": [
+      3,
+      382,
+      728,
+      40666,
+      40702,
+      42738,
+      43892,
+      43922,
+      44160,
+      44225,
+      44226,
+      45037,
+      45558,
+      46359,
+      46361,
+      46372,
+      46422,
+      46506,
+      46507,
+      46519,
+      46527,
+      46528,
+      46541,
+      46764,
+      46819,
+      46860,
+      46864,
+      46868,
+      46871,
+      46874,
+      46876,
+      46877,
+      46880,
+      46925,
+      46944
+    ],
+    "status_counts": {
+      "unresolved": 23,
+      "ineligible": 12,
+      "eligible": 11
+    },
+    "analysis_status": "post hoc eligibility correction"
+  },
+  "analysis_status": "post hoc eligibility correction",
+  "input_sha256": {
+    "candidates": "c8b270a4942b2c8c57a471ca7c9cdd3d76362e13a39f9fc51fb840a3d0223eaa",
+    "config": "a35265c0ad65c42904174788d3e4e2918432d9497c69f322df054703561d40cd",
+    "analysis_code": "348745d9d3f67a1f2a27cd6a0cc5cbd1bcbb0b6f3ff6d112208e07772baa2d39"
+  }
+}

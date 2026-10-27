@@ -1,0 +1,195 @@
+{
+  "decisions": {
+    "C1": {
+      "left": "validation_best_reused",
+      "right": "validation_best_fresh",
+      "mean_difference": 0.03365253077975376,
+      "ci_95": [
+        0.014774281805745559,
+        0.055266757865937065
+      ],
+      "bootstrap_holm_p": 0.0,
+      "ttest_holm_p": 0.004509427298200005,
+      "bootstrap_rejects": true,
+      "ttest_rejects": true,
+      "conclusion": "difference unresolved (post hoc eligibility correction)",
+      "test_outcome": "both tests reject",
+      "confirmatory": false,
+      "equivalence_margin": 0.029411764705882353,
+      "equivalence_supported": false,
+      "equivalence_interval_inside_margin": false
+    },
+    "C2": {
+      "left": "validation_best_reused",
+      "right": "defaults_rule",
+      "mean_difference": 0.005198358413132695,
+      "ci_95": [
+        -0.017099863201094388,
+        0.028590971272229825
+      ],
+      "bootstrap_holm_p": 0.6488,
+      "ttest_holm_p": 0.6650043042266868,
+      "bootstrap_rejects": false,
+      "ttest_rejects": false,
+      "conclusion": "no difference detected",
+      "test_outcome": "neither test rejects",
+      "confirmatory": false
+    }
+  },
+  "n_datasets": 43,
+  "n_units": 215,
+  "n_candidates": 18,
+  "units_with_fewer_candidates": 0,
+  "rank_regret": {
+    "validation_best_reused": [
+      0.1454172366621067,
+      0.10697674418604652,
+      0.18577291381668948
+    ],
+    "validation_best_fresh": [
+      0.11176470588235292,
+      0.08194254445964431,
+      0.14377564979480162
+    ],
+    "defaults_rule": [
+      0.140218878248974,
+      0.10054377564979482,
+      0.18235294117647055
+    ],
+    "validation_best_defaults": [
+      0.29712722298221617,
+      0.24842681258549934,
+      0.34829001367989054
+    ],
+    "oracle": [
+      0.008344733242134065,
+      0.003146374829001368,
+      0.015321477428180574
+    ]
+  },
+  "reused_and_fresh_choose_the_same_candidate": 0.4790697674418605,
+  "median_rows": 8124.0,
+  "run_metadata": {
+    "config": "configs/fresh_validation_experiment.yaml",
+    "tasks": "configs/fresh_validation_tasks.csv",
+    "protocol": "docs/fresh_validation_protocol.md",
+    "sha256": {
+      "config": "a35265c0ad65c42904174788d3e4e2918432d9497c69f322df054703561d40cd",
+      "tasks": "cb0a90024d3ca13b33e91016e808c2911a134db8d973214451a25ab51ddeff16",
+      "module": "e8fdeefe7fa5399ca78eb43dc64dd023b007a195d2d431e35e58b1606d9eac19",
+      "runner": "00b43e2bfe983958aa24113db6f4652728dd6c4b0c82cf163f6a7e4d218e6453",
+      "protocol": "a9effe949097726452e8bd7720548d7a73adb5631c95350f2c699c528f9c0831"
+    },
+    "git_head": "bc9bca3fc2bc18e746107f2e31066321c6600ec4",
+    "git_status_short": "M README.md\n M configs/fresh_validation_tasks.csv\n M docs/claim_template.md\n M scripts/build_paper_assets.py",
+    "repetitions": 5,
+    "n_tasks": 46,
+    "families": [
+      "hist_gradient_boosting",
+      "random_forest",
+      "extra_trees",
+      "logistic_regression",
+      "knn",
+      "mlp"
+    ],
+    "n_parts": 1380,
+    "wall_seconds_this_invocation": 15689.250592470169,
+    "job_seconds_this_invocation": 257283.59546089172,
+    "failed_configurations": 0,
+    "python": "3.12.13",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit-learn": "1.9.0",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "command": [
+      "scripts/fresh_validation_experiment.py",
+      "--tasks",
+      "configs/fresh_validation_tasks.csv",
+      "--protocol",
+      "docs/fresh_validation_protocol.md",
+      "--output-dir",
+      "analysis-output/v2/fresh_validation",
+      "--jobs",
+      "18",
+      "--resume"
+    ]
+  },
+  "command": [
+    "scripts/fresh_validation_analysis.py",
+    "--run-dir",
+    "analysis-output/v2/fresh_validation",
+    "--cohort-manifest",
+    "configs/fresh_validation_cohort_2026-10-25.csv",
+    "--cohort-selection",
+    "three-exclusion",
+    "--output-dir",
+    "analysis-output/v2/fresh_validation/analysis_2026-10-25_three-exclusion"
+  ],
+  "cohort": {
+    "selection": "three-exclusion",
+    "manifest": "configs/fresh_validation_cohort_2026-10-25.csv",
+    "manifest_sha256": "58ca960f322e1adf30ddb8b4ebd3ec48004d4b39a88a0fd0f6ec114a53097e93",
+    "selected_dataset_ids": [
+      3,
+      382,
+      728,
+      1462,
+      40702,
+      42343,
+      42738,
+      43892,
+      43904,
+      43922,
+      44160,
+      44225,
+      44226,
+      44227,
+      45037,
+      45039,
+      45547,
+      45548,
+      45558,
+      46359,
+      46361,
+      46372,
+      46422,
+      46483,
+      46506,
+      46507,
+      46519,
+      46528,
+      46541,
+      46764,
+      46819,
+      46851,
+      46859,
+      46860,
+      46868,
+      46871,
+      46874,
+      46876,
+      46877,
+      46880,
+      46925,
+      46944,
+      46951
+    ],
+    "excluded_dataset_ids": [
+      40666,
+      46527,
+      46864
+    ],
+    "status_counts": {
+      "unresolved": 23,
+      "ineligible": 12,
+      "eligible": 11
+    },
+    "analysis_status": "post hoc eligibility correction"
+  },
+  "analysis_status": "post hoc eligibility correction",
+  "input_sha256": {
+    "candidates": "c8b270a4942b2c8c57a471ca7c9cdd3d76362e13a39f9fc51fb840a3d0223eaa",
+    "config": "a35265c0ad65c42904174788d3e4e2918432d9497c69f322df054703561d40cd",
+    "analysis_code": "348745d9d3f67a1f2a27cd6a0cc5cbd1bcbb0b6f3ff6d112208e07772baa2d39"
+  }
+}

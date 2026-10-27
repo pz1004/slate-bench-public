@@ -1,0 +1,37 @@
+{
+  "pages": 54,
+  "words_checked": 38685,
+  "words_outside_page_bounds": [],
+  "latex_layout_reference_issues": [],
+  "affected_passages": {
+    "An explanatory model": [
+      2
+    ],
+    "References include validation-best": [
+      5
+    ],
+    "Under our reporting convention": [
+      6
+    ],
+    "Code and Data Availability": [
+      8,
+      53
+    ],
+    "A field matters": [
+      15
+    ],
+    "same trained candidate pool": [
+      32
+    ],
+    "Disclosure through that retrieval route": [
+      53
+    ],
+    "Table 4. Detailed": [
+      12
+    ],
+    "Table 15. Eligibility": [
+      47
+    ]
+  },
+  "affected_passages_note": "Page 32 was confirmed visually; its phrase crosses a line-number boundary in extracted text."
+}

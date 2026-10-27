@@ -1,0 +1,46 @@
+{
+  "paper/main.tex": {
+    "expected": "3dd342b57435c54b358b3eac468770fc0746dcebd7ac57b8405499366b5dc7bb",
+    "actual": "3dd342b57435c54b358b3eac468770fc0746dcebd7ac57b8405499366b5dc7bb"
+  },
+  "paper/main.pdf": {
+    "expected": "1352dcf576092e9f8feb954efd763111b998ac875802d83ba1a63397ca7db67b",
+    "actual": "1352dcf576092e9f8feb954efd763111b998ac875802d83ba1a63397ca7db67b"
+  },
+  "paper/package-sha256.tex": {
+    "expected": "0acd17be768592c5708e92ece189a64ae4dd8846520a876db1507320d47f0ed8",
+    "actual": "0acd17be768592c5708e92ece189a64ae4dd8846520a876db1507320d47f0ed8"
+  },
+  "paper/generated/numbers.tex": {
+    "expected": "dbd2da118a9af077ad0aecd7c2d3e198328e5bc4e7875837e878b388ea3bd70e",
+    "actual": "dbd2da118a9af077ad0aecd7c2d3e198328e5bc4e7875837e878b388ea3bd70e"
+  },
+  "scripts/static_latex_check.py": {
+    "expected": "768bb8ac6392e7a594f51994375cd3283d4636ce227b36013581d58bc0085c77",
+    "actual": "768bb8ac6392e7a594f51994375cd3283d4636ce227b36013581d58bc0085c77"
+  },
+  "tests/test_static_latex_check.py": {
+    "expected": "13177c2a2c27e74bae4daf6657f83b1afcf037442a8081b4bb795c05bcd4f7a5",
+    "actual": "13177c2a2c27e74bae4daf6657f83b1afcf037442a8081b4bb795c05bcd4f7a5"
+  },
+  "scripts/validation_revision_package.py": {
+    "expected": "cd335ea25ff49b52474d3ef81746f7cdf7af6ebbf55d16a9cc9d83cccda4d25b",
+    "actual": "cd335ea25ff49b52474d3ef81746f7cdf7af6ebbf55d16a9cc9d83cccda4d25b"
+  },
+  "scripts/build_paper_assets.py": {
+    "expected": "b130424eb8cc8ba677e8ca3a25f03143cf81ccd536040ca845825f282a8b4d8f",
+    "actual": "b130424eb8cc8ba677e8ca3a25f03143cf81ccd536040ca845825f282a8b4d8f"
+  },
+  "tests/test_validation_revision_package.py": {
+    "expected": "0f45d6fbbf49d847deca83c3e349c800e30bed6c470085dffb0e1fd878fb5dbd",
+    "actual": "0f45d6fbbf49d847deca83c3e349c800e30bed6c470085dffb0e1fd878fb5dbd"
+  },
+  "README.md": {
+    "expected": "abedc2d2258301cc99615c2d79453262fc0e0ae17d654da3049371ac634f0922",
+    "actual": "abedc2d2258301cc99615c2d79453262fc0e0ae17d654da3049371ac634f0922"
+  },
+  "docs/validation_reuse_revision_2026-10-26.md": {
+    "expected": "20e4484e9a810cf1c5f4d65d23eda4b9d9918f8c52c256e7ab8ba7e09218d947",
+    "actual": "20e4484e9a810cf1c5f4d65d23eda4b9d9918f8c52c256e7ab8ba7e09218d947"
+  }
+}

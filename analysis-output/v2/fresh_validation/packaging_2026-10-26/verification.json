@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-26",
+  "evidence_date": "2026-10-25",
+  "archive": "validation-reuse-correction-2026-10-26.tar.gz",
+  "archive_sha256": "083d7679618c65211c6ae99ffb1d6dd8062aaf0358f4183a7c437625838b923f",
+  "archive_bytes": 1668861,
+  "status": "local only; not yet published",
+  "new_training": false,
+  "new_source_audit": false,
+  "decisions_changed": false,
+  "files_in_manifest": 457,
+  "explicit_allowlist_inputs": 447,
+  "four_cohorts_exact": true,
+  "isolation": {
+    "mechanism": "bubblewrap",
+    "source_checkout": "hidden behind empty tmpfs",
+    "dependencies": "existing installed environment mounted separately, read-only",
+    "network": "separate network namespace, plus Python socket guard",
+    "git_history_used": false,
+    "raw_task_rows_used": false
+  },
+  "tests": {
+    "full_suite_passed": 205,
+    "full_suite_seconds": 241.83,
+    "warnings": [
+      "Existing Matplotlib vert PendingDeprecationWarning"
+    ],
+    "final_targeted_passed": 19,
+    "final_package_tests_passed": 9
+  },
+  "assets": {
+    "full_build_numbers": 25363,
+    "full_build_tables": 50,
+    "partial_numbers_matching_full": 1176,
+    "partial_tables_matching_full": 14
+  },
+  "render": {
+    "pages_before": 56,
+    "pages_after": 54,
+    "main_text_ends_before_references_on_page": 9,
+    "cohort_table_number": "15",
+    "cohort_table_caption_page": "47",
+    "reference_matches_caption": true,
+    "jair_static_check": "passed, including unused bibliography check",
+    "overfull_boxes": 0,
+    "oversized_floats": 0,
+    "undefined_references": 0,
+    "all_words_within_page_bounds": true,
+    "visual_inspection_pages": [
+      1,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      12,
+      13,
+      14,
+      20,
+      21,
+      22,
+      47,
+      48,
+      49,
+      50
+    ]
+  },
+  "sha256": {
+    "paper/main.tex": "3dd342b57435c54b358b3eac468770fc0746dcebd7ac57b8405499366b5dc7bb",
+    "paper/main.pdf": "1352dcf576092e9f8feb954efd763111b998ac875802d83ba1a63397ca7db67b",
+    "paper/package-sha256.tex": "0acd17be768592c5708e92ece189a64ae4dd8846520a876db1507320d47f0ed8",
+    "paper/generated/numbers.tex": "dbd2da118a9af077ad0aecd7c2d3e198328e5bc4e7875837e878b388ea3bd70e",
+    "scripts/static_latex_check.py": "768bb8ac6392e7a594f51994375cd3283d4636ce227b36013581d58bc0085c77",
+    "tests/test_static_latex_check.py": "13177c2a2c27e74bae4daf6657f83b1afcf037442a8081b4bb795c05bcd4f7a5",
+    "scripts/validation_revision_package.py": "cd335ea25ff49b52474d3ef81746f7cdf7af6ebbf55d16a9cc9d83cccda4d25b",
+    "scripts/build_paper_assets.py": "b130424eb8cc8ba677e8ca3a25f03143cf81ccd536040ca845825f282a8b4d8f",
+    "tests/test_validation_revision_package.py": "0f45d6fbbf49d847deca83c3e349c800e30bed6c470085dffb0e1fd878fb5dbd",
+    "README.md": "abedc2d2258301cc99615c2d79453262fc0e0ae17d654da3049371ac634f0922",
+    "docs/validation_reuse_revision_2026-10-26.md": "20e4484e9a810cf1c5f4d65d23eda4b9d9918f8c52c256e7ab8ba7e09218d947"
+  },
+  "make_targets_verified": [
+    "fresh-validation-reproduce",
+    "fresh-validation-assets"
+  ]
+}

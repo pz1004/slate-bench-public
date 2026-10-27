@@ -111,3 +111,34 @@ Any change after publication (a bug fix, a failed task, a changed setting) is ad
 ## Deviations
 
 - **2026-10-22, run.** The main run used 18 worker processes instead of about 21 (Section 9), because the TabRepo frozen-fit check (Section 8) ran alongside it with 4. Fit times depend on the load and enter only the tie-breaks between candidates with equal validation log loss. The code, configuration and task list are as published (commit `bc9bca3`); the task list's `use` column was set by the automatic checks as the file states.
+
+- **2026-10-25, eligibility correction (post hoc).** After the original results were
+  known, all 181 screening decisions were reassessed using source documentation
+  and cached metadata; the actual targets and retained predictors were inspected
+  for all 46 trained tasks. The decision register is
+  `configs/fresh_validation_eligibility_audit.csv`; the main cohort uses only the
+  11 verified eligible trained tasks, excluding 12 confirmed failures and 23
+  unresolved tasks. The original 46-task analysis, the three-reported-exclusion
+  sensitivity (43), and eligible-plus-unresolved sensitivity (34) are retained
+  separately. No untrained replacement task is added, and this cohort is not a
+  census or random sample of all eligible datasets. The source audit is unblinded
+  and cannot recover the original prespecified status.
+- **2026-10-25, analysis interface and interpretation.** Optional cohort-manifest
+  and cohort-selection arguments filter stored candidate scores by dataset ID
+  before every analysis. Original settings, seeds, 10,000 bootstrap resamples,
+  contrasts, Holm families and the C1 equivalence margin remain unchanged. No
+  training is repeated. Corrected outputs use `analysis_2026-10-25_*` directories;
+  their decisions distinguish test outcomes from post hoc status and do not
+  inherit confirmatory difference/equivalence labels. The original manifests,
+  candidate scores and `analysis/` outputs are unchanged. The pre-correction
+  protocol is preserved as `audit_2026-10-25/protocol_before_correction.md` under
+  the run directory. Audit and score hashes are linked through each cohort
+  manifest and decision file, with the reproduction checks recorded in
+  `audit_2026-10-25/verification.json`.
+
+- **2026-10-25, verification disclosure.** The author confirms personal review of
+  all additions previously excluded from the manuscript's verification account,
+  including the experiment and source screening. This supersedes the historical
+  opening statement about author review, without asserting that the original
+  screening was correct. The audit records its errors and unresolved cases;
+  computational checks and stored-score replay are distinguished from training.

@@ -1,0 +1,36 @@
+{
+  "audit_date": "2026-10-25",
+  "n_screened": 181,
+  "n_trained": 46,
+  "screening_status": {
+    "ineligible": 128,
+    "unresolved": 42,
+    "eligible": 11
+  },
+  "trained_status": {
+    "unresolved": 23,
+    "ineligible": 12,
+    "eligible": 11
+  },
+  "original_rationale_errors": [
+    43607,
+    1444,
+    897,
+    45927,
+    42883,
+    1453
+  ],
+  "inputs_sha256": {
+    "configs/fresh_validation_eligibility_audit.csv": "ece4bfadb9586433596ce5dd0340434c8769562135de258ba7e60f695fa12cd6",
+    "configs/fresh_validation_source_check.csv": "ecb32d283012e1ddacc7b1a4379eb76df700be72d72453e4ef84ba8a5ca90d8f",
+    "configs/fresh_validation_tasks.csv": "cb0a90024d3ca13b33e91016e808c2911a134db8d973214451a25ab51ddeff16",
+    "configs/fresh_validation_excluded.csv": "98f05152440b820c60b03561be9239d3c1850e5fdcd69bc831f0e43ef424610a",
+    "configs/fresh_validation_experiment.yaml": "a35265c0ad65c42904174788d3e4e2918432d9497c69f322df054703561d40cd",
+    "analysis-output/v2/fresh_validation/audit_2026-10-25/evidence.json": "859439bbcc5eca9f929e343836b7ea774473776ccc6bf2b01a8d7797e7501327",
+    "scripts/fresh_validation_audit.py": "6e1d831e6f4fcbae492b7a20d17239e005f80e640c5c03da6e506d185d39cdba",
+    "analysis-output/v2/fresh_validation/audit_2026-10-25/protocol_before_correction.md": "4a437a3b7d6b623bcc43683016bf1bca431edff6afc123ef03fa2a743d8ce17d"
+  },
+  "decision_basis": "source documentation and feature/target inspection; no model outcomes",
+  "new_training": false,
+  "population_is_census": false
+}
